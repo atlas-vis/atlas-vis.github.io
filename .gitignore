@@ -1,0 +1,12 @@
+functions
+node_modules
+package-lock.json
+public
+resources
+# Local Netlify folder
+.netlify
+
+# System Files
+.DS_Store
+Thumbs.db
+npm-debug.log

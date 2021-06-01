@@ -1,0 +1,28 @@
+area chart
+box plots
+bullet chart
+bump chart
+circle packing
+connected scatterplot
+diverging barchart
+dumbbell chart
+heat map
+line grpahs
+lollipop chart
+mosaic plot
+parallel coordinates
+pie charts
+radar plot
+range chart
+ridgeline plot
+scatterplot
+slope graph
+splom
+stacked area chart
+stacked barchart
+stellar chart
+stream graph
+stringline chart
+treemap
+violin plots
+waterfall chart

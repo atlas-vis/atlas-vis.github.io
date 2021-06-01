@@ -1,0 +1,62 @@
+{{ define "main" }}
+<section class="section mt-n5 pb-3">
+  <div class="row justify-content-center banner-container">
+    <div class="col-lg-12 text-center">
+      <h1 class="mt-5">{{ .Title }}</h1>
+    </div>
+    <div class="col-lg-9 col-xl-8 text-center mb-3">
+      <p class="lead mt-n2">{{ .Params.lead | safeHTML }}</p>
+      <p><a class="btn banner-button btn-lg px-4 mt-2 mb-4" href="{{ "docs/prologue/introduction/" | relURL }}" role="button">Download v{{ .Site.Data.doks.version }}</a></p>
+      <!-- <p class="meta">Open-source MIT Licensed. <a href="https://github.com/h-enk/doks">GitHub v{{ .Site.Data.doks.version }}</a></p> -->
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "sidebar-prefooter" }}
+<section class="section section-sm">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-5">
+        <h2 class="h4">Graphics-Centric</h2>
+        <p>Graphical objects are first-class citizens. Think in terms of their properties, layouts and transformations.</p>
+        <!-- <p>Get A+ scores on <a href="https://observatory.mozilla.org/analyze/doks.netlify.app">Mozilla Observatory</a> out of the box. Easily change the default Security Headers to suit your needs.</p> -->
+      </div>
+      <div class="col-lg-5">
+        <h2 class="h4">Procedural Syntax</h2>
+        <p>Apply a series of operations to generate a visualization. Ability to inspect the visualization components after any step.</p>
+        <!-- <p>Get 100 scores on <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=7731347bb8ce999eff7428a8e763b637">Google Lighthouse</a> by default. Doks removes unused css, prefetches links, and lazy loads images.</p> -->
+      </div>
+      <div class="col-lg-5">
+        <h2 class="h4">Flexible Rendering</h2>
+        <p>Visualization logic decoupled from rendering. Choose your preferred renderer: SVG, Canvas or WebGL.</p>
+        <!-- <p>Use sensible defaults for structured data, open graph, and Twitter cards. Or easily change the SEO settings to your liking.</p> -->
+      </div>
+    </div>
+    <!-- <div class="row justify-content-center text-center">
+      <div class="col-lg-5">
+        <h2 class="h4">Full text search</h2>
+        <p>Search your Doks site with FlexSearch. Easily customize index settings and search options to your liking.</p>
+      </div>
+      <div class="col-lg-5">
+        <h2 class="h4">Page layouts</h2>
+        <p>Build pages with a landing page, blog, or documentation layout. Add custom sections and components to suit your needs.</p>
+      </div>
+      <div class="col-lg-5">
+        <h2 class="h4">Dark mode</h2>
+        <p>Switch to a low-light UI with the click of a button. Change colors with variables to match your branding.</p>
+      </div>
+    </div> -->
+  </div>
+</section>
+{{ end }}
+
+{{ define "sidebar-footer" }}
+<section class="section section-sm container-fluid">
+  <div class="row justify-content-center text-center">
+    <div class="col-lg-9">
+      {{- .Content -}}
+    </div>
+  </div>
+</section>
+{{ end }}

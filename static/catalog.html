@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Atlas</title>
+		<script src="dist/atlas.js"></script>
+		<script src="lib/codemirror.js"></script>
+		<link rel="stylesheet" href="lib/codemirror.css">
+		<script src="lib/javascript.js"></script>
+		<script src="lib/jquery-1.12.4.js"></script>
+		<script src="lib/jquery-ui.js"></script>
+		<link rel="stylesheet" href="lib/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+  
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+		<style>
+			html {
+				margin: 0px;
+				padding: 0px;
+				height: 100%;
+				font-family: Arial;
+			}
+			body {
+				height: 100vh;
+				margin: 0px;
+				padding: 0px;
+			}
+			#demoList{
+				width: 152px;
+				height:calc(100% - 10px);
+				border-right: 1px solid #ccc;
+				background: #f2f2f2;
+				margin: -5px;
+				padding: 10px 5px 0 25px;
+				float: left;
+				list-style: none;
+				font-size:12px;
+				overflow-y: scroll;
+			}
+			.category {
+				margin:15px 0 10px -7px;
+				font-weight: bold;
+			}
+			.demos {
+				margin-bottom: 10px;
+				padding: 0px 15px 0 5px;
+				list-style: none;
+			}
+			.demos li {
+				margin-bottom: 8px;
+			}
+			.demos li:hover{
+				cursor: pointer;
+				color: blue;
+			}
+			#svgElement {
+				width: calc(100% - 183px);
+				display:inline-block;
+				height:99%;
+				margin:0;
+				padding:0;
+			}
+			#console {
+				width: calc(100% - 198px);
+				position: absolute;
+				left: 191px;
+				height: 70%;
+				resize: none;
+				border:none;
+				display: none;
+				padding: 10px;
+			}
+			#btmPanel {
+				width:calc(100% - 185px);
+				height: 260px;
+				position:absolute;
+				bottom:0px;
+				right: 0px;
+			}
+			.ui-tabs {
+				padding:0;
+			}
+			.ui-tabs .ui-tabs-panel {
+    			padding: 0;
+			}
+			.ui-tabs .ui-tabs-nav li a {
+				font-size:8.5pt !important;
+				padding:0;
+			}
+			#codeTab {
+				width:100%;
+				height:calc(100% - 40px);
+			}
+			#dataTab {
+				width:100%;
+				height:calc(100% - 40px);
+			}
+			#codeControls {
+				width:110px;
+				height: 30px;
+				position:absolute;
+				top:0;
+				right: 0;
+				margin:8px 10px 0 0;
+				/* border-top: 1px solid #ccc; */
+				/* background: #f2f2f2; */
+				font-size: 8.5pt;
+			}
+			.CodeMirror {
+				width: 100%;
+				height: 100%; 
+				resize: none;
+				border:none;
+				padding: 0px;
+				font-family: Courier;
+				font-size:12.5px;
+				overflow-x: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="demoList">
+			<li class="category">Bars and Rectangles</li>
+			<ul class="demos">
+				<li onclick="loadDemo('BarChartHorz')">Bar Chart (Horizontal)</li>
+				<li onclick="loadDemo('BarChartVert')">Bar Chart (Vertical)</li>
+				<li onclick="loadDemo('BoxPlot')">Box Plot</li>
+				<li onclick="loadDemo('BulletChart')">Bullet Chart</li>
+				<li onclick="loadDemo('DivergingBarChart')">Diverging Bar Chart</li>
+				<li onclick="loadDemo('GanttChart')">Gantt Chart</li>
+				<li onclick="loadDemo('GroupedBarChart')">Grouped Bar Chart</li>
+				<li onclick="loadDemo('HeatMap')">Heat Map</li>
+				<li onclick="loadDemo('Histogram')">Histogram</li>
+				<li onclick="loadDemo('MosaicPlot')">Mosaic Plot</li>
+				<li onclick="loadDemo('StackedBarChart')">Stacked Bar Chart</li>
+				<li onclick="loadDemo('Treemap')">Treemap</li>
+				<li onclick="loadDemo('VariableWidthBarChart')">Variable Width Bar Chart</li>
+				<li onclick="loadDemo('WaffleChart')">Waffle Chart</li>
+				<li onclick="loadDemo('WaterfallChart')">Waterfall Chart</li>
+			</ul>
+			<li class="category">Circles and Pies</li>
+			<ul class="demos">
+				<li onclick="loadDemo('BubblePlot')">Bubble Plot</li>
+				<li onclick="loadDemo('CirclePacking')">Circle Packing Chart</li>
+				<li onclick="loadDemo('PieChart')">Pie Chart</li>
+				<li onclick="loadDemo('Scatterplot')">Scatter Plot</li>
+			</ul>
+			<li class="category">Lines and Paths</li>
+			<ul class="demos">
+				<li onclick="loadDemo('BumpChart')">Bump Chart</li> 
+				<li onclick="loadDemo('ConnectedScatterPlot')">Connected Scatter Plot</li>
+				<li onclick="loadDemo('DumbbellChart')">Dumbbell Chart</li> 
+				<li onclick="loadDemo('LineGraph')">Line Graph</li>
+				<li onclick="loadDemo('LollipopChart')">Lollipop Chart</li>
+				<li onclick="loadDemo('MultiLineGraph')">Multi-Line Graph</li>
+				<li onclick="loadDemo('ParallelCoordinates')">Parallel Coordinates</li>
+				<li onclick="loadDemo('RangeChart')">Range Chart</li>
+				<li onclick="loadDemo('SlopeGraph')">Slope Graph</li>
+				<li onclick="loadDemo('StringlineChart')">Stringline Chart</li>
+			</ul>
+			<li class="category">Polygons and Areas</li>
+			<ul class="demos">
+				<li onclick="loadDemo('AreaChart')">Area Chart</li>
+				<li onclick="loadDemo('DensityPlot')">Density Plot</li>
+				<!-- <li onclick="loadDemo('BeeswarmChart')">Beeswarm Chart</li> -->
+				<!-- <li onclick="loadDemo('CascadeChart')">Cascade Chart</li> -->
+				<!-- <li onclick="loadDemo('DotPlot')">Dot Plot</li> -->
+				<li onclick="loadDemo('RadarChart')">Radar Chart</li>
+				<li onclick="loadDemo('ridgelinePlot')">Ridgeline Plot</li>
+				<li onclick="loadDemo('StackedAreaChart')">Stacked Area Chart</li>
+				<li onclick="loadDemo('StellarChart')">Stellar Chart</li>
+				<li onclick="loadDemo('StreamGraph')">Stream Graph</li>
+				<li onclick="loadDemo('ViolinPlot')">Violin Plot</li>
+			</ul>
+			<li class="category">Small Multiples</li>
+			<ul class="demos">
+				<li onclick="loadDemo('GridAreaChart')">Area Chart</li>
+				<li onclick="loadDemo('MultipleBoxPlots')">Box Plot</li>
+				<li onclick="loadDemo('Sparklines')">Line Graph</li>
+				<li onclick="loadDemo('MultiplePieCharts')">Pie Chart</li>
+				<li onclick="loadDemo('ScatterplotMatrix')">Scatterplot Matrix</li>
+				<li onclick="loadDemo('GridStackedAreaChart')">Stacked Area Chart</li>
+				<li onclick="loadDemo('MultipleViolinPlots')">Violin Plot</li>
+			</ul>
+		</ul>
+		<div id="console"></div>
+		<div id="btmPanel">
+			<ul>
+				<li><a href="#codeTab">Code</a></li>
+				<li><a href="#dataTab">Data</a></li>
+			  </ul>
+			<div id="codeTab">
+				<textarea id="scriptEditor"></textarea>
+			</div>
+			<div id="dataTab" style="overflow-y: auto;">
+				<table id="dataTable" class="display" style="font-size: .75rem; width: 100%"></table>
+			</div>
+			<div id="codeControls">
+				<button onclick="loadScript(true)">run</button>
+				<button onclick="stepThrough(true)">play</button>
+			</div>
+		</div>
+		<svg id="svgElement"></svg>
+		<script>
+			var editor = CodeMirror.fromTextArea(document.getElementById("scriptEditor"), {lineNumbers: true
+			});
+			var dataTable = null
+			
+
+			window.onerror = function(message, source, lineno, colno, error) {
+				let csl = document.getElementById("console");
+				removeAllChildren(csl);
+				var msgNode = document.createElement("div");  
+				msgNode.textContent = message;
+				msgNode.style.color = "red";
+				csl.appendChild(msgNode);  
+				if (error && error.stack) {
+					var stackNode = document.createElement("div");  
+					stackNode.textContent = error.stack.replace(/\n/g, "\r\n").replace(/@/g, " at ");
+					stackNode.style["white-space"] = "pre-line";
+					stackNode.style.color = "#777";
+					csl.appendChild(stackNode);
+				}
+				csl.style.display = "block";
+			}
+
+			$( function() {
+    			$( "#btmPanel" ).resizable({
+					minHeight: 100,
+					handles: "n"
+				});
+  			} );
+
+			$( function() {
+    			$( "#btmPanel" ).tabs({
+					activate: function(event, ui){
+						let t = ui.newTab.attr('li',"innerHTML")[0].getElementsByTagName("a")[0].innerHTML;
+						if (t == "Code")
+							$("#codeControls").css("visibility", "visible");
+						else
+							$("#codeControls").css("visibility", "hidden");
+					}
+				});
+  			} );
+
+			function loadDemo(d) {
+                var oReq = new XMLHttpRequest();
+				oReq.addEventListener("load", function(){
+					editor.setValue(this.responseText);
+					window.demo = d;
+					loadScript();
+
+					// Set the data for the csv in the script
+					let csvRegex = /atlas\.csv\("(.+)"\);/
+					let csvPath = csvRegex.exec(this.responseText)[1]
+
+					// Request the csv from the server
+					fetch(csvPath).then(resp => {
+						return resp.text()
+					}).then(text => {
+						let rows = text.split("\n")
+						// Destroy current table
+						if (dataTable !== null) {
+							dataTable.destroy()
+						}
+						// Set the thead for the table
+						const table = document.getElementById("dataTable")
+						let newHead = `<thead><tr>${
+							rows[0].split(",").reduce((acc, row) => acc += `<th>${row}</th>`, "")
+						}</tr></thead>`
+						table.innerHTML = newHead
+						// Initialize table
+						dataTable = $('#dataTable').DataTable({
+							data: rows.slice(1).map(row => row.split(",")),
+							searching: false,
+							paging: false,
+							scrollCollapse: true,
+							fixedColumns: true,
+							info: false,
+							//responsive: true
+						})
+					})
+
+					
+					
+				});
+				oReq.open("GET", "demo/" + d[0].toLowerCase() + d.substring(1) + ".js");
+				oReq.send();
+				window.location.hash = d;
+			}
+
+			function removeAllChildren(e) {
+				while (e.firstChild) {
+					e.firstChild.remove();
+				}
+			}
+
+			function loadScript(hashEditor) {
+				let script = editor.getValue();
+				let f = function(s) {
+					let svg = document.getElementById("svgElement");
+					removeAllChildren(svg);
+					eval(s);
+				};
+				f(script);
+				if (hashEditor)
+					window.location.hash = "editor";
+				document.getElementById("console").style.display = "none";
+			}
+
+			let requestAnimationFrame = function(f){return setTimeout(f, 1000)};
+
+			function stepThrough(){
+				if (window.demo == "ScatterplotMatrix") //can't handle scatterplot matrix yet
+					return;
+				let script = editor.getValue(),
+					lines = script.split(";\n");
+				lines = lines.filter(d => d.trim() != "");
+				let renderIdx = lines.findIndex(d => d.indexOf("renderer") > 0);
+				let currentIdx = 1;
+				let step = function(timeStamp){
+					if (currentIdx > renderIdx)
+						return;
+					removeAllChildren(document.getElementById("svgElement"));
+					let s = lines.slice(0, currentIdx).join(";\n") + lines.slice(renderIdx).join(";\n");
+					editor.setValue(s);
+					eval(s);
+					currentIdx++;
+					requestAnimationFrame(step);
+				}
+				requestAnimationFrame(step);
+			}
+			loadDemo("MultipleViolinPlots");
+		</script>
+	</body>
+</html>
