@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let dt = atlas.csv("csv/drivingShifts.csv");
+let dt = await atlas.csv("csv/drivingShifts.csv");
 
 let line = scn.mark("line", {x1: 100, y1: 100, x2: 900, y2:500, strokeWidth: 2.5, strokeColor: "black"});
 let polyline = scn.densify(line, dt);

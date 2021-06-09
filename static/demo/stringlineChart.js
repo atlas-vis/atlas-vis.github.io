@@ -1,6 +1,6 @@
 let scn = atlas.scene();
 let line = scn.mark("line", {x1: 120, y1: 50, x2: 820, y2: 550, strokeColor: "gray"} );
-let dt = atlas.csv("csv/caltrain.csv");
+let dt = await atlas.csv("csv/caltrain.csv");
 
 scn.repeat(line, dt, {field: "Train"});
 let path = scn.densify(line, dt, {field: "Station"});

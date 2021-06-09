@@ -1,5 +1,5 @@
 let scene = atlas.scene();
-let data = atlas.csv("csv/gender-job-level.csv");
+let data = await atlas.csv("csv/gender-job-level.csv");
 let rect = scene.mark("rectangle", {top:60, left: 100, width: 800, height: 650, strokeColor: "#aaa", strokeWidth: 1, fillColor: "#fff"});
 
 let jobs = scene.divide(rect, data, {orientation: "vertical", field: "Job Type"});

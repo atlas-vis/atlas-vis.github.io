@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let dt = atlas.csv("csv/nbaRedraft.csv");
+let dt = await atlas.csv("csv/nbaRedraft.csv");
 let rect = scn.mark("rect", {top: 50, left: 50, width: 45, height: 8, strokeWidth: 1, fillColor: "#ddd"});
 
 let coll = scn.repeat(rect, dt);

@@ -1,5 +1,5 @@
 ---
-title: "Quick Start"
+title: "Collection"
 description: "One page summary of how to start a new Doks project."
 lead: "One page summary of how to start a new Doks project."
 date: 2020-11-16T13:59:39+01:00
@@ -8,14 +8,16 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
+    parent: "group"
 weight: 110
 toc: true
 ---
 
 ## Requirements
 
-Doks uses npm to centralize dependency management, making it [easy to update]({{< relref "how-to-update" >}}) resources, build tooling, plugins, and build scripts:
+Doks uses npm to centralize dependency management, making it 
+[easy to update]({{< relref "vertex" >}})
+resources, build tooling, plugins, and build scripts:
 
 - Download and install [Node.js](https://nodejs.org/) (it includes npm) for your platform.
 
@@ -76,4 +78,3 @@ Doks will start the Hugo development webserver accessible by default at `http://
 
 ## Other commands
 
-Doks comes with commands for common tasks. [Commands →]({{< relref "commands" >}})

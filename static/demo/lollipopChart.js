@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let dt = atlas.csv("csv/lollipop.csv");
+let dt = await atlas.csv("csv/lollipop.csv");
 
 let line = scn.mark("line", {x1: 200, y1: 100, x2: 500, y2: 100, strokeColor: "#aaa"});
 scn.setProperties(line.vertices[1], {shape: "circle", radius: 4.5});

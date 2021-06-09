@@ -1,7 +1,7 @@
 let scn = atlas.scene();
 let line = scn.mark("line", {x1: 200, y1: 50, x2: 400, y2: 50, strokeColor: "green"});
 
-let dt = atlas.csv("csv/obesityEducation.csv");
+let dt = await atlas.csv("csv/obesityEducation.csv");
 
 scn.repeat(line, dt, {field: "State"});
 let enc = scn.encode(line.vertices[0], {field: "Obesity Percentage", channel: "y"});

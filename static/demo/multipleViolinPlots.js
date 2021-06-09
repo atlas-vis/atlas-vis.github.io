@@ -1,5 +1,5 @@
 let scene = atlas.scene();
-let csv = atlas.csv("csv/iris_species.csv");
+let csv = await atlas.csv("csv/iris_species.csv");
 let data = csv.transform("kde", ["sepal_length"], {min: 3, interval: 0.1, max: 8, bandwidth: 0.25});
 let rect = scene.mark("rectangle", {top:60, left: 200, width: 200, height: 400, strokeColor: "white", strokeWidth: 1, fillColor: "#69B3A2"});
 let species = scene.repeat(rect, data, {field: "species"})

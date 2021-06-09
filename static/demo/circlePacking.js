@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let dt = atlas.csv("csv/oecd_population_2018.csv");
+let dt = await atlas.csv("csv/oecd_population_2018.csv");
 let circle = scn.mark("circle", {radius: 80, cx: 100, cy: 50, fillColor: "orange", strokeWidth: 0});
 
 let collection = scn.repeat(circle, dt, {field: "Country"});

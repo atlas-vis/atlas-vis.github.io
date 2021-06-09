@@ -1,6 +1,6 @@
 let scn = atlas.scene();
 let rect = scn.mark("rectangle", {top:100, left: 100, width: 16, height: 200, fillColor: "#fff"} );
-let dt = atlas.csv("csv/olympic-medals.csv");
+let dt = await atlas.csv("csv/olympic-medals.csv");
 
 let medals = scn.repeat(rect, dt, {field: "Medal_Type"});
 medals.layout = atlas.layout("grid", {numCols: 3, hGap: 1});

@@ -1,6 +1,6 @@
 let scn = atlas.scene();
 let rect = scn.mark("rectangle", {top:100, left: 100, width: 20, height: 390, fillColor: "#fff"} );
-let dt = atlas.csv("csv/olympic-medals.csv");
+let dt = await atlas.csv("csv/olympic-medals.csv");
 
 //first partition then repeat
 // let medals = scn.divide(rect, "horizontal", "Medal_Type", dt);

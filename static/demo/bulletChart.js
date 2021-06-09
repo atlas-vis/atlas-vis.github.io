@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let dt = atlas.csv("csv/Revenue.csv");
+let dt = await atlas.csv("csv/Revenue.csv");
 
 let rect1 = scn.mark("rectangle", {top: 110, left: 200, width: 600, height: 40, fillColor: "#eee", strokeWidth: 0})
 let rect2 = scn.mark("rectangle", {top: 110, left: 200, width: 580, height: 40, fillColor: "#ddd", strokeWidth: 0})

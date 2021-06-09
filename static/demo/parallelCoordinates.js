@@ -6,7 +6,7 @@ let path = scn.mark("path", {
 	strokeColor: "#95D0F5",
 	opacity: 0.3
 } );
-let dt = atlas.csv("csv/cars.csv");
+let dt = await atlas.csv("csv/cars.csv");
 
 let paths = scn.repeat(path, dt);;
 let enc1 = scn.encode(path.vertices[0], {field: "economy(mpg)", channel: "y"});

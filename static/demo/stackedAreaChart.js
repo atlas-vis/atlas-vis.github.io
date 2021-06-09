@@ -1,5 +1,5 @@
 let scene = atlas.scene();
-let data = atlas.csv("csv/unemployment-2.csv");
+let data = await atlas.csv("csv/unemployment-2.csv");
 let rect = scene.mark("rectangle", {top:60, left: 100, width: 800, height: 450, strokeColor: "#aaa", strokeWidth: 1, fillColor: "#fff"});
 
 // // rect.divide first
@@ -9,6 +9,7 @@ let rect = scene.mark("rectangle", {top:60, left: 100, width: 800, height: 450, 
 // rect.densify first
 let anyArea = scene.densify(rect, data, {orientation: "horizontal", field: "date"});
 let areas = scene.divide(anyArea, data, {orientation: "horizontal", field: "industry"});
+scene.setProperties(areas.layout, {baseline: "bottom"});
 
 scene.encode(anyArea, {channel: "fillColor", field: "industry"});
 let disEncoding = scene.encode(anyArea, {channel: "height", field: "unemployments"});

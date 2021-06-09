@@ -10,7 +10,7 @@ for (let i = 0; i < 2; i++)
 
 let glyph = scn.glyph(line, box, medianLine);
 
-let dt = atlas.csv("csv/boxplot.csv");
+let dt = await atlas.csv("csv/boxplot.csv");
 
 scn.repeat(glyph, dt);
 

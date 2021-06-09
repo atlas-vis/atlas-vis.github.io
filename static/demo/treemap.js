@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let dt = atlas.csv("csv/oecd_population_2018.csv");
+let dt = await atlas.csv("csv/oecd_population_2018.csv");
 let rect = scn.mark("rect", {top: 50, left: 50, width: 600, height: 800, strokeWidth: 1});
 
 let continents = scn.divide(rect, dt, {field: "Continent", orientation: "vertical"});

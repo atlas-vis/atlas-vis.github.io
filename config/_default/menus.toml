@@ -1,14 +1,26 @@
 [[docs]]
-  name = "Prologue"
-  weight = 10
-  identifier = "prologue"
-  url = "/docs/prologue/"
+  name = "Overview"
+  weight = 1
+  identifier = "overview"
+  url = "/docs/overview"
 
 [[docs]]
-  name = "Help"
+  name = "Basic"
+  weight = 10
+  identifier = "basic"
+  url = "/docs/basic/"
+
+[[docs]]
+  name = "Group"
+  weight = 30
+  identifier = "group"
+  url = "/docs/group/"
+
+[[docs]]
+  name = "Mark"
   weight = 60
-  identifier = "help"
-  url = "/docs/help/"
+  identifier = "mark"
+  url = "/docs/mark/"
 
 [[main]]
   name = "Chart Catalog"
@@ -23,7 +35,7 @@
 
 [[main]]
   name = "API Reference"
-  url = "/docs/prologue/introduction/"
+  url = "/docs/overview/vom"
   weight = 20
 
 [[social]]

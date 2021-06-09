@@ -1,6 +1,6 @@
 let scn = atlas.scene();
 let line = scn.mark("line", {x1: 100, y1: 100, x2: 700, y2: 400, strokeColor: "green"});
-let dt = atlas.csv("csv/monthlySales.csv");
+let dt = await atlas.csv("csv/monthlySales.csv");
 
 let polyLine = scn.densify(line, dt, {field: "Month"});
 polyLine.curveMode = "natural";

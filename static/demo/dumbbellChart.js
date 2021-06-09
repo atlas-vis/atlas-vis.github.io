@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let dt = atlas.csv("csv/orlandoShooting.csv");
+let dt = await atlas.csv("csv/orlandoShooting.csv");
 
 let line = scn.mark("line", {x1: 300, y1: 100, x2: 500, y2: 100, strokeColor: "#aaa"});
 

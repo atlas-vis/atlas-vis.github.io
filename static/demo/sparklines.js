@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let dt = atlas.csv("csv/stocks.csv");
+let dt = await atlas.csv("csv/stocks.csv");
 //dt.parseFieldAsDate("date", "%b %Y");
 let line = scn.mark("line", {x1: 100, y1: 100, x2: 400, y2: 150, strokeColor: "#555"});
 

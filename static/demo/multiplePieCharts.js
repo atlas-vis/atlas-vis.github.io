@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let data = atlas.csv("csv/olympic-medals.csv");
+let data = await atlas.csv("csv/olympic-medals.csv");
 
 let circ = scn.mark("circle", {radius: 100, cx: 300, cy: 200, fillColor: "white", strokeColor: "black"});
 let collection = scn.repeat(circ, data, {field: "Medal_Type"})

@@ -9,7 +9,7 @@ for (let i = 0; i < 2; i++)
     scn.setProperties(line.vertices[i], {shape: "rect", width: 1, height: 20, fillColor: "#555"});
 
 let glyph = scn.glyph(line, box, medianLine);
-let dt = atlas.csv("csv/probability.csv");
+let dt = await atlas.csv("csv/probability.csv");
 
 let collection = scn.repeat(glyph, dt, {field: "Category"});
 collection.layout = atlas.layout("grid", {numCols: 1, vGap: 15});

@@ -1,6 +1,6 @@
 let scn = atlas.scene();
 let line = scn.mark("line", {x1: 100, y1: 100, x2: 700, y2: 400, strokeColor: "green"});
-let dt = atlas.csv("csv/newCarColors.csv");
+let dt = await atlas.csv("csv/newCarColors.csv");
 
 scn.repeat(line, dt, {field: "Color"});
 line = scn.densify(line, dt, {field: "Year"});

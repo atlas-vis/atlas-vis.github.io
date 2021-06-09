@@ -2,7 +2,7 @@
 //Percent Change of Real Gross Domestic Product from Preceding Period
 let scn = atlas.scene();
 let rect = scn.mark("rectangle", {top:60, left: 200, width: 350, height: 16, fillColor: "#84BC66", strokeWidth: 0} );
-let dt = atlas.csv("csv/GDP Change.csv");
+let dt = await atlas.csv("csv/GDP Change.csv");
 
 let quarters = scn.repeat(rect, dt, {field: "Quarter"});
 quarters.layout = atlas.layout("grid", {numRows: 4, vGap: 1});

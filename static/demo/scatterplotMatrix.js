@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let dt = atlas.csv("csv/iris.csv");
+let dt = await atlas.csv("csv/iris.csv");
 let fields = ["sepal length","sepal width","petal length","petal width"];
 
 let scatterplots = scn.createGroup();

@@ -1,5 +1,5 @@
 let scene = atlas.scene();
-let data = atlas.csv("csv/unemployment-2.csv");
+let data = await atlas.csv("csv/unemployment-2.csv");
 let rect = scene.mark("rectangle", {top:60, left: 100, width: 800, height: 450, strokeColor: "#aaa", strokeWidth: 1, fillColor: "#fff"});
 
 // // rect.divide first
