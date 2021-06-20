@@ -11,16 +11,35 @@
   url = "/docs/basic/"
 
 [[docs]]
+  name = "Mark"
+  weight = 20
+  identifier = "mark"
+  url = "/docs/mark/"
+
+
+[[docs]]
+  name = "Data"
+  weight = 25
+  identifier = "data"
+  url = "/docs/data/"
+
+[[docs]]
   name = "Group"
   weight = 30
   identifier = "group"
   url = "/docs/group/"
 
 [[docs]]
-  name = "Mark"
-  weight = 60
-  identifier = "mark"
-  url = "/docs/mark/"
+  name = "Layout"
+  weight = 40
+  identifier = "layout"
+  url = "/docs/layout/"
+
+[[docs]]
+  name = "Guide"
+  weight = 50
+  identifier = "guide"
+  url = "/docs/guide/"
 
 [[main]]
   name = "Chart Catalog"
@@ -35,7 +54,7 @@
 
 [[main]]
   name = "API Reference"
-  url = "/docs/overview/vom"
+  url = "/docs/overview/"
   weight = 20
 
 [[social]]
