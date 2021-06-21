@@ -11,10 +11,10 @@
   url = "/docs/basic/"
 
 [[docs]]
-  name = "Mark"
+  name = "Marks"
   weight = 20
-  identifier = "mark"
-  url = "/docs/mark/"
+  identifier = "marks"
+  url = "/docs/marks/"
 
 
 [[docs]]

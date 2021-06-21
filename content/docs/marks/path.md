@@ -8,7 +8,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "mark"
+    parent: "marks"
 weight: 30
 toc: true
 ---
