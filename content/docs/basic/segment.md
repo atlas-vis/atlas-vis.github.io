@@ -27,4 +27,4 @@ The Segment class represents a line or a curve that connects two [vertices](../v
 ### Methods
 | method |  explanation   | return type |
 | --- | --- | --- |
-| **translate**(dx, dy) | move the segment by dx (type Number) along x and dy (type Number) along y | void |
+| **translate**(dx, dy) | move the segment by the given parameters<br>dx: number of pixels to move in the x direction (type Number)<br> dy: number of pixels to move in the y direction (type Number) | void |

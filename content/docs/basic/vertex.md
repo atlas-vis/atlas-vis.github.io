@@ -40,6 +40,6 @@ To create a vertex, use the _addVertex_ method in the [Path](../../mark/path/) c
 ### Methods
 | method |  explanation   | return type |
 | --- | --- | --- |
-| **translate**(dx, dy) | move the vertex by dx (type Number) along x and dy (type Number) along y | void |
+| **translate**(dx, dy) | move the vertex by the given parameters<br>dx: number of pixels to move in the x direction (type Number)<br> dy: number of pixels to move in the y direction (type Number) | void |
 <!-- | **clone**() | returns a copy of this vertex | [Vertex](../vertex/) | -->
 
