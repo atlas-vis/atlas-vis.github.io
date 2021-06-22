@@ -1,37 +1,32 @@
 ---
-title: "RectPath"
+title: "AreaPath"
 description: ""
 lead: ""
-date: 2020-11-12T13:26:54+01:00
-lastmod: 2020-11-12T13:26:54+01:00
+date: 2020-11-12T15:22:20+01:00
+lastmod: 2020-11-12T15:22:20+01:00
 draft: false
 images: []
-menu:
+menu: 
   docs:
     parent: "marks"
-weight: 35
+weight: 45
 toc: true
 ---
 
 <span style="font-size:1.2em">extends [Path](../path/)</span><br>
 
-The RectPath class represents a rectangular mark. To create a RectPath object, use the _mark_ method in the [Scene](../../group/scene) class, for example:
+The AreaPath class represents an enclosed area mark that is used in an area chart. You cannot create an AreaPath object directly, instead, you need to use the _densify_ method in the [Scene](../../group/scene) class to transform a [RectPath](../rectpath/) to an AreaPath.
 
-    let rect = scene.mark("rect", {top: 50, left: 100, width: 200, height: 80, fillColor: "blue"});
+<span style="font-size:1.2em;color:red;">add a figure to illustrate the densify process</span><br>
+
 
 ### Properties
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
-|**left** | the x coordinate of the left hand side of the rectangle | Number |  | 
-|**top** | the y coordinate of the top of the rectangle | Number |  | 
-|**right** <img width="70px" src="../../readonly.png"> | the x coordinate of the right hand side of the rectangle | Number |  | 
-|**bottom** <img width="70px" src="../../readonly.png"> | the y coordinate of the bottom of the rectangle | Number |  | 
-|**width** | the width of the rectangle | Number |  | 
-|**height** | the height of the rectangle | Number |  | 
-|**topSegment** <img width="70px" src="../../readonly.png"> | the top segment of the rectangle | [Segment](../../basic/segment/) |  | 
-|**rightSegment** <img width="70px" src="../../readonly.png"> | the right segment of the rectangle | [Segment](../../basic/segment/) |  | 
-|**bottomSegment** <img width="70px" src="../../readonly.png"> | the bottom segment of the rectangle | [Segment](../../basic/segment/) |  | 
-|**leftSegment** <img width="70px" src="../../readonly.png"> | the left segment of the rectangle | [Segment](../../basic/segment/) |  | 
+|**width** <img width="70px" src="../../readonly.png">| the width of the area | Number |  | 
+|**height** <img width="70px" src="../../readonly.png">| the height of the area | Number |  | 
+|**left** <img width="70px" src="../../readonly.png">| the x coordinate of the first vertex | Number |  | 
+|**top** <img width="70px" src="../../readonly.png">| the y coordinate of the first vertex | Number |  | 
 {.table-striped}
 
 
@@ -40,8 +35,8 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 | --- | --- | --- | --- |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the path | [Rectangle](../../basic/rectangle/) | |
 |**center** <img width="70px" src="../../readonly.png">| the center of the path bounds | [Point](../../basic/point/) | |
-|**closed**| whether the path is closed  | Boolean | false |
-|**curveMode**| how the segments are drawn  | String | "linear" |
+|**closed**| whether the path is closed  | Boolean | true |
+|**curveMode**| how the segments are drawn  | String | |
 |**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array |  | 
 |**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 
 |**firstVertex** <img width="70px" src="../../readonly.png">| returns the first vertex of the path | [Vertex](../../basic/vertex/) |
@@ -56,15 +51,15 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the path | String |  | 
-|**type** <img width="70px" src="../../readonly.png"> | the type of the path | String | "rectangle" | 
+|**type** <img width="70px" src="../../readonly.png"> | the type of the path | String | "area" | 
 |**dataScope**| the [data scope](../../data/datascope/) of the path | [DataScope](../../data/datascope/) | undefined |
 {.table-striped}
 
-### Methods
+<!-- ### Methods
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **resize**(wd, ht) | change the width and height of the rectangle | void |
-{.table-striped}
+{.table-striped} -->
 
 ### Methods inherited from [Path](../path/)
 | method |  explanation   | return type |
@@ -77,22 +72,21 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **getScene**() | returns the scene in which this mark resides | [Scene](../../group/scene) |
-| **duplicate**() | returns a copy of this mark | [RectPath](../rectpath/) | 
+| **duplicate**() | returns a copy of this mark | [RectPath](../areapath/) | 
 {.table-striped}
 
-<!-- ## Check for outdated packages
+<!-- ## Problems updating npm packages
 
-The [`npm outdated`](https://docs.npmjs.com/cli/v7/commands/npm-outdated) command will check the registry to see if any (or, specific) installed packages are currently outdated:
+Delete the `./node_modules` folder, and run again:
 
 ```bash
-npm outdated [[<@scope>/]<pkg> ...]
+npm install
 ```
 
-## Update packages
+## Problems with cache
 
-The [`npm update`](https://docs.npmjs.com/cli/v7/commands/npm-update) command will update all the packages listed to the latest version (specified by the tag config), respecting semver:
+Delete the temporary directories:
 
 ```bash
-npm update [<pkg>...]
+npm run clean
 ``` -->
-<!-- {{< alert icon="💡" text="Learn more about <a href=\"https://docs.npmjs.com/about-semantic-versioning\">semantic versioning</a> and <a href=\"https://docs.npmjs.com/cli/v6/using-npm/semver#advanced-range-syntax\">advanced range syntax</a>." >}} -->
