@@ -30,9 +30,10 @@ The Path class represents a gemetric path consisting of multiple [vertices](../.
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the path | [Rectangle](../../basic/rectangle/) | |
 |**center** <img width="70px" src="../../readonly.png">| the center of the path bounds | [Point](../../basic/point/) | |
 |**closed**| whether the path is closed  | Boolean | false |
-|**curveMode**| how the segments are drawn  | String | "linear" |
+|**curveMode**| how the segments are drawn <span style="color:red;">possible values</span> | String | "linear" |
 |**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array |  | 
-|**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 
+|**seg
+ments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 
 |**firstVertex** <img width="70px" src="../../readonly.png">| returns the first vertex of the path | [Vertex](../../basic/vertex/) |
 |**firstSegment** <img width="70px" src="../../readonly.png">| returns the first segment of the path | [Segment](../../basic/segment/) |
 |**fillColor**| the fill color of the path if it is closed | Color | undefined | 

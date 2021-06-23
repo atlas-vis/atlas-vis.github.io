@@ -17,7 +17,7 @@ toc: true
 
 The CirclePath class represents a circle mark. To create a CirclePath object, use the _mark_ method in the [Scene](../../group/scene) class, for example:
 
-    let circle = scene.mark("circle", {cx: 50, cy: 100, radius: 20, fillColor: "green"});
+    let circle = scene.mark("circle", {cx: 50, cy: 100, radius: 20});
 
 ### Properties
 | property |  explanation   | type | default value |
@@ -73,18 +73,3 @@ The CirclePath class represents a circle mark. To create a CirclePath object, us
 | **duplicate**() | returns a copy of this mark | [CirclePath](../circlepath/) | 
 {.table-striped}
 
-<!-- ## Problems updating npm packages
-
-Delete the `./node_modules` folder, and run again:
-
-```bash
-npm install
-```
-
-## Problems with cache
-
-Delete the temporary directories:
-
-```bash
-npm run clean
-``` -->

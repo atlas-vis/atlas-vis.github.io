@@ -1,8 +1,8 @@
 [[docs]]
-  name = "Overview"
+  name = "Global Functions"
   weight = 1
-  identifier = "overview"
-  url = "/docs/overview"
+  identifier = "global"
+  url = "/docs/global/"
 
 [[docs]]
   name = "Basic"
@@ -41,20 +41,30 @@
   identifier = "guide"
   url = "/docs/guide/"
 
-[[main]]
-  name = "Chart Catalog"
-  url = "/catalog.html"
+[[tutorials]]
+  name = "Tutorials"
   weight = 5
-
+  identifier = "tutorials"
+  url = "/tutorials/"
 
 [[main]]
   name = "Getting Started"
-  url = "/blog/"
-  weight = 10
+  url = "/tutorials/vom/"
+  weight = 9
+
+# [[main]]
+#   name = "Gallery"
+#   url = "/catalog.html"
+#   weight = 5
+
+# [[main]]
+#   name = "Blog"
+#   url = "/blog/"
+#   weight = 10
 
 [[main]]
   name = "API Reference"
-  url = "/docs/overview/"
+  url = "/docs/global/"
   weight = 20
 
 [[social]]
