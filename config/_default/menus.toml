@@ -24,19 +24,19 @@
   url = "/docs/data/"
 
 [[docs]]
-  name = "Group"
+  name = "Groups"
   weight = 30
   identifier = "group"
   url = "/docs/group/"
 
 [[docs]]
-  name = "Layout"
+  name = "Layouts"
   weight = 40
   identifier = "layout"
   url = "/docs/layout/"
 
 [[docs]]
-  name = "Guide"
+  name = "Guides"
   weight = 50
   identifier = "guide"
   url = "/docs/guide/"
