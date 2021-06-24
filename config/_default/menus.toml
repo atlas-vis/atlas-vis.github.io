@@ -1,8 +1,8 @@
 [[docs]]
-  name = "Global Functions"
+  name = "Global"
   weight = 1
   identifier = "global"
-  url = "/docs/global/"
+  url = "/docs/global/functions/"
 
 [[docs]]
   name = "Basic"
