@@ -32,8 +32,7 @@ The Path class represents a gemetric path consisting of multiple [vertices](../.
 |**closed**| whether the path is closed  | Boolean | false |
 |**curveMode**| how the segments are drawn <span style="color:red;">possible values</span> | String | "linear" |
 |**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array |  | 
-|**seg
-ments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 
+|**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 
 |**firstVertex** <img width="70px" src="../../readonly.png">| returns the first vertex of the path | [Vertex](../../basic/vertex/) |
 |**firstSegment** <img width="70px" src="../../readonly.png">| returns the first segment of the path | [Segment](../../basic/segment/) |
 |**fillColor**| the fill color of the path if it is closed | Color | undefined | 
@@ -55,8 +54,8 @@ ments** <img width="70px" src="../../readonly.png"> | the segments on the path |
 | ---- | --- | --- |
 | **addVertex**(x, y, i) | adds a vertex at the specified index with specified coordinates<br> x: x coordinate (type Number)<br> y: y coordinate (type Number)<br>i: index to add the vertex (type Number)  | void |
 | **getSVGPathData**() | returns a string to be used as the d parameter in an SVG path element | String |
-| **sortVertices**(channel, reverse) | sort the vertices by a visual channel<br>channel: the channel to sort the vertices by (type String)<br> reverse: (optional) setting to true will sort in descending order; default is false. | void |
-| **sortVerticesByData**(field, reverse, order) | sort the vertices by a data field<br>field: the data field to sort the vertices by (type String)<br>reverse: (optional) setting to true will sort in descending order; default is false.<br>order: (optional) an array of field values in ascending order | void |
+| **sortVertices**<br>(channel, reverse) | sort the vertices by a visual channel<br>channel: the channel to sort the vertices by (type String)<br> reverse: (optional) setting to true will sort in descending order; default is false. | void |
+| **sortVerticesByData**<br>(field, reverse, order) | sort the vertices by a data field<br>field: the data field to sort the vertices by (type String)<br>reverse: (optional) setting to true will sort in descending order; default is false.<br>order: (optional) an array of field values in ascending order | void |
 | **translate**(dx, dy) | move the path by the given parameters<br>dx: number of pixels to move in the x direction (type Number)<br> dy: number of pixels to move in the y direction (type Number) | void |
 {.table-striped}
 

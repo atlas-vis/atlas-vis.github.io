@@ -40,6 +40,6 @@ The Group class represents a group of [graphical objects](). To create a group, 
 | **removeAll**() | removes all the children from the group | void |
 | **getScene**() | returns the scene in which this group resides | [Scene](../../group/scene) |
 | **translate**(dx, dy) | move the group by the given parameters<br>dx: number of pixels to move in the x direction (type Number)<br> dy: number of pixels to move in the y direction (type Number) | void |
-| **sortChildren**(channel, reverse) | sort the children by a visual channel<br>channel: the channel to sort the children by (type String)<br> reverse: (optional) setting to true will sort in descending order; default is false. | void |
-| **sortChildrenByData**(field, reverse, order) | sort the children by a data field<br>field: the data field to sort the children by (type String)<br>reverse: (optional) setting to true will sort in descending order; default is false.<br>order: (optional) an array of field values in ascending order | void |
+| **sortChildren**<br>(channel, reverse) | sort the children by a visual channel<br>channel: the channel to sort the children by (type String)<br> reverse: (optional) setting to true will sort in descending order; default is false. | void |
+| **sortChildrenByData**<br>(field, reverse, order) | sort the children by a data field<br>field: the data field to sort the children by (type String)<br>reverse: (optional) setting to true will sort in descending order; default is false.<br>order: (optional) an array of field values in ascending order | void |
 {.table-striped}
