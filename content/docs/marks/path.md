@@ -56,7 +56,6 @@ The Path class represents a gemetric path consisting of multiple [vertices](../.
 | **getSVGPathData**() | returns a string to be used as the d parameter in an SVG path element | String |
 | **sortVertices**<br>(channel, reverse) | sort the vertices by a visual channel<br>channel: the channel to sort the vertices by (type String)<br> reverse: (optional) setting to true will sort in descending order; default is false. | void |
 | **sortVerticesByData**<br>(field, reverse, order) | sort the vertices by a data field<br>field: the data field to sort the vertices by (type String)<br>reverse: (optional) setting to true will sort in descending order; default is false.<br>order: (optional) an array of field values in ascending order | void |
-| **translate**(dx, dy) | move the path by the given parameters<br>dx: number of pixels to move in the x direction (type Number)<br> dy: number of pixels to move in the y direction (type Number) | void |
 {.table-striped}
 
 ### Methods inherited from [Mark](../mark/)
@@ -64,6 +63,7 @@ The Path class represents a gemetric path consisting of multiple [vertices](../.
 | --- | --- | --- |
 | **getScene**() | returns the scene in which this mark resides | [Scene](../../group/scene) |
 | **duplicate**() | returns a copy of this mark | [Path](../path/) | 
+| **translate**(dx, dy) <img width="70px" src="../../overrides.png"> | move the mark by the given parameters<br>dx: number of pixels to move in the x direction (type Number)<br> dy: number of pixels to move in the y direction (type Number) | void |
 {.table-striped}
 
 <!-- ## Hyas?
