@@ -13,10 +13,41 @@ weight: 3
 toc: true
 ---
 
+### Aggregator ###
+"max"<br>
+"min"<br>
+"avg"<br>
+"mean"<br>
+"median"<br>
+"sum"<br>
+"count"<br>
+"percentile 25"<br>
+"percentile 75"<br>
+
 ### Anchor ### 
+"left"<br>
+"top"<br>
+"right"<br>
+"bottom"<br>
+"center"<br>
+"middle"<br>
+
+### CurveMode ###
+"natural"<br>
+"basis"<br>
+"bumpX"<br>
+"bumpY"<br>
+"linear"<br>
+"step"<br>
+"CatmullRom"<br>
+"cardinal"<br>
 
 ### Data Type ###
-""
+"boolean"<br>
+"integer"<br>
+"number"<br>
+"date"<br>
+"string"<br>
 
 ### Data Table Transformation ###
 "kde"

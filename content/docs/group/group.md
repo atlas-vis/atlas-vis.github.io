@@ -14,7 +14,7 @@ toc: true
 ---
 <span style="font-size:1.2em">Subclasses: [Scene](../scene/), [Collection](../collection/), [Glyph](../glyph/)</span>
 
-The Group class represents a group of [graphical objects](). To create a group, use the _group_ method in the [Scene](../scene/) class, for example:
+The Group class represents a group of graphical objects (i.e., [marks](../../marks/mark/) or [groups](../group/)). To create a group, use the _group_ method in the [Scene](../scene/) class, for example:
 
     let g = scene.group();
 

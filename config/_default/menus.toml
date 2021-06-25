@@ -64,7 +64,7 @@
 
 [[main]]
   name = "API Reference"
-  url = "/docs/global/"
+  url = "/docs/global/functions"
   weight = 20
 
 [[social]]
