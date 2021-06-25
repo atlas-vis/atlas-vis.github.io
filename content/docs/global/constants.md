@@ -13,7 +13,7 @@ weight: 3
 toc: true
 ---
 
-### Aggregator ###
+### Aggregator
 "max"<br>
 "min"<br>
 "avg"<br>
@@ -24,7 +24,7 @@ toc: true
 "percentile 25"<br>
 "percentile 75"<br>
 
-### Anchor ### 
+### Anchor
 "left"<br>
 "top"<br>
 "right"<br>
@@ -32,7 +32,23 @@ toc: true
 "center"<br>
 "middle"<br>
 
-### CurveMode ###
+### Channel
+"x"<br>
+"y"<br>
+"width"<br>
+"height"<br>
+"radius"<br>
+"area"<br>
+"fillColor"<br>
+"strokeColor"<br>
+"strokeWidth"<br>
+"opacity"<br>
+"text"<br>
+"fontSize"<br>
+"angle"<br>
+"radialDistance"<br>
+
+### CurveMode
 "natural"<br>
 "basis"<br>
 "bumpX"<br>
@@ -42,13 +58,21 @@ toc: true
 "CatmullRom"<br>
 "cardinal"<br>
 
-### Data Type ###
+### Data Type
 "boolean"<br>
 "integer"<br>
 "number"<br>
 "date"<br>
 "string"<br>
 
-### Data Table Transformation ###
-"kde"
-""
+### Data Table Transformation
+"bin"<br>
+"kde"<br>
+
+### Mark Type
+"area"<br>
+"rectangle"<br>
+"circle"<br>
+"line"<br>
+"path"<br>
+"pointText"<br>

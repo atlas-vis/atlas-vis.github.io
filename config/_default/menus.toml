@@ -29,6 +29,13 @@
   identifier = "group"
   url = "/docs/group/"
 
+
+[[docs]]
+  name = "Encode"
+  weight = 35
+  identifier = "encode"
+  url = "/docs/encode/"
+
 [[docs]]
   name = "Layouts"
   weight = 40
