@@ -70,7 +70,7 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 | method |  explanation   | return type |
 | ---- | --- | --- |
 | **getSVGPathData**() | returns a string to be used as the d parameter in an SVG path element | String |
-| **translate**(dx, dy) | move the path by the given parameters<br>dx: number of pixels to move in the x direction (type Number)<br> dy: number of pixels to move in the y direction (type Number) | void |
+| **translate**(dx, dy) | move the path by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |
 {.table-striped}
 
 ### Methods inherited from [Mark](../mark/)

@@ -56,5 +56,5 @@ The Text class represents a text element. To create a Text object, use the _mark
 | --- | --- | --- |
 | **getScene**() | returns the scene in which this mark resides | [Scene](../../group/scene) |
 | **duplicate**() | returns a copy of this mark | [Text](../pointtext/) | 
-| **translate**(dx, dy) <img width="70px" src="../../overrides.png">| move the text by the given parameters<br>dx: number of pixels to move in the x direction (type Number)<br> dy: number of pixels to move in the y direction (type Number) | void |
+| **translate**(dx, dy) <img width="70px" src="../../overrides.png">| move the text by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |
 {.table-striped}
