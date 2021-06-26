@@ -13,13 +13,13 @@ weight: 75
 toc: true
 ---
 
-The DataScope class represents data that is joined with a graphical object (i.e., [mark](../../marks/mark/) or [group](../../group/group/)). A DataScope object contains a subset of the tuples in a [data table](../data/datatable/). DataScope objects are created and assigned to graphical objects through the _repeat_, _divide_, and _densify_ methods in the [Scene](../../group/Scene/) class.
+The DataScope class represents data that is joined with a graphical object (i.e., [mark](../../marks/mark/) or [group](../../group/group/)). A DataScope object contains a subset of the tuples in a [data table](../data/datatable/). DataScope objects are created and assigned to graphical objects through the [_repeat_, _divide_, and _densify_ methods](../../group/scene/#methods-join-graphics-with-data) in the [Scene](../../group/scene/) class.
 
 ### Methods
 | method |  explanation   | return type |
 | --- | --- | --- |
 |**clone**() | returns a copy of the data scope | [DataScope](../data/datascope/) | 
-|**aggregateNumericalField**(f, aggr) | aggregate the values of the specified numeric field in this data scope<br>f: field (type String)<br>aggr: [aggregator](../../global/constants/#aggregator) (type String) | Number |
+|**aggregateNumericalField**(f, aggr) | aggregate the values of the specified numeric field in this data scope<br>f (String): field<br>aggr (String): [aggregator](../../global/constants/#aggregator) | Number |
 |**getFieldType**(f) | returns the type of the specified field in this data scope | [Data Type](../../global/constants/#data-type) | 
 |**getFieldValue**(f) | returns the value of the specified field in this data scope | | 
 | **hasField**(f) | returns true of the specified field exists in the data scope | Boolean |

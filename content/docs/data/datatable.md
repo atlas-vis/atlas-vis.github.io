@@ -33,5 +33,5 @@ The DataTable class represents a data table consisting of _tuples_ (rows) and _f
 | **getFieldValues**(f) | returns an array of values for the specified field | Array | 
 | **getUniqueFieldValues**(f) | returns an array of unique values for the specified field | Array | 
 | **hasField**(f) | returns true of the specified field exists in the data table | Boolean |
-| **transform**(type, fields, paramas) | returns a new data table as a result of specified transformation<br>type: [type of transformation](../../global/constants/#data-table-transformation)<br>fields: array of fields to be transformed<br>params: [parameters for the transformation](../../data/datatransform/)<br>example: `let table2 = table.transform('kde', ['col1'], {min: 3, interval: 0.1, max: 8, bandwidth: 0.25})` | [DataTable](../data/datatable/) |
+| **transform**(type, fields, paramas) | returns a new data table as a result of specified transformation<br>type (String): [type of transformation](../../global/constants/#data-table-transformation)<br>fields (Array): array of fields to be transformed<br>params (Object): [parameters for the transformation](../../data/datatransform/)<br>e.g., `let table2 = table.transform('kde', ['col1'], {min: 3, interval: 0.1, max: 8, bandwidth: 0.25})` | [DataTable](../data/datatable/) |
 {.table-striped}

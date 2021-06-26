@@ -1,7 +1,7 @@
 ---
 title: "Collection"
-description: "One page summary of how to start a new Doks project."
-lead: "One page summary of how to start a new Doks project."
+description: ""
+lead: ""
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
@@ -12,69 +12,32 @@ menu:
 weight: 110
 toc: true
 ---
+<span style="font-size:1.2em">extends [Group](../group/)</span><br>
 
-## Requirements
+The Collection class represents a group of [marks](../../marks/mark/), [glyphs](../../group/glyph/), or [collections](../collection/) (i.e., nested collection). Children inside a collection have the same "type" property. Collections are created through the [_repeat_, _divide_, and _densify_ methods](../scene/#methods-join-graphics-with-data) in the [Scene](../scene/) class.
 
-Doks uses npm to centralize dependency management, making it 
-[easy to update]({{< relref "vertex" >}})
-resources, build tooling, plugins, and build scripts:
+### Properties inherited from [Group](../group/)
+| property |  explanation   | type | default value |
+| --- | --- | --- | --- |
+|**id** <img width="70px" src="../../readonly.png">| the unique id of the group | String |  | 
+|**type** <img width="70px" src="../../readonly.png"> | the type of the group | String | "group" | 
+|**dataScope**| the [data scope](../../data/datascope/) of the group | [DataScope](../../data/datascope/) | undefined |
+|**layout**| the [layout](../../layout/Layout/) of the group children | [Layout](../../layout/Layout/) | undefined |
+|**children** <img width="70px" src="../../readonly.png">| the graphical objects in the group | Array | [] |
+|**firstChild** <img width="70px" src="../../readonly.png">| the first child in the group | [Mark](../../marks/mark/) or [Group](../group/) | |
+|**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the group | [Rectangle](../../basic/rectangle/) | |
+|**center** <img width="70px" src="../../readonly.png">| the center of the group bounds | [Point](../../basic/point/) | |
+{.table-striped}
 
-- Download and install [Node.js](https://nodejs.org/) (it includes npm) for your platform.
-
-## Start a new Doks project
-
-Create a new site, change directories, install dependencies, and start development server.
-
-### Create a new site
-
-Doks is available as a child theme, and a starter theme:
-
-- Use the Doks child theme, if you do __not__ plan to customize a lot, and/or need future Doks updates.
-- Use the Doks starter theme, if you plan to customize a lot, and/or do __not__ need future Doks updates.
-
-Not quite sure? Use the Doks child theme.
-
-#### Doks child theme
-
-{{< btn-copy text="git clone https://github.com/h-enk/doks-child-theme.git my-doks-site" >}}
-
-```bash
-git clone https://github.com/h-enk/doks-child-theme.git my-doks-site
-```
-
-#### Doks starter theme
-
-{{< btn-copy text="git clone https://github.com/h-enk/doks.git my-doks-site" >}}
-
-```bash
-git clone https://github.com/h-enk/doks.git my-doks-site
-```
-
-### Change directories
-
-{{< btn-copy text="cd my-doks-site" >}}
-
-```bash
-cd my-doks-site
-```
-
-### Install dependencies
-
-{{< btn-copy text="npm install" >}}
-
-```bash
-npm install
-```
-
-### Start development server
-
-{{< btn-copy text="npm run start" >}}
-
-```bash
-npm run start
-```
-
-Doks will start the Hugo development webserver accessible by default at `http://localhost:1313`. Saved changes will live reload in the browser.
-
-## Other commands
-
+### Methods inherited from [Group](../group/)
+| method |  explanation   | return type |
+| --- | --- | --- |
+| **addChild**(c) | adds an object to the group | void |
+| **addChildAt**(c, i) | adds an object to the group at the specified index | void |
+| **removeChild**(c) | removes the specified object from the group | void |
+| **removeAll**() | removes all the children from the group | void |
+| **getScene**() | returns the scene in which this group resides | [Scene](../../group/scene) |
+| **translate**(dx, dy) | move the group by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |
+| **sortChildren**<br>(channel, reverse) | sort the children by a visual channel<br>channel (String): the channel to sort the children by<br> reverse: (Boolean, optional) setting to true will sort in descending order; default is false. | void |
+| **sortChildrenByData**<br>(field, reverse, order) | sort the children by a data field<br>field (String): the data field to sort the children by<br>reverse (Boolean, optional): setting to true will sort in descending order; default is false.<br>order (Array, optional): an array of field values in ascending order | void |
+{.table-striped}
