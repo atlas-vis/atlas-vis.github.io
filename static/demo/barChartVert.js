@@ -11,7 +11,7 @@ let years = scn.repeat(quarters, dt, {field: "Year"});
 years.layout = atlas.layout("grid", {numRows: 1, hGap: 16});
 
 scn.encode(rect, {field: "% Change", channel: "height"});
-scn.axis("x", "Quarter", {orientation: "bottom", tickVisible: false, ruleVisible: false});
+scn.axis("x", "Quarter", {orientation: "bottom", tickVisible: false, pathVisible: false});
 scn.axis("x", "Year", {orientation: "bottom", y: 255, labelFormat: "%Y", tickVisible: false, labelOffset: 180});
 scn.axis("height", "% Change", {orientation: "left", x: 190});
 

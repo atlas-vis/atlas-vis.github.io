@@ -12,6 +12,6 @@ let xEncoding = scene.encode(anyLevel, {channel: "x", field: "Probability"});
 let htEncoding = scene.encode(anyLevel, {channel: "height", field: "Probability_density"});
 scene.setProperties(anyLevel, {curveMode: "basis"})
 scene.axis("x", "Probability", {orientation: "bottom"});
-scene.axis("y", "Category", {orientation: "right", tickPosition: "bottom", ruleVisible: false});
+scene.axis("y", "Category", {orientation: "right", tickPosition: "bottom", pathVisible: false});
 let r = atlas.renderer("svg");
 r.render(scene, "svgElement", {collectionBounds: false});

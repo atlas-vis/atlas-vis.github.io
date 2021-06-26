@@ -10,7 +10,7 @@ scn.encodeWithinCollection(anyPie, {field: "Country_Code", channel: "fillColor"}
 scn.encodeWithinCollection(anyPie, {field: "Count", channel: "angle"});
 
 scn.legend("fillColor", "Country_Code", {x: 70, y: 50});
-scn.axis("x", "Medal_Type", {orientation: "bottom", ruleVisible: false, tickVisible: false}) 
+scn.axis("x", "Medal_Type", {orientation: "bottom", pathVisible: false, tickVisible: false}) 
 
 let r = atlas.renderer("svg");
 r.render(scn, "svgElement", {collectionBounds: false});

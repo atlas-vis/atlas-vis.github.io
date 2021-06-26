@@ -8,7 +8,7 @@ let yEnc = scn.encode(rect, {field: "Draft_Pick", channel: "y", invertScale: tru
 
 let mapping = {"-20": "#d7d7d7", "-10": "#ecdba7", "20": "#b87187", "50": "#9d326a"};
 scn.encode(rect, {field: "VORP", channel: "fillColor", mapping: mapping});
-scn.axis("x", "Draft_Year", {orientation: "top", ruleVisible: false});
+scn.axis("x", "Draft_Year", {orientation: "top", pathVisible: false});
 scn.axis("y", "Draft_Pick", {orientation: "left"});
 scn.legend("fillColor", "VORP", {x: 1050, y: 50});
 

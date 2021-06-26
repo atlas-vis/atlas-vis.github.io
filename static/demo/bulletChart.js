@@ -21,7 +21,7 @@ scn.encode(measure,{field: "Measure", channel:"width", scale: enc.scale});
 scn.encode(marker,{field: "Target", channel:"x", scale: enc.scale});
 
 scn.axis("x", "Target", {orientation: "bottom"});
-scn.axis("y", "Region", {orientation: "left", ruleVisible: false, tickVisible: false});
+scn.axis("y", "Region", {orientation: "left", pathVisible: false, tickVisible: false});
 
 let r = atlas.renderer("svg");
 r.render(scn, "svgElement", {collectionBounds: false});	

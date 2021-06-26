@@ -21,6 +21,6 @@ scn.encode(box.rightSegment, {field: "Probability", channel: "x", aggregator: "p
 scn.encode(medianLine, {field: "Probability", channel: "x", aggregator: "median", scale: enc.scale});
 
 scn.axis("x", "Probability", {orientation: "bottom"});
-scn.axis("y", "Category", {orientation: "left", ruleVisible: false, tickVisible: false});
+scn.axis("y", "Category", {orientation: "left", pathVisible: false, tickVisible: false});
 
 atlas.renderer("svg").render(scn, "svgElement");

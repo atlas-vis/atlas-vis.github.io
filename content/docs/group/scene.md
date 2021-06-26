@@ -63,7 +63,7 @@ The Scene class represents the top-level container in a visualization. This is w
 ### Methods: Create Guides
 | method |  explanation   | return type |
 | --- | --- | --- |
-| **axis**(channel, field, params)| create an [axis](../../guide/axis/) <br>channel (String): the visual channel<br>field (String): the data field<br>params (Object, optional): contains one or more of these parameters: <ul><li>ticks (Array)</li><li>x (Number)</li><li>y (Number)</li><li>strokeColor (Color)</li><li>textColor (Color)</li><li>labelFormat (String)</li></ul>| [Axis](../../guide/axis/) |
+| **axis**(channel, field, params)| create an [axis](../../guide/axis/) <br>channel (String): the visual channel<br>field (String): the data field<br>params (Object, optional): contains one or more of the [axis properties](../../guide/axis/#properties) | [Axis](../../guide/axis/) |
 | **legend**(channel, field, params)| create a [legend](../../guide/legend/) <br>channel (String): the visual channel<br>field (String): the data field<br>params (Object, optional): contains one or more of these parameters: <ul><li>x (Number)</li><li>y (Number)</li><li>textColor (Color)</li></ul> | [Legend](../../guide/legend/) |
 | **gridlines**(channel, field, params)| create a set of [gridlines](../../guide/gridlines/)<br>channel (String): the visual channel<br>field (String): the data field<br>params (Object, optional): contains one or more of these parameters: <ul><li>values (Array)</li><li>strokeColor (Color)</li></ul> | [Gridlines](../../guide/gridlines/) |
 {.table-striped}

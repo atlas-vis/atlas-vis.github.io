@@ -9,8 +9,8 @@ scn.setProperties(polyline.anyVertex, {shape: "circle", radius: 3.5, strokeColor
 scn.encode(polyline.anyVertex, {field: "miles", channel: "x"});
 scn.encode(polyline.anyVertex, {field: "gas", channel: "y"});
 
-scn.axis("x", "miles", {orientation: "top", ruleVisible: false});
-scn.axis("y", "gas", {orientation: "left", ruleVisible: false});
+scn.axis("x", "miles", {orientation: "top", pathVisible: false});
+scn.axis("y", "gas", {orientation: "left", pathVisible: false});
 scn.gridlines("x", "miles");
 scn.gridlines("y", "gas");
 

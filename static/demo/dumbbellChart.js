@@ -12,6 +12,6 @@ scn.setProperties(line.vertices[0], {shape: "circle", radius: 4, fillColor: "#a2
 scn.setProperties(line.vertices[1], {shape: "circle", radius: 4, fillColor: "#185a97"});
 
 scn.axis("x", "Republican", {orientation: "bottom", y: 360});
-scn.axis("y", "Topic", {orientation: "left", ruleVisible: false, tickVisible: false, x: 270});
+scn.axis("y", "Topic", {orientation: "left", pathVisible: false, tickVisible: false, x: 270});
 
 atlas.renderer("svg").render(scn, "svgElement");
