@@ -24,7 +24,7 @@ The Group class represents a group of graphical objects (i.e., [marks](../../mar
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the group | String |  | 
 |**type** <img width="70px" src="../../readonly.png"> | the type of the group | String | "group" | 
 |**dataScope**| the [data scope](../../data/datascope/) of the group | [DataScope](../../data/datascope/) | undefined |
-|**layout**| the [layout](../../layout/Layout/) of the group children | [Layout](../../layout/Layout/) | undefined |
+|**layout**| the [layout](../../layout/layout/) of the group children | [Layout](../../layout/layout/) | undefined |
 |**children** <img width="70px" src="../../readonly.png">| the graphical objects in the group | Array | [] |
 |**firstChild** <img width="70px" src="../../readonly.png">| the first child in the group | [Mark](../../marks/mark/) or [Group](../group/) | |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the group | [Rectangle](../../basic/rectangle/) | |
