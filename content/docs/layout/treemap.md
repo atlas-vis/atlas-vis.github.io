@@ -24,7 +24,7 @@ The TreemapLayout class represents a layout that positions objects using the tre
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**type** <img width="70px" src="../../readonly.png"> | the type of the layout | String | "treemap" | 
-|**groups** <img width="70px" src="../../readonly.png">| the groups that use this layout | Array | [] |
+|**group** <img width="70px" src="../../readonly.png">| the group that uses this layout | [Group](../../group/group/) |  |
 |**width**| the width of the top level container | Number |  |
 |**height**| the height of the top level container | Number |  |
 |**top**| the y coordinate of the top level container | Number |  |

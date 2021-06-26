@@ -23,7 +23,7 @@ The StackLayout class represents a layout that positions objects by stacking the
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**type** <img width="70px" src="../../readonly.png"> | the type of the layout | String | "stack" | 
-|**groups** <img width="70px" src="../../readonly.png">| the groups that use this layout | Array | [] |
+|**group** <img width="70px" src="../../readonly.png">| the group that uses this layout | [Group](../../group/group/) |  |
 |**baseline**| the baseline of stacking | String |  |
 |**orientation**| the orientation of stacking | String | undefined |
 {.table-striped}

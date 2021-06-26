@@ -23,7 +23,7 @@ The GridLayout class represents a layout that positions objects in a grid. To cr
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**type** <img width="70px" src="../../readonly.png"> | the type of the layout | String | "grid" | 
-|**groups** <img width="70px" src="../../readonly.png">| the groups that use this layout | Array | [] |
+|**group** <img width="70px" src="../../readonly.png">| the group that uses this layout | [Group](../../group/group/) |  |
 |**numRows**| the number of rows in the grid | Number | undefined |
 |**numCols**| the number of columns in the grid | Number | undefined |
 |**hGap**| the horizontal gap between adjacent rows in the grid | Number | undefined |

@@ -24,7 +24,7 @@ The PackingLayout class represents a layout that positions objects by packing th
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**type** <img width="70px" src="../../readonly.png"> | the type of the layout | String | "packing" | 
-|**groups** <img width="70px" src="../../readonly.png">| the groups that use this layout | Array | [] |
+|**group** <img width="70px" src="../../readonly.png">| the group that uses this layout | [Group](../../group/group/) |  |
 |**cx**| the x coordinate of the center of the enclosing area | Number |  |
 |**cy**| the y coordinate of the center of the enclosing area | Number |  |
 |**width**| the width of the enclosing area | Number |  |
