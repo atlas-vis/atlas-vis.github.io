@@ -14,7 +14,7 @@ toc: true
 ---
 <span style="font-size:1.2em">extends [Layout](../layout/)</span><br>
 
-The GridLayout class represents a layout that positions objects in a grid. To create a GridLayout object and apply it to a [collection](../../group/collection/), use the _layout_ function:
+The GridLayout class represents a layout that positions objects in a grid. To create a GridLayout object and apply it to a [collection](../../group/collection/), use the [_layout_ function](../../global/functions/):
 
     let gl = atlas.layout("grid", {numCols: 2, hGap: 10});
     collection.layout = gl;

@@ -13,7 +13,7 @@ weight: 70
 toc: true
 ---
 
-The DataTable class represents a data table consisting of _tuples_ (rows) and _fields_ (columns). DataTable objects are created by importing Comma Separated Values (CSV) files using the [_csv_ function]():
+The DataTable class represents a data table consisting of _tuples_ (rows) and _fields_ (columns). DataTable objects are created by importing Comma Separated Values (CSV) files using the [_csv_ function](../../global/functions/):
 
     let table = await atlas.csv("data.csv");
 

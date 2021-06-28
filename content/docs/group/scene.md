@@ -14,7 +14,7 @@ toc: true
 ---
 <span style="font-size:1.2em">extends [Group](../group/)</span><br>
 
-The Scene class represents the top-level container in a visualization. This is where graphical objects (i.e., [mark](../../marks/mark/) or [group](../../group/group/)) are created, transformed and joined with data. To create a scene object, use the [_scene_ function](): 
+The Scene class represents the top-level container in a visualization. This is where graphical objects (i.e., [mark](../../marks/mark/) or [group](../../group/group/)) are created, transformed and joined with data. To create a scene object, use the [_scene_ function](../../global/functions/): 
 
     let scene = atlas.scene();
 
@@ -72,7 +72,7 @@ The Scene class represents the top-level container in a visualization. This is w
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **classify**(items, field, parent)| group items by the specified field, items with the same field value <br>are put in the same collection <br>items (Array): an array of items <br>field (String): field to group by <br>parent ([Scene](../scene/) or [Collection](../../group/collection/)): parent of the resulting collections | Array of [Collections](../../group/collection/) |
-| **find**(predicates)| returns graphical objects in the scene that match the specified criteria<br>predicates (Array): an array of predicates | Array |
+| **find**(predicates)| returns graphical objects in the scene that match the specified criteria<br>predicates (Array): an array of [predicates](../../global/predicate/) | Array |
 |**setProperties**(item, params)| set the properties for all the peers of the specified item <br>item ([Mark](../../marks/mark/) or [Group](../../group/group) or [Layout](../../layout/layout)): example item<br>params (Object): property names as object keys and property values as object values | void |
 |**propagate**(item, method, ...params)| call the specified method for all the peers of the specified item<br>item ([Mark](../../marks/mark/) or [Group](../../group/group)): example item<br>method (String): name of the item's method<br>params: parameters of the item's method<br>e.g., `scene.propagate(path, "sortVertices", "x")` | void |
 {.table-striped}

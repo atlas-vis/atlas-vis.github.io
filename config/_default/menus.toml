@@ -1,5 +1,5 @@
 [[docs]]
-  name = "Global"
+  name = ""
   weight = 1
   identifier = "global"
   url = "/docs/global/functions/"
@@ -47,6 +47,12 @@
   weight = 50
   identifier = "guide"
   url = "/docs/guide/"
+
+[[docs]]
+  name = "Rendering"
+  weight = 60
+  identifier = "rendering"
+  url = "/docs/rendering/"
 
 [[tutorials]]
   name = "Tutorials"

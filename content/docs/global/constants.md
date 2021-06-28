@@ -77,6 +77,11 @@ toc: true
 "path"<br>
 "pointText"<br>
 
+### Layout Type
+"grid"<br>
+"stack"<br>
+"packing"<br>
+"treemap"<br>
 
 ### Scale Type
 "linear"<br>

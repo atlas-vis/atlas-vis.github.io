@@ -15,7 +15,7 @@ toc: true
 
 <span style="font-size:1.2em">extends [Layout](../layout/)</span><br>
 
-The TreemapLayout class represents a layout that positions objects using the treemap algorithm. To create a TreemapLayout object and apply it to a [collection](../../group/collection/), use the _layout_ function:
+The TreemapLayout class represents a layout that positions objects using the treemap algorithm. To create a TreemapLayout object and apply it to a [collection](../../group/collection/), use the [_layout_ function](../../global/functions/):
 
     let tl = atlas.layout("treemap", {width: 800, height: 500});
     collection.layout = tl;
