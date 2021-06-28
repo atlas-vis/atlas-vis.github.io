@@ -22,8 +22,6 @@ The Scene class represents the top-level container in a visualization. This is w
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**fillColor**| the background color of the scene | Color | "white" | 
-
-
 {.table-striped}
 
 ### Properties inherited from [Group](../group/)

@@ -28,3 +28,4 @@ The Gridlines class represents a set of grid lines for a visual encoding. To cre
 |**y**| the y coordinate of the top of the legend | Number | | 
 |**textColor**| the text color of the legend | Color | #555555 | 
 |**values** | the data values represented by the grid lines,<br>if not provided, Atlas will auto-generate values | Array | | 
+{.table-striped}

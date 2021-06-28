@@ -27,3 +27,4 @@ The Legend class represents a legend for a color encoding. To create a Legend ob
 |**x**| the x coordinate of the left side of the legend | Number | | 
 |**y**| the y coordinate of the top of the legend | Number | | 
 |**textColor**| the text color of the legend | Color | #555555 | 
+{.table-striped}

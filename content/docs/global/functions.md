@@ -22,9 +22,11 @@ Global functions are defined in the atlas namespace.
 | async **atlas.csv**(url) | import a CSV file as a [data table](../../data/datatable/)<br>url (String): path to the file | Promise |
 | **atlas.layout**(type, params)| create a [layout](../../layout/layout/)<br>type: [layout type](../../global/constants/#layout-type)<br>params (Object): contains layout properties  | [Layout](../../layout/layout/) |
 | **atlas.renderer**(type) | create a renderer<br>type (String): type of renderer, possible values: "svg", "canvas", or "webgl" | [Renderer](../../rendering/renderer/) |
+{.table-striped}
 
 ### Helper Functions
 | function |  explanation  |  return type |
 | --- | --- | --- |
 | **atlas.cartesianToPolar**(x, y, cx, cy) | converts a point in Cartesian space to polar coordinates<br>x (Number): x coordinate in Cartesian space<br>y (Number): y coordinate in Cartesian space<br>cx (Number): x coordinate of the polar center<br>cy (Number): y coordinate of the polar center | [angele (in degrees),<br>distance from center] |
 | **atlas.polarToCartesian**(cx, cy, r, deg) | converts a point in polar space to Cartesian coordinates<br>cx (Number): x coordinate of the polar center<br>cy (Number): y coordinate of the polar center<br>r (Number): distance from the polar center<br>deg (Number): angle in degrees in the polar space | [x, y] |
+{.table-striped}

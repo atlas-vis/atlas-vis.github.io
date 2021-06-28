@@ -28,8 +28,10 @@ An Encoding object records information about a visual encoding. When a mark's vi
 |**rangeExtent**| the extent of the scale range | Number | |
 |**mapping**| user defined mapping between field values and visual properties | Object |  |
 |**scheme**| the color scheme  | String | |
+{.table-striped}
 
 ### Methods
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **getScaleRange**(item) | get the scale range for this encoding for the specified item<br>item ([Mark](../../marks/mark/) or [Group](../../group/group/), optional): an example item with this encoding | Array |
+{.table-striped}
