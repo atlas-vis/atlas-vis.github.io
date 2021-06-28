@@ -76,3 +76,13 @@ toc: true
 "line"<br>
 "path"<br>
 "pointText"<br>
+
+
+### Scale Type
+"linear"<br>
+"point"<br>
+"ordinal"<br>
+"ordinalColor"<br>
+"log"<br>
+"time"<br>
+"sequentialColor"<br>
