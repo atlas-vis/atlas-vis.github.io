@@ -1,5 +1,5 @@
 ---
-title: "Create"
+title: "2. Create Glyphs and Import Data"
 description: ""
 lead: ""
 date: 2020-10-13T15:21:01+02:00
@@ -9,5 +9,5 @@ images: []
 menu:
   tutorials:
     parent: "tutorials"
-weight: 10
+weight: 20
 ---

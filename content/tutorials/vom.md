@@ -1,5 +1,5 @@
 ---
-title: "Visualization Object Model"
+title: "1. Visualization Object Model"
 description: ""
 lead: ""
 date: 2020-10-13T15:21:01+02:00
@@ -9,7 +9,7 @@ images: []
 menu:
   tutorials:
     parent: "tutorials"
-weight: 1
+weight: 10
 ---
 Every visualization created using Atlas can be described using the following object model: 
 
