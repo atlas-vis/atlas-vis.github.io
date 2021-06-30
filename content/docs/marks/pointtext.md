@@ -33,7 +33,7 @@ The Text class represents a text element. To create a Text object, use the _mark
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the text | [Rectangle](../../basic/rectangle/) | |
 {.table-striped}
 
-{{< figure src="../anchor.png" alt="text anchor" caption="Figure 1: Different anchor properties with the same x and y properties (the orange dot) lead to different text positions.">}}
+{{< figure src="../anchor.png" alt="text anchor" caption="Figure 1: Different anchor properties with the same x and y properties (the orange dot) lead to different text positions." class="border-0 mx-auto text-center">}}
 
 ### Properties inherited from [Mark](../mark/)
 | property |  explanation   | type | default value |

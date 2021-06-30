@@ -1,6 +1,10 @@
 {{ $currentPage := . -}}
 {{ range .Site.Menus.docs -}}
-  <h3>{{ .Name }}</h3>
+  {{ if ne .Name ""}}
+    <h3>{{ .Name }}</h3>
+  {{ else }}
+    <h4>{{ .Name }}</h4>
+  {{end}}
   {{ if .HasChildren -}}
   <ul class="list-unstyled">
     {{ range .Children -}}

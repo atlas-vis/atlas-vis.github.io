@@ -62,7 +62,7 @@
 
 [[main]]
   name = "Getting Started"
-  url = "/tutorials/vom/"
+  url = "/tutorials/example/"
   weight = 9
 
 # [[main]]

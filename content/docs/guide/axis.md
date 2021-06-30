@@ -41,4 +41,4 @@ The Axis class represents an axis. To create an Axis object, use the [_axis_ met
 |**rotation**| the degrees to rotate the entire axis if channel is "radialDistance" | Number | 0 | 
 {.table-striped}
 
-{{< figure src="../axis.png" alt="axis components" caption="Figure 1: the components in an axis">}}
+{{< figure src="../axis.png" alt="axis components" caption="Figure 1: the components in an axis" class="border-0 mx-auto text-center">}}
