@@ -75,7 +75,9 @@ toc: true
 "circle"<br>
 "line"<br>
 "path"<br>
+"pie"<br>
 "pointText"<br>
+"polygon"<br>
 
 ### Layout Type
 "grid"<br>

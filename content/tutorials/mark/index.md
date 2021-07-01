@@ -12,11 +12,13 @@ menu:
 weight: 25
 ---
 
-Marks and glyphs can be created using the [_mark_ method in the Scene class](../../docs/group/scene/#methods-create-mark-or-group). For example, the following code creates a [CirclePath](../../docs/marks/circlepath/): 
+Marks and glyphs can be created using the [_mark_ method in the Scene class](../../docs/group/scene/#methods-create-mark-or-group). For example, the following code creates a circle: 
 
     let circle = scene.mark("circle", {cx: 50, cy: 100, radius: 20});
 
-The types of marks that can be created this way are: [Path](../../docs/marks/path/), [CirclePath](../../docs/marks/circlepath/), [RectPath](../../docs/marks/rectpath/), and [Text](../../docs/marks/pointtext/). For each type of mark, check out its API reference for mark properties and their default values. 
+The [types of marks](../../docs/global/constants/#mark-type) that can be created this way are: circle, line, path, rectangle, and text. For each type of mark, check out its [API reference](../../docs/marks/mark/) for mark properties and their default values. Non-text marks are represented as paths, consisting of vertices and segments, as shown in the [object model](../../tutorials/vom/):
+
+{{< figure src="paths.png" alt="Marks as Paths" caption="" class="border-0 mx-auto text-center">}}
 
 The following code creates multiple marks and group them into a box plot [glyph](../../docs/group/glyph/):
 
