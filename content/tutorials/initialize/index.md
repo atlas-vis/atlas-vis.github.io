@@ -1,5 +1,5 @@
 ---
-title: "2. Initial Setup"
+title: "2. Create Scene and Import Data"
 description: ""
 lead: ""
 date: 2020-10-13T15:21:01+02:00
