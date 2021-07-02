@@ -78,6 +78,7 @@ Source:
           'href',
           'title',
           'description',
+          'content'
         ],
     },
   });
@@ -94,7 +95,20 @@ Source:
     {{ end -}}
   ];
 
+  var tutorials = [
+    {{ range $index, $page := (where .Site.Pages "Section" "tutorials") -}}
+      {
+        id: {{ $index }},
+        href: "{{ .RelPermalink | relURL }}",
+        title: {{ .Title | jsonify }},
+        description: {{ .Params.description | jsonify }},
+        content: {{ .Content | jsonify }}
+      },
+    {{ end -}}
+  ];
+
   index.add(docs);
+  index.add(tutorials);
 
   userinput.addEventListener('input', show_results, true);
   suggestions.addEventListener('click', accept_suggestion, true);
@@ -102,7 +116,7 @@ Source:
   function show_results(){
 
     var value = this.value;
-    var results = index.search(value, 5);
+    var results = index.search(value, 8);
     var entry, childs = suggestions.childNodes;
     var i = 0, len = results.length;
 

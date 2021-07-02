@@ -3,8 +3,8 @@
 ## Homepage
 title = "Atlas"
 titleSeparator = "-"
-titleAddition = "Modern sa Documentation Theme"
-description = "Doks is a Hugo theme helping you build modern documentation websites that are secure, fast, and SEO-ready — by default."
+titleAddition = ""
+description = ""
 
 ## Open Graph + Twitter Cards
 images = ["doks.png"]
@@ -50,7 +50,7 @@ editPage = false
   lazySizes = true
   clipBoard = true
   instantPage = true
-  flexSearch = true
+  flexSearch = false
   darkMode = true
   bootStrapJs = false
   breadCrumb = false
