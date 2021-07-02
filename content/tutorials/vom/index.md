@@ -19,8 +19,8 @@ At the top level, we have a scene, acting as a container for all the visualizati
 
 In the diverging bar chart in Figure 1, we have three main components in the scene: a legend, an axis without ticks or path, and a collection of rectangle marks, which forms the main chart area. Inside this collection nest four collections of bars, each collection representing an age group and consisting of four bars.  
 
-{{< figure src="diverging_vom.png" alt="Visualization Object Model of a Diverging Bar Chart" caption="Figure 1: Visualization Object Model of a Diverging Bar Chart" class="border-0 mx-auto text-center">}}
+{{< figure src="diverging_vom.png" width="850px" alt="Visualization Object Model of a Diverging Bar Chart" caption="Figure 1: Visualization Object Model of a Diverging Bar Chart" class="border-0 mx-auto text-center">}}
 
 In the box plot in Figure 2, we have two main components in the scene: an axis without ticks or path, and a collection of four box and whiskers glyphs. Inside each glyph, there are multiple primitive marks in the form of rectangle and lines.
 
-{{< figure src="box_vom.png" alt="Visualization Object Model of a Box Plot" caption="Figure 2: Visualization Object Model of a Box Plot" class="border-0 mx-auto text-center">}}
+{{< figure src="box_vom.png" width="850px" alt="Visualization Object Model of a Box Plot" caption="Figure 2: Visualization Object Model of a Box Plot" class="border-0 mx-auto text-center">}}
