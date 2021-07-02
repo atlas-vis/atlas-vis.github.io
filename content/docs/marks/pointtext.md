@@ -23,8 +23,8 @@ The Text class represents a text element. To create a Text object, use the _mark
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**anchor** | the anchor of this text (Figure 1) | Array | ["center", "middle"] | 
-|**x** | the x coordinate of the anchor | Number |  | 
-|**y** | the y coordinate of the anchor | Number |  | 
+|**x** | the x coordinate of the anchor | Number | 0 | 
+|**y** | the y coordinate of the anchor | Number | 0 | 
 |**text** | the text content | String | "" | 
 |**fontFamily** | the font family of the text | String | "Arial" | 
 |**fontSize** | the font size of the text | String | "12px" | 

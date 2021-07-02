@@ -22,12 +22,12 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 ### Properties
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
-|**left** | the x coordinate of the left hand side of the rectangle | Number |  | 
-|**top** | the y coordinate of the top of the rectangle | Number |  | 
+|**left** | the x coordinate of the left hand side of the rectangle | Number | 0 | 
+|**top** | the y coordinate of the top of the rectangle | Number | 0 | 
 |**right** <img width="70px" src="../../readonly.png"> | the x coordinate of the right hand side of the rectangle | Number |  | 
 |**bottom** <img width="70px" src="../../readonly.png"> | the y coordinate of the bottom of the rectangle | Number |  | 
-|**width** | the width of the rectangle | Number |  | 
-|**height** | the height of the rectangle | Number |  | 
+|**width** | the width of the rectangle | Number | 100 | 
+|**height** | the height of the rectangle | Number |  100 | 
 |**topSegment** <img width="70px" src="../../readonly.png"> | the top segment of the rectangle | [Segment](../../basic/segment/) |  | 
 |**rightSegment** <img width="70px" src="../../readonly.png"> | the right segment of the rectangle | [Segment](../../basic/segment/) |  | 
 |**bottomSegment** <img width="70px" src="../../readonly.png"> | the bottom segment of the rectangle | [Segment](../../basic/segment/) |  | 

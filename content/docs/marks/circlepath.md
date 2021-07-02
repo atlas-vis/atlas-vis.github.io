@@ -22,9 +22,9 @@ The CirclePath class represents a circle mark. To create a CirclePath object, us
 ### Properties
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
-|**cx** | the x coordinate of the center of the circle | Number |  | 
-|**cy** | the y coordinate of the center of the circle | Number |  | 
-|**radius** | the radius of the rectangle | Number |  | 
+|**cx** | the x coordinate of the center of the circle | Number | 0 | 
+|**cy** | the y coordinate of the center of the circle | Number | 0 | 
+|**radius** | the radius of the rectangle | Number | 100 | 
 {.table-striped}
 
 
