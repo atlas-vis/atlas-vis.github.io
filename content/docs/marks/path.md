@@ -24,15 +24,19 @@ The Path class represents a gemetric path consisting of multiple [vertices](../.
                   strokeColor: "#95D0F5"
               });
 
+A straight line is also represented as a path object in Atlas. The following code returns a Path object with two vertices.
+
+    let line = scene.mark("line", {x1: 0, y1: 20, x2: 300, y2: 50});
+
 ### Properties
 | property |  explanation  | type | default value |
 | --- | --- | --- | --- |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the path | [Rectangle](../../basic/rectangle/) | |
 |**center** <img width="70px" src="../../readonly.png">| the center of the path bounds | [Point](../../basic/point/) | |
 |**closed**| whether the path is closed  | Boolean | false |
-|**curveMode**| how the segments are drawn <span style="color:red;">possible values</span> | String | "linear" |
-|**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array |  | 
-|**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 
+|**curveMode**| how the segments are drawn, [possible values](../../global/constants/#curvemode) | String | "linear" |
+|**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array of [Vertex](../../basic/vertex/) |  | 
+|**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array of [Segment](../../basic/segment/) | 
 |**firstVertex** <img width="70px" src="../../readonly.png">| returns the first vertex of the path | [Vertex](../../basic/vertex/) |
 |**firstSegment** <img width="70px" src="../../readonly.png">| returns the first segment of the path | [Segment](../../basic/segment/) |
 |**fillColor**| the fill color of the path if it is closed | Color | undefined | 
@@ -60,10 +64,10 @@ The Path class represents a gemetric path consisting of multiple [vertices](../.
 ### Methods
 | method |  explanation   | return type |
 | ---- | --- | --- |
-| **addVertex**(x, y, i) | adds a vertex at the specified index with specified coordinates<br> x: x coordinate (type Number)<br> y: y coordinate (type Number)<br>i: index to add the vertex (type Number)  | void |
+| **addVertex**(x, y, i) | adds a vertex at the specified index with specified coordinates<br> x (Number): x coordinate<br> y (Number): y coordinate<br>i (Number): index to add the vertex | void |
 | **getSVGPathData**() | returns a string to be used as the d parameter in an SVG path element | String |
-| **sortVertices**<br>(channel, reverse) | sort the vertices by a visual channel<br>channel: the channel to sort the vertices by (type String)<br> reverse: (optional) setting to true will sort in descending order; default is false. | void |
-| **sortVerticesByData**<br>(field, reverse, order) | sort the vertices by a data field<br>field: the data field to sort the vertices by (type String)<br>reverse: (optional) setting to true will sort in descending order; default is false.<br>order: (optional) an array of field values in ascending order | void |
+| **sortVertices**<br>(channel, reverse) | sort the vertices by a visual channel<br>channel (String): the channel to sort the vertices by (type String)<br> reverse (Boolean, optional): setting to true will sort in descending order;<br>default is false. | void |
+| **sortVerticesByData**<br>(field, reverse, order) | sort the vertices by a data field<br>field (String): the data field to sort the vertices by (type String)<br>reverse (Boolean, optional): setting to true will sort in descending order;<br>default is false.<br>order (Boolean, optional): an array of field values in ascending order | void |
 {.table-striped}
 
 ### Methods inherited from [Mark](../mark/)

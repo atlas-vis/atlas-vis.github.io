@@ -13,7 +13,7 @@ weight: 20
 toc: true
 ---
 
-The Segment class represents a line or a curve that connects two [vertices](../vertex/) in a [path](../../mark/path/). Segments are automatically created when vertices are added to a path. 
+The Segment class represents a line or a curve that connects two [vertices](../vertex/) in a [path](../../marks/path/). Segments are automatically created when vertices are added to a path. 
 
 ### Properties
 | property |  explanation   | type | default value |

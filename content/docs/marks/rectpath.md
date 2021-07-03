@@ -78,7 +78,6 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 | method |  explanation   | return type |
 | ---- | --- | --- |
 | **getSVGPathData**() | returns a string to be used as the d parameter in an SVG path element | String |
-| **translate**(dx, dy) | move the path by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |
 {.table-striped}
 
 ### Methods inherited from [Mark](../mark/)
@@ -86,6 +85,7 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 | --- | --- | --- |
 | **getScene**() | returns the scene in which this mark resides | [Scene](../../group/scene) |
 | **duplicate**() | returns a copy of this mark | [RectPath](../rectpath/) | 
+| **translate**(dx, dy) | move the path by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |
 {.table-striped}
 
 <!-- ## Check for outdated packages
