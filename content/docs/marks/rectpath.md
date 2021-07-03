@@ -50,6 +50,14 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 |**strokeColor** | the stroke color of the path | Color | #cccccc | 
 |**strokeWidth** | the stroke width of the path in pixels | Number | 1| 
 |**opacity** | the opacity value of the path (between 0 and 1) | Number | 1 |
+|**vxShape**| the shape of the vertices on this path<br>possible values: "rect", "circle" | String | undefined | 
+|**vxWidth**| the width of the vertices on this path | Number | 0 | 
+|**vxHeight**| the height of the vertices on this path | Number | 0 |
+|**vxRadius**| the radius of the vertices on this path if the shape is "circle" | Number | 0 |  
+|**vxFillColor**| the fill color of the vertices on this path | Color | "#555" | 
+|**vxStrokeColor** | the stroke color of the vertices on this path | Color | "#aaa" | 
+|**vxStrokeWidth** | the stroke width of the vertices on this path in pixels | Number | 0 | 
+|**vxOpacity** | the opacity of the vertices on this path | Number | 1 | 
 {.table-striped}
 
 ### Properties inherited from [Mark](../mark/)
