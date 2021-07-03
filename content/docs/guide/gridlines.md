@@ -24,8 +24,10 @@ The Gridlines class represents a set of grid lines for a visual encoding. To cre
 |**type** <img width="70px" src="../../readonly.png"> | the type of the legend | String | "legend" | 
 |**channel** <img width="70px" src="../../readonly.png">| the visual channel of the legend<br>possible values: "fillColor", "strokeColor" | String | | 
 |**field** <img width="70px" src="../../readonly.png">| the data field of the legend | String | | 
-|**x**| the x coordinate of the left side of the legend | Number | | 
-|**y**| the y coordinate of the top of the legend | Number | | 
-|**textColor**| the text color of the legend | Color | #555555 | 
+|**x**| the x coordinate of vertical gridlines | Number | | 
+|**y**| the y coordinate of horizontal gridlines | Number | | 
+|**textColor**| the text color of gridlines | Color | #555555 | 
+|**strokeColor**| the stroke color of gridlines | Color | #ddd | 
+|**strokeWidth**| the stroke width of gridlines | Number | 1 | 
 |**values** | the data values represented by the grid lines,<br>if not provided, Atlas will auto-generate values | Array | | 
 {.table-striped}

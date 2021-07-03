@@ -24,7 +24,7 @@ The Legend class represents a legend for a color encoding. To create a Legend ob
 |**type** <img width="70px" src="../../readonly.png"> | the type of the legend | String | "legend" | 
 |**channel** <img width="70px" src="../../readonly.png">| the visual channel of the legend<br>possible values: "fillColor", "strokeColor" | String | | 
 |**field** <img width="70px" src="../../readonly.png">| the data field of the legend | String | | 
-|**x**| the x coordinate of the left side of the legend | Number | | 
-|**y**| the y coordinate of the top of the legend | Number | | 
+|**x**| the x coordinate of the left side of the legend | Number | 0 | 
+|**y**| the y coordinate of the top of the legend | Number | 0 | 
 |**textColor**| the text color of the legend | Color | #555555 | 
 {.table-striped}
