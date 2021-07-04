@@ -15,5 +15,5 @@ scn.setProperties(rect, {fillColor: "#B0D9E4", opacity: "0.9", strokeColor: "#ff
 scn.axis("height", "height", {orientation: "left", flip: true});
 scn.axis("x", "name", {orientation: "top", field: "name"});
 
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement");	
+// let r = atlas.renderer("svg");
+// r.render(scn, "svgElement");	

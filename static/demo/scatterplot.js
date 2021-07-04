@@ -1,6 +1,6 @@
 let scn = atlas.scene();
 let dt = await atlas.csv("csv/gdp-lifeExp.csv");
-let circle = scn.mark("circle", {radius: 6, cx: 100, cy: 50, fillColor: "orange", strokeWidth: 0});
+let circle = scn.mark("circle", {radius: 6, cx: 100, cy: 80, fillColor: "orange", strokeWidth: 0});
 
 let collection = scn.repeat(circle, dt, {field: "Country"});
 
@@ -21,5 +21,5 @@ scn.gridlines("x", "GDP per capita");
 scn.gridlines("y", "Life expectancy");
 
 
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement", {collectionBounds: false});	
+// let r = atlas.renderer("svg");
+// r.render(scn, "svgElement", {collectionBounds: false});	

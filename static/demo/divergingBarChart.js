@@ -23,4 +23,4 @@ scn.affix(text, rect, "y");
 scn.legend("fillColor", "Response", {x: 800, y: 100});
 scn.axis("y", "Age Group", {orientation: "left", x: 190, pathVisible: false, tickVisible: false});
 
-atlas.renderer("svg").render(scn, "svgElement", {collectionBounds: false});
+// atlas.renderer("svg").render(scn, "svgElement", {collectionBounds: false});

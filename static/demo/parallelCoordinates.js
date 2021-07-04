@@ -1,7 +1,7 @@
 let scn = atlas.scene();
 let path = scn.mark("path", {
 	vertices: [
-		[200, 50], [350, 50], [500, 50], [650, 50]
+		[200, 80], [350, 80], [500, 80], [650, 80]
 	],
 	strokeColor: "#95D0F5",
 	opacity: 0.3
@@ -25,5 +25,5 @@ scn.axis("y", "displacement(cc)", {orientation: "left", x: 500});
 scn.axis("y", "power(hp)", {orientation: "right", x: 650});
 
 
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement");	
+// let r = atlas.renderer("svg");
+// r.render(scn, "svgElement");	

@@ -16,5 +16,5 @@ scn.encode(line, {field: "meanTemp", channel: "strokeColor", scheme: "interpolat
 scn.axis("x", "date", {orientation: "bottom", labelFormat: "%b %d, %Y", labelRotation: -45});
 scn.axis("y", "maxTemp", {orientation: "left"});
 
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement");	
+// let r = atlas.renderer("svg");
+// r.render(scn, "svgElement");	

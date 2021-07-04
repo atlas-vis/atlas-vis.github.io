@@ -20,4 +20,4 @@ scn.axis("y", "Group", {orientation: "left", pathVisible: false, tickVisible: fa
 
 scn.gridlines("x", "Value", {strokeColor: "#eee"});
 
-atlas.renderer("svg").render(scn, "svgElement");
+// atlas.renderer("svg").render(scn, "svgElement");

@@ -1,101 +1,101 @@
-Age Bin
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Children 0-18
-Adults 19-25
-Adults 19-25
-Adults 19-25
-Adults 19-25
-Adults 19-25
-Adults 19-25
-Adults 19-25
-Adults 19-25
-Adults 19-25
-Adults 26-34
-Adults 26-34
-Adults 26-34
-Adults 26-34
-Adults 26-34
-Adults 26-34
-Adults 26-34
-Adults 26-34
-Adults 26-34
-Adults 26-34
-Adults 26-34
-Adults 26-34
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 35-54
-Adults 55-64
-Adults 55-64
-Adults 55-64
-Adults 55-64
-Adults 55-64
-Adults 55-64
-Adults 55-64
-Adults 55-64
-Adults 55-64
-Adults 55-64
-Adults 55-64
-Adults 55-64
-Adults 55-64
-65+
-65+
-65+
-65+
-65+
-65+
-65+
-65+
-65+
-65+
-65+
-65+
-65+
-65+
-65+
+ID,Age Bin
+1,Children 0-18
+2,Children 0-18
+3,Children 0-18
+4,Children 0-18
+5,Children 0-18
+6,Children 0-18
+7,Children 0-18
+8,Children 0-18
+9,Children 0-18
+10,Children 0-18
+11,Children 0-18
+12,Children 0-18
+13,Children 0-18
+14,Children 0-18
+15,Children 0-18
+16,Children 0-18
+17,Children 0-18
+18,Children 0-18
+19,Children 0-18
+20,Children 0-18
+21,Children 0-18
+22,Children 0-18
+23,Children 0-18
+24,Children 0-18
+25,Children 0-18
+26,Adults 19-25
+27,Adults 19-25
+28,Adults 19-25
+29,Adults 19-25
+30,Adults 19-25
+31,Adults 19-25
+32,Adults 19-25
+33,Adults 19-25
+34,Adults 19-25
+35,Adults 26-34
+36,Adults 26-34
+37,Adults 26-34
+38,Adults 26-34
+39,Adults 26-34
+40,Adults 26-34
+41,Adults 26-34
+42,Adults 26-34
+43,Adults 26-34
+44,Adults 26-34
+45,Adults 26-34
+46,Adults 26-34
+47,Adults 35-54
+48,Adults 35-54
+49,Adults 35-54
+50,Adults 35-54
+51,Adults 35-54
+52,Adults 35-54
+53,Adults 35-54
+54,Adults 35-54
+55,Adults 35-54
+56,Adults 35-54
+57,Adults 35-54
+58,Adults 35-54
+59,Adults 35-54
+60,Adults 35-54
+61,Adults 35-54
+62,Adults 35-54
+63,Adults 35-54
+64,Adults 35-54
+65,Adults 35-54
+66,Adults 35-54
+67,Adults 35-54
+68,Adults 35-54
+69,Adults 35-54
+70,Adults 35-54
+71,Adults 35-54
+72,Adults 35-54
+73,Adults 55-64
+74,Adults 55-64
+75,Adults 55-64
+76,Adults 55-64
+77,Adults 55-64
+78,Adults 55-64
+79,Adults 55-64
+80,Adults 55-64
+81,Adults 55-64
+82,Adults 55-64
+83,Adults 55-64
+84,Adults 55-64
+85,Adults 55-64
+86,65+
+87,65+
+88,65+
+89,65+
+90,65+
+91,65+
+92,65+
+93,65+
+94,65+
+95,65+
+96,65+
+97,65+
+98,65+
+99,65+
+100,65+

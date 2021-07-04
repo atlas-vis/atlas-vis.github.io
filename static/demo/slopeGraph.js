@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let line = scn.mark("line", {x1: 200, y1: 50, x2: 400, y2: 50, strokeColor: "green"});
+let line = scn.mark("line", {x1: 200, y1: 80, x2: 400, y2: 80, strokeColor: "green"});
 
 let dt = await atlas.csv("csv/obesityEducation.csv");
 
@@ -17,5 +17,5 @@ scn.axis("y", "Obesity Percentage", {orientation: "left", x: 200});
 scn.axis("y", "BA Degree Percentage", {orientation: "right", x: 400});
 scn.legend("strokeColor", "Obesity vs Higher Education", {x: 460, y: 100});
 
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement", {collectionBounds: false});	
+// let r = atlas.renderer("svg");
+// r.render(scn, "svgElement", {collectionBounds: false});	

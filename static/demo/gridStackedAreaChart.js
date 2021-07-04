@@ -13,9 +13,6 @@ let disEncoding = scene.encode(anyArea, {channel: "height", field: "unemployment
 let htEncoding = scene.encode(anyArea, {channel: "x", field: "date"});
 disEncoding.scale.domain = [0,4500];
 disEncoding.scale.rangeExtent = 200;
-scene.axis("x", "date", {orientation: "bottom", y: 525, labelFormat: "%m/%y"});
+scene.axis("x", "date", {orientation: "bottom", labelFormat: "%m/%y"});
 scene.axis("height", "unemployments", {orientation: "left", x: 90});
 scene.legend("fillColor", "gender", {x: 980, y: 100});
-
-let r = atlas.renderer("svg");
-r.render(scene, "svgElement", {collectionBounds: true});

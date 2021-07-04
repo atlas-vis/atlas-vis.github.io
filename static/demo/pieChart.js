@@ -10,4 +10,4 @@ scn.encode(anyPie, {field: "amount", channel: "angle"});
 
 scn.legend("fillColor", "type", {x: 450, y: 100});
 
-atlas.renderer("svg").render(scn, "svgElement");	
+// atlas.renderer("svg").render(scn, "svgElement");	

@@ -1,4 +1,4 @@
-let scn = atlas.scene();
+let scn = atlas.scene({fillColor: "#333"});
 let dt = await atlas.csv("csv/planets.csv");
 let circle = scn.mark("circle", {radius: 6, cx: 200, cy: 60, fillColor: "orange", strokeWidth: 1, strokeColor: "white", opacity: 0.35});
 
@@ -14,11 +14,11 @@ xEncoding.scale.rangeExtent = 500;
 yEncoding.scale.rangeExtent = 600;
 sizeEnc.scale.rangeExtent = 40;
 
-scn.axis("x", "hzd", {orientation: "bottom"});
-scn.axis("y", "mass", {orientation: "left", ticks: [0.1, 1, 10, 100, 1000, 10000]});
-scn.gridlines("x", "hzd");
-scn.gridlines("y", "mass", {values: [0.1, 1, 10, 100, 1000, 10000]});
+scn.axis("x", "hzd", {orientation: "bottom", strokeColor: "#ccc", textColor: "#ccc"});
+scn.axis("y", "mass", {orientation: "left", tickValues: [0.1, 1, 10, 100, 1000, 10000], strokeColor: "#ccc", textColor: "#ccc"});
+scn.gridlines("x", "hzd", {strokeColor: "#555"});
+scn.gridlines("y", "mass", {values: [0.1, 1, 10, 100, 1000, 10000], strokeColor: "#555"});
 
 
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement", {collectionBounds: false});	
+// let r = atlas.renderer("svg");
+// r.render(scn, "svgElement", {collectionBounds: false});	

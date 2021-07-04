@@ -4,7 +4,7 @@ let circle = scn.mark("circle", {radius: 80, cx: 100, cy: 50, fillColor: "orange
 
 let collection = scn.repeat(circle, dt, {field: "Country"});
 scn.encode(circle, {field: "Population", channel: "area"});
-collection.layout = atlas.layout("pack", {cx: 300, cy: 300});
+collection.layout = atlas.layout("packing", {cx: 300, cy: 300});
 
 let text = scn.mark("text", {fillColor: "white"});
 scn.repeat(text, dt);
@@ -16,6 +16,3 @@ scn.affix(text, circle, "y");
 
 scn.encode(circle, {field: "Continent", channel: "fillColor"});
 scn.legend("fillColor", "Continent", {x: 550, y: 250});
-
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement", {collectionBounds: false});	

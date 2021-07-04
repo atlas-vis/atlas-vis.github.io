@@ -19,7 +19,3 @@ let fillEnc = scn.encode(rect, {field: "Medal_Type", channel: "fillColor", mappi
 scn.axis("height", "Count", {orientation: "left"});
 scn.axis("x", "Country_Code", {orientation: "bottom"});
 scn.legend("fillColor", "Medal_Type", {x: 700, y: 200});
-
-
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement", {collectionBounds: false});	

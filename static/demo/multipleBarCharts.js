@@ -10,10 +10,10 @@ let coll = scene.divide(rect, data, {field: "Year", orientation: "vertical"});
 scene.encode(coll.firstChild, {field: "PVI Score", channel: "height"});
 scene.encode(coll.firstChild, {field: "Inclination", channel: "fillColor", mapping: {red: "#B6293E", blue: "#477EC0"}});
 
-let text = scene.mark("text", {position:[0, 60]});
+let text = scene.mark("text", {x: 0, y:60});
 scene.repeat(text, data, {field: "State"});
 scene.encode(text, {channel: "text", field: "State"});
 scene.affix(text, coll, "x");
 scene.encode(text, {channel: "y", field: "MapY", rangeExtent: 550});
 
-atlas.renderer("svg").render(scene, "svgElement", {collectionBounds: false})
+// atlas.renderer("svg").render(scene, "svgElement", {collectionBounds: false})

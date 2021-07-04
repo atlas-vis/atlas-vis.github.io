@@ -11,5 +11,5 @@ pg.curveMode = "basis";
 scene.axis("x", "weight(lbs)", {orientation: "bottom"});
 scene.axis("height", "weight(lbs)_density", {orientation: "left"});
 
-let r = atlas.renderer("svg");
-r.render(scene, "svgElement", {collectionBounds: false});
+// let r = atlas.renderer("svg");
+// r.render(scene, "svgElement", {collectionBounds: false});

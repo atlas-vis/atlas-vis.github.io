@@ -3401,6 +3401,387 @@
     }
   };
 
+  function define$1(constructor, factory, prototype) {
+    constructor.prototype = factory.prototype = prototype;
+    prototype.constructor = constructor;
+  }
+
+  function extend$1(parent, definition) {
+    var prototype = Object.create(parent.prototype);
+    for (var key in definition) prototype[key] = definition[key];
+    return prototype;
+  }
+
+  function Color$1() {}
+
+  var darker$1 = 0.7;
+  var brighter$1 = 1 / darker$1;
+
+  var reI$1 = "\\s*([+-]?\\d+)\\s*",
+      reN$1 = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)\\s*",
+      reP$1 = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)%\\s*",
+      reHex$1 = /^#([0-9a-f]{3,8})$/,
+      reRgbInteger$1 = new RegExp("^rgb\\(" + [reI$1, reI$1, reI$1] + "\\)$"),
+      reRgbPercent$1 = new RegExp("^rgb\\(" + [reP$1, reP$1, reP$1] + "\\)$"),
+      reRgbaInteger$1 = new RegExp("^rgba\\(" + [reI$1, reI$1, reI$1, reN$1] + "\\)$"),
+      reRgbaPercent$1 = new RegExp("^rgba\\(" + [reP$1, reP$1, reP$1, reN$1] + "\\)$"),
+      reHslPercent$1 = new RegExp("^hsl\\(" + [reN$1, reP$1, reP$1] + "\\)$"),
+      reHslaPercent$1 = new RegExp("^hsla\\(" + [reN$1, reP$1, reP$1, reN$1] + "\\)$");
+
+  var named$1 = {
+    aliceblue: 0xf0f8ff,
+    antiquewhite: 0xfaebd7,
+    aqua: 0x00ffff,
+    aquamarine: 0x7fffd4,
+    azure: 0xf0ffff,
+    beige: 0xf5f5dc,
+    bisque: 0xffe4c4,
+    black: 0x000000,
+    blanchedalmond: 0xffebcd,
+    blue: 0x0000ff,
+    blueviolet: 0x8a2be2,
+    brown: 0xa52a2a,
+    burlywood: 0xdeb887,
+    cadetblue: 0x5f9ea0,
+    chartreuse: 0x7fff00,
+    chocolate: 0xd2691e,
+    coral: 0xff7f50,
+    cornflowerblue: 0x6495ed,
+    cornsilk: 0xfff8dc,
+    crimson: 0xdc143c,
+    cyan: 0x00ffff,
+    darkblue: 0x00008b,
+    darkcyan: 0x008b8b,
+    darkgoldenrod: 0xb8860b,
+    darkgray: 0xa9a9a9,
+    darkgreen: 0x006400,
+    darkgrey: 0xa9a9a9,
+    darkkhaki: 0xbdb76b,
+    darkmagenta: 0x8b008b,
+    darkolivegreen: 0x556b2f,
+    darkorange: 0xff8c00,
+    darkorchid: 0x9932cc,
+    darkred: 0x8b0000,
+    darksalmon: 0xe9967a,
+    darkseagreen: 0x8fbc8f,
+    darkslateblue: 0x483d8b,
+    darkslategray: 0x2f4f4f,
+    darkslategrey: 0x2f4f4f,
+    darkturquoise: 0x00ced1,
+    darkviolet: 0x9400d3,
+    deeppink: 0xff1493,
+    deepskyblue: 0x00bfff,
+    dimgray: 0x696969,
+    dimgrey: 0x696969,
+    dodgerblue: 0x1e90ff,
+    firebrick: 0xb22222,
+    floralwhite: 0xfffaf0,
+    forestgreen: 0x228b22,
+    fuchsia: 0xff00ff,
+    gainsboro: 0xdcdcdc,
+    ghostwhite: 0xf8f8ff,
+    gold: 0xffd700,
+    goldenrod: 0xdaa520,
+    gray: 0x808080,
+    green: 0x008000,
+    greenyellow: 0xadff2f,
+    grey: 0x808080,
+    honeydew: 0xf0fff0,
+    hotpink: 0xff69b4,
+    indianred: 0xcd5c5c,
+    indigo: 0x4b0082,
+    ivory: 0xfffff0,
+    khaki: 0xf0e68c,
+    lavender: 0xe6e6fa,
+    lavenderblush: 0xfff0f5,
+    lawngreen: 0x7cfc00,
+    lemonchiffon: 0xfffacd,
+    lightblue: 0xadd8e6,
+    lightcoral: 0xf08080,
+    lightcyan: 0xe0ffff,
+    lightgoldenrodyellow: 0xfafad2,
+    lightgray: 0xd3d3d3,
+    lightgreen: 0x90ee90,
+    lightgrey: 0xd3d3d3,
+    lightpink: 0xffb6c1,
+    lightsalmon: 0xffa07a,
+    lightseagreen: 0x20b2aa,
+    lightskyblue: 0x87cefa,
+    lightslategray: 0x778899,
+    lightslategrey: 0x778899,
+    lightsteelblue: 0xb0c4de,
+    lightyellow: 0xffffe0,
+    lime: 0x00ff00,
+    limegreen: 0x32cd32,
+    linen: 0xfaf0e6,
+    magenta: 0xff00ff,
+    maroon: 0x800000,
+    mediumaquamarine: 0x66cdaa,
+    mediumblue: 0x0000cd,
+    mediumorchid: 0xba55d3,
+    mediumpurple: 0x9370db,
+    mediumseagreen: 0x3cb371,
+    mediumslateblue: 0x7b68ee,
+    mediumspringgreen: 0x00fa9a,
+    mediumturquoise: 0x48d1cc,
+    mediumvioletred: 0xc71585,
+    midnightblue: 0x191970,
+    mintcream: 0xf5fffa,
+    mistyrose: 0xffe4e1,
+    moccasin: 0xffe4b5,
+    navajowhite: 0xffdead,
+    navy: 0x000080,
+    oldlace: 0xfdf5e6,
+    olive: 0x808000,
+    olivedrab: 0x6b8e23,
+    orange: 0xffa500,
+    orangered: 0xff4500,
+    orchid: 0xda70d6,
+    palegoldenrod: 0xeee8aa,
+    palegreen: 0x98fb98,
+    paleturquoise: 0xafeeee,
+    palevioletred: 0xdb7093,
+    papayawhip: 0xffefd5,
+    peachpuff: 0xffdab9,
+    peru: 0xcd853f,
+    pink: 0xffc0cb,
+    plum: 0xdda0dd,
+    powderblue: 0xb0e0e6,
+    purple: 0x800080,
+    rebeccapurple: 0x663399,
+    red: 0xff0000,
+    rosybrown: 0xbc8f8f,
+    royalblue: 0x4169e1,
+    saddlebrown: 0x8b4513,
+    salmon: 0xfa8072,
+    sandybrown: 0xf4a460,
+    seagreen: 0x2e8b57,
+    seashell: 0xfff5ee,
+    sienna: 0xa0522d,
+    silver: 0xc0c0c0,
+    skyblue: 0x87ceeb,
+    slateblue: 0x6a5acd,
+    slategray: 0x708090,
+    slategrey: 0x708090,
+    snow: 0xfffafa,
+    springgreen: 0x00ff7f,
+    steelblue: 0x4682b4,
+    tan: 0xd2b48c,
+    teal: 0x008080,
+    thistle: 0xd8bfd8,
+    tomato: 0xff6347,
+    turquoise: 0x40e0d0,
+    violet: 0xee82ee,
+    wheat: 0xf5deb3,
+    white: 0xffffff,
+    whitesmoke: 0xf5f5f5,
+    yellow: 0xffff00,
+    yellowgreen: 0x9acd32
+  };
+
+  define$1(Color$1, color$1, {
+    copy: function(channels) {
+      return Object.assign(new this.constructor, this, channels);
+    },
+    displayable: function() {
+      return this.rgb().displayable();
+    },
+    hex: color_formatHex$1, // Deprecated! Use color.formatHex.
+    formatHex: color_formatHex$1,
+    formatHsl: color_formatHsl$1,
+    formatRgb: color_formatRgb$1,
+    toString: color_formatRgb$1
+  });
+
+  function color_formatHex$1() {
+    return this.rgb().formatHex();
+  }
+
+  function color_formatHsl$1() {
+    return hslConvert$1(this).formatHsl();
+  }
+
+  function color_formatRgb$1() {
+    return this.rgb().formatRgb();
+  }
+
+  function color$1(format) {
+    var m, l;
+    format = (format + "").trim().toLowerCase();
+    return (m = reHex$1.exec(format)) ? (l = m[1].length, m = parseInt(m[1], 16), l === 6 ? rgbn$1(m) // #ff0000
+        : l === 3 ? new Rgb$1((m >> 8 & 0xf) | (m >> 4 & 0xf0), (m >> 4 & 0xf) | (m & 0xf0), ((m & 0xf) << 4) | (m & 0xf), 1) // #f00
+        : l === 8 ? rgba$1(m >> 24 & 0xff, m >> 16 & 0xff, m >> 8 & 0xff, (m & 0xff) / 0xff) // #ff000000
+        : l === 4 ? rgba$1((m >> 12 & 0xf) | (m >> 8 & 0xf0), (m >> 8 & 0xf) | (m >> 4 & 0xf0), (m >> 4 & 0xf) | (m & 0xf0), (((m & 0xf) << 4) | (m & 0xf)) / 0xff) // #f000
+        : null) // invalid hex
+        : (m = reRgbInteger$1.exec(format)) ? new Rgb$1(m[1], m[2], m[3], 1) // rgb(255, 0, 0)
+        : (m = reRgbPercent$1.exec(format)) ? new Rgb$1(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, 1) // rgb(100%, 0%, 0%)
+        : (m = reRgbaInteger$1.exec(format)) ? rgba$1(m[1], m[2], m[3], m[4]) // rgba(255, 0, 0, 1)
+        : (m = reRgbaPercent$1.exec(format)) ? rgba$1(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, m[4]) // rgb(100%, 0%, 0%, 1)
+        : (m = reHslPercent$1.exec(format)) ? hsla$1(m[1], m[2] / 100, m[3] / 100, 1) // hsl(120, 50%, 50%)
+        : (m = reHslaPercent$1.exec(format)) ? hsla$1(m[1], m[2] / 100, m[3] / 100, m[4]) // hsla(120, 50%, 50%, 1)
+        : named$1.hasOwnProperty(format) ? rgbn$1(named$1[format]) // eslint-disable-line no-prototype-builtins
+        : format === "transparent" ? new Rgb$1(NaN, NaN, NaN, 0)
+        : null;
+  }
+
+  function rgbn$1(n) {
+    return new Rgb$1(n >> 16 & 0xff, n >> 8 & 0xff, n & 0xff, 1);
+  }
+
+  function rgba$1(r, g, b, a) {
+    if (a <= 0) r = g = b = NaN;
+    return new Rgb$1(r, g, b, a);
+  }
+
+  function rgbConvert$1(o) {
+    if (!(o instanceof Color$1)) o = color$1(o);
+    if (!o) return new Rgb$1;
+    o = o.rgb();
+    return new Rgb$1(o.r, o.g, o.b, o.opacity);
+  }
+
+  function rgb$1(r, g, b, opacity) {
+    return arguments.length === 1 ? rgbConvert$1(r) : new Rgb$1(r, g, b, opacity == null ? 1 : opacity);
+  }
+
+  function Rgb$1(r, g, b, opacity) {
+    this.r = +r;
+    this.g = +g;
+    this.b = +b;
+    this.opacity = +opacity;
+  }
+
+  define$1(Rgb$1, rgb$1, extend$1(Color$1, {
+    brighter: function(k) {
+      k = k == null ? brighter$1 : Math.pow(brighter$1, k);
+      return new Rgb$1(this.r * k, this.g * k, this.b * k, this.opacity);
+    },
+    darker: function(k) {
+      k = k == null ? darker$1 : Math.pow(darker$1, k);
+      return new Rgb$1(this.r * k, this.g * k, this.b * k, this.opacity);
+    },
+    rgb: function() {
+      return this;
+    },
+    displayable: function() {
+      return (-0.5 <= this.r && this.r < 255.5)
+          && (-0.5 <= this.g && this.g < 255.5)
+          && (-0.5 <= this.b && this.b < 255.5)
+          && (0 <= this.opacity && this.opacity <= 1);
+    },
+    hex: rgb_formatHex$1, // Deprecated! Use color.formatHex.
+    formatHex: rgb_formatHex$1,
+    formatRgb: rgb_formatRgb$1,
+    toString: rgb_formatRgb$1
+  }));
+
+  function rgb_formatHex$1() {
+    return "#" + hex$1(this.r) + hex$1(this.g) + hex$1(this.b);
+  }
+
+  function rgb_formatRgb$1() {
+    var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
+    return (a === 1 ? "rgb(" : "rgba(")
+        + Math.max(0, Math.min(255, Math.round(this.r) || 0)) + ", "
+        + Math.max(0, Math.min(255, Math.round(this.g) || 0)) + ", "
+        + Math.max(0, Math.min(255, Math.round(this.b) || 0))
+        + (a === 1 ? ")" : ", " + a + ")");
+  }
+
+  function hex$1(value) {
+    value = Math.max(0, Math.min(255, Math.round(value) || 0));
+    return (value < 16 ? "0" : "") + value.toString(16);
+  }
+
+  function hsla$1(h, s, l, a) {
+    if (a <= 0) h = s = l = NaN;
+    else if (l <= 0 || l >= 1) h = s = NaN;
+    else if (s <= 0) h = NaN;
+    return new Hsl$1(h, s, l, a);
+  }
+
+  function hslConvert$1(o) {
+    if (o instanceof Hsl$1) return new Hsl$1(o.h, o.s, o.l, o.opacity);
+    if (!(o instanceof Color$1)) o = color$1(o);
+    if (!o) return new Hsl$1;
+    if (o instanceof Hsl$1) return o;
+    o = o.rgb();
+    var r = o.r / 255,
+        g = o.g / 255,
+        b = o.b / 255,
+        min = Math.min(r, g, b),
+        max = Math.max(r, g, b),
+        h = NaN,
+        s = max - min,
+        l = (max + min) / 2;
+    if (s) {
+      if (r === max) h = (g - b) / s + (g < b) * 6;
+      else if (g === max) h = (b - r) / s + 2;
+      else h = (r - g) / s + 4;
+      s /= l < 0.5 ? max + min : 2 - max - min;
+      h *= 60;
+    } else {
+      s = l > 0 && l < 1 ? 0 : h;
+    }
+    return new Hsl$1(h, s, l, o.opacity);
+  }
+
+  function hsl$1(h, s, l, opacity) {
+    return arguments.length === 1 ? hslConvert$1(h) : new Hsl$1(h, s, l, opacity == null ? 1 : opacity);
+  }
+
+  function Hsl$1(h, s, l, opacity) {
+    this.h = +h;
+    this.s = +s;
+    this.l = +l;
+    this.opacity = +opacity;
+  }
+
+  define$1(Hsl$1, hsl$1, extend$1(Color$1, {
+    brighter: function(k) {
+      k = k == null ? brighter$1 : Math.pow(brighter$1, k);
+      return new Hsl$1(this.h, this.s, this.l * k, this.opacity);
+    },
+    darker: function(k) {
+      k = k == null ? darker$1 : Math.pow(darker$1, k);
+      return new Hsl$1(this.h, this.s, this.l * k, this.opacity);
+    },
+    rgb: function() {
+      var h = this.h % 360 + (this.h < 0) * 360,
+          s = isNaN(h) || isNaN(this.s) ? 0 : this.s,
+          l = this.l,
+          m2 = l + (l < 0.5 ? l : 1 - l) * s,
+          m1 = 2 * l - m2;
+      return new Rgb$1(
+        hsl2rgb$1(h >= 240 ? h - 240 : h + 120, m1, m2),
+        hsl2rgb$1(h, m1, m2),
+        hsl2rgb$1(h < 120 ? h + 240 : h - 120, m1, m2),
+        this.opacity
+      );
+    },
+    displayable: function() {
+      return (0 <= this.s && this.s <= 1 || isNaN(this.s))
+          && (0 <= this.l && this.l <= 1)
+          && (0 <= this.opacity && this.opacity <= 1);
+    },
+    formatHsl: function() {
+      var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
+      return (a === 1 ? "hsl(" : "hsla(")
+          + (this.h || 0) + ", "
+          + (this.s || 0) * 100 + "%, "
+          + (this.l || 0) * 100 + "%"
+          + (a === 1 ? ")" : ", " + a + ")");
+    }
+  }));
+
+  /* From FvD 13.37, CSS Color Module Level 3 */
+  function hsl2rgb$1(h, m1, m2) {
+    return (h < 60 ? m1 + (m2 - m1) * h / 60
+        : h < 180 ? m2
+        : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60
+        : m1) * 255;
+  }
+
   var EOL = {},
       EOF = {},
       QUOTE = 34,
@@ -6789,6 +7170,83 @@
     return new Step(context, 0.5);
   }
 
+  // Based on util.Numerical.js, as part of Paper.js - The Swiss Army Knife of Vector Graphics Scripting.
+  // http://paperjs.org/
+  // Copyright (c) 2011 - 2019, Juerg Lehni & Jonathan Puckey
+  // http://scratchdisk.com/ & https://puckey.studio/
+  //
+  // Distributed under the MIT license. See LICENSE file for detail
+  //
+  // All rights reserved.
+
+  /**
+  * A very small absolute value used to check if a value is very close to
+  * zero. The value should be large enough to offset any floating point
+  * noise, but small enough to be meaningful in computation in a nominal
+  * range (see MACHINE_EPSILON).
+  *
+  * http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
+  * http://www.cs.berkeley.edu/~wkahan/Math128/Cubic.pdf
+  */
+  const EPSILON = 1e-12;
+
+  /**
+  * The epsilon to be used when performing "trigonometric" checks, such
+  * as examining cross products to check for collinearity.
+  */
+  const TRIGONOMETRIC_EPSILON = 1e-8;
+
+  /**
+  * Checks if the value is 0, within a tolerance defined by
+  * Numerical.EPSILON.
+  */
+  function isZero(val) {
+  	return val >= -EPSILON && val <= EPSILON;
+  }
+
+  // Based on basic.Point.js, as part of Paper.js - The Swiss Army Knife of Vector Graphics Scripting.
+
+  class Point$1 {
+  	
+  	constructor(x, y) {
+  		this.x = x;
+  		this.y = y;
+  	}
+
+  	transform(matrix) {
+          return matrix ? matrix._transformPoint(this) : this;
+  	}
+
+  	negate() {
+          return new Point$1(-this.x, -this.y);
+      }
+
+  	subtract(point) {
+  		return new Point$1(this.x - point.x, this.y - point.y);
+  	}
+
+      isZero() {
+      	return isZero(this.x) && isZero(this.y)
+      }
+
+  	/**
+  	* Checks if the vector represented by this point is collinear (parallel) to
+  	* another vector.
+  	*
+  	* @param {Point} point the vector to check against
+  	* @return {Boolean} {@true it is collinear}
+  	*/
+       isCollinear(point) {
+       	let x1 = this.x,
+       		y1 = this.y,
+       		x2 = point.x,
+       		y2 = point.y;
+       	return Math.abs(x1 * y2 - y1 * x2) <= Math.sqrt((x1 * x1 + y1 * y1) * (x2 * x2 + y2 * y2)) 
+       		* /*#=*/TRIGONOMETRIC_EPSILON;
+      }
+
+  }
+
   class Rectangle {
 
   	constructor(left, top, width, height) {
@@ -6796,9 +7254,6 @@
   		this.top = top;
   		this.width = width;
   		this.height = height;
-  		this.right = left + width;
-  		this.bottom = top + height;
-  		//this.center = {x: (this.left + this.right)/2, y: (this.top + this.bottom)/2}
   	}
 
   	union(rect) {
@@ -6813,8 +7268,17 @@
   		return new Rectangle(this.left, this.top, this.width, this.height);
   	}
 
+  	get right() {
+  		return this.left + this.width;
+  	}
+
+  	get bottom() {
+  		return this.top + this.height;
+  	}
+
   	get center() {
-  		return {x: (this.left + this.right)/2, y: (this.top + this.bottom)/2};
+  		return new Point$1((this.left + this.right)/2, (this.top + this.bottom)/2);
+  		//return {x: (this.left + this.right)/2, y: (this.top + this.bottom)/2};
   	}
 
   	get cx() {
@@ -6918,6 +7382,7 @@
   	"opacity": "opacity",
   	"fontSize": "font-size",
   	"fontFamily": "font-family",
+  	"fontWeight": "font-weight",
   	"visibility": "visibility"
   };
 
@@ -6954,83 +7419,6 @@
   	INCORRECT_CONSTRAINT_INFO: "Constrain information is incorreclty passed",
   	FEATURE_NOT_IMPLEMENTED: "This feature has not been implemented yet"
   };
-
-  // Based on util.Numerical.js, as part of Paper.js - The Swiss Army Knife of Vector Graphics Scripting.
-  // http://paperjs.org/
-  // Copyright (c) 2011 - 2019, Juerg Lehni & Jonathan Puckey
-  // http://scratchdisk.com/ & https://puckey.studio/
-  //
-  // Distributed under the MIT license. See LICENSE file for detail
-  //
-  // All rights reserved.
-
-  /**
-  * A very small absolute value used to check if a value is very close to
-  * zero. The value should be large enough to offset any floating point
-  * noise, but small enough to be meaningful in computation in a nominal
-  * range (see MACHINE_EPSILON).
-  *
-  * http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
-  * http://www.cs.berkeley.edu/~wkahan/Math128/Cubic.pdf
-  */
-  const EPSILON = 1e-12;
-
-  /**
-  * The epsilon to be used when performing "trigonometric" checks, such
-  * as examining cross products to check for collinearity.
-  */
-  const TRIGONOMETRIC_EPSILON = 1e-8;
-
-  /**
-  * Checks if the value is 0, within a tolerance defined by
-  * Numerical.EPSILON.
-  */
-  function isZero(val) {
-  	return val >= -EPSILON && val <= EPSILON;
-  }
-
-  // Based on basic.Point.js, as part of Paper.js - The Swiss Army Knife of Vector Graphics Scripting.
-
-  class Point$1 {
-  	
-  	constructor(x, y) {
-  		this.x = x;
-  		this.y = y;
-  	}
-
-  	transform(matrix) {
-          return matrix ? matrix._transformPoint(this) : this;
-  	}
-
-  	negate() {
-          return new Point$1(-this.x, -this.y);
-      }
-
-  	subtract(point) {
-  		return new Point$1(this.x - point.x, this.y - point.y);
-  	}
-
-      isZero() {
-      	return isZero(this.x) && isZero(this.y)
-      }
-
-  	/**
-  	* Checks if the vector represented by this point is collinear (parallel) to
-  	* another vector.
-  	*
-  	* @param {Point} point the vector to check against
-  	* @return {Boolean} {@true it is collinear}
-  	*/
-       isCollinear(point) {
-       	let x1 = this.x,
-       		y1 = this.y,
-       		x2 = point.x,
-       		y2 = point.y;
-       	return Math.abs(x1 * y2 - y1 * x2) <= Math.sqrt((x1 * x1 + y1 * y1) * (x2 * x2 + y2 * y2)) 
-       		* /*#=*/TRIGONOMETRIC_EPSILON;
-      }
-
-  }
 
   // Based on item.Item.js, as part of Paper.js - The Swiss Army Knife of Vector Graphics Scripting.
 
@@ -7099,6 +7487,10 @@
   			m._dataScope = this._dataScope.clone();
   		}
   		return m;
+  	}
+
+  	translate(dx, dy){
+  		//child classes have their own implementations
   	}
 
   	// transform2(matrix, _applyMatrix, _applyRecursively, _setApplyMatrix) {
@@ -7226,8 +7618,8 @@
   		this.width = 0;
   		this.height = 0;
   		this.radius = 0;
-  		this.fillColor = undefined;
-  		this.opacity = undefined;
+  		this.fillColor = "#555";
+  		this.opacity = 1;
   		this.strokeWidth = 0;
   		this.strokeColor = "#aaa";
   	}
@@ -7241,7 +7633,7 @@
   		this.y += dy;
   	}
 
-  	clone(parent) {
+  	_clone(parent) {
   		let v = new Vertex(new Point$1(this.x, this.y));
   		v.id = this.id;
   		v.parent = parent;
@@ -7259,6 +7651,8 @@
   		return v;
   	}
   }
+
+  Vertex.styles = ["vxShape", "vxWidth", "vxHeight", "vxRadius", "vxFillColor", "vxStrokeColor", "vxStrokeWidth", "vxOpacity"];
 
   class Segment {
   	
@@ -7307,19 +7701,21 @@
 
   		this.curveMode = "linear";
 
-  		if (args !== undefined) {
-  			// for (let s in Attr2SVG) {
-  			// 	if (args.hasOwnProperty(s)) {
-  			// 		this.attrs[s] = args[s];
-  			// 	}
-  			// }
+  		this._vxShape = undefined;
+  		this._vxWidth = 0;
+  		this._vxHeight = 0;
+  		this._vxRadius = 0;
+  		this._vxFillColor = "#555";
+  		this._vxStrokeColor = "#aaa";
+  		this._vxStrokeWidth = 0;
+  		this._vxOpacity = 1;
 
-  			// for (let s in Style2SVG) {
-  			// 	if (args.hasOwnProperty(s)) {
-  			// 		this.styles[s] = args[s];
-  			// 	}
-  			// }
-  			
+  		if (args !== undefined) {
+  			for (let vs of Vertex.styles){
+  				if (args.hasOwnProperty(vs))
+  					this["_" + vs] = args[vs];
+  			}
+
   			if (args.hasOwnProperty("vertices")) {
   				this._setVertices(args["vertices"]);
   			}		}
@@ -7327,26 +7723,41 @@
 
   	_setVertices(vertices) {
   		let vertex, point;
+  		this.vertices = [];
+  		this.segments = [];
   		for (let i = 0; i < vertices.length; i++) {
   			point = new Point$1(vertices[i][0], vertices[i][1]);
 
   			vertex = new Vertex(point, this, this.vertexCounter++);
+
+  			for (let vs of Vertex.styles){
+  				if (this[vs]){
+  					let temp = vs.replace("vx", "");
+  					vertex[temp[0].toLowerCase() + temp.slice(1)] = this[vs];
+  				}
+  			}
+
   			this.vertices.push(vertex);
   			if (i > 0)
   				this.segments.push(new Segment(this.vertices[i-1], this.vertices[i], this, this.segmentCounter++));
   		}
-  		// if (vertices.length == 2 && vertices[0].handleOut.isZero() && vertices[0].handleIn.isZero())
-  		// 	this.type = ItemType.Line;
   	}
 
   	copyPropertiesTo(target) {
   		target.attrs = Object.assign({}, this.attrs);
   		target.styles = Object.assign({}, this.styles);
+  		for (let vs of Vertex.styles){
+  			if (this["_"+vs])
+  				target["_"+vs] = this["_"+vs];
+  		}
   		if (this._dataScope)
   			target._dataScope = this._dataScope.clone();
   		target.closed = this.closed;
+  		target.curveMode = this.curveMode;
+  		target.vertices = [];
+  		target.segments = [];
   		for (let v of this.vertices) {
-  			target.vertices.push(v.clone(target));
+  			target.vertices.push(v._clone(target));
   		}
   		target.segmentCounter = 0;
   		for (let i = 1; i < target.vertices.length; i++) {
@@ -7378,6 +7789,38 @@
   	get center() {
   		let b = this.bounds;
   		return new Point$1(b.left + b.width/2, b.top + b.height/2);
+  	}
+
+  	get strokeColor() {
+  		return this.styles["strokeColor"];
+  	}
+
+  	set strokeColor(c) {
+  		this.styles["strokeColor"] = c;
+  	}
+
+  	get strokeWidth() {
+  		return this.styles["strokeWidth"];
+  	}
+
+  	set strokeWidth(c) {
+  		this.styles["strokeWidth"] = c;
+  	}
+
+  	get fillColor() {
+  		return this.styles["fillColor"];
+  	}
+
+  	set fillColor(c) {
+  		this.styles["fillColor"] = c;
+  	}
+
+  	get opacity() {
+  		return this.styles["opacity"];
+  	}
+
+  	set opacity(c) {
+  		this.styles["opacity"] = c;
   	}
 
   	// get untransformedBounds() {
@@ -7419,14 +7862,30 @@
   		//TODO: handle segments
   	}
 
-  	sortVertices(args) {
-  		if (args.channel && (args.channel == "x" || args.channel == "y")) {
-  			this.vertices.sort((a,b) => a[args.channel] - b[args.channel]);
-  			for (let i = 0; i < this.segments.length; i++) {
-  				let segment = this.segments[i];
-  				segment.vertex1 = this.vertices[i];
-  				segment.vertex2 = this.vertices[(i+1)%this.vertices.length];
-  			}
+  	sortVertices(channel, descending) {
+  		this.vertices.sort((a,b) => a[channel] - b[channel]);
+  		if (descending)
+  			this.vertices.reverse();
+  		for (let i = 0; i < this.segments.length; i++) {
+  			let segment = this.segments[i];
+  			segment.vertex1 = this.vertices[i];
+  			segment.vertex2 = this.vertices[(i+1)%this.vertices.length];
+  		}
+  	}
+
+  	sortVerticesByData(field, descending, order) {
+  		let f;
+  		if (order)
+  			f = (a, b) => order.indexOf(a.dataScope.getFieldValue(field)) - order.indexOf(b.dataScope.getFieldValue(field));
+  		else
+  			f = (a, b) =>  (a.dataScope.getFieldValue(field) < b.dataScope.getFieldValue(field) ? -1 : 1 );
+  		this.vertices.sort(f);
+  		if (descending)
+  			this.vertices.reverse();
+  		for (let i = 0; i < this.segments.length; i++) {
+  			let segment = this.segments[i];
+  			segment.vertex1 = this.vertices[i];
+  			egment.vertex2 = this.vertices[(i+1)%this.vertices.length];
   		}
   	}
 
@@ -7452,7 +7911,7 @@
 
   	}
 
-  	get anyVertex() {
+  	get firstVertex() {
   		return this.vertices[0];
   	}
 
@@ -7478,6 +7937,88 @@
   				return curveLinear;
   		}
   	}
+
+  	get vxShape(){
+  		return this._vxShape;
+  	}
+
+  	set vxShape(s){
+  		this._vxShape = s;
+  		for (let v of this.vertices)
+  			v.shape = s;
+  	}
+
+  	get vxWidth(){
+  		return this._vxWidth;
+  	}
+
+  	set vxWidth(s){
+  		this._vxWidth = s;
+  		for (let v of this.vertices)
+  			v.width = s;
+  	}
+
+  	get vxHeight(){
+  		return this._vxHeight;
+  	}
+
+  	set vxHeight(s){
+  		this._vxHeight = s;
+  		for (let v of this.vertices)
+  			v.height = s;
+  	}
+
+  	get vxRadius(){
+  		return this._vxRadius;
+  	}
+
+  	set vxRadius(s){
+  		this._vxRadius = s;
+  		for (let v of this.vertices)
+  			v.radius = s;
+  	}
+
+  	get vxFillColor(){
+  		return this._vxFillColor;
+  	}
+
+  	set vxFillColor(s){
+  		this._vxFillColor = s;
+  		for (let v of this.vertices)
+  			v.fillColor = s;
+  	}
+
+  	get vxStrokeColor(){
+  		return this._vxStrokeColor;
+  	}
+
+  	set vxStrokeColor(s){
+  		this._vxStrokeColor = s;
+  		for (let v of this.vertices)
+  			v.strokeColor = s;
+  	}
+
+  	get vxStrokeWidth(){
+  		return this._vxStrokeWidth;
+  	}
+
+  	set vxStrokeWidth(s){
+  		this._vxStrokeWidth = s;
+  		for (let v of this.vertices)
+  			v.strokeWidth = s;
+  	}
+
+  	get vxOpacity(){
+  		return this._vxOpacity;
+  	}
+
+  	set vxOpacity(s){
+  		this._vxOpacity = s;
+  		for (let v of this.vertices)
+  			v.opacity = s;
+  	}
+
+
   }
 
   class RectPath extends Path$1 {
@@ -7515,6 +8056,14 @@
 
   	get top() {
   		return this.vertices[0].y;
+  	}
+
+  	get right() {
+  		return this.vertices[1].x;
+  	}
+
+  	get bottom() {
+  		return this.vertices[2].y;
   	}
 
   	get center() {
@@ -7686,6 +8235,19 @@
   	return undefined;
   }
 
+  function getCellBoundsInGridLayout(item) {
+  	let itm = item, parent = item.parent;
+  	while (parent && parent.type != ItemType.Scene) {
+  		if (parent.layout && parent.layout.type == Layout.Grid){
+  			let idx = parent.children.findIndex(d => d == itm);
+  			return parent.layout.cellBounds[idx];
+  		}
+  		itm = itm.parent;
+  		parent = itm.parent;
+  	}
+  	return undefined;
+  }
+
   function getEncodingKey(item) {
   	if (item.classId) {
   		return item.classId;
@@ -7840,9 +8402,21 @@
   	}
   }
 
-  class GridLayout {
+  class Layout$1 {
+
+      constructor(args){
+          this.group = undefined;
+      }
+
+      run(){}
+
+      clone(){}
+  }
+
+  class GridLayout extends Layout$1 {
 
   	constructor(args) {
+  		super();
   		this.type = "grid";
   		this._numCols = args["numCols"];
   		this._numRows = args["numRows"];
@@ -7868,14 +8442,14 @@
 
   	get cellBounds() {
   		if (this._numRows) {
-  			this._numCols = Math.ceil(this.collection.children.length/this._numRows);
+  			this._numCols = Math.ceil(this.group.children.length/this._numRows);
   		} else if (this._numCols) {
-  			this._numRows = Math.ceil(this.collection.children.length/this._numCols);
+  			this._numRows = Math.ceil(this.group.children.length/this._numCols);
   		}
-  		let collection = this.collection, numCol = this._numCols, numRow = this._numRows,
+  		let group = this.group, numCol = this._numCols, numRow = this._numRows,
   			hGap = this._hGap, vGap = this._vGap;
 
-  		let bounds = collection.children.map(d => d.bounds);
+  		let bounds = group.children.map(d => d.bounds);
 
   		if (this._left === undefined) {
   			let lefts = bounds.map(d => d.left),
@@ -7890,14 +8464,14 @@
   			cellHeight = Math.max(...hts);
 
   		//TODO: cell size should be determined by the scale range extent if bound to data
-  		//analyze the collection's children to see if 
+  		//analyze the group's children to see if 
   		
   		//console.log("cell size based on item bounds", cellWidth, cellHeight);
 
-  		let xEncs = this.collection.getInternalEncodings("x"),
-  			yEncs = this.collection.getInternalEncodings("y"),
-  			wdEncs = this.collection.getInternalEncodings("width"),
-  			htEncs = this.collection.getInternalEncodings("height");
+  		let xEncs = group.getInternalEncodings("x"),
+  			yEncs = group.getInternalEncodings("y"),
+  			wdEncs = group.getInternalEncodings("width"),
+  			htEncs = group.getInternalEncodings("height");
 
   		let leftOffset = 0;
   		if (xEncs.length > 0) {
@@ -7915,25 +8489,25 @@
   			
   		//console.log("cell size based on scale", cellWidth, cellHeight);
 
-  		return collection.children.map((d, i) => new Rectangle(this._left + (cellWidth + hGap) * (i%numCol) + leftOffset, 
+  		return group.children.map((d, i) => new Rectangle(this._left + (cellWidth + hGap) * (i%numCol) + leftOffset, 
   			this._top + (cellHeight + vGap) * Math.floor(i/numCol), cellWidth, cellHeight));
   	}
 
   	run() {
-  		if (this.collection == undefined)
+  		if (this.group == undefined)
   			return;
 
   		let cellBounds = this.cellBounds;
 
-  		let xEncs = this.collection.getInternalEncodings("x"),
-  			yEncs = this.collection.getInternalEncodings("y"),
-  			wdEncs = this.collection.getInternalEncodings("width"),
-  			htEncs = this.collection.getInternalEncodings("height");
+  		let xEncs = this.group.getInternalEncodings("x"),
+  			yEncs = this.group.getInternalEncodings("y"),
+  			wdEncs = this.group.getInternalEncodings("width"),
+  			htEncs = this.group.getInternalEncodings("height");
   		
-  		let scene = this.collection.getScene();
+  		let scene = this.group.getScene();
 
-  		for (let i = 0; i < this.collection.children.length; i++) {
-  			let c = this.collection.children[i]; 
+  		for (let i = 0; i < this.group.children.length; i++) {
+  			let c = this.group.children[i]; 
   			let gridBound = cellBounds[i];
 
   			let dx = gridBound.center.x - c.bounds.center.x,
@@ -7996,14 +8570,14 @@
   			}
   		}
 
-  		this.collection._updateBounds();
+  		this.group._updateBounds();
   	}
 
   	//TODO: add a corresponding scene level operation, automatically relayout
   	set hGap(g) {
   		this._hGap = g;
   		this.run();
-  		this.collection.getScene()._relayoutAncestors(this.collection);
+  		this.group.getScene()._relayoutAncestors(this.group);
   	}
 
   	get hGap() {
@@ -8013,7 +8587,7 @@
   	set vGap(g) {
   		this._vGap = g;
   		this.run();
-  		this.collection.getScene()._relayoutAncestors(this.collection);
+  		this.group.getScene()._relayoutAncestors(this.group);
   	}
 
   	get vGap() {
@@ -8022,9 +8596,9 @@
 
   	set numCols(c) {
   		this._numCols = c;
-  		this._numRows = Math.ceil(this.collection.children.length/c);
+  		this._numRows = Math.ceil(this.group.children.length/c);
   		this.run();
-  		this.collection.getScene()._relayoutAncestors(this.collection);
+  		this.group.getScene()._relayoutAncestors(this.group);
   	}
 
   	get numCols() {
@@ -8183,7 +8757,7 @@
   	set layout(l) {
   		//TODO: reset matrix if needed, e.g. when switching from polar to grid
   		this._layout = l;
-  		l.collection = this;
+  		l.group = this;
   		this._layout.run();
   	}
 
@@ -8219,7 +8793,7 @@
   		}
   	}
 
-  	sortChildrenByData(field, direction, order) {
+  	sortChildrenByData(field, reverse, order) {
   		let type = this.children[0].dataScope.getFieldType(field);
   		let f; 
   		switch (type) {
@@ -8227,19 +8801,36 @@
   				break;
   			case DataType.Number:
   			case DataType.Integer:
-  				f = direction == "ascending" ? (a, b) =>  a.dataScope.aggregateNumericalField(field) - b.aggregateNumericalField(field) : 
-  													(a, b) => b.dataScope.aggregateNumericalField(field) - a.aggregateNumericalField(field);
+  				f = (a, b) =>  a.dataScope.aggregateNumericalField(field) - b.aggregateNumericalField(field);
   				break;
   			case DataType.String:
   				if (order)
-  					f = direction == "ascending" ? (a, b) => order.indexOf(a.dataScope.getFieldValue(field)) - order.indexOf(b.dataScope.getFieldValue(field))  :
-  											(a, b) => order.indexOf(b.dataScope.getFieldValue(field)) - order.indexOf(a.dataScope.getFieldValue(field));
+  					f = (a, b) => order.indexOf(a.dataScope.getFieldValue(field)) - order.indexOf(b.dataScope.getFieldValue(field));
   				else
-  					f = direction == "ascending" ? (a, b) =>  (a.dataScope.getFieldValue(field) < b.dataScope.getFieldValue(field) ? -1 : 1 ) : 
-  													(a, b) => ( a.dataScope.getFieldValue(field) < b.dataScope.getFieldValue(field) ? 1 : -1 );
+  					f = (a, b) =>  (a.dataScope.getFieldValue(field) < b.dataScope.getFieldValue(field) ? -1 : 1 );
   				break;
   		}
   		this.children.sort(f);
+  		if (reverse)
+  			this.children.reverse();
+  	}
+
+  	sortChildren(channel, reverse){
+  		let f;
+  		switch (channel){
+  			case "x":
+  			case "y":
+  			case "width":
+  			case "height":
+  				f = (a, b) => a.bounds[channel] - b.bounds[channel];
+  				break;
+  			default:
+  				f = (a, b) => a[channel] - b[channel];
+  				break;
+  		}
+  		this.children.sort(f);
+  		if (reverse)
+  			this.children.reverse();
   	}
   }
 
@@ -8437,9 +9028,10 @@
   	return coll;
   }
 
-  class StackLayout {
+  class StackLayout extends Layout$1 {
 
   	constructor(args) {
+  		super(args);
   		this.type = "stack";
   		//o, left, top, baseline
   		this._orientation = args.orientation;
@@ -8458,24 +9050,24 @@
   	}
 
   	_stackAreas() {
-  		let baseChild = this.collection.children[0];
+  		let baseChild = this.group.children[0];
   		let recordNum = baseChild.vertices.length / 2;
   		let shift = new Array(recordNum).fill(0);
   		let orientation = CheckAreaOrien(baseChild);
   		// think about how to reduce the number of For loops
-  		for (let area of this.collection.children) {
+  		for (let area of this.group.children) {
   			for (let i=0; i<recordNum; i++) {
   				let c1 = area.vertices[i];
   				let c2 = area.vertices[recordNum*2-i-1];
   				let offdistance;
   				switch (orientation) {
   					case Orientation.Horizontal:
-  						offdistance = this._vertCellAlignment == Alignment.Bottom ? this.collection.bounds.bottom - c2.y : this.collection.bounds.top - c2.y;
+  						offdistance = this._vertCellAlignment == Alignment.Bottom ? this.group.bounds.bottom - c2.y : this.group.bounds.top - c2.y;
   						c1.translate(0, offdistance);
   						c2.translate(0, offdistance);
   						break;
   					case Orientation.Vertical:
-  						offdistance = this._horzCellAlignment == Alignment.Left ? this.collection.bounds.left - c2.x : this.collection.bounds.right - c2.x;
+  						offdistance = this._horzCellAlignment == Alignment.Left ? this.group.bounds.left - c2.x : this.group.bounds.right - c2.x;
   						c1.translate(offdistance, 0);
   						c2.translate(offdistance, 0);
   						break;
@@ -8483,7 +9075,7 @@
   			}
   			area._updateBounds();
   		}
-  		for (let area of this.collection.children) {
+  		for (let area of this.group.children) {
   			for (let i=0; i<recordNum; i++) {
   				let c1 = area.vertices[i];
   				let c2 = area.vertices[recordNum*2-i-1];
@@ -8502,10 +9094,10 @@
   			}
   			area._updateBounds();
   		}
-  		this.collection._updateBounds();
-  		let height = this.collection._bounds.height, width = this.collection._bounds.width;
+  		this.group._updateBounds();
+  		let height = this.group._bounds.height, width = this.group._bounds.width;
   		if (this.baseline == Alignment.Center || this.baseline == Alignment.Middle) {
-  			for (let area of this.collection.children) {
+  			for (let area of this.group.children) {
   				for (let i=0; i<recordNum; i++) {
   					let c1 = area.vertices[i];
   					let c2 = area.vertices[recordNum*2-i-1];
@@ -8526,13 +9118,13 @@
   				area._updateBounds();
   			}
   		}
-  		this.collection._updateBounds();
+  		this.group._updateBounds();
   	}	
 
   	_stackRects() {
-  		let scene = this.collection.getScene();
-  		let collection = this.collection, o = this._orientation;
-  		let bounds = collection.children.map(d => d.bounds);
+  		let scene = this.group.getScene();
+  		let group = this.group, o = this._orientation;
+  		let bounds = group.children.map(d => d.bounds);
   		let lefts = bounds.map(d => d.left),
   			tops = bounds.map(d => d.top),
   			wds = bounds.map(d => d.width),
@@ -8543,8 +9135,8 @@
   		let maxWd = Math.max(...wds), maxHt = Math.max(...hts);
   		if (o == Orientation.Vertical) {
   			let centerX = left + maxWd/2;
-  			for (let i = 0; i < collection.children.length; i++) {
-  				let c = collection.children[i]; 
+  			for (let i = 0; i < group.children.length; i++) {
+  				let c = group.children[i]; 
   				let dx = centerX - c.bounds.center.x,
   					dy = top + c.bounds.height/2 - c.bounds.center.y;
   				top += c.bounds.height;
@@ -8569,8 +9161,8 @@
   			}
   		} else {
   			let centerY = top + maxHt/2;
-  			for (let i = 0; i < collection.children.length; i++) {
-  				let c = collection.children[i]; 
+  			for (let i = 0; i < group.children.length; i++) {
+  				let c = group.children[i]; 
   				let dx = left + c.bounds.width/2 - c.bounds.center.x,
   					dy = centerY - c.bounds.center.y;
   				left += c.bounds.width;
@@ -8595,13 +9187,13 @@
   				c.translate(cdx, cdy);
   			}
   		}
-  		this.collection._updateBounds();	
+  		this.group._updateBounds();	
   	}
 
   	run() {
-  		if (this.collection == undefined)
+  		if (this.group == undefined)
   			return;
-  		if (this.collection.children[0].type == "area") {
+  		if (this.group.children[0].type == "area") {
   			this._stackAreas();
   		} else {
   			this._stackRects();	
@@ -8633,7 +9225,7 @@
   	}
 
   	get cellBounds() {
-  		return this.collection.children.map(d => d.bounds);
+  		return this.group.children.map(d => d.bounds);
   	}
   }
 
@@ -8722,6 +9314,10 @@
   		ds = ds.filter(d => !d.isEmpty());
 
   		let args = Object.assign({}, p.styles);
+  		for (let vs of Vertex.styles){
+  			if (p[vs])
+  				args[vs] = p[vs];
+  		}
   		//args = Object.assign(args, compnt.attrs);
   		//compute vertices
   		let x1 = p.vertices[0].x,
@@ -9025,6 +9621,10 @@
   		let polygon = scene.mark("polygon", {cx: p.cx, cy: p.cy, radius: p.radius, vertices:vertices});
   		polygon.dataScope = circDS;
   		polygon.styles = Object.assign({}, p.styles);
+  		for (let vs of Vertex.styles){
+  			if (p[vs])
+  				polygon[vs] = p[vs];
+  		}
 
   		let parent = p.parent;
   		parent.addChild(polygon);
@@ -9109,7 +9709,7 @@
   		this.closed = true;
   		this._cx = args.hasOwnProperty("cx") ? args.cx : 0;
   		this._cy = args.hasOwnProperty("cy") ? args.cy : 0;
-  		this._radius = args.hasOwnProperty("radius") ? args.radius : 0;
+  		this._radius = args.hasOwnProperty("radius") ? args.radius : 100;
   	}
 
   	get radius() {
@@ -10082,8 +10682,8 @@
   				//scale = createScale("linear");
   				min = Math.min(...this.data); 
   				max = Math.max(...this.data);
-  				//scale.domain = (this.startFromZero || min < 0)? [0, max] : [min, max];
-  				domain = this.startFromZero ? [0, max] : [min, max];
+  				//scale.domain = (this.includeZero || min < 0)? [0, max] : [min, max];
+  				domain = this.includeZero ? [0, max] : [min, max];
   				if (this.scale) {
   					domain = Scale.mergeDomain(domain, this.scale.domain);
   					extent = Math.abs(this.scale.map(domain[0]) - this.scale.map(domain[1]));
@@ -10353,13 +10953,13 @@
 
   	encoding._apply = function() {
   		// Iterate through peers
-  		let peer, prevEnd = 0;
-        for (let i = 0; i < this.items.length; i++) {
+  		let peer, prevEnd = 90;
+      	for (let i = 0; i < this.items.length; i++) {
   			peer = this.items[i];
 
-           // The encoded pie will start at the end of the previous adjusted pie
+           	// The encoded pie will start at the end of the previous adjusted pie
   			let startAngle = prevEnd;
-  			let angle = this.scale.map(this.data[i]);
+  			let angle = -this.scale.map(this.data[i]);
 
   			// Pie function will update the end angle to be used in next iteration and return it
   			prevEnd = peer.adjustAngle(startAngle, angle);
@@ -10444,14 +11044,14 @@
   				scale = createScale("linear");
   				min = Math.min(...this.data); 
   				max = Math.max(...this.data);
-  				scale.domain = (this.startFromZero || min < 0)? [0, max] : [min, max];	
+  				scale.domain = (this.includeZero || min < 0)? [0, max] : [min, max];	
   				break;
 
   			default: //integer or number
   				scale = createScale("linear");
   				min = Math.min(...this.data); 
   				max = Math.max(...this.data);
-  				scale.domain = (this.startFromZero || min < 0)? [0, max] : [min, max];
+  				scale.domain = (this.includeZero || min < 0)? [0, max] : [min, max];
   				break;
   		}
 
@@ -10712,12 +11312,17 @@
   		this.datatable = args.datatable;
   		this.scale = args.scale;
   		this.callback = args.callback;
-  		this.startFromZero = args.startFromZero;
+  		this.includeZero = args.includeZero;
   		this.invertScale = args.invertScale;
   		this.mapping = args.mapping;
   		this.rangeExtent = args.rangeExtent;
   		this.scheme = args.scheme;
   		this.scaleType = args.scaleType;
+
+  		if (this.channel == "angle") {
+  			this.startAngle = args.hasOwnProperty("startAngle") ? args.startAngle : 90;
+  			this.angleDirection = args.hasOwnProperty("angleDirection")? args.angleDirection : "clockwise";
+  		}
 
   		//get the data needed for the mapping
   		this._query = undefined;
@@ -10744,43 +11349,58 @@
   			let layout = getClosestLayout(item);
   			let alignment;
   			if (layout) {
-  				alignment = AreaOrientation == Orientation.Vertical ? (layout.type == Layout.Stack ? layout._horzCellAlignment == Alignment.Left : layout._cellHorzAlignment == Alignment.Left) : (layout.type == Layout.Stack ? layout._vertCellAlignment == Alignment.Bottom : layout._cellVertAlignment == Alignment.Bottom);
+  				alignment = AreaOrientation == Orientation.Vertical ? 
+  								(layout.type == Layout.Stack ? 
+  									layout._horzCellAlignment == Alignment.Left : layout._cellHorzAlignment == Alignment.Left) 
+  								: (layout.type == Layout.Stack ? layout._vertCellAlignment == Alignment.Bottom : layout._cellVertAlignment == Alignment.Bottom);
   			}
   			else {
   				alignment = AreaOrientation == Orientation.Vertical ? item.baseline == Alignment.Left : item.baseline == Alignment.Bottom;
   			}
   			// let DomainToBaseline = this.scale.domain[1] > this.scale.domain[0] ? "default" : "opposite"; // controlling the alignment for the axis and the chart
-  			switch (AreaOrientation) {
-  				case Orientation.Horizontal:
-  					switch (this.channel) {
-  						case "height":
-  						case "width": {
-  							let vertices = getPeers(item.anyVertex, this.scene);
-  							let offset = alignment ? Math.max(...vertices.map(d => d.center["y"])) : Math.min(...vertices.map(d => d.center["y"]));
-  							return alignment ? [offset, offset - this.scale.rangeExtent] : [offset + this.scale.rangeExtent, offset];
-  						}
-  						case "x":
-  						case "y": {
-  							let vertices = getPeers(item.anyVertex, this.scene);
-  							let offset = Math.min(...vertices.map(d => d.center["x"]));
-  							return [offset, offset + this.scale.rangeExtent];
-  						}
+  			let cb = getCellBoundsInGridLayout(item);
+  			if (cb) {
+  				switch (this.channel) {
+  					case "x":
+  						return [cb.left, cb.left + this.scale.rangeExtent];
+  					case "width":
+  						return alignment ? [cb.left, cb.left + this.scale.rangeExtent] : [cb.right, cb.right - this.scale.rangeExtent];
+  					case "y":
+  						return [cb.bottom, cb.bottom - this.scale.rangeExtent];
+  					case "height":
+  						return alignment ? [cb.bottom, cb.bottom - this.scale.rangeExtent] : [cb.top, cb.top + this.scale.rangeExtent];
+  				}
+  			} 
+  			if (AreaOrientation == Orientation.Horizontal){
+  				switch (this.channel) {
+  					case "width":
+  					case "height": {
+  						let vertices = getPeers(item.firstVertex, this.scene);
+  						let offset = alignment ? Math.max(...vertices.map(d => d.center["y"])) : Math.min(...vertices.map(d => d.center["y"]));
+  						return alignment ? [offset, offset - this.scale.rangeExtent] : [offset + this.scale.rangeExtent, offset];
   					}
-  				case Orientation.Vertical:
-  					switch (this.channel) {	
-  						case "x":
-  						case "y": {
-  							let vertices = getPeers(item.anyVertex, this.scene);
-  							let offset = Math.max(...vertices.map(d => d.center["y"]));
-  							return [offset, offset - this.scale.rangeExtent];
-  						}
-  						case "height":
-  						case "width": {
-  							let vertices = getPeers(item.anyVertex, this.scene);
-  							let offset = alignment ? Math.min(...vertices.map(d => d.center["x"])) : Math.max(...vertices.map(d => d.center["x"]));
-  							return alignment ? [offset, offset + this.scale.rangeExtent] : [offset - this.scale.rangeExtent, offset];
-  						}
+  					case "x":
+  					case "y": {
+  						let vertices = getPeers(item.firstVertex, this.scene);
+  						let offset = Math.min(...vertices.map(d => d.center["x"]));
+  						return [offset, offset + this.scale.rangeExtent];
   					}
+  				}
+  			} else if (AreaOrientation == Orientation.Vertical){
+  				switch (this.channel) {	
+  					case "x":
+  					case "y": {
+  						let vertices = getPeers(item.firstVertex, this.scene);
+  						let offset = Math.max(...vertices.map(d => d.center["y"]));
+  						return [offset, offset - this.scale.rangeExtent];
+  					}
+  					case "height":
+  					case "width": {
+  						let vertices = getPeers(item.firstVertex, this.scene);
+  						let offset = alignment ? Math.min(...vertices.map(d => d.center["x"])) : Math.max(...vertices.map(d => d.center["x"]));
+  						return alignment ? [offset, offset + this.scale.rangeExtent] : [offset - this.scale.rangeExtent, offset];
+  					}
+  				}
   			}
   		} else if (this.channel == "x") {
   			//if ((item.type == "vertex" || item.type == "segment") && item.parentMarkInLayout()) {
@@ -10844,7 +11464,7 @@
   	//right now only handles one field
       let f = fields[0];
       //TODO: check that can perform kde on f
-      let gf = table.getNonNumericFields();
+      let gf = table.nonNumericFields;
 
       //construct groups
       let g = {};
@@ -10884,7 +11504,7 @@
   	//right now only handles one field
       let f = fields[0];
       //TODO: check that can perform kde on f
-      let gf = table.getNonNumericFields();
+      let gf = table.nonNumericFields;
 
       //construct groups
       let g = {};
@@ -11061,7 +11681,7 @@
   		return "atlas_rowId";
   	}
 
-  	getNonNumericFields() {
+  	get nonNumericFields() {
   		let r = [];
   		for (let f in this._fieldTypes) {
   			if (this._fieldTypes[f] != DataType.Number && this._fieldTypes[f] != DataType.Integer && f != DataTable.RowID) {
@@ -11185,8 +11805,8 @@
       constructor(args) {
   		super(args);
           this.type = ItemType.PointText;
-          this.x = 0;
-          this.y = 0;
+          this._x = 0;
+          this._y = 0;
           if (!this.styles.hasOwnProperty("fontSize"))
               this.styles["fontSize"] = "12px";
           if (!this.styles.hasOwnProperty("fontFamily"))
@@ -11197,9 +11817,12 @@
               this.styles["fillColor"] = "black";
 
           if (args !== undefined) {
-              if (args.hasOwnProperty("position")){
-                  this.x = args["position"][0];
-                  this.y = args["position"][1];
+              if (args.hasOwnProperty("x")){
+                  this._x = args["x"];
+              }
+
+              if (args.hasOwnProperty("y")){
+                  this._y = args["y"];
               }
       
               if (args.hasOwnProperty("text")){
@@ -11220,8 +11843,8 @@
   		target.styles = Object.assign({}, this.styles);
   		if (this._dataScope)
   			target._dataScope = this._dataScope.clone();
-  		target.x = this.x;
-          target.y = this.y;
+  		target.x = this._x;
+          target.y = this._y;
   		target.text = this.text;
   		target.anchor = [this.anchor[0], this.anchor[1]];
   	}
@@ -11243,13 +11866,13 @@
       }
 
       translate(dx, dy) {
-  		this.x += dx;
-          this.y += dy;
+  		this._x += dx;
+          this._y += dy;
   		this._updateBounds();
   	}
 
   	_updateBounds() {
-  		this._bounds = new Rectangle(this.x, this.y, getTextWidth(this._text, [this.fontWeight, this.fontSize, this.fontFamily].join(" ")), 12);
+  		this._bounds = new Rectangle(this._x, this._y, getTextWidth(this._text, [this.fontWeight, this.fontSize, this.fontFamily].join(" ")), 12);
   	}
 
       static getTextAnchor(direction) {
@@ -11263,47 +11886,225 @@
       get center() {
           return {x: this.bounds.left + this.bounds.width/2, y: this.bounds.top + this.bounds.height/2};
       }
+
+      get x() {
+          return this._x;
+      }
+
+      set x(v){
+          this._x = v;
+      }
+
+      get y() {
+          return this._y;
+      }
+
+      set y(v){
+          this._y = v;
+      }
   }
 
-  class EncodingAxis extends Group {
-      
-      //glyph is optional
-  	constructor(encoding, item, args) {
-          super();
-          this.type = ItemType.Axis;
-          this.id = this.type + ItemCounter[this.type]++;
+  class Axis extends Group{
 
-          this.encoding = encoding;
-          this.channel = this.encoding.channel;
-          this._item = item;
+      constructor(args){
+          super();
+          this.id = this.type + ItemCounter[this.type]++;
+          this.type = ItemType.Axis;
+          
+          this._orientation = args.hasOwnProperty("orientation") ? args["orientation"] : "";
 
           this._strokeColor = args.hasOwnProperty("strokeColor") ? args["strokeColor"] : "#555";
+          this._textColor = args.hasOwnProperty("textColor") ? args.textColor : "#555";
+
+          this._tickOffset = args.hasOwnProperty("tickOffset") ? args["tickOffset"] : 0;
+          this._tickSize = args.hasOwnProperty("tickSize") ? args["tickSize"] : 5;
+          this._tickAnchor = args.tickAnchor ? args.tickAnchor : "middle";
+
           this._tickVisible = args.hasOwnProperty("tickVisible") &&  !args["tickVisible"] ? "hidden" : "visible";
-          this._ruleVisible = args.hasOwnProperty("ruleVisible") && !args["ruleVisible"] ? "hidden" : "visible";
+          this._pathVisible = args.hasOwnProperty("pathVisible") && !args["pathVisible"] ? "hidden" : "visible";
+
+          this._labelOffset = args.hasOwnProperty("labelOffset") ? args["labelOffset"] : 15;
           this._labelFormat = args.hasOwnProperty("labelFormat") ? args["labelFormat"] : "";
+
+          if (args.hasOwnProperty("labelRotation"))
+              this._labelRotation = args.labelRotation;
 
           //flip is useful when items are top aligned for example, and the axis needs to start from the top
           //this is different from invert scale
           this._flip = args.hasOwnProperty("flip") ? args["flip"] : false;
 
+      }
+
+      get field(){
+          return this._field;
+      }
+
+      get orientation(){
+          return this._orientation;
+      }
+
+      set orientation(o){
+          this._orientation = o;
+      }
+
+      get x(){
+          if (this.channel == "y")
+              return this._position;
+          else
+              return undefined;
+      }
+
+      set x(v){
+          if (this.channel == "y")
+              this._position = v;
+      }
+
+      get y(){
+          if (this.channel == "x")
+              return this._position;
+          else
+              return undefined;
+      }
+
+      set y(v){
+          if (this.channel == "x")
+              this._position = v;
+      }
+
+      get strokeColor(){
+          return this._strokeColor;
+      }
+
+      set strokeColor(c){
+          this._strokeColor = c;
+      }
+
+      get textColor(){
+          return this._textColor;
+      }
+
+      set textColor(c){
+          this._textColor = c;
+      }
+
+      get tickOffset(){
+          return this._tickOffset;
+      }
+
+      set tickOffset(o){
+          this._tickOffset = o;
+      }
+
+      get tickSize(){
+          return this._tickSize;
+      }
+
+      set tickSize(o){
+          this._tickSize = o;
+      }
+
+      set tickValues(values){
+          this._tickValues = values;
+          this._generateTicks();
+          this._positionTicks();
+      }
+
+      get tickValues() {
+          return this._tickValues;
+      }
+
+      set labelValues(values){
+          this._labelValues = values;
+          this._generateLabels();
+          this._positionLabels();
+      }
+
+      get labelValues(){
+          return this._labelValues;
+      }
+
+      get tickAnchor(){
+          return this._tickAnchor;
+      }
+
+      set tickAnchor(o){
+          this._tickAnchor = o;
+      }
+
+      get tickVisible(){
+          return this._tickVisible;
+      }
+
+      set tickVisible(o){
+          this._tickVisible = o;
+      }
+
+      get pathVisible(){
+          return this._pathVisible;
+      }
+
+      set pathVisible(o){
+          this._pathVisible = o;
+      }
+
+      get labelOffset(){
+          return this._labelOffset;
+      }
+
+      set labelOffset(o){
+          this._labelOffset = o;
+      }
+
+      get labelFormat(){
+          return this._labelFormat;
+      }
+
+      set labelFormat(o){
+          this._labelFormat = o;
+      }
+
+      get labelRotation(){
+          return this._labelRotation;
+      }
+
+      set labelRotation(o){
+          this._labelRotation = o;
+      }
+
+      _generatePath(){}
+
+      _generateTicks(){}
+
+      _generateLables(){}
+
+      _positionPath(){}
+
+      _positionTicks(){}
+
+      _positionLabels(){}
+  }
+
+  class EncodingAxis extends Axis {
+      
+      //glyph is optional
+  	constructor(encoding, item, args) {
+          super(args);
+          
+          this.encoding = encoding;
+          this.channel = this.encoding.channel;
+          this._position = this.channel == "x" || this.channel == "width"? args["y"] : args["x"]; 
+
+          this._item = item;
+
           this._ticks = new Group();
           this._ticks.id = this.id + "ticks";
           this.addChild(this._ticks);
-          
           
           //this._ticks = [];
           this._labels = new Group();
           this._labels.id = this.id + "labels";
           this.addChild(this._labels);
 
-          this._path = new Path$1({"strokeColor": this._strokeColor, "visibility": this._ruleVisible});
-          this._path.type = ItemType.Line;
-          this._path.id = this.id + "path";
-          this.addChild(this._path);
-
-          this._orientation = args["orientation"];
-          this._position = this.channel == "x" || this.channel == "width"? args["y"] : args["x"]; 
-          
           if (this.channel == "radialDistance"){
               this._position = this._item.parent.cy;
               if(args.hasOwnProperty("rotation")){
@@ -11311,10 +12112,8 @@
               }
           }
 
-          if (args.hasOwnProperty("labelRotation"))
-              this._labelRotation = args.labelRotation;
-
-          this._tickSize = 7;
+          this._generatePath();
+          this._positionPath();
       }
       
       get ticks() {
@@ -11329,37 +12128,103 @@
           return this._path;
       }
 
-      set tickValues(values){
-          this._tickValues = values;
-          this._updateTicks();
-          this._updateTickPositions();
+      // set tickValues(values){
+      //     this._tickValues = values;
+      //     this._updateTicks();
+      //     this._updateTickPositions();
+      // }
+
+      // get tickValues() {
+      //     return this._tickValues;
+      // }
+
+      // set labelValues(values){
+      //     this._labelValues = values;
+      //     this._updateLabels();
+      //     this._updateLabelPositions();
+      // }
+
+      // get labelValues(){
+      //     return this._labelValues;
+      // }
+
+      _generatePath(){
+          this._path = new Path$1({"strokeColor": this._strokeColor, "visibility": this._pathVisible});
+          this._path.type = ItemType.Line;
+          this._path.id = this.id + "path";
+          this.addChild(this._path);
       }
 
-      get tickValues() {
-          return this._tickValues;
-      }
-
-      set labelValues(values){
-          this._labelValues = values;
-          this._updateLabels();
-          this._updateLabelPositions();
-      }
-
-      get labelValues(){
-          return this._labelValues;
-      }
-
-      _computePosition() {
-          let c = getTopLevelGroup(this._item);
-          if (this.channel == "x" || this.channel == "width") {
-              this._position = this._orientation == "top"  ? c.bounds.top - this._tickSize : c.bounds.bottom + this._tickSize;
-          } else if (this.channel == "y" || this.channel == "height") {
-              this._position = this._orientation == "left"  ? c.bounds.left - this._tickSize : c.bounds.right + this._tickSize;
+      _generateTicks(){
+          this._ticks.removeAll();
+          for (let [i, v] of this._tickValues.entries()) {
+              let t = new Path$1({"strokeColor": this._strokeColor, "visibility": this._tickVisible});
+              t.type = ItemType.Line;
+              t.id = this.id + "tick" + i;
+              this._ticks.addChild(t);
           }
       }
 
-      _updateLabelPositions() {
+      _generateLabels(){
+          this._labels.removeAll();
+          let formatter, fieldType = this.encoding.datatable.getFieldType(this.encoding.field);
+          //console.log(this.encoding.field, fieldType);
+
+          switch (fieldType) {
+              case DataType.Date:
+                  formatter = timeFormat(this._labelFormat);
+                  break;
+              case DataType.String:
+                  formatter = function(d) {return d;};
+                  break;
+              default:
+                  formatter = format(this._labelFormat);
+                  break;
+          }
+          // if (this.encoding.scale.type == "time"){
+          //     formatter = d3.timeFormat(this._labelFormat);
+          // } else if (this.encoding.scale.type == "linear") {
+          //     formatter = d3.format(this._labelFormat);
+          // } else {
+          //     formatter = 
+          // }
+          for (let [i, v] of this._labelValues.entries()) {
+              let t = new PointText({"text": formatter(v), fillColor: this._textColor});
+              t.id = this.id + "label" + i;
+              this._labels.addChild(t);
+          }
+      }
+
+      _positionPath(){
           this._range = this.encoding.getScaleRange(this._item);
+          if (this._position === undefined)
+              this._computePosition();
+          let vertices = [];
+          if (this.channel == "x" || this.channel == "radialDistance" || this.channel == "width") {
+              let tickX = this._ticks.children.map(d => d.vertices[0].x);
+              vertices.push([
+                  Math.min(...tickX.concat(this._range)),
+                  this._position
+              ]);
+              vertices.push([
+                  Math.max(...tickX.concat(this._range)),
+                  this._position
+              ]);
+          } else if (this.channel == "y" || this.channel == "height") {
+              let tickY = this._ticks.children.map(d => d.vertices[0].y);
+              vertices.push([
+                  this._position,
+                  Math.min(...tickY.concat(this._range))
+              ]);
+              vertices.push([
+                  this._position,
+                  Math.max(...tickY.concat(this._range))
+              ]);
+          }
+          this._path._setVertices(vertices);
+      }
+
+      _positionLabels(){
           if (this._position === undefined)
               this._computePosition();
           if (this.channel == "x" || this.channel == "radialDistance" || this.channel == "width") {
@@ -11443,7 +12308,19 @@
           } 
       }
 
-      _updateTickPositions() {
+      _computePosition() {
+          let c;
+          if (this._item.type == ItemType.Area)
+              c = getCellBoundsInGridLayout(this._item);
+          if (c === undefined)  c = getTopLevelGroup(this._item).bounds;
+          if (this.channel == "x" || this.channel == "width") {
+              this._position = this._orientation == "top"  ? c.top - this._tickSize : c.bottom + this._tickSize;
+          } else if (this.channel == "y" || this.channel == "height") {
+              this._position = this._orientation == "left"  ? c.left - this._tickSize : c.right + this._tickSize;
+          }
+      }
+
+      _positionTicks() {
           if (this._position === undefined)
               this._computePosition();
           this._range = this.encoding.getScaleRange(this._item);
@@ -11520,99 +12397,21 @@
                   }
               }
           }
-
-          let vertices = [];
-          if (this.channel == "x" || this.channel == "radialDistance" || this.channel == "width") {
-              let tickX = this._ticks.children.map(d => d.vertices[0].x);
-              vertices.push([
-                  Math.min(...tickX.concat(this._range)),
-                  this._position
-              ]);
-              vertices.push([
-                  Math.max(...tickX.concat(this._range)),
-                  this._position
-              ]);
-          } else if (this.channel == "y" || this.channel == "height") {
-              let tickY = this._ticks.children.map(d => d.vertices[0].y);
-              vertices.push([
-                  this._position,
-                  Math.min(...tickY.concat(this._range))
-              ]);
-              vertices.push([
-                  this._position,
-                  Math.max(...tickY.concat(this._range))
-              ]);
-          }
-          this._path._setVertices(vertices);
+          this._positionPath();
       }
-
-      //TODO: improve efficiency by reusing components
-      _updateTicks() {
-          this._ticks.removeAll();
-          for (let [i, v] of this._tickValues.entries()) {
-              let t = new Path$1({"strokeColor": this._strokeColor, "visibility": this._tickVisible});
-              t.type = ItemType.Line;
-              t.id = this.id + "tick" + i;
-              this._ticks.addChild(t);
-          }
-      }
-
-      //TODO: improve efficiency by reusing components
-      _updateLabels() {
-          this._labels.removeAll();
-          let formatter, fieldType = this.encoding.datatable.getFieldType(this.encoding.field);
-          //console.log(this.encoding.field, fieldType);
-
-          switch (fieldType) {
-              case DataType.Date:
-                  formatter = timeFormat(this._labelFormat);
-                  break;
-              case DataType.String:
-                  formatter = function(d) {return d;};
-                  break;
-              default:
-                  formatter = format(this._labelFormat);
-                  break;
-          }
-          // if (this.encoding.scale.type == "time"){
-          //     formatter = d3.timeFormat(this._labelFormat);
-          // } else if (this.encoding.scale.type == "linear") {
-          //     formatter = d3.format(this._labelFormat);
-          // } else {
-          //     formatter = 
-          // }
-          for (let [i, v] of this._labelValues.entries()) {
-              let t = new PointText({"text": formatter(v)});
-              t.id = this.id + "label" + i;
-              this._labels.addChild(t);
-          }
-      }
-
   }
 
-  class LayoutAxis extends Group {
+  class LayoutAxis extends Axis {
       
       constructor(items, layout, channel, field, args) {
-          super();
-          this.type = ItemType.Axis;
-          this.id = this.type + ItemCounter[this.type]++;
-
+          super(args);
           this.channel = channel;
+          this._position = this.channel == "x" || this.channel == "width"? args["y"] : args["x"]; 
+
           this._item = items[0];
           this._items = items;
           this._layout = layout;
           this._field = field;
-          this._position = this.channel == "x" ? args["y"] : args["x"]; 
-
-          this._strokeColor = args.hasOwnProperty("strokeColor") ? args["strokeColor"] : "#555";
-          this._orientation = args["orientation"];
-          this._labelFormat = args.hasOwnProperty("labelFormat") ? args["labelFormat"] : "";
-          this._tickOffset = args.hasOwnProperty("tickOffset") ? args["tickOffset"] : 0;
-          this._tickSize = args.hasOwnProperty("tickSize") ? args["tickSize"] : 5;
-          this._labelOffset = args.hasOwnProperty("labelOffset") ? args["labelOffset"] : 15;
-          this._tickVisible = args.hasOwnProperty("tickVisible") &&  !args["tickVisible"] ? "hidden" : "visible";
-          this._ruleVisible = args.hasOwnProperty("ruleVisible") && !args["ruleVisible"] ? "hidden" : "visible";
-          this._tickPosition = args.tickPosition ? args.tickPosition : "middle";
           
           if (args.hasOwnProperty("labelRotation"))
               this._labelRotation = args.labelRotation;
@@ -11630,24 +12429,66 @@
           this._rules.id = this.id + "paths";
           this.addChild(this._rules);
 
-          this._updateLabels();
-          this._updateTicks();
+          this._generatePath();
+          this._generateTicks();
+          this._generateLabels();
+          this._positionPath();
+          this._positionTicks();
+          this._positionLabels();
       }
 
-      _updateTicks() {
-          let cb = this._layout.cellBounds;
-
-          //update rules
+      _generatePath(){
           this._rules.removeAll();
           if (this._layout.type == Layout.Grid) {
               let num = this.channel == "x" ? this._layout.numRows : this._layout.numCols;
               for (let i = 0; i < num; i++) {
-                  let t = new Path$1({"strokeColor": this._strokeColor, "visibility": this._ruleVisible});
+                  let t = new Path$1({"strokeColor": this._strokeColor, "visibility": this._pathVisible});
                   t.type = ItemType.Line;
                   t.id = this.id + "rule" + i;
                   this._rules.addChild(t);
               }
+          }
+      }
 
+      _generateTicks() {
+          this._ticks.removeAll();
+          for (let i = 0; i < this._layout.group.children.length; i++) {
+              let t = new Path$1({"strokeColor": this._strokeColor, "visibility": this._tickVisible});
+              t.type = ItemType.Line;
+              t.id = this.id + "tick" + i;
+              this._ticks.addChild(t);
+          }
+      }
+
+      //TODO: improve efficiency by reusing components
+      _generateLabels() {
+          this._labels.removeAll();
+          let formatter, fieldType = this._item.dataScope.getFieldType(this._field);
+
+          switch (fieldType) {
+              case DataType.Date:
+                  formatter = timeFormat(this._labelFormat);
+                  break;
+              case DataType.String:
+                  formatter = function(d) {return d;};
+                  break;
+              default:
+                  formatter = format(this._labelFormat);
+                  break;
+          }
+    
+          let cb = this._layout.cellBounds;
+          for (let i = 0; i < cb.length; i++) {
+              let t = new PointText({fillColor: this._textColor, "text": formatter(this._items[i].dataScope.getFieldValue(this._field))});
+              t.id = this.id + "label" + i;
+              this._labels.addChild(t);
+          }
+      }
+
+      _positionPath(){
+          if (this._layout.type == Layout.Grid) {
+              let cb = this._layout.cellBounds;
+              let num = this.channel == "x" ? this._layout.numRows : this._layout.numCols;
               if (this.channel == "x") {
                   let left = cb[0].left, numCols = this._layout.numCols;
                   for (let r = 0; r < num; r++){
@@ -11666,16 +12507,10 @@
                   }
               }
           }
+      }
 
-          this._ticks.removeAll();
-          for (let i = 0; i < cb.length; i++) {
-              let t = new Path$1({"strokeColor": this._strokeColor, "visibility": this._tickVisible});
-              t.type = ItemType.Line;
-              t.id = this.id + "tick" + i;
-              this._ticks.addChild(t);
-          }
-
-          //compute positions
+      _positionTicks(){
+          let cb = this._layout.cellBounds;
           if (this.channel == "x") {
               let dir = this._orientation == "bottom" ? 1 : -1;
               for (let [i, t] of this._ticks.children.entries()) {
@@ -11690,7 +12525,7 @@
               //let offset = this._orientation == "left" ? -this._tickOffset : this._tickOffset;
               for (let [i, t] of this._ticks.children.entries()) {
                   let xPos = this._position ? this._position + this._tickOffset * dir : cb[i][this._orientation] + this._tickOffset * dir,
-                      yPos = this._tickPosition == "middle" ? cb[i].center.y : cb[i][this._tickPosition];
+                      yPos = this._tickAnchor == "middle" ? cb[i].center.y : cb[i][this._tickAnchor];
                   t._setVertices([
                       [xPos, yPos],
                       [xPos + dir * this._tickSize, yPos]
@@ -11699,31 +12534,8 @@
           }
       }
 
-      //TODO: improve efficiency by reusing components
-      _updateLabels() {
-          this._labels.removeAll();
-          let formatter, fieldType = this._item.dataScope.getFieldType(this._field);
-
-          switch (fieldType) {
-              case DataType.Date:
-                  formatter = timeFormat(this._labelFormat);
-                  break;
-              case DataType.String:
-                  formatter = function(d) {return d;};
-                  break;
-              default:
-                  formatter = format(this._labelFormat);
-                  break;
-          }
-    
+      _positionLabels(){
           let cb = this._layout.cellBounds;
-          for (let i = 0; i < cb.length; i++) {
-              let t = new PointText({"text": formatter(this._items[i].dataScope.getFieldValue(this._field))});
-              t.id = this.id + "label" + i;
-              this._labels.addChild(t);
-          }
-
-          //compute positions
           if (this.channel == "x") {
               let anchor = this._orientation == "bottom" ? ["center", "top"] : ["center", "bottom"],
                   offset = this._orientation == "bottom" ? this._labelOffset : -this._labelOffset;
@@ -11742,14 +12554,13 @@
                   offset = this._orientation == "left" ? - this._labelOffset : this._labelOffset;
               for (let [i, l] of this._labels.children.entries()) {
                   l.x = this._position ? this._position + offset : cb[i][this._orientation] + offset;
-                  l.y = this._tickPosition == "middle" ? cb[i].center.y : cb[i][this._tickPosition];
+                  l.y = this._tickAnchor == "middle" ? cb[i].center.y : cb[i][this._tickAnchor];
                   l.anchor = anchor;
                   if (this._labelRotation) {
                       l._rotate = [this._labelRotation, l.x, l.y];
                   }
               }
           }
-          
       }
   }
 
@@ -11778,8 +12589,9 @@
           this.type = ItemType.Legend;
           this.id = this.type + ItemCounter[this.type]++;
           this.encoding = encoding;
-          this._x = args["x"];
-          this._y = args["y"];
+          this._textColor = args.hasOwnProperty("textColor") ? args["textColor"] : "#555";
+          this._x = args.hasOwnProperty("x") ? args["x"] : 0;
+          this._y = args.hasOwnProperty("y") ? args["y"] : 0;
           this._initialize();
       }
 
@@ -11798,7 +12610,7 @@
 
       _createNumericalColorLegend(scene, f) {
           let wd = 15, ht = 300;
-          let title = scene.mark("text", {"text": f, "position": [this._x + wd/2, this._y], "anchor": ["center", "middle"]});
+          let title = scene.mark("text", {fillColor: this._textColor, "text": f, x: this._x + wd/2, y: this._y, "anchor": ["center", "middle"]});
           this.addChild(title);
           let rect = scene.mark("rectangle", {"top": this._y + 20, "left": this._x, "width": wd, "height": ht, "strokeWidth": 0});
           let domain = [Math.min(...this.encoding.data), Math.max(...this.encoding.data)], mapping = this.encoding.mapping, scheme = this.encoding.scheme;
@@ -11811,7 +12623,7 @@
                   gradient.addStop(p*100, mapping[d], 1.0);
                   let tk = scene.mark("line", {"x1": this._x - tickSize, "x2": this._x + wd + tickSize, "y1": this._y + 20 + ht - p * ht, "y2": this._y + 20 + ht - p * ht, "strokeColor": "#555"});
                   ticks.push(tk);
-                  let t = scene.mark("text", {"text": d, "position": [this._x + wd + offset + tickSize, this._y + 20 + ht - p * ht], "anchor": ["left", "middle"]});
+                  let t = scene.mark("text", {fillColor: this._textColor, "text": d, x: this._x + wd + offset + tickSize, y: this._y + 20 + ht - p * ht, "anchor": ["left", "middle"]});
                   texts.push(t);
               });
           } else if (scheme) {
@@ -11827,9 +12639,9 @@
       }
 
       _createCategoricalColorLegend(scene, f) {
-          this.addChild(new PointText({"text": f, "position": [this._x, this._y], "anchor": ["left", "hanging"]}));        
+          this.addChild(new PointText({fillColor: this._textColor, "text": f, x: this._x, y: this._y, "anchor": ["left", "hanging"]}));        
           let rect = scene.mark("rectangle", {"top": this._y + 25, "left": this._x, "width": 10, "height": 10, "strokeWidth": 0});
-          let text = scene.mark("text", {"position": [this._x + 20, this._y + 25], "anchor": ["left", "hanging"]});
+          let text = scene.mark("text", {fillColor: this._textColor, x: this._x + 20, y: this._y + 25, "anchor": ["left", "hanging"]});
           let glyph = scene.glyph(rect, text);
           let coll = scene.repeat(glyph, this.encoding.datatable, {"field": f});
           coll.layout = layout("grid", {"numCols": 1, "vGap": 8});
@@ -11877,12 +12689,12 @@
   	constructor(args) {
   		super(args);
         
-        // Instrinsic values for pie path
-        this.radius = args['radius'];
+        	// Instrinsic values for pie path
+        	this.radius = args['radius'];
   		this.totalAng = args['totalAng'];
-  		this.startAngleDeg = (args['startAngleDeg'] + 90) % 360;
+  		this.startAngleDeg = args['startAngleDeg'] % 360;
   		this.startAngleRad = args['startAngleRad'];
-  		this.endAngleDeg = (args['endAngleDeg'] + 90) % 360;
+  		this.endAngleDeg = args['endAngleDeg'] % 360;
   		this.endAngleRad = args['endAngleRad'];
 
   		// Other values
@@ -11948,22 +12760,47 @@
   	}
 
   	// Adjust angle
+  	// adjustAngle(startAngle, angle) {
+  	// 	// Calc vertices to the new start angle
+  	// 	let st = (startAngle - 90) % 360
+  	// 	let end = (startAngle + angle - 90) % 360
+
+  	// 	// Convert to radians for trig
+  	// 	let stRad = st * (Math.PI / 180)
+  	// 	let endRad = end * (Math.PI / 180)
+
+  	// 	let startVertex = [this.radius * Math.cos(stRad) + this.cx, this.radius * Math.sin(stRad) + this.cy]
+  	// 	let endVertex = [this.radius * Math.cos(endRad) + this.cx, this.radius * Math.sin(endRad) + this.cy]
+
+  	// 	// Update object
+  	// 	this.vertices[1] = new Point(...startVertex)
+  	// 	this.vertices[2] = new Point(...endVertex)
+  	// 	this.totalAng = angle
+
+  	// 	return startAngle + angle
+  	// }
+
   	adjustAngle(startAngle, angle) {
   		// Calc vertices to the new start angle
-  		let st = (startAngle - 90) % 360;
-  		let end = (startAngle + angle - 90) % 360;
+  		let st = startAngle % 360;
+  		let end = (startAngle + angle) % 360;
 
   		// Convert to radians for trig
   		let stRad = st * (Math.PI / 180);
   		let endRad = end * (Math.PI / 180);
 
-  		let startVertex = [this.radius * Math.cos(stRad) + this.cx, this.radius * Math.sin(stRad) + this.cy];
-  		let endVertex = [this.radius * Math.cos(endRad) + this.cx, this.radius * Math.sin(endRad) + this.cy];
+  		let startVertex = [this.radius * Math.cos(stRad) + this.cx, this.cy - this.radius * Math.sin(stRad)];
+  		let endVertex = [this.radius * Math.cos(endRad) + this.cx, this.cy - this.radius * Math.sin(endRad)];
 
   		// Update object
   		this.vertices[1] = new Point$1(...startVertex);
   		this.vertices[2] = new Point$1(...endVertex);
   		this.totalAng = angle;
+
+  		this.startAngleDeg = st;
+  		this.endAngleDeg = end;
+  		this.startAngleRad = stRad;
+  		this.endAngleRad = endRad;
 
   		return startAngle + angle
   	}
@@ -12269,12 +13106,12 @@
           this._item = item;
 
           this._strokeColor = args.hasOwnProperty("strokeColor") ? args["strokeColor"] : "#ddd";
+          this._strokeWidth = args.hasOwnProperty("strokeWidth") ? args["strokeWidth"] : 1;
 
-          this._orientation = args["orientation"];
-          this._position = this.channel == "x" || this.channel == "width" || ((this.channel == "distance" || this.channel == "timeline") && (this._orientation == "top" || this._orientation == "bottom"))? args["y-coordinate"] : args["x-coordinate"]; 
+          //this._position = this.channel == "x" || this.channel == "width" || ((this.channel == "distance" || this.channel == "timeline") && (this._orientation == "top" || this._orientation == "bottom"))? args["y-coordinate"] : args["x-coordinate"]; 
           
           if (this.channel == "radialDistance"){
-              this._position = this._item.parent.cy;
+              //this._position = this._item.parent.cy;
               if(args.hasOwnProperty("angle")){
                   this._rotate = [-args["angle"], this.encoding.cx, this.encoding.cy];
               }
@@ -12323,14 +13160,14 @@
           this.children = [];
           if (this.channel == "x" || this.channel == "y") {
               for (let [i, v] of this._values.entries()) {
-                  let t = new Path$1 ({"strokeColor": this._strokeColor, "fillColor": "none"});
+                  let t = new Path$1 ({"strokeColor": this._strokeColor, "fillColor": "none", "strokeWidth": this._strokeWidth});
                   t.type = ItemType.Line;
                   t.id = this.id + "line" + i;
                   this.addChild(t);
               }
           } else if (this.channel == "radialDistance") {
               for (let [i, v] of this._values.entries()) {
-                  let t = new CirclePath({"strokeColor": this._strokeColor, "fillColor": "none"});
+                  let t = new CirclePath({"strokeColor": this._strokeColor, "fillColor": "none", "strokeWidth": this._strokeWidth});
                   t.type = ItemType.Circle;
                   t.id = this.id + "line" + i;
                   this.addChild(t);
@@ -12342,8 +13179,11 @@
 
   class Scene extends Group{
 
-  	constructor(){
+  	constructor(args){
   		super();
+  		if (args && args.fillColor) {
+  			this.fillColor = args.fillColor;
+  		}
   		this.type = ItemType.Scene;
   		this.id = this.type + ItemCounter[this.type]++;
   		//this.cellAlign = {};
@@ -12351,10 +13191,13 @@
   		this.constraints = {};
   	}
 
-  	createGroup() {
+  	group(children) {
   		let g = new Group();
   		g.classId = g.id;
   		this.addChild(g);
+  		if (children && children.length > 0)
+  			for (let c of children)
+  				g.addChild(c);
   		return g;
   	}
 
@@ -12363,15 +13206,17 @@
   		switch(type) {
   			case ItemType.Rect:
   			case ItemType.Rectangle: {
-  				if (args !== undefined && args.hasOwnProperty("top") && args.hasOwnProperty("left")  && 
-  						args.hasOwnProperty("width") && args.hasOwnProperty("height")) {
-  					let top = args["top"], left = args["left"], width = args["width"], height = args["height"];
-  					args.vertices = [[left, top], [left + width, top], [left + width, top + height], [left, top + height]];
-  					delete args["top"];
-  					delete args["left"];
-  					delete args["width"];
-  					delete args["height"];
-  				}
+  				if (!args.hasOwnProperty("top"))
+  					args.top = 0;
+  				if (!args.hasOwnProperty("left"))
+  					args.left = 0;
+  				if (!args.hasOwnProperty("width"))
+  					args.width = 100;
+  				if (!args.hasOwnProperty("height"))
+  					args.height = 100;
+  				let top = args["top"], left = args["left"], width = args["width"], height = args["height"];
+  				args.vertices = [[left, top], [left + width, top], [left + width, top + height], [left, top + height]];
+  				
   				let r = new RectPath(args);
   				r.id = r.type + ItemCounter[r.type]++;
   				r.classId = r.id;
@@ -12506,6 +13351,8 @@
   		validateField(field, table);
 
   		let collection = repeatItem(this, item, field, table, callback);
+  		if (args.layout)
+  			collection.layout = args.layout;
   		return collection;
   	}
 
@@ -12541,6 +13388,8 @@
   		validateField(field, table);
   				
   		let collection = divideItem(this, item, orientation, field, table, callback);
+  		if (args.layout)
+  			collection.layout = args.layout;
   		return collection;
   	}
 
@@ -12581,15 +13430,15 @@
   			args.aggregator = "sum";
   		if (!args.hasOwnProperty("invertScale"))
   			args.invertScale = false;
-  		if (!args.hasOwnProperty("startFromZero"))
-  			args.startFromZero = false;
+  		if (!args.hasOwnProperty("includeZero"))
+  			args.includeZero = false;
   			
   			// datatable = args.datatable ? args.datatable : item.dataScope ? item.dataScope._dt : item.parent.dataScope._dt,
   			// aggregator = args.aggregator ? args.aggregator : "sum",
   			// scale = args.scale ? args.scale : undefined,
   			// callback = args.callback ? args.callback : undefined,
   			// invert = args.hasOwnProperty("invertScale") ? args.invertScale : false,
-  			// startFromZero = args.hasOwnProperty("startFromZero") ? args.startFromZero : false,
+  			// includeZero = args.hasOwnProperty("includeZero") ? args.includeZero : false,
   			// mapping = args.hasOwnProperty("mapping") ? args.mapping : undefined,
   			// rangeExtent = args.hasOwnProperty("rangeExtent") ? args.rangeExtent : undefined;
 
@@ -12657,14 +13506,22 @@
   				if (p.hasOwnProperty("value"))
   					body.push("d.dataScope && d.dataScope.getFieldValue('" + p["field"] + "') == '" + p["value"] + "'");
   				else if (p.hasOwnProperty("range"))
-  					body.push("d.dataScope && d.dataScope." + p["field"] + " >= " + p["range"][0] + " && " + "d.dataScope." + p["field"] + " <= " + p["range"][1]);
-  			} else if (p.hasOwnProperty("channel")) ; else if (p.hasOwnProperty("type")) {
+  					body.push("d.dataScope && d.dataScope.getFieldValue('" + p["field"] + "') >= " + p["range"][0] + " && " + "d.dataScope.getFieldValue('" + p["field"] + "') <= " + p["range"][1]);
+  				else if (p.hasOwnProperty("values"))
+  					body.push("d.dataScope && [" + p["values"].map(d => "'"+d+"'").join(",") + "].indexOf(" + "d.dataScope.getFieldValue('" + p["field"] + "')) >= 0 ");
+  			} else if (p.hasOwnProperty("channel")) {
+  				if (p.hasOwnProperty("value"))
+  					body.push("d." + p["channel"] + " == '" + p["value"] + "'");
+  				else if (p.hasOwnProperty("range"))
+  					body.push("d." + p["channel"] + " >= " + p["range"][0] + " && " + "d." + p["channel"] + " <= " + p["range"][1]);
+  				else if (p.hasOwnProperty("values"))
+  					body.push("[" + p["values"].map(d => "'" + d + "'").join(",") + "].indexOf(" + "d." + p["channel"] + ") >= 0 ");
+  			} else if (p.hasOwnProperty("type")) {
   				body.push("d.type=='" + p["type"] + "'");
   			}
   		}
   		return findItems(this, new Function("d", "return " + body.join(" && ")));
   	}
-
 
   	encode(item, args) {
   		this._validateEncodeArgs(item, args);
@@ -12708,9 +13565,9 @@
   		let enc = this.getEncodingByField(field, channel), args = params ? params : {};
   		if (enc) {
   			let axis = new EncodingAxis(enc, args.item? args.item : enc.anyItem, args);
-  			if (args.hasOwnProperty("ticks")) {
-  				axis.tickValues = args["ticks"];
-  				axis.labelValues = args["ticks"];
+  			if (args.hasOwnProperty("tickValues")) {
+  				axis.tickValues = args["tickValues"];
+  				axis.labelValues = args["tickValues"];
   			} else {
   				axis.tickValues = this._inferTickValues(enc);
   				axis.labelValues = this._inferTickValues(enc);
@@ -12728,10 +13585,10 @@
 
   		let layout = getClosestLayout(item);
   		if (layout && (channel == "x" || channel == "y")) {
-  			let collection = layout.collection,
-  				collections = getPeers(collection, this);
+  			let group = layout.group,
+  				groups = getPeers(group, this);
   			let axis;
-  			for (let c of collections) {
+  			for (let c of groups) {
   				let itm = findItems(c, d => d.dataScope && d.dataScope.hasField(field))[0];
   				let items = getPeers(itm, c);
   				axis = new LayoutAxis(items, c.layout, channel, field, args);
@@ -12786,7 +13643,7 @@
   				if (enc.channel == "width" || enc.channel == "height") {
   					let layout = getClosestLayout(enc.anyItem);
   					if (layout && layout.type == Layout.Stack) {
-  						let c = layout.collection, colls = getPeers(c, enc.scene);
+  						let c = layout.group, colls = getPeers(c, enc.scene);
   						r = Math.max(...colls.map(d => d.bounds[enc.channel]));
   						domain[1] = Math.ceil(enc.scale.invert(r));
   					}
@@ -12843,11 +13700,23 @@
   		}
   	}
 
-  	sortVertices(item, args){
+  	propagate(item, method, ...args){
   		let peers = getPeers(item, this);
   		for (let p of peers)
-  			p.sortVertices(args);
+  			p[method](...args);
   	}
+
+  	// sortVertices(item, channel, descending){
+  	// 	let peers = getPeers(item, this);
+  	// 	for (let p of peers)
+  	// 		p.sortVertices(channel, descending);
+  	// }
+
+  	// sortVerticesByData(item, field, descending, order){
+  	// 	let peers = getPeers(item, this);
+  	// 	for (let p of peers)
+  	// 		p.sortVerticesByData(field, descending, order);
+  	// }
 
   	classify(items, field, parent){
   		let collections = {}, cid;
@@ -12920,8 +13789,8 @@
   	}
 
   	setProperties(item, args) {
-  		if (Object.values(Layout).indexOf(item.type) > -1 && item.collection) {
-  			let peers = getPeers(item.collection, this);
+  		if (Object.values(Layout).indexOf(item.type) > -1 && item.group) {
+  			let peers = getPeers(item.group, this);
   			for (let coll of peers) {
   				for (let p in args) {
   					coll.layout[p] = args[p];
@@ -13055,6 +13924,10 @@
   		let el = this._compMap[cid];
 
   		el.attr("id", cid);
+
+  		if (c.type == ItemType.Scene) {
+  			select("#"+this._svgId).style("background", c.fillColor ? c.fillColor : "white");
+  		}
 
   		if (c.type == "vertex") {
   			//TODO: render vertices
@@ -56005,14 +56878,8 @@
   class CanvasRenderer {
 
   	constructor() {
-  		this._app = new Application({
-  			antialias: true,    // default: false
-  			width: 1600,
-  			height: 1200,
-  			view: document.getElementById('canvasElement')
-  		});
-  		this._app.renderer.backgroundColor = 0x88ffffff;
-  		this._app.renderer.autoResize = true;
+  		this._pixiApps = {};
+  		this._doesCollectionHaveBounds = false;
   	}
 
   	/**
@@ -56020,38 +56887,69 @@
   	 * @param {string} id 
   	 * @param {*} args 
   	 */
-      render(scene, id, args) {
+      render(scene, id, params) {
+  		
+  		let args = params ? params : {};
+
+  		if (!this._pixiApps.hasOwnProperty(id)) {
+  			this._app = new Application({
+  				antialias: true,    // default: false
+  				width: 1600,
+  				height: 1000,
+  				view: document.getElementById(id)
+  			});
+  			this._app.renderer.autoResize = true;
+  			this._pixiApps[id] = this._app;
+  		} else {
+  			this._app = this._pixiApps[id];
+  		} 
+
+  		this._app.renderer.backgroundColor = toHexColor(scene.fillColor ?? "#fff");
+  		this._doesCollectionHaveBounds = !!args.collectionBounds;
+  		this._app.stage.removeChildren();
+  		this._app.renderer.clear();
   		let final = this._renderItem(scene);
-  		this._apply(this._app, final);
+  		this._app.stage.addChild(final);
   	}
 
   	_renderItem(item) {
   		switch (item.type) {
-  			case ItemType.Area:
-  			case ItemType.Circle:
   			case ItemType.Ellipse:
-  			case ItemType.Glyph:
-  			case ItemType.Gridlines:
   			case ItemType.Image:
-  			case ItemType.Legend:
   			case ItemType.LinearGradient:
+  				throwError("mark", item, Errors$1.FEATURE_NOT_IMPLEMENTED);
+  				break;
+
+  			case ItemType.Circle:
+  				return this._renderCircle(item);
+
   			case ItemType.Pie:
+  				return this._renderPiePath(item);
+
+  			case ItemType.Area:
+  				return this._renderArea(item);
+
   			case ItemType.Polygon:
-  				throw new Error(Errors$1.FEATURE_NOT_IMPLEMENTED);
+  				return this._renderPolygon(item);
 
   			case ItemType.Axis:
   				return this._renderAxis(item);
 
-  			case ItemType.Scene:
   			case ItemType.Collection:
+  				return this._renderCollection(item);
+
+  			case ItemType.Glyph:
   			case ItemType.Group:
+  			case ItemType.Gridlines:
+  			case ItemType.Legend: 
+  			case ItemType.Scene:
   				return this._renderGroup(item);
 
-  			case ItemType.Line:
-  				return this._renderLine(item);
-
   			case ItemType.Path:
-  				break;
+  				return this._renderPath(item);
+  				
+  			case ItemType.Line:
+  				return this._renderLinearPath(item);
 
   			case ItemType.Rect:
   			case ItemType.Rectangle:
@@ -56059,6 +56957,9 @@
 
   			case ItemType.PointText:
   				return this._renderText(item);
+
+  			default:
+  				throw new Error(`Expect: itemType, Actual: ${item}\nWait that's illegal`)
   		}
   	}
 
@@ -56068,20 +56969,16 @@
   	 */
   	_renderRectangle(rect) {
   		let rectangle = new Graphics();
-  		//rectangle.beginFill(rect.styles["fillColor"]);
-  		// TODO: Placeholder
-  		rectangle.beginFill(0x888888);
-  		rectangle.drawRect(
-  			rect.left, 
-  			rect.top, 
-  			rect.width, 
-  			rect.height
-  		);
-  		rectangle.endFill();
+  		decorate(rectangle, rect.styles);
   		rectangle.lineStyle(
   			rect.styles["strokeWidth"],
-  			rect.styles["strokeColor"]
+  			toHexColor(rect.styles["strokeColor"])
   		);
+  		beginGradientOrColorFill(rect.styles, rectangle, rect.height);
+  		rectangle.drawRect(0, 0, rect.width, rect.height);
+  		rectangle.x = rect.left;
+  		rectangle.y = rect.top;
+  		rectangle.endFill();
   		return rectangle;
   	}
 
@@ -56090,28 +56987,20 @@
   	 * @returns {PIXI.Text}
   	 */
   	_renderText(pointText) {
-  		// NOTE: All sorts of unsafe conversion
   		let style = new TextStyle({
   			fontSize: pointText.styles["fontSize"],
   			fontFamily: pointText.styles["fontFamily"],
   			fontWeight: styleFontWeight2PixiFontWeight(pointText.styles["fontWeight"]),
-  			//fill: pointText.styles["fillColor"],
-  			// TODO: Placeholder
-  			fill: 0x0
+  			fill: toHexColor(pointText.styles["fillColor"]),
   		});
   		let pixiText = new Text(pointText.text, style);
+  		decorate(pixiText, pointText.styles);
   		pixiText.x = pointText.x;
   		pixiText.y = pointText.y;
-  		pixiText.anchor.set(... styleAnchor2PixiAlign(pointText.anchor));
-  		
+  		pixiText.anchor.set(... styleAnchor2PixiAnchor(pointText.anchor));
+  		pixiText.angle = rotation2PixiAngle(pointText._rotate);
   		return pixiText;
   	} 
-
-  	_renderAxis(axis) {
-  		let group = this._renderGroup(axis);
-
-  		return group;
-  	}
 
   	/**
   	 * @param {Group} group
@@ -56120,51 +57009,390 @@
   	_renderGroup(group) {
   		let container = new Container();
   		for (const item of group.children) {
-  			container.addChild(this._renderItem(item));
+  			let t = this._renderItem(item);
+  			if (t == undefined) throw new Error();
+  			container.addChild(t);
   		}
+
+  		return container;
+  	}
+
+  	/**
+  	 * 
+  	 * @param {Group} axis 
+  	 * @returns 
+  	 */
+  	_renderAxis(axis) {
+  		let container = this._renderGroup(axis);
+  		let pivot = rotation2PixiPivot(axis._rotate);
+  		container.pivot.set(pivot[0], pivot[1]);
+  		container.angle = rotation2PixiAngle(axis._rotate);
+  		container.position.set(pivot[0], pivot[1]);
+  		return container;
+  	}
+
+  	/**
+  	 * @param {Collection} collection 
+  	 * @returns {Container}
+  	 */
+  	_renderCollection(collection) {
+  		let container = new Container();
+  		let group = this._renderGroup(collection);
+  		container.addChild(group);
+
+  		// ------------------ Render Bounds -----------------------------------
+
+  		if (!this._doesCollectionHaveBounds) return container;
+
+  		let contour = new Graphics();
+  		// short for leading dash relative start position
+  		let leadDashRelStrtPos = 0;
+  		let bounds = collection.bounds;
+  		let l = bounds.left;
+  		let r = bounds.right;
+  		let t = bounds.top;
+  		let b = bounds.bottom;
+  		let style = { 
+  			strokeWidth: 1,
+  			color: 0x1ecb40,
+  			dashLength: 5,
+  			dashSpacing: 5
+  		};
+
+  		leadDashRelStrtPos = drawDash(l, r,  t, leadDashRelStrtPos, style, contour);
+  		leadDashRelStrtPos = drawDash(t, b, -r, leadDashRelStrtPos, style, contour);
+  		leadDashRelStrtPos = drawDash(r, l,  b, leadDashRelStrtPos, style, contour);
+  							 drawDash(b, t, -l, leadDashRelStrtPos, style, contour);
+
+  		container.addChild(contour);
+  		return container;
+
+  		// ------------------ End ---------------------------------------------
+
+  		/**
+  		 * @param {Graphics} graphics 
+  		 * @param {Number} leadDashRelStrtPos the projected start position of a leading dash. 
+  		 * for example, if a dash is broken by the end of last edge, 
+  		 * the leading dash of next edge is incomplete and thus, the projected start point would be beyond 
+  		 * the start point. Therefore, it is marked with a negative value, RELATIVE to the starting point
+  		 *        V the starting point of this dash is thus -1
+  		 * |---- -|--- ----
+  		 * @param {Number} dimensionalConstrain it can be x or y, depends on which dimension remains unchanged
+  		 * positive values indicate an horizontal edge
+  		 * negative values indicate a vertical edge
+  		 * @returns {Number} leading dash start position for next edge
+  		 */
+  		function drawDash(start, end, dimensionalConstrain, leadDashRelStrtPos, style, graphics) {
+  			// if the dash line is going left -> right, then direction = +1. v.v.
+  			let dir = start <= end ? 1 : -1;
+
+  			// if the dash is a remain of last cut-off dash, it actually starts at the starting point
+  			// otherwise just use the start position
+  			// note here next.point is a reference, 
+  			// it is a hack so that changes to next.point can be reflected to p as well
+  			let next = leadDashRelStrtPos >= 0 ?
+  					   {point: start + leadDashRelStrtPos * dir} :
+  					   {point: start};
+
+  			// p stands for pointer. It's used as an abstraction 
+  			// so that this function can be applied to both horizontal and vertical scenarios
+  			let p = dimensionalConstrain > 0 ? 
+  					[next, { point: dimensionalConstrain }] :
+  					[{ point: -dimensionalConstrain }, next];
+
+  			graphics.lineStyle({
+  				width: style.strokeWidth,
+  				color: style.color
+  			});
+  			// move to the actual start
+  			graphics.moveTo(p[0].point, p[1].point);
+  			// set the next point to the end of first dash (regardless of whether it's complete)
+  			next.point = leadDashRelStrtPos * dir + start + style.dashLength * dir;
+  			graphics.lineTo(p[0].point, p[1].point);
+
+  			let isDrawing = false;
+  			// move next point to (the start position)of the second dash
+  			next.point += style.dashLength * dir;
+  			// if the next point is with the range from start to end
+  			while (next.point * dir <= end * dir) {
+  				if (isDrawing) {
+  					graphics.lineTo(p[0].point, p[1].point);
+  					isDrawing = false;
+  					next.point += style.dashSpacing * dir;
+  				} else {
+  					graphics.moveTo(p[0].point, p[1].point);
+  					isDrawing  = true;
+  					next.point += style.dashLength * dir;
+  				}
+  			}
+
+  			// finish the last dash
+  			// if it's still drawing, cut it off (and continue it in the next edge)
+  			if (isDrawing) {
+  				// handle the horizontal and vertical cases
+  				if (dimensionalConstrain > 0) graphics.lineTo(end, dimensionalConstrain);
+  				else graphics.lineTo(-dimensionalConstrain, end);
+  				return (end - next.point) * dir;
+  			// otherwise it's fine, let the math handle it automagically
+  			} else {
+  				return (next.point - end) * dir;
+  			}
+  		}
+  	}
+
+  	/**
+  	 * @param {AreaPath} areaPath 
+  	 */
+  	_renderArea(areaPath) {
+  		switch (areaPath.curveMode) {
+  			case "linear":
+  				return this._renderPolygon(areaPath);
+
+  			case "basis":
+  				return this._renderBezierArea(areaPath);
   		
+  			default:
+  				return throwError("areaPath", areaPath, Errors$1.FEATURE_NOT_IMPLEMENTED);
+  		}
+  	}
+
+  	_renderBezierArea(areaPath) {
+  		let area = new Graphics();
+  		decorate(area, areaPath.styles);
+  		area.lineStyle({
+  			width: areaPath.styles["strokeWidth"],
+  			color: toHexColor(areaPath.styles["strokeColor"])
+  		});
+  		let pathData = areaPath.getSVGPathData();
+  		let pathJSON = parseDPath(pathData);
+
+  		beginGradientOrColorFill(areaPath.styles, area);
+  		drawOnGraphicsFromJSONData(area, pathJSON);
+  		area.endFill();
+
+  		return area;
+  	}
+
+  	/**
+  	 * @param {PolygonPath} polygonPath 
+  	 */
+  	_renderPolygon(polygonPath) {
+  		let container = new Container();
+
+  		// ------------------ Contour -----------------------------------------
+
+  		let contour = this._renderLinearPath(polygonPath);
+  		contour.getChildAt(0).lineTo(
+  			polygonPath.vertices[0].x, 
+  			polygonPath.vertices[0].y
+  		);
+
+  		// ------------------ Fill --------------------------------------------
+
+  		let polygonFill = new Graphics();
+  		decorate(polygonFill, polygonPath.styles);
+  		let path = [];
+  		for (const vertex of polygonPath.vertices) {
+  			path.push(vertex.x); 
+  			path.push(vertex.y);
+  		}
+  		polygonFill.beginFill(toHexColor(polygonPath.styles["fillColor"]));
+  		polygonFill.drawPolygon(path);
+  		polygonFill.endFill();
+
+  		// ------------------ Finalize ----------------------------------------
+  		
+  		container.addChild(polygonFill);
+  		container.addChild(contour);
   		return container;
   	}
 
   	/**
   	 * @param {Path} path 
-  	 * @returns {Graphics}
+  	 * @returns {Container}
   	 */
-  	_renderLine(path) {
-  		let pixiLine = new Graphics();
-  		// NOTE: No reference from svg renderer
-  		pixiLine.lineStyle({
-  			width: path.styles["strokeWidth"],
-  			//color: path.styles["strokeColor"]
-  			// TODO: Placeholder
-  			color: 0x0
-  		});
-  		pixiLine.moveTo(path.vertices[0].x, path.vertices[0].y);
-  		pixiLine.lineTo(path.vertices[1].x, path.vertices[1].y);
-  		//pixiLine.x = path.bounds.left;
-  		//pixiLine.y = path.bounds.top;
+  	_renderPath(path) {
 
-  		return pixiLine;
+  		switch (path.curveMode) {
+  			case "linear":
+  				return this._renderLinearPath(path);
+
+  			case "bumpX":
+  			case "natural":
+  				return this._renderBezierPath(path);
+  		
+  			default:
+  				throwError("path", path, Errors$1.FEATURE_NOT_IMPLEMENTED);
+  				break;
+  		}
+
+  		// ------------------ End ---------------------------------------------
+
   	}
 
-  	_renderCircle(app, args) {
-  		let circle = new Graphics();
-  		circle.lineStyle(4, 0xFF3300, 1);
-  		circle.beginFill(0x66CCFF);
-  		circle.drawCircle(0, 0, 64);
-  		circle.endFill();
-  		circle.x = 150;
-  		circle.y = 170;
-  		this._app.stage.addChild(circle);
+  	_renderLinearPath(path) {
+  		let container = new Container();
+  		let line = new Graphics();
+  		decorate(line, path.styles);
+  		let vertex0 = path.vertices[0];
+  		line.lineStyle({
+  			width: path.styles["strokeWidth"],
+  			color: toHexColor(path.styles["strokeColor"])
+  		});
+
+  		line.moveTo(vertex0.x, vertex0.y);
+  		for (let i = 1; i < path.vertices.length; i++) {
+  			const vertex = path.vertices[i];
+  			line.lineTo(vertex.x, vertex.y);
+  		}
+  		
+  		container.addChild(line);
+
+  		// ------------------ Render vertices ---------------------------------
+
+  		for (let i = 0; i < path.vertices.length; i++) {
+  			let vertex = path.vertices[i];
+  			let renderedVertex = this._renderVertex(vertex);
+  			if (renderedVertex != null) container.addChild(renderedVertex);
+  		}
+
+  		return container;
   	}
 
   	/**
-  	 * @param {Application} app 
-  	 * @param {DisplayObject} object
+  	 * @param {Path} path 
   	 */
-  	_apply(app, object) {
-  		app.stage.addChild(object);
+  	_renderBezierPath(path) {
+  		let container = new Container();
+  		let graphics = new Graphics();
+  		decorate(graphics, path.styles);
+  		graphics.lineStyle({
+  			width: path.styles["strokeWidth"],
+  			color: toHexColor(path.styles["strokeColor"])
+  		});
+  		let pathData = path.getSVGPathData();
+  		let pathJSON = parseDPath(pathData);
+  		drawOnGraphicsFromJSONData(graphics, pathJSON);
+  		container.addChild(graphics);
+
+  		// ------------------ Render vertices ---------------------------------
+
+  		for (let i = 0; i < path.vertices.length; i++) {
+  			let vertex = path.vertices[i];
+  			let renderedVertex = this._renderVertex(vertex);
+  			if (renderedVertex != null) container.addChild(renderedVertex);
+  		}
+
+  		return container;
   	}
+
+  	/**
+  	 * NULLABLE!!!
+  	 * @param {Vertex} vertex 
+  	 * @returns {Container} null if vertex shape is undefined
+  	 */
+  	_renderVertex(vertex) {
+  		switch (vertex.shape) {
+  			case "rect":
+  				return renderRectVertex(vertex);
+
+  			case "circle":
+  				return renderCircleVertex(vertex);
+
+  			case undefined:
+  				return null;
+
+  			default:
+  				throwError("vertex shape", vertex.shape, Errors$1.FEATURE_NOT_IMPLEMENTED);
+  		}
+
+  		function renderRectVertex(vertex) {
+  			let rectVertex = new Graphics();
+  			rectVertex.lineStyle({
+  				width: vertex.strokeWidth,
+  				color: toHexColor(vertex.strokeColor)
+  			});
+  			rectVertex.beginFill(toHexColor(vertex.fillColor));
+  			rectVertex.drawRect(
+  				vertex.center.x - vertex.width / 2,
+  				vertex.center.y - vertex.height / 2,
+  				vertex.width,
+  				vertex.height);
+  			rectVertex.endFill();
+
+  			return rectVertex;
+  		}
+
+  		function renderCircleVertex(vertex) {
+  			let circle = new Graphics();
+  			circle.lineStyle({
+  				width: vertex.strokeWidth,
+  				color: toHexColor(vertex.strokeColor)
+  			});
+  			circle.beginFill(toHexColor(vertex.fillColor));
+  			circle.drawCircle(vertex.x, vertex.y, vertex.radius);
+  			circle.endFill();
+
+  			return circle;
+  		}
+  	}
+
+  	/**
+  	 * @param {CirclePath} circPath
+  	 * @returns {PIXI.Rectangle}
+  	 */
+  	_renderCircle(circPath) {
+  		let circle = new Graphics();
+  		decorate(circle, circPath.styles);
+  		circle.lineStyle(
+  			circPath.styles["strokeWidth"],
+  			toHexColor(circPath.styles["strokeColor"])
+  		);
+  		beginGradientOrColorFill(circPath.styles, circle, circPath.height);
+  		circle.drawCircle(
+  			circPath.center.x, 
+  			circPath.center.y,
+  			circPath.radius
+  		);
+  		circle.endFill();
+  		return circle;
+  	}
+
+  	/**
+  	 * @param {PiePath} piePath 
+  	 */
+  	_renderPiePath(piePath) {
+  		let arc = new Graphics();
+  		//return this._renderBezierArea(piePath);
+  		arc.lineStyle({
+  			color: toHexColor(piePath.styles["strokeColor"]),
+  			width: piePath.styles["strokeWidth"]
+  		});
+  		arc.beginFill(toHexColor(piePath.styles["fillColor"]));
+  		arc.moveTo(piePath.center.x, piePath.center.y);
+  		arc.arc(
+  			piePath.center.x, 
+  			piePath.center.y, 
+  			piePath.radius, 
+  			-piePath.startAngleRad,
+  			-piePath.endAngleRad
+  		);
+  		
+  		arc.lineTo(piePath.center.x, piePath.center.y);
+  		arc.endFill();
+
+  		return arc;
+  	}
+  }
+
+  /**
+   * Set visibility and alpha
+   * @param {DisplayObject} displayObject 
+   * @param {*} styles 
+   */
+  function decorate(displayObject, styles) {
+  	displayObject.visible = styleVisiblity2PixiVisible(styles["visibility"]);
+  	displayObject.alpha = styleOpacity2PixiAlpha(styles["opacity"]);
   }
 
   function styleFontWeight2PixiFontWeight(fontWeight) {
@@ -56173,11 +57401,11 @@
   			return "normal";
 
   		default:
-  			throw new Error(Errors$1.FEATURE_NOT_IMPLEMENTED);
+  			throwError("font weight", fontWeight, Errors$1.FEATURE_NOT_IMPLEMENTED);
   	}
   }
 
-  function styleAnchor2PixiAlign(anchor) {
+  function styleAnchor2PixiAnchor(anchor) {
   	let horizontal, vertical;
 
   	switch (anchor[0]) {
@@ -56194,32 +57422,350 @@
   			break;
 
   		default:
-  			throw new Error(Errors$1.UNKNOWN_ANCHOR);
+  			throwError("x anchor", anchor[0], Errors$1.UNKNOWN_ANCHOR);
   	}
 
   	switch (anchor[1]) {
+  		// TODO: hanging is actually not quite the same as top
+  		case "hanging":
   		case "top":
   			vertical = 0.0;
   			break;
 
   		case "middle":
+  		// TODO: central is not quite the same as middle
+  		case "central":
   			vertical = 0.5;
   			break;
 
   		case "bottom":
   			vertical = 1.0;
   			break;
-  	
+  	 
   		default:
-  			throw new Error(Errors$1.UNKNOWN_ANCHOR);
+  			throwError("y anchor", anchor[1], Errors$1.UNKNOWN_ANCHOR);
   	}
 
   	return [horizontal, vertical];
   }
 
-  class PackingLayout {
+  /**
+   * @param {string} cssColor 
+   * @returns {number}
+   */
+  function toHexColor(cssColor) {
+  	let d3Color = color$1(cssColor);
+  	if (d3Color == null) {
+  		return null;
+  	} else {
+  		let hexString = d3Color.formatHex();
+  		return string2hex(hexString);
+  	}
+  }
+
+  function styleVisiblity2PixiVisible(visibility) {
+  	switch (visibility) {
+  		case "hidden":
+  			return false;
+
+  		case null:
+  		case undefined:
+  		case "visible":
+  		default:
+  			return true;		
+  	}
+  }
+
+  function rotation2PixiAngle(rotation) {
+  	if (rotation === undefined || typeof rotation[0] != "number") {
+  		return 0
+  	} else {
+  		return rotation[0];
+  	}
+  }
+
+  function rotation2PixiPivot(rotation) {
+  	if (rotation === undefined || typeof rotation[0] != "number") {
+  		return [0, 0];
+  	} else {
+  		return rotation.slice(1);
+  	}
+  }
+
+  function styleOpacity2PixiAlpha(opacity) {
+  	switch (opacity) {
+  		case undefined:
+  		case null:
+  			return 1;
+  	
+  		default:
+  			return opacity;
+  	}
+  }
+
+  function throwError(name, value, err) {
+  	console.log(value);
+  	throw new Error(`${err}. Source: ${name}, Actual: `);
+  }
+
+  /**
+   * Can fill graphic with color or linear gradient accordingly. 
+   * Can also handle transparency
+   * @param {Graphics} graphics 
+   */
+  function beginGradientOrColorFill(styles, graphics, height) {
+  	let fillColor = styles["fillColor"];
+
+  	// if no fill color
+  	if (fillColor == "none") return;
+
+  	let hexColor = toHexColor(fillColor);
+  	// if valid color
+  	if (hexColor != null) {
+  		graphics.beginFill(hexColor);
+  	// then it must be texture
+  	} else {
+  		graphics.beginTextureFill({
+  			color: 0xffffff,
+  			texture: createLinearGradientTexture(height, fillColor.stops)
+  		});
+  	}
+  }
+
+  function createLinearGradientTexture(height, stops) {
+
+  	const canvas = document.createElement("canvas");
+  	canvas.height = height;
+  	canvas.width = 1;
+      const ctx = canvas.getContext("2d");
+
+      const grd = ctx.createLinearGradient(0, 0, 0, height);
+  	for (let i = 0; i < stops.length; i++) {
+  		grd.addColorStop(1 - stops[i].offset / 100, stops[i].color);
+  	}
+
+      ctx.fillStyle = grd;
+      ctx.fillRect(0, 0, 1, height);
+
+  	return Texture.from(canvas);
+  }
+
+  /**
+   * @param {Graphics} graphics
+   * @param {Array} json
+   */
+  function drawOnGraphicsFromJSONData(graphics, json) {
+
+  	// Draw a closed shape accordingly
+  	let last = json.pop();
+  	let callBack = () => {};
+  	if (last.code.toUpperCase() == "Z") {
+  		callBack = () => graphics.lineTo(json[0].end.x, json[0].end.y);
+  	} else {
+  		json.push(last);
+  	}
+
+  	// Actual drawing
+  	for (const data of json) {
+  		draw(data, graphics);
+  	}
+
+  	callBack();
+  }
+
+  /**
+   * @param {Graphics} graphics 
+   * @returns {Graphics}
+   */
+  function draw(data, graphics) {
+  	switch (data.code.toUpperCase()) {
+  		case "M":
+  			graphics.moveTo(data.end.x, data.end.y);
+  			break;
+
+  		case "L":
+  			graphics.lineTo(data.end.x, data.end.y);
+  			break;
+
+  		case "Q":
+  			graphics.bezierCurveTo(
+  				data.cp1.x, 
+  				data.cp1.y, 
+  				data.cp1.x, 
+  				data.cp1.y, 
+  				data.end.x, 
+  				data.end.y
+  			);
+  			break;
+
+  		case "C":
+  			graphics.bezierCurveTo(
+  				data.cp1.x, 
+  				data.cp1.y, 
+  				data.cp2.x, 
+  				data.cp2.y, 
+  				data.end.x, 
+  				data.end.y
+  			);
+  			break;
+
+  		case "Z":
+  			throw new Error("Unexpected \"z\" marker. There's something wrong, I can feel it");
+
+  		default:
+  			return throwError("data", data, Errors$1.FEATURE_NOT_IMPLEMENTED);
+  	}
+  }
+
+  // Adapted from d-path-parser under MIT license
+  // GitHub Repository: https://github.com/MaxArt2501/d-path-parser
+  function parseDPath(d) {
+      var re = {
+          command: /\s*([achlmqstvz])/gi,
+          number: /\s*([+-]?\d*\.?\d+(?:e[+-]?\d+)?)/gi,
+          comma: /\s*(?:(,)|\s)/g,
+          flag: /\s*([01])/g
+      };
+      var matchers = {
+          "number": function(must) {
+              return +get("number", must);
+          },
+          "coordinate pair": function(must) {
+              var x = get("number", must);
+              if (x === null && !must) return null;
+              get("comma");
+              var y = get("number", true);
+              return { x: +x, y: +y };
+          },
+          "arc definition": function(must) {
+              var radii = matchers["coordinate pair"](must);
+              if (!radii && !must) return null;
+              get("comma");
+              var rotation = +get("number", true);
+              get("comma", true);
+              var large = !!+get("flag", true);
+              get("comma");
+              var clockwise = !!+get("flag", true);
+              get("comma");
+              var end = matchers["coordinate pair"](true);
+              return {
+                  radii: radii,
+                  rotation: rotation,
+                  large: large,
+                  clockwise: clockwise,
+                  end: end
+              };
+          }
+      };
+      var index = 0;
+      var commands = [];
+
+      while (index < d.length) {
+          var cmd = get("command");
+          var upcmd = cmd.toUpperCase();
+          var relative = cmd !== upcmd;
+          var sequence;
+          switch (upcmd) {
+              case "M":
+                  sequence = getSequence("coordinate pair").map(function(coords, i) {
+                      if (i === 1) cmd = relative ? "l" : "L";
+                      return makeCommand({ end: coords });
+                  });
+                  break;
+              case "L":
+              case "T":
+                  sequence = getSequence("coordinate pair").map(function(coords) {
+                      return makeCommand({ end: coords });
+                  });
+                  break;
+              case "C":
+                  sequence = getSequence("coordinate pair");
+                  if (sequence.length % 3)
+                      throw Error("Expected coordinate pair triplet at position " + index);
+
+                  sequence = sequence.reduce(function(seq, coords, i) {
+                      var rest = i % 3;
+                      if (!rest) {
+                          seq.push(makeCommand({ cp1: coords }));
+                      } else {
+                          var last = seq[seq.length - 1];
+                          last[rest === 1 ? "cp2" : "end"] = coords;
+                      }
+                      return seq;
+                  }, []);
+
+                  break;
+              case "Q":
+              case "S":
+                  sequence = getSequence("coordinate pair");
+                  if (sequence.length & 1)
+                      throw Error("Expected coordinate pair couple at position " + index);
+
+                  sequence = sequence.reduce(function(seq, coords, i) {
+                      var odd = i & 1;
+                      if (!odd) {
+                          seq.push(makeCommand({ cp: coords }));
+                      } else {
+                          var last = seq[seq.length - 1];
+                          last.end = coords;
+                      }
+                      return seq;
+                  }, []);
+
+                  break;
+              case "H":
+              case "V":
+                  sequence = getSequence("number").map(function(value) {
+                      return makeCommand({ value: value });
+                  });
+                  break;
+              case "A":
+                  sequence = getSequence("arc definition").map(makeCommand);
+                  break;
+              case "Z":
+                  sequence = [ { code: "Z" } ];
+                  break;
+          }
+          commands.push.apply(commands, sequence);
+      }
+
+      return commands;
+
+      function makeCommand(obj) {
+          obj.code = cmd;
+          obj.relative = relative;
+
+          return obj;
+      }
+      function get(what, must) {
+          re[what].lastIndex = index;
+          var res = re[what].exec(d);
+          if (!res || res.index !== index) {
+              if (!must) return null;
+              throw Error("Expected " + what + " at position " + index);
+          }
+
+          index = re[what].lastIndex;
+
+          return res[1];
+      }
+      function getSequence(what) {
+          var sequence = [];
+          var matched;
+          var must = true;
+          while (matched = matchers[what](must)) {
+              sequence.push(matched);
+              must = !!get("comma");
+          }
+
+          return sequence;
+      }
+  }
+
+  class PackingLayout extends Layout$1 {
 
       constructor(args) {
+          super(args);
   		this.type = "packing";
           this.cx = args.hasOwnProperty("cx") ?  args.cx : 400;
           this.cy = args.hasOwnProperty("cy") ? args.cy : 400;
@@ -56232,9 +57778,9 @@
   	}
 
       run() {
-  		if (this.collection == undefined)
+  		if (this.group == undefined)
   			return;
-          let nodes = this.collection.children.map(d => ({"name": d.id, "radius": d.radius, "itm": d}));
+          let nodes = this.group.children.map(d => ({"name": d.id, "radius": d.radius, "itm": d}));
 
           let area = nodes.reduce((total, current) => total + Math.pow(current.radius, 2), 0),
               s = Math.sqrt(area);
@@ -56251,7 +57797,7 @@
           index().size([this.width, this.height]).radius(d => d.value)(data);
 
           for (let c of data.children) {
-              let itm = c.data.itm; //this.collection.children[c];
+              let itm = c.data.itm; //this.group.children[c];
               let dx = this.cx - data.x + c.x - itm.center.x, dy = this.cy - data.y + c.y - itm.center.y;
               itm.translate(dx, dy);
           }
@@ -56259,9 +57805,10 @@
 
   }
 
-  class TreemapLayout {
+  class TreemapLayout extends Layout$1 {
 
       constructor(args) {
+          super(args);
           this.type = "treemap";
           this.width = args["width"];
           this.height = args["height"];
@@ -56274,16 +57821,16 @@
       }
 
       run() {
-          if (this.collection == undefined)
+          if (this.group == undefined)
   			return;
-          let w = this.width ? this.width : this.collection.bounds.width,
-              h = this.height ? this.height : this.collection.bounds.height,
-              top = this.top === undefined ? this.collection.bounds.top : this.top,
-              left = this.left === undefined ? this.collection.bounds.left : this.left;
-          let hierarchy$1 = hierarchy((this.collection)).sum(d => d.type == "rectangle" ? d.bounds.width * d.bounds.height : 0);
+          let w = this.width ? this.width : this.group.bounds.width,
+              h = this.height ? this.height : this.group.bounds.height,
+              top = this.top === undefined ? this.group.bounds.top : this.top,
+              left = this.left === undefined ? this.group.bounds.left : this.left;
+          let hierarchy$1 = hierarchy((this.group)).sum(d => d.type == "rectangle" ? d.bounds.width * d.bounds.height : 0);
           index$1().size([w,h])(hierarchy$1);
           let n = this._apply(hierarchy$1, left, top);
-          this.collection.getScene()._updateAncestorBounds(hierarchy$1.leaves()[0].data);
+          this.group.getScene()._updateAncestorBounds(hierarchy$1.leaves()[0].data);
       }
 
       _apply(node, left, top) {
@@ -56299,17 +57846,23 @@
 
   // export {default as Point} from "./basic/Point";
 
-  function scene() {
-  	return new Scene();
+  var renderers = {};
+
+  function scene(args) {
+  	return new Scene(args);
   }
 
   function renderer(type) {
+  	
   	switch (type) {
   		case "svg":
   			return new SVGRenderer();
 
   		case "canvas":
-  			return new CanvasRenderer();
+  		case "webgl":
+  			if (!renderers.hasOwnProperty(type))
+  				renderers[type] = new CanvasRenderer();
+  			return renderers[type];
   	}
   }
 
@@ -56327,7 +57880,7 @@
   			return new GridLayout(args);
   		case "circular":
   			return new CircularLayout(args);
-  		case "pack":
+  		case "packing":
   			return new PackingLayout(args);
   		case "treemap":
   			return new TreemapLayout(args);

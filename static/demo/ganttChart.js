@@ -14,5 +14,5 @@ scn.axis("y", "Task", {orientation: "left"});
 scn.gridlines("x", "Start Date");
 
 
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement", {collectionBounds: false});
+// let r = atlas.renderer("svg");
+// r.render(scn, "svgElement", {collectionBounds: false});

@@ -65,10 +65,10 @@
   url = "/tutorials/example/"
   weight = 9
 
-# [[main]]
-#   name = "Gallery"
-#   url = "/catalog.html"
-#   weight = 5
+[[main]]
+  name = "Gallery"
+  url = "/gallery.html"
+  weight = 5
 
 # [[main]]
 #   name = "Blog"

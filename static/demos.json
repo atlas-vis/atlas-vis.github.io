@@ -1,0 +1,278 @@
+{
+    "BarChartHorz": {
+        "name": "Bar Chart (Horizontal)",
+        "mark": "Bars and Rectangles",
+        "title": "Real GDP Change in the US",
+        "about": "Percent Change of Real Gross Domestic Product from Preceding Period. Data source: U.S. Bureau of Economic Analysis"
+    },
+    "BarChartVert": {
+        "name": "Bar Chart (Vertical)",
+        "mark": "Bars and Rectangles",
+        "title": "Real GDP Change in the US",
+        "about": "Percent Change of Real Gross Domestic Product from Preceding Period. Data source: U.S. Bureau of Economic Analysis"
+    },
+    "BoxPlot": {
+        "name": "Box Plot",
+        "mark": "Bars and Rectangles",
+        "title": "box plot",
+        "about": ""
+    },
+    "BulletChart": {
+        "name": "Bullet Chart",
+        "mark": "Bars and Rectangles",
+        "title": "Revenue performance and targets in different regions",
+        "about": ""
+    },
+    "DivergingBarChart": {
+        "name": "Diverging Bar Chart",
+        "mark": "Bars and Rectangles",
+        "title": "Survey response by age group",
+        "about": ""
+    },
+    "GanttChart": {
+        "name": "Gantt Chart",
+        "mark": "Bars and Rectangles",
+        "title": "Timeline for event organization",
+        "about": ""
+    },
+    "GroupedBarChart": {
+        "name": "Grouped Bar Chart",
+        "mark": "Bars and Rectangles",
+        "title": "Olympic medals by country",
+        "about": ""
+    },
+    "HeatMap": {
+        "name": "Heat Map",
+        "mark": "Bars and Rectangles",
+        "title": "Twenty years of NBA draft picks from 1989 to 2008",
+        "about": "This chart colors each player by VORP (Value over Replacement Player), which converts the BPM rate into an estimate of each player's overall contribution to the team, measured vs. what a theoretical 'replacement player' would provide, where the 'replacement player' is defined as a player onminimum salary or not a normal vmember of a team's rotation. A VORP of -20 is used for players that did not play enough minutes. Original visualization by <a href='http://russellgoldenberg.com/' target='_blank'>Russell Goldenberg</a> at <a href='https://pudding.cool/2017/03/redraft/' target='_blank'>The Pudding</a>."
+    },
+    "Histogram": {
+        "name": "Histogram",
+        "mark": "Bars and Rectangles",
+        "title": "Distribution of weight of cars",
+        "about": ""
+    },
+    "MosaicPlot": {
+        "name": "Mosaic Plot",
+        "mark": "Bars and Rectangles",
+        "title": "Share of Women in Job Levels",
+        "about": "This mosaic plot shows that the percentage of women declines as the job level goes higher. <a href='http://www.womanindata.co.uk/2017/02/workout-wednesday-week-8-marimekko.html' target='_blank'>Original visualization</a> by Emma Whyte."
+    },
+    "StackedBarChart": {
+        "name": "Stacked Bar Chart",
+        "mark": "Bars and Rectangles",
+        "title": "Olympic medals by country",
+        "about": ""
+    },
+    "Treemap": {
+        "name": "Treemap",
+        "mark": "Bars and Rectangles",
+        "title": "Population of major countries in the world",
+        "about": ""
+    },
+    "VariableWidthBarChart": {
+        "name": "Variable Width Bar Chart",
+        "mark": "Bars and Rectangles",
+        "title": "Variable width bar chart with dummy data",
+        "about": ""
+    },
+    "WaffleChart": {
+        "name": "Waffle Chart",
+        "mark": "Bars and Rectangles",
+        "title": "Age composition in 100 participants",
+        "about": ""
+    },
+    "WaterfallChart": {
+        "name": "Waterfall Chart",
+        "mark": "Bars and Rectangles",
+        "title": "Monthly changes in account balance",
+        "about": ""
+    },
+    "BubblePlot": {
+        "name": "Bubble Plot",
+        "mark": "Circles and Pies",
+        "title": "Goldilocks Worlds: Just Right for Life?",
+        "about": "A visualization showing 1626 planets and which ones are habitable. Temperature should not be too hot or too cold. The mass also plays a role: a small planet can't have an atmosphere, while a large one will have a crushing atmosphere.<br> <a href='http://www.nationalgeographic.com/astrobiology/goldilocks-worlds/' target='_blank'>Original visualization</a> by John Tomanio and Xaquin G.V., NGM STAFF. <br>Source: Abel Méndez, Planetary Habitability Laboratory, University of Puerto Rico at Arecibo."
+    },
+    "CirclePacking": {
+        "name": "Circle Packing Chart",
+        "mark": "Circles and Pies",
+        "title": "Population of major countries in the world",
+        "about": ""
+    },
+    "DotPlot": {
+        "name": "Dot Plot",
+        "mark": "Circles and Pies",
+        "title": "Age distribution in 100 participants",
+        "about": ""
+    },
+    "PieChart": {
+        "name": "PieChart",
+        "mark": "Circles and Pies",
+        "title": "Pie chart with dummy data",
+        "about": ""
+    },
+    "Scatterplot": {
+        "name": "Scatterplot",
+        "mark": "Circles and Pies",
+        "title": "GDP per capita vs. Life expectancy in major countries",
+        "about": ""
+    },
+    "BumpChart": {
+        "name": "Bump Chart",
+        "mark": "Lines and Paths",
+        "title": "Color popularity in new cars",
+        "about": "This bump chart shows how the rankings of new car colors change over the years in North America. The magenta color denotes 'other' colors. <br> <a href='https://public.tableau.com/profile/rody.zakovich#!/vizhome/TheUntanglingofColorPopularityamongNewCarsinNorthAmerica/TheUntanglingofColorPopularityforNewCars' target='_blank'>Original visualization</a> by Rody Zakovich"
+    },
+    "ConnectedScatterPlot": {
+        "name": "Connected Scatter Plot",
+        "mark": "Lines and Paths",
+        "title": "Driving Shifts into Reverse",
+        "about": "the shifting relationship between the price of gas and the average number of miles driven in a year, adapted from <a href='http://www.nytimes.com/imagepages/2010/05/02/business/02metrics.html' target='_blank'>Driving Shifts Into Reverse</a> by Hannah Fairfield, The New York Times (May 2, 2010)"
+    },
+    "DumbbellChart": {
+        "name": "Dumbbell Chart",
+        "mark": "Lines and Paths",
+        "title": "Partisan Reactions on Mass Shooting",
+        "about": "This infographics shows the topics mentioned by the two parties after the Orlando nightclub shooting with a focus on the differences in terms of the number of times these topics are mentioned. <br> <a href='https://public.tableau.com/profile/lindsey.poulter8872#!/vizhome/OrlandoKillings/Dashboard' target='_blank'>Original visualization</a> by Lindsey Poulter"
+    },
+    "LineGraph": {
+        "name": "Line Graph",
+        "mark": "Lines and Paths",
+        "title": "",
+        "about": ""
+    },
+    "LollipopChart": {
+        "name": "Lollipop Chart",
+        "mark": "Lines and Paths",
+        "title": "",
+        "about": ""
+    },
+    "MultiLineGraph": {
+        "name": "Multi-Line Graph",
+        "mark": "Lines and Paths",
+        "title": "Stock Market",
+        "about": "Monthly Stock Prices of four companies: Amazon, Apple, IBM and Microsoft from Jan 1, 2000 to Mar 1, 2010. Original visualization was composed using d3.js on <a href='https://bl.ocks.org/d3noob/08af723fe615c08f9536f656b55755b4' target='_blank'>d3noob.org</a>"
+    },
+    "ParallelCoordinates": {
+        "name": "Parallel Coordinates",
+        "mark": "Lines and Paths",
+        "title": "Features of Cars",
+        "about": "This visualization shows the the features of 406 cars. Original visualization appeared in Robert Spence's book <a href='https://books.google.com/books?id=uOosBQAAQBAJ&dq=406+cars+visualization&source=gbs_navlinks_s' target='_blank'>Information Visualization: an Introduction</a>, page 69."
+    },
+    "RangeChart": {
+        "name": "Range Chart",
+        "mark": "Lines and Paths",
+        "title": "Boston Weather",
+        "about": "This visualization shows daily maximum and minimum temperature for a year in Boston. <br> <a href='http://weather-radials.com/' target='_blank'>Original visualization</a> by <a href='http://kekeritz.com/' target='_blank'>Timm Kekeritz</a> of Raureif was in the Polar space, we demonstrate how to create similar designs in the Cartesian space."
+    },
+    "SlopeGraph": {
+        "name": "Slope Graph",
+        "mark": "Lines and Paths",
+        "title": "Obesity and Education",
+        "about": "This visualization shows that on average, percentage of obesity is inversely correlated with the percentage of population having a bachelor degree or higher. Each line represents a U.S. state. The left axis represents the obesity percentages, the right axis represents the percentages of people with a higher education. <br> <a href='http://www.thefunctionalart.com/2012/03/functional-art-has-cover_21.html' target='_blank'>Original visualization</a> created by Alberto Cairo."
+    },
+    "StringlineChart": {
+        "name": "Stringline Chart",
+        "mark": "Lines and Paths",
+        "title": "Caltrain Schedule",
+        "about": "This visualization shows the Caltrian timetable following the style of <a href='https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0003zP' target='_blank'>E. J. Marey's graphical schedule</a>. Each line is a train, and the slope represents the speed of the train. The lines are colored by the type of train."
+    },
+    "AreaChart": {
+        "name": "Area Chart",
+        "mark": "Polygons and Areas",
+        "title": "Bitcoin prices: 2013 to 2018",
+        "about": "This visualization shows the evolution of the bitcoin price from 2013-04-28 to 2018-04-23. The original visualization was composed using d3.js on <a href='https://www.d3-graph-gallery.com/graph/area_basic.html' target='_blank'>d3-graph-gallery.com</a>."
+    },
+    "DensityPlot": {
+        "name": "Density Plot",
+        "mark": "Polygons and Areas",
+        "title": "Density plot of weights of cars",
+        "about": ""
+    },
+    "RadarChart": {
+        "name": "Radar Chart",
+        "mark": "Polygons and Areas",
+        "title": "",
+        "about": ""
+    },
+    "ridgelinePlot": {
+        "name": "Ridgeline Plot",
+        "mark": "Polygons and Areas",
+        "title": "How people perceive probability",
+        "about": "On the /r/samplesize thread of reddit, questions like What probability would you assign to the phrase “Highly likely” were asked. Answers between 0 and 100 were recorded, and this visualization shows the distribution for each question. This idea originally comes from a <a href='https://www.cia.gov/library/center-for-the-study-of-intelligence/csi-publications/books-and-monographs/psychology-of-intelligence-analysis/art15.html' target='_blank'>publication of the CIA</a>. <a href='https://github.com/zonination' target='_blank'>Zoni Nation</a> <a href='https://github.com/zonination/perceptions'>reproduced it using R. </a> This visualization is based on an example from <a href='https://www.d3-graph-gallery.com/graph/ridgeline_basic.html' target='_blank'>d3-graph-gallery.com</a>"
+    },
+    "StackedAreaChart": {
+        "name": "Stacked Area Chart",
+        "mark": "Polygons and Areas",
+        "title": "Unemployment by industry: 2000 to 2010",
+        "about": "This visualization shows the evolution of the number of unemployed people in four industries (Manufacturing, Leisure and hospitality, Business services and Construction) from 2000 to 2010. The original visualization was composed using d3.js on <a href='https://observablehq.com/@d3/stacked-area-chart' target='_blank'>observablehq.com</a>."
+    },
+    "StellarChart": {
+        "name": "Stellar Chart",
+        "mark": "Polygons and Areas",
+        "title": "",
+        "about": ""
+    },
+    "StreamGraph": {
+        "name": "StreamGraph",
+        "mark": "Polygons and Areas",
+        "title": "Unemployment by industry: 2000 to 2010",
+        "about": "This visualization shows the evolution of the number of unemployed people in four industries (Manufacturing, Leisure and hospitality, Business services and Construction) from 2000 to 2010. The original visualization was composed using d3.js on <a href='https://observablehq.com/@d3/streamgraph' target='_blank'>observablehq.com</a>."
+    },
+    "ViolinPlot": {
+        "name": "Violin Plot",
+        "mark": "Polygons and Areas",
+        "title": "Distribution for setosa sepal length",
+        "about": "This visualization shows the distribution for the sepal length of setosa, a type of iris plant. The data is from <a href='https://archive.ics.uci.edu/ml/datasets/Iris' target='_blank'>Iris Data Set</a>."
+    },
+    "GridAreaChart": {
+        "name": "Area Charts",
+        "mark": "Small Multiples",
+        "title": "Unemployment in Manufacturing, Leisure and hospitality, Business services and Construction: 2000 to 2010",
+        "about": "This visualization shows the evolution of the number of unemployed people in four industries (Manufacturing, Leisure and hospitality, Business services and Construction) from 2000 to 2010."
+    },
+    "MultipleBarCharts": {
+        "name": "Bar Charts",
+        "mark": "Small Multiples",
+        "title": "Red and Blue America",
+        "about": "This visualization shows how the partisan voter index (PVI) for each U.S. state changed in the elections from 1980 to 2012. <br> <a href='http://graphics.wsj.com/elections/2016/field-guide-red-blue-america/' target='_blank'>Original visualization</a> by Randy Yeip, Stuart A. Thompson and Will Welch."
+    },
+    "MultipleBoxPlots": {
+        "name": "Box Plots",
+        "mark": "Small Multiples",
+        "title": "",
+        "about": ""
+    },
+    "MultiplePieCharts": {
+        "name": "Pie Charts",
+        "mark": "Small Multiples",
+        "title": "",
+        "about": ""
+    },
+    "ScatterplotMatrix": {
+        "name": "Scatterplot Matrix",
+        "mark": "Small Multiples",
+        "title": "",
+        "about": ""
+    },
+    "Sparklines": {
+        "name": "Sparklines",
+        "mark": "Small Multiples",
+        "title": "",
+        "about": ""
+    },
+    "GridStackedAreaChart": {
+        "name": "Stacked Area Charts",
+        "mark": "Small Multiples",
+        "title": "",
+        "about": ""
+    },
+    "MultipleViolinPlots": {
+        "name": "Violin Plots",
+        "mark": "Small Multiples",
+        "title": "Distributions for iris plant sepal length",
+        "about": "This visualization shows the distributions for the sepal length of three types of iris plant: setosa, versicolor and virginica. The data is from <a href='https://archive.ics.uci.edu/ml/datasets/Iris' target='_blank'>Iris Data Set</a>."
+    }
+}

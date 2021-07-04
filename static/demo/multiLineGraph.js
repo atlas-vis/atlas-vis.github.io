@@ -17,5 +17,5 @@ scn.axis("y", "price", {orientation: "left"});
 scn.legend("strokeColor", "company", {x: 800, y: 100});
 
 
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement", {collectionBounds: false});	
+// let r = atlas.renderer("svg");
+// r.render(scn, "svgElement", {collectionBounds: false});	

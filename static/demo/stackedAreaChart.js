@@ -19,7 +19,3 @@ disEncoding.scale.rangeExtent = 450;
 scene.axis("x", "date", {orientation: "bottom", labelFormat: "%m/%y"});
 scene.axis("height", "unemployments", {orientation: "left"});
 scene.legend("fillColor", "industry", {x: 680, y: 100});
-
-
-let r = atlas.renderer("svg");
-r.render(scene, "svgElement", {collectionBounds: false});

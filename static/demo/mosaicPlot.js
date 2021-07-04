@@ -14,5 +14,5 @@ scene.axis("x", "Job Type", {orientation: "bottom", labelRotation: -45});
 scene.legend("fillColor", "Gender", {x: 20, y: 60});
 
 
-let r = atlas.renderer("svg");
-r.render(scene, "svgElement", {collectionBounds: false});	
+// let r = atlas.renderer("svg");
+// r.render(scene, "svgElement", {collectionBounds: false});	

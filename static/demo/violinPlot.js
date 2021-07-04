@@ -20,5 +20,5 @@ scene.encode(line.vertices[1], {field: "sepal_length", channel: "y", aggregator:
 scene.encode(box.topSegment, {field: "sepal_length", channel: "y", aggregator: "percentile 75", scale: xEncoding.scale});
 scene.encode(box.bottomSegment, {field: "sepal_length", channel: "y", aggregator: "percentile 25", scale: xEncoding.scale});
 scene.encode(medianCircle, {field: "sepal_length", channel: "y", aggregator: "avg", scale: xEncoding.scale})
-let r = atlas.renderer("svg");
-r.render(scene, "svgElement", {collectionBounds: false});
+// let r = atlas.renderer("svg");
+// r.render(scene, "svgElement", {collectionBounds: false});

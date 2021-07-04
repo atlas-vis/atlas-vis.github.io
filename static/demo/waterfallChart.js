@@ -12,7 +12,7 @@ enc.scale.rangeExtent = 300;
 let colorMapping = {"Total": "#00acec", "Down": "#cc1a59", "Up": "#2e944f"};
 scn.encode(rect, {field: "Category", channel:"fillColor", mapping: colorMapping});
 
-let label = scn.mark("text", {position: [100, 100], fillColor: "white"});
+let label = scn.mark("text", {x: 100, y:100, fillColor: "white"});
 scn.repeat(label, dt, {field: "Period"});
 scn.encode(label, {field: "Delta", channel: "text"});
 scn.affix(label, rect, "x");
@@ -23,5 +23,5 @@ scn.axis("y", "Current", {orientation: "left", pathVisible: false, tickVisible: 
 scn.legend("fillColor", "Category", {x: 960, y: 100});
 scn.gridlines("y", "Current");
 
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement");	
+// let r = atlas.renderer("svg");
+// r.render(scn, "svgElement");	

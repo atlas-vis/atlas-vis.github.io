@@ -31,6 +31,7 @@ which gives us the following visualization:
 
 {{< figure src="axis-sm-2.png" width="750px" alt="Multiple Area Charts" caption="" class="border-0 mx-auto text-center" >}}
 
+The `item` parameter must be the graphical object whose visual channel encodes the data field. For example, in a line graph, the item is a vertex, not a path. 
 
 
 The creation of gridlines is simliar, we specify a visual channel and a data field when using the [_gridlines_ method in the Scene class](../../docs/group/scene/#methods-create-guides). The appearance of gridlines can be customized by setting [these properties](../../docs/guide/gridlines/#properties): x/y coordinate, text color, stroke color, stroke width and values.

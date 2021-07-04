@@ -1,5 +1,3 @@
-//data source: U.S. Bureau of Economic Analysis
-//Percent Change of Real Gross Domestic Product from Preceding Period
 let scn = atlas.scene();
 let rect = scn.mark("rectangle", {top:100, left: 200, width: 20, height: 300, fillColor: "#84BC66", strokeWidth: 0} );
 let dt = await atlas.csv("csv/GDP Change.csv");
@@ -13,7 +11,7 @@ years.layout = atlas.layout("grid", {numRows: 1, hGap: 16});
 scn.encode(rect, {field: "% Change", channel: "height"});
 scn.axis("x", "Quarter", {orientation: "bottom", tickVisible: false, pathVisible: false});
 scn.axis("x", "Year", {orientation: "bottom", y: 255, labelFormat: "%Y", tickVisible: false, labelOffset: 180});
-scn.axis("height", "% Change", {orientation: "left", x: 190});
+scn.axis("height", "% Change", {orientation: "left"});
 
-let r = atlas.renderer("svg");
-r.render(scn, "svgElement", {collectionBounds: false});	
+// let r = atlas.renderer("svg");
+// r.render(scn, "svgElement", {collectionBounds: false});	

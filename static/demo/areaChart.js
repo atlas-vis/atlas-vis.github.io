@@ -9,5 +9,5 @@ let htEncoding = scene.encode(anyArea, {channel: "x", field: "date"});
 scene.axis("x", "date", {orientation: "bottom", labelFormat: "%m/%d/%y"});
 scene.axis("height", "value", {orientation: "left"});
 
-let r = atlas.renderer("svg");
-r.render(scene, "svgElement", {collectionBounds: true});	
+// let r = atlas.renderer("svg");
+// r.render(scene, "svgElement", {collectionBounds: true});	
