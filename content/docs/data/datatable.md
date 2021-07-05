@@ -17,6 +17,8 @@ The DataTable class represents a data table consisting of _tuples_ (rows) and _f
 
     let table = await atlas.csv("data.csv");
 
+Atlas automatically infers the [data type](../../global/constants/#data-type) for each field/column, and parses the values accordingly
+
 ### Properties
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |

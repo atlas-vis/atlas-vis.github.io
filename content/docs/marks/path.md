@@ -17,16 +17,20 @@ toc: true
 
 The Path class represents a gemetric path consisting of multiple [vertices](../../basic/vertex/) connected by [segments](../../basic/segment). To create a path object, use the _mark_ method in the [Scene](../../group/scene) class, for example:
 
+```js
     let path = scene.mark("path", {
                   vertices: [
 		                [200, 50], [350, 50], [500, 50]
                   ],
                   strokeColor: "#95D0F5"
               });
+```
 
 A straight line is also represented as a path object in Atlas. The following code returns a Path object with two vertices.
 
+```js
     let line = scene.mark("line", {x1: 0, y1: 20, x2: 300, y2: 50});
+``` 
 
 ### Properties
 | property |  explanation  | type | default value |
@@ -40,7 +44,7 @@ A straight line is also represented as a path object in Atlas. The following cod
 |**firstVertex** <img width="70px" src="../../readonly.png">| returns the first vertex of the path | [Vertex](../../basic/vertex/) |
 |**firstSegment** <img width="70px" src="../../readonly.png">| returns the first segment of the path | [Segment](../../basic/segment/) |
 |**fillColor**| the fill color of the path if it is closed | Color | undefined | 
-|**strokeColor** | the stroke color of the path | Color | #cccccc | 
+|**strokeColor** | the stroke color of the path | Color | "#ccc" | 
 |**strokeWidth** | the stroke width of the path in pixels | Number | 1| 
 |**opacity** | the opacity value of the path (between 0 and 1) | Number | 1 |
 |**vxShape**| the shape of the vertices on this path<br>possible values: "rect", "circle" | String | undefined | 

@@ -28,8 +28,8 @@ The Axis class represents an axis. To create an Axis object, use the [_axis_ met
 |**orientation**| the orientation of the axis if its channel is "x" or "y"<br>possible values: "top", "bottom", "left", or "right" | String | | 
 |**x**| the x coordinate of the axis path if channel is "y" or "height",<br>undefined otherwise | Number | | 
 |**y**| the y coordinate of the axis path if channel is "x" or "width",<br>undefined otherwise| Number | | 
-|**strokeColor** | the stroke color of the axis path and ticks | Color | #555555 | 
-|**textColor**| the text color of the axis labels | Color | #555555 | 
+|**strokeColor** | the stroke color of the axis path and ticks | Color | "#555" | 
+|**textColor**| the text color of the axis labels | Color | "#555" | 
 |**tickOffset**| the distance between the ticks and the path (Figure 1) | Number | 0 | 
 |**tickSize**| the size of the axis ticks| Number | 5 | 
 |**tickValues** | the values of the ticks on the axis<br>if not provided, Atlas will auto-generate values | Array | | 

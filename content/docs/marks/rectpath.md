@@ -17,7 +17,11 @@ toc: true
 
 The RectPath class represents a rectangular mark. To create a RectPath object, use the _mark_ method in the [Scene](../../group/scene) class, for example:
 
+
+```js
     let rect = scene.mark("rect", {top: 50, left: 100, width: 200, height: 80, fillColor: "blue"});
+```
+
 
 ### Properties
 | property |  explanation   | type | default value |
@@ -47,7 +51,7 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 |**firstVertex** <img width="70px" src="../../readonly.png">| returns the first vertex of the path | [Vertex](../../basic/vertex/) |
 |**firstSegment** <img width="70px" src="../../readonly.png"> | returns the first segment of the path | [Segment](../../basic/segment/) |
 |**fillColor**| the fill color of the path if it is closed | Color | undefined | 
-|**strokeColor** | the stroke color of the path | Color | #cccccc | 
+|**strokeColor** | the stroke color of the path | Color | "#ccc" | 
 |**strokeWidth** | the stroke width of the path in pixels | Number | 1| 
 |**opacity** | the opacity value of the path (between 0 and 1) | Number | 1 |
 |**vxShape**| the shape of the vertices on this path<br>possible values: "rect", "circle" | String | undefined | 
@@ -87,20 +91,3 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 | **duplicate**() | returns a copy of this mark | [RectPath](../rectpath/) | 
 | **translate**(dx, dy) | move the path by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |
 {.table-striped}
-
-<!-- ## Check for outdated packages
-
-The [`npm outdated`](https://docs.npmjs.com/cli/v7/commands/npm-outdated) command will check the registry to see if any (or, specific) installed packages are currently outdated:
-
-```bash
-npm outdated [[<@scope>/]<pkg> ...]
-```
-
-## Update packages
-
-The [`npm update`](https://docs.npmjs.com/cli/v7/commands/npm-update) command will update all the packages listed to the latest version (specified by the tag config), respecting semver:
-
-```bash
-npm update [<pkg>...]
-``` -->
-<!-- {{< alert icon="💡" text="Learn more about <a href=\"https://docs.npmjs.com/about-semantic-versioning\">semantic versioning</a> and <a href=\"https://docs.npmjs.com/cli/v6/using-npm/semver#advanced-range-syntax\">advanced range syntax</a>." >}} -->

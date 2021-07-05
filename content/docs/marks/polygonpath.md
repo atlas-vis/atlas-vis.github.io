@@ -38,7 +38,7 @@ The PolygonPath class represents a polygon mark that is used in visualizations s
 |**firstVertex** <img width="70px" src="../../readonly.png">| returns the first vertex of the path | [Vertex](../../basic/vertex/) |
 |**firstSegment** <img width="70px" src="../../readonly.png"> | returns the first segment of the path | [Segment](../../basic/segment/) |
 |**fillColor**| the fill color of the path if it is closed | Color | undefined | 
-|**strokeColor** | the stroke color of the path | Color | #cccccc | 
+|**strokeColor** | the stroke color of the path | Color | "#ccc" | 
 |**strokeWidth** | the stroke width of the path in pixels | Number | 1| 
 |**opacity** | the opacity value of the path (between 0 and 1) | Number | 1 |
 |**vxShape**| the shape of the vertices on this path<br>possible values: "rect", "circle" | String | undefined | 
@@ -59,12 +59,6 @@ The PolygonPath class represents a polygon mark that is used in visualizations s
 |**dataScope**| the [data scope](../../data/datascope/) of the path | [DataScope](../../data/datascope/) | undefined |
 {.table-striped}
 
-<!-- ### Methods
-| method |  explanation   | return type |
-| --- | --- | --- |
-| **resize**(wd, ht) | change the width and height of the rectangle | void |
-{.table-striped} -->
-
 ### Methods inherited from [Path](../path/)
 | method |  explanation   | return type |
 | ---- | --- | --- |
@@ -78,19 +72,3 @@ The PolygonPath class represents a polygon mark that is used in visualizations s
 | **duplicate**() | returns a copy of this mark | [RectPath](../areapath/) | 
 | **translate**(dx, dy) | move the path by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |
 {.table-striped}
-
-<!-- ## Problems updating npm packages
-
-Delete the `./node_modules` folder, and run again:
-
-```bash
-npm install
-```
-
-## Problems with cache
-
-Delete the temporary directories:
-
-```bash
-npm run clean
-``` -->
