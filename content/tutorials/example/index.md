@@ -12,7 +12,7 @@ menu:
 weight: 1
 ---
 
-We start this tutorial by creating a diverging bar chart (Figure 1) using Atlas. This chart visualizes ahypothetical dataset reporting people’s opinions on a subject matter,broken down by age (below 30, 30 - 50, 50 - 70, above 70) and responses (strongly agree, agree, disagree, strongly disagree). You can see a demo of this visualization here.
+We start this tutorial by creating a diverging bar chart (Figure 1) using Atlas. This chart visualizes ahypothetical dataset reporting people’s opinions on a subject matter, broken down by age (below 30, 30 - 50, 50 - 70, above 70) and responses (strongly agree, agree, disagree, strongly disagree). You can see a demo of this visualization here.
 
 {{< figure src="diverging_bar.png" width="800px" alt="Diverging Bar Chart" caption="Figure 1: Diverging Bar Chart" class="border-0 mx-auto text-center" >}}
 
@@ -43,7 +43,7 @@ Next, we want to have multiple rectangles, each representing an age group. This 
     
     let collection = scene.repeat(rect, table, {field: "Age Group"});
 
-This will give us a collection of four rectangles, each representing an age group in the dataset. By default, the repeated rectangles will have the same properties (including position) as the original rectangle, including position. To space them out, we can apply a grid layout with only 1 column and a vertical gap of 10 pixels between the rows:
+This will give us a collection of four rectangles, each representing an age group in the dataset. By default, the repeated rectangles will have the same properties (including position) as the original rectangle. To space them out, we can apply a grid layout with only 1 column and a vertical gap of 10 pixels between the rows:
 
     collection.layout = atlas.layout("grid", {numCols: 1, vGap: 10});
 
