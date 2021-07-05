@@ -1,5 +1,5 @@
 ---
-title: "Global Functions"
+title: "Top-level Functions"
 description: ""
 lead: ""
 date: 2020-10-06T08:49:15+00:00
@@ -13,7 +13,7 @@ weight: 2
 toc: true
 ---
 
-Global functions are defined in the atlas namespace. 
+Top-level functions are defined in the atlas namespace. 
 
 ### Create Objects
 | function |  explanation  |  return type |

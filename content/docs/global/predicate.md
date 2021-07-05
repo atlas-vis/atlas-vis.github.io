@@ -13,7 +13,7 @@ weight: 4
 toc: true
 ---
 
-A predicate is used to define an inclusion or exclusion criteria. The [_find_ method](../../group/scene/#methods-manage-items) in the [Scene](../../group/scene/) class, for example, takes an array of predicates as its parameter. 
+A predicate is used to define an inclusion or exclusion criterion. The [_find_ method](../../group/scene/#methods-manage-items) in the [Scene](../../group/scene/) class, for example, takes an array of predicates as its parameter. 
 
 ### Predicates based on visual properties
 A predicate based on a visual property is defined as:
