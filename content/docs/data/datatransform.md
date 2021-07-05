@@ -1,5 +1,5 @@
 ---
-title: "Data Transforms"
+title: "Data Transformations"
 description: ""
 lead: ""
 date: 2020-11-12T13:26:54+01:00
@@ -14,20 +14,34 @@ toc: true
 ---
 
 ### Binning
+
+The binning transformation divides the value range of a field into intervals, and counts the number of values within each interval. To apply the transformation, here is an example: 
+
+```js
+    let t = datatable.transform("bin", ["col1"]);
+```
+The returned result `t` is a [DataTable](../../data/datatable/). Each tuple (i.e., row) represents a bin or an interval. There are three fields (i.e., columns): "x0" (lower bound of the bin, inclusive), "x1" (upper bound of the bin, exclusive except the last bin), and "col1_count" (the number of values in the bin).
+
+
 | parameter |  required? | explanation   | default value |
 | --- | --- | --- | --- |
-| binWidth | optional | | |
-| min | optional | | |
-| max | optional | | |
+| binWidth | optional | width of bin | computed using [Sturge's formula](https://en.wikipedia.org/wiki/Histogram#Number_of_bins_and_width) |
+| min | optional | minimum bin value | minimum field value |
+| max | optional | maximum bin value | minimum field value |
 {.table-striped}
 
-### Kernel Density Transformation
-<span style="font-size:1.2em;color:red;">explain which kernel is used </span><br>
+### Kernel Density Estimation
+The KDE transformation estimates the probability density of a field using an Epanechnikov kernel:
+
+```js
+    let t = datatable.transform("kde", ["col1"]);
+```
+The returned result `t` is a [DataTable](../../data/datatable/). Each tuple (i.e., row) has two fields (i.e., columns): "col1" (value samples from the input field), and "col1_density" (the estimated probability density for the value sample).
 
 | parameter | required? |  explanation   | default value |
 | --- | --- | --- | --- |
-| min | optional | | |
-| max | optional | | |
-| bandwidth | required | | |
-| interval | required | | |
+| min | optional | minimum value  | minimum field value|
+| max | optional | maximum value  | maximum field value |
+| bandwidth | required | smoothing parameter | |
+| interval | required | width of bin | |
 {.table-striped}
