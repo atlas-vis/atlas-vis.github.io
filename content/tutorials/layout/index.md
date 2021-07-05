@@ -16,7 +16,9 @@ We get a collection of graphical objects after applying repeat, divide or densif
 
 To create a layout, use the _layout_ function, for example,
 
-    let tl = atlas.layout("treemap", {width: 800, height: 500});
+```js
+let tl = atlas.layout("treemap", {width: 800, height: 500});
+```
 
 A layout can only be applied to a collection:
 
@@ -24,5 +26,7 @@ A layout can only be applied to a collection:
 
 You can also pass a layout as an argument when performing [repeat](../../docs/group/scene/#methods-join-graphics-with-data) or [divide](../../docs/group/scene/#methods-join-graphics-with-data) operations:
 
-    scene.divide(rect, table, {field: "col", layout: tl});
+```js
+scene.divide(rect, table, {field: "col", layout: tl});
+```
 

@@ -14,7 +14,9 @@ weight: 50
 
 Visual encodings specify how values in a data field is mapped to properties of a visual channel. To specify a visual encoding, we need an example mark/glyph/collection, a data field, and a visual channel: 
 
-    scene.encode(rect, {field: "Percentage", channel: "width});
+```js
+scene.encode(rect, {field: "Percentage", channel: "width"});
+```
 
 Atlas will automatically create a [scale](../../docs/encode/scale/) based on the provided parameters, the [type](../../docs/global/constants/#data-type) and value distribution of the data field, and the [type](../../docs/global/constants/#channel) and current values of the visual channel. 
 

@@ -23,12 +23,16 @@ Figure 2 shows the dataset "survey_response.csv" behind this visualization. The 
 ### Initialize Scene and Import Data
 To begin, we create a [scene](../../group/scene/), which represents a top-level container, and import the data: 
 
-    let scn = atlas.scene(), table = await atlas.csv("survey_response.csv");
+```js
+let scn = atlas.scene(), table = await atlas.csv("survey_response.csv");
+```
 
 Next, let's create a rectangle in the scene and specify its properties: 
 
-    let rect = scn.mark("rectangle", {top: 100, left: 200, 
-                        width: 700, height: 30, strokeWidth: 0, fillColor: "#ddd"});
+```js
+let rect = scn.mark("rectangle", {top: 100, left: 200, width: 700, 
+                        height: 30, strokeWidth: 0, fillColor: "#ddd"});
+```
 
 Now we can't see the rectangle yet, as it has not been rendered. If you do `console.log(rect)`, you will be able to see the `rect` object in the console. To display it, let's add a line to create a renderer: 
 
@@ -103,8 +107,10 @@ We can then create some text marks and affix them at the center of the rectangle
 
 Finally, let's add a legend and an axis (labels only):
 
-    scn.legend("fillColor", "Response", {x: 800, y: 100});
-    scn.axis("y", "Age Group", {orientation: "left", x: 190, pathVisible: false, tickVisible: false});
+```js
+scn.legend("fillColor", "Response", {x: 800, y: 100});
+scn.axis("y", "Age Group", {orientation: "left", x: 190, pathVisible: false, tickVisible: false});
+```
 
 Viola! We have the visualization in Figure 1.
 

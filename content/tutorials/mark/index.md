@@ -14,7 +14,9 @@ weight: 25
 
 Marks and glyphs can be created using the [_mark_ method in the Scene class](../../docs/group/scene/#methods-create-mark-or-group). For example, the following code creates a circle: 
 
-    let circle = scene.mark("circle", {cx: 50, cy: 100, radius: 20});
+```js
+let circle = scene.mark("circle", {cx: 50, cy: 100, radius: 20});
+```
 
 The [types of marks](../../docs/global/constants/#mark-type) that can be created this way are: circle, line, path, rectangle, and text. For each type of mark, check out its [API reference](../../docs/marks/mark/) for mark properties and their default values. Non-text marks are represented as paths, consisting of vertices and segments, as shown in the [object model](../../tutorials/vom/):
 
@@ -22,13 +24,15 @@ The [types of marks](../../docs/global/constants/#mark-type) that can be created
 
 The following code creates multiple marks and group them into a box plot [glyph](../../docs/group/glyph/):
 
-    let line = scene.mark("line", {x1: 150, y1: 130, x2: 700, y2: 130, strokeColor: "#555", 
-                    vertexShape: "line", vertexWidth: 1, vertexHeight: 30}),
-        box = scene.mark("rectangle", {top: 110, left: 200, width: 400, height: 40,
+```js
+let line = scene.mark("line", {x1: 150, y1: 130, x2: 700, y2: 130, strokeColor: "#555", 
+                vertexShape: "line", vertexWidth: 1, vertexHeight: 30}),
+    box = scene.mark("rectangle", {top: 110, left: 200, width: 400, height: 40,
                     fillColor: "#95D0F5", strokeColor: "#111"}),
-        medianLine = scene.mark("line", {x1: 300, y1: 110, x2: 300, y2: 150, strokeColor: "#000"});
+    medianLine = scene.mark("line", {x1: 300, y1: 110, x2: 300, y2: 150, strokeColor: "#000"});
     
-    let glyph = scene.glyph(line, box, medianLine);
+let glyph = scene.glyph(line, box, medianLine);
+```
 
 When a mark or a glyph is created, it exists as a JavaScript object. You can print it to the web console using `console.log(mark)`, and inspect its properties. To render it on a webpage, we need to create a renderer. 
 
