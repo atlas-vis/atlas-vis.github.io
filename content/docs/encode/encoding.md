@@ -28,6 +28,8 @@ An Encoding object records information about a visual encoding. When a mark's vi
 |**rangeExtent**| the extent of the scale range | Number | |
 |**mapping**| user defined mapping between field values and visual properties | Object |  |
 |**scheme**| the color scheme  | String | |
+|**startAngle**| the start angle in degrees when encoding using the "angle" channel | Number| 90 |
+|**angleDirection**| the direction to encode angles | String | "clockwise" |
 {.table-striped}
 
 ### Methods

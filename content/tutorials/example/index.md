@@ -12,7 +12,7 @@ menu:
 weight: 1
 ---
 
-We start this tutorial by creating a diverging bar chart (Figure 1) using Atlas. This chart visualizes ahypothetical dataset reporting people’s opinions on a subject matter, broken down by age (below 30, 30 - 50, 50 - 70, above 70) and responses (strongly agree, agree, disagree, strongly disagree). You can see a demo of this visualization here.
+We start this tutorial by creating a diverging bar chart (Figure 1) using Atlas. This chart visualizes ahypothetical dataset reporting people’s opinions on a subject matter, broken down by age (below 30, 30 - 50, 50 - 70, above 70) and responses (strongly agree, agree, disagree, strongly disagree). You can see a demo of this visualization [here](/gallery.html#DivergingBarChart).
 
 {{< figure src="diverging_bar.png" width="800px" alt="Diverging Bar Chart" caption="Figure 1: Diverging Bar Chart" class="border-0 mx-auto text-center" >}}
 

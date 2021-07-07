@@ -45,3 +45,12 @@ The returned result `t` is a [DataTable](../../data/datatable/). Each tuple (i.e
 | bandwidth | required | smoothing parameter | |
 | interval | required | width of bin | |
 {.table-striped}
+
+### Sorting
+The sorting transformation orders tuples in a data table by the values of the specified fields in the defined order. By default, sorting is in ascending order. For example, the following code sorts the table rows first by `"col1"` then by `"col2"`.
+
+```js
+    datatable.transform("sort", ["col1", "col2"]);
+```
+
+The original data table is transformed and the return type is void. 
