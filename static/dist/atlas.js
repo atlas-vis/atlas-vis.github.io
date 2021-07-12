@@ -7318,7 +7318,9 @@
 
   const Orientation = {
   	Vertical: "vertical",
-  	Horizontal: "horizontal"
+  	Horizontal: "horizontal",
+  	Angular: "angular",
+  	Radial: "radial"
   };
 
   const Alignment = {
@@ -7337,6 +7339,8 @@
   	Ellipse: "ellipse",
   	Circle: "circle",
   	Pie: "pie",
+  	Ring: "ring",
+  	Arc: "arc",
   	Line: "line",
   	Path: "path",
   	Image: "image",
@@ -7402,11 +7406,14 @@
   	FIELD_NONEXISTENT : "Data field does not exist in the data table",
   	INCOMPLETE_REPEAT_INFO : "Incomplete information to do repeat. You must specify an item, a categorical data field and a data table",
   	REPEAT_BY_NONCAT: "Repeat only works on a string or date field",
-  	PARTITION_BY_NONCAT: "Partition only works on a string or date field",
+  	PARTITION_BY_NONCAT: "Divide only works on a string or date field",
+  	DENSIFY_BY_NONCAT: "Densify only works on a string or date field",
   	COMPNT_NON_REPEATABLE: "Item not repeatable",
-  	INCOMPLETE_PARTITION_INFO : "Incomplete information to do partition. You must specify an item, a categorical data field and a data table",
-  	COMPNT_NON_PARTITIONABLE: "Item cannot be partitioned",
-  	BIND_WITHOUT_DATASCOPE: "Item must be repeated or partitioned by data first before applyng binding",
+  	INCOMPLETE_PARTITION_INFO : "Incomplete information to divide. You must specify an item, a categorical data field and a data table",
+  	COMPNT_NON_PARTITIONABLE: "Item cannot be divided",
+  	INCOMPLETE_DENSIFY_INFO : "Incomplete information to densify. You must specify an item, a categorical data field and a data table",
+  	COMPNT_NON_DENSIFIABLE: "Item cannot be densified",
+  	BIND_WITHOUT_DATASCOPE: "Item must be repeated or divided by data first before applyng binding",
   	UNKNOWN_ALIGNMENT: "Unkown alignment",
   	UNKOWNN_SCALE_TYPE: "Unknown scale type",
   	UNKNOWN_ANCHOR: "Unknown anchor",
@@ -8275,7 +8282,8 @@
 
 
   function isMark(cmpnt) {
-  	return cmpnt.type == ItemType.PointText || cmpnt.type == ItemType.Path || cmpnt.type == ItemType.Rectangle || cmpnt.type == ItemType.Line || cmpnt.type == ItemType.Circle || cmpnt.type == ItemType.Area;
+  	return cmpnt instanceof Mark;
+  	//return cmpnt.type == ItemType.PointText || cmpnt.type == ItemType.Path || cmpnt.type == ItemType.Rectangle || cmpnt.type == ItemType.Line || cmpnt.type == ItemType.Circle || cmpnt.type == ItemType.Area;
   }
 
   const ItemCounter = {
@@ -8285,6 +8293,8 @@
   	"pie": 0,
   	"line": 0,
   	"path" : 0,
+  	"ring" : 0,
+  	"arc": 0,
   	"image": 0,
   	"pointText": 0,
   	"collection": 0,
@@ -8851,6 +8861,10 @@
   		return this._tuples.length == 0;
   	}
 
+  	get numTuples() {
+  		return this._tuples.length;
+  	}
+
   	merge(ds) {
   		let r = new DataScope(this._dt);
   		for (let field in ds._field2value) {
@@ -9248,43 +9262,19 @@
   		case ItemType.Line:
   			return _doLineDivide();
   		case ItemType.Circle:
-  			return _doCircleDivide(scene, compnt, f, datatable);
+  			return _doCircleDivide(scene, compnt, orientation, f, datatable);
   		case ItemType.Rectangle:
   			return _doRectDivide(scene, compnt, orientation, f, datatable);
   		case ItemType.Area:
   			return _doAreaDivide(scene, compnt, orientation, f, datatable);
-  	}
-  	
-  }
-
-  function densifyItem(scene, compnt, orientation, field, datatable, callback, startAngle, direction) {
-  	// if (!datatable.hasField(field))
-  	// 	throw new Error(Errors.FIELD_NONEXISTENT + ", field: " + field  + ", data table: " + datatable.name);
-  	var f = callback ? datatable.transformField(field, callback) : field;
-  	var type = datatable.getFieldType(f);
-
-  	if (type != DataType.String && type != DataType.Date && type != DataType.Number) {
-  		throw new Error(Errors$1.PARTITION_BY_NONCAT + ": " + f + " is " + type);
-  	}
-
-  	if (!_canDivide(compnt, f, scene)) {
-  		throw new Error(Errors$1.COMPNT_NON_PARTITIONABLE);
-  	}
-
-  	switch (compnt.type) {
-  		case ItemType.Line:
-  			return _doLineDensify(scene, compnt, f, datatable);
-  		case ItemType.Circle:
-  			return _doCircleDensify(scene, compnt, f, datatable, startAngle, direction);
-  		case ItemType.Rectangle:
-  		case ItemType.Area:
-  			return _doAreaDensify(scene, compnt, orientation, f, datatable);
+  		case ItemType.Ring:
+  			return _doRingDivide(scene, compnt, orientation, f, datatable);
   	}
   	
   }
 
   function _canDivide(compnt, field, scene) {
-  	if (!isMark(compnt)) {
+  	if ([ItemType.Line, ItemType.Circle, ItemType.Rectangle, ItemType.Area, ItemType.Ring].indexOf(compnt.type) < 0) {
   		return false;
   	} 
   	if (!compnt.dataScope) {
@@ -9293,7 +9283,7 @@
   	else {
   		let peers = getPeers(compnt, scene); // findItems(scene, {"classId": compnt.classId});
   		for (let p of peers) {
-  			if (p.dataScope._tuples.length > 1)
+  			if (p.dataScope.numTuples > 1)
   				return true;
   		}
   		return false;
@@ -9304,57 +9294,12 @@
   	//TODO: implement
   }
 
-  function _doLineDensify(scene, compnt, field, datatable) {
-  	let peers = getPeers(compnt, scene); // findItems(scene, {"classId": compnt.classId});
 
-  	let toReturn;
-  	for (let p of peers) {
-  		let lineDS = p.dataScope ? p.dataScope : new DataScope(datatable);
-  		let ds = datatable.getFieldSummary(field).unique.map(d => lineDS.cross(field, d));
-  		ds = ds.filter(d => !d.isEmpty());
 
-  		let args = Object.assign({}, p.styles);
-  		for (let vs of Vertex.styles){
-  			if (p[vs])
-  				args[vs] = p[vs];
-  		}
-  		//args = Object.assign(args, compnt.attrs);
-  		//compute vertices
-  		let x1 = p.vertices[0].x,
-  			y1 = p.vertices[0].y,
-  			x2 = p.vertices[1].x,
-  			y2 = p.vertices[1].y;
-
-  		let vertices = [], wd = x2 - x1, ht = y2 - y1;
-  		for (let i = 0; i < ds.length; i++){
-  			vertices.push([x1 + i * wd / (ds.length - 1), y1 + i * ht /(ds.length - 1)]);
-  		}
-  		args.vertices = vertices;
-  		let polyLine = scene.mark("path", args);
-  		polyLine.classId = compnt.id;
-  		polyLine.dataScope = lineDS;
-
-  		let parent = p.parent;
-  		parent.addChild(polyLine);
-  		parent.removeChild(p);
-
-  		for (let [i, v] of polyLine.vertices.entries()){
-  			if (v.dataScope)
-  				v.dataScope = v.dataScope.merge(ds[i]);
-  			else
-  				v.dataScope = ds[i];
-  		}
-
-  		if (p == compnt)
-  			toReturn = polyLine;
-  	}
-  	return toReturn;
-  }
-
-  function _doRectDivide(scene, compnt, orientation, field, datatable) {
+  function _doRectDivide(scene, compnt, o, field, datatable) {
 
   	let peers = getPeers(compnt, scene); // findItems(scene, {"classId": compnt.classId});
-  	let toReturn;
+  	let toReturn, orientation = o ? o : Orientation.Horizontal;
   	let ds = datatable.getFieldSummary(field).unique.map(d => new DataScope(datatable).cross(field, d));
 
   	//datascopes
@@ -9408,34 +9353,6 @@
   			coll.addChild(c);
   		}
 
-  		// for (let i = 0; i < collchildren.length; i++) {
-  		// 	let child = children[i];
-  		// 	if (child.dataScope)
-  		// 		child.dataScope = child.dataScope.merge(ds[i]);
-  		// 	else
-  		// 		child.dataScope = ds[i];
-  		// 	if (!child.dataScope.isEmpty())
-  		// 		coll.addChild(child);
-  		// 	else if (child.parent)
-  		// 		child.parent.removeChild(child);
-  		// }
-  		// for (let i = 0; i < coll.children.length; i++) {
-  		// 	let child = coll.children[i];
-  		// 	if (child.dataScope) {
-  		// 		child.dataScope = child.dataScope.merge(ds[i]);
-  		// 	} else {
-  		// 		child.dataScope = ds[i];
-  		// 	}
-  		// }
-
-  		// if (!scene.cellAlign.hasOwnProperty(p.classId)) {
-  		// 	scene.cellAlign[p.classId] = {x: Alignment.Left, y: Alignment.Bottom};
-  		// }
-
-  		// if (!scene.cellAlign.hasOwnProperty(coll.classId)) {
-  		// 	scene.cellAlign[coll.classId] = {x: Alignment.Left, y: Alignment.Bottom};
-  		// }
-
   		let stackO = orientation == Orientation.Vertical ? Orientation.Horizontal: Orientation.Vertical;
   		coll.layout = new StackLayout({orientation: stackO, left: left, top: top});
 
@@ -9445,90 +9362,6 @@
 
   	scene._reapplySizeBindings(toReturn);
   	return toReturn;
-  }
-
-  // function _doAreadivide(scene, compnt, partitionType, orientation, field, datatable) {
-  // 	switch (partitionType) {
-  // 		case 'divide':
-  // 			return _Area_divide(scene, compnt, orientation, field, datatable);
-  // 		case 'BoundaryPartition':
-  // 			return _Area_Boundarydivide(scene, compnt, orientation, field, datatable);
-
-  // 	}
-  // }
-
-  function _doAreaDensify(scene, compnt, orientation, field, datatable) {
-  	let peers = getPeers(compnt, scene);
-  	let toReturn;
-  	// let targetArea;
-  	// let indicator = compnt.parent == scene ? false : true;
-  	for (let p of peers) {
-  		// How to handle missing elements across different partitions in area mark?
-  		let ft = datatable.getFieldType(field);
-  		let areaDS = p.dataScope ? p.dataScope : new DataScope(datatable);
-  		let ds = datatable.getFieldSummary(field).unique.map(d => areaDS.cross(field, d));
-  		ds = ft == DataType.Number? ds : ds.filter(d => !d.isEmpty());
-  		
-  		if (ft == DataType.Number || ft == DataType.Date) {
-  			// sorting ds
-  			ds.sort((a, b) => (a._field2value[field] > b._field2value[field]) ? 1 : -1);
-  		}
-  		let args = Object.assign({}, p.styles);
-  		//compute vertices
-  		let x1 = p.vertices[0].x,
-  			y1 = p.vertices[0].y,
-  			x2 = p.vertices[p.vertices.length - 2].x,
-  			y2 = p.vertices[p.vertices.length - 2].y;
-
-  		let vertices = [], wd = x2 - x1, ht = y2 - y1;
-  		for(let j = 0; j < ds.length; j++) {
-  			vertices.push(orientation == Orientation.Vertical ? [x2, y1 + (ds.length-1-j) * ht /(ds.length - 1)] : [x1 + j * wd / (ds.length - 1), y1]);
-  		}
-  		for(let j = 0; j < ds.length; j++) {
-  			vertices.push(orientation == Orientation.Vertical ? [x1, y1 + j * ht /(ds.length - 1)] : [x1 + (ds.length-1-j) * wd / (ds.length - 1), y2]);
-  		}
-  		args.vertices = vertices;
-  		let NewArea = scene.mark("area", args);
-  		// Very Important: keep new areas' classID consistent
-  		NewArea.classId = p.type == "area"? p.classId : "area" + p.classId.substring(9);
-  		NewArea.dataScope = areaDS;
-
-  		let parent = p.parent;
-  		parent.addChild(NewArea);
-  		parent.removeChild(p);
-
-  		for (let [i, v] of NewArea.vertices.entries()){
-  			// two boundary lines are encoded the same; possible to modify later according to the data encoding
-  			if (i>=ds.length) {
-  				v.dataScope = areaDS.merge(ds[ds.length*2-1-i]);
-  			}
-  			else {
-  				v.dataScope = areaDS.merge(ds[i]);
-  			}
-  		}
-  		if (p == compnt) {
-  			toReturn = NewArea;
-  			// targetArea = NewArea;
-  		}
-  	}
-  	return toReturn;
-  	// // this part is to make sure the returned is a collection (like what is returned for rect marks); this is important if we consider combining the repeat operator
-  	// if (indicator) {
-  	// 	return targetArea.parent;
-  	// } else {
-  	// 	let coll = new Collection();
-  	// 	let collClassId;
-  	// 	if (collClassId == undefined)
-  	// 		collClassId = coll.id;
-  	// 	coll.classId = collClassId;
-  	// 	coll.dataScope = targetArea.dataScope;
-  	// 	scene.addChild(coll);
-  	// 	coll.addChild(targetArea);
-  	// 	// // adding a layout of this collection
-  	// 	// let stackO = orientation == Orientation.Vertical ? Orientation.Horizontal: Orientation.Vertical;
-  	// 	// coll.layout = new StackLayout(stackO, coll.firstChild.left, coll.firstChild.top);
-  	// 	return coll;
-  	// }
   }
 
   function _doAreaDivide(scene, compnt, orientation, field, datatable) {
@@ -9598,6 +9431,314 @@
   	return toReturn;
   }
 
+  function _doRingDivide(scene, compnt, o, field, datatable) {
+  	let toReturn, orientation = o ? o : Orientation.Angular;
+  	let peers = getPeers(compnt, scene);
+  	let collClassId;
+  	if (orientation == Orientation.Angular) {
+  		peers.forEach(p => {
+  			let ringDS = p.dataScope ? p.dataScope : new DataScope(datatable);
+  			let ds = datatable.getFieldSummary(field).unique.map(d => ringDS.cross(field, d));
+  			ds = ds.filter(d => !d.isEmpty()); 
+  			let numArcs = ds.length;
+  	
+  			// Define new collection and save parent
+  			let coll = new Collection();
+  			coll.dataScope = ringDS;
+  			if (collClassId == undefined)
+  				collClassId = coll.id;
+  			coll.classId = collClassId;
+  			let parent = p.parent;
+  	
+  			let arcAng = 360 / numArcs;
+  	
+  			// Create each pie
+  			for (let i = 0; i < numArcs; i++){
+  				let arc = scene.mark("arc", {
+  					innerRadius: p.innerRadius,
+  					outerRadius: p.outerRadius,
+  					cx: p.cx,
+  					cy: p.cy,
+  					startAngle: arcAng * i,
+  					endAngle: arcAng + arcAng * i,
+  					strokeColor: p.strokeColor,
+  					fillColor: p.fillColor,
+  					strokeWidth: p.strokeWidth,
+  					opacity: p.opacity
+  				});
+  	
+  				// Add the datascope
+  				arc.dataScope = ds[i];
+  				arc.classId = compnt.id;
+  	
+  				// Add to collection
+  				coll.addChild(arc);
+  			}
+  	
+  			// Replace original circle w/ coll of pies
+  			parent.removeChild(p);
+  			parent.addChild(coll);
+  	
+  			// Return collection
+  			if (p == compnt)
+  				toReturn = coll;
+  		});
+  		return toReturn;
+  	}
+  }
+
+  function _doCircleDivide(scene, compnt, o, field, datatable) {
+  	let toReturn, orientation = o ? o : Orientation.Angular;
+
+  	// Perform on all repitions of cmpnt on canvas
+  	let peers = getPeers(compnt, scene);
+  	let collClassId;
+  	if (orientation == Orientation.Angular) {
+  		peers.forEach(p => {
+  			let circDS = p.dataScope ? p.dataScope : new DataScope(datatable);
+  			//console.info("Peer DS: ", circDS);
+  			let ds = datatable.getFieldSummary(field).unique.map(d => circDS.cross(field, d));
+  			ds = ds.filter(d => !d.isEmpty()); 
+  			let numPies = ds.length;
+  	
+  			// Define new collection and save parent
+  			let coll = new Collection();
+  			coll.dataScope = circDS;
+  			if (collClassId == undefined)
+  				collClassId = coll.id;
+  			coll.classId = collClassId;
+  			let parent = p.parent;
+  	
+  			// Calculate angle of each pie
+  			let pieAng = 360 / numPies;
+  	
+  			// Create each pie
+  			for (let i = 0; i < numPies; i++){
+  				let pie = scene.mark("pie", {
+  					radius: p.radius,
+  					cx: p.cx,
+  					cy: p.cy,
+  					startAng: pieAng * i,
+  					endAng: pieAng + pieAng * i,
+  					strokeColor: "#444444",
+  					fillColor: p.styles.fillColor 
+  				});
+  	
+  				// Add the datascope
+  				pie.dataScope = ds[i];
+  				pie.classId = compnt.id;
+  	
+  				// Add to collection
+  				coll.addChild(pie);
+  			}
+  	
+  			// Replace original circle w/ coll of pies
+  			parent.removeChild(p);
+  			parent.addChild(coll);
+  	
+  			// Return collection
+  			if (p == compnt)
+  				toReturn = coll;
+  		});
+  	} else {//radial
+  		peers.forEach(p => {
+  			let circDS = p.dataScope ? p.dataScope : new DataScope(datatable);
+  			let ds = datatable.getFieldSummary(field).unique.map(d => circDS.cross(field, d));
+  			ds = ds.filter(d => !d.isEmpty()); 
+  			let numRings = ds.length;
+  	
+  			// Define new collection and save parent
+  			let coll = new Collection();
+  			coll.dataScope = circDS;
+  			if (collClassId == undefined)
+  				collClassId = coll.id;
+  			coll.classId = collClassId;
+  			let parent = p.parent;
+  	
+  			// Calculate angle of each pie
+  			let pieAng = 360 / numPies;
+  	
+  			// Create each pie
+  			for (let i = 0; i < numPies; i++){
+  				let pie = scene.mark("pie", {
+  					radius: p.radius,
+  					cx: p.cx,
+  					cy: p.cy,
+  					startAng: pieAng * i,
+  					endAng: pieAng + pieAng * i,
+  					strokeColor: "#444444",
+  					fillColor: p.styles.fillColor 
+  				});
+  	
+  				// Add the datascope
+  				pie.dataScope = ds[i];
+  				pie.classId = compnt.id;
+  	
+  				// Add to collection
+  				coll.addChild(pie);
+  			}
+  	
+  			// Replace original circle w/ coll of pies
+  			parent.removeChild(p);
+  			parent.addChild(coll);
+  	
+  			// Return collection
+  			if (p == compnt)
+  				toReturn = coll;
+  		});
+  	}
+  	
+
+  	return toReturn;
+  }
+
+  function densifyItem(scene, compnt, orientation, field, datatable, callback, startAngle, direction) {
+  	// if (!datatable.hasField(field))
+  	// 	throw new Error(Errors.FIELD_NONEXISTENT + ", field: " + field  + ", data table: " + datatable.name);
+  	var f = callback ? datatable.transformField(field, callback) : field;
+  	var type = datatable.getFieldType(f);
+
+  	if (type != DataType.String && type != DataType.Date && type != DataType.Number) {
+  		throw new Error(Errors$1.DENSIFY_BY_NONCAT + ": " + f + " is " + type);
+  	}
+
+  	if (!_canDensify(compnt, f, scene)) {
+  		throw new Error(Errors$1.COMPNT_NON_DENSIFIABLE);
+  	}
+
+  	switch (compnt.type) {
+  		case ItemType.Line:
+  			return _doLineDensify(scene, compnt, f, datatable);
+  		case ItemType.Circle:
+  			return _doCircleDensify(scene, compnt, f, datatable, startAngle, direction);
+  		case ItemType.Rectangle:
+  		case ItemType.Area:
+  			return _doAreaDensify(scene, compnt, orientation, f, datatable);
+  	}
+  	
+  }
+
+  function _canDensify(compnt, field, scene) {
+  	if ([ItemType.Line, ItemType.Circle, ItemType.Rectangle, ItemType.Area].indexOf(compnt.type) < 0) {
+  		return false;
+  	} 
+  	if (!compnt.dataScope) {
+  		return true;
+  	}
+  	else {
+  		let peers = getPeers(compnt, scene); // findItems(scene, {"classId": compnt.classId});
+  		for (let p of peers) {
+  			if (p.dataScope.numTuples > 1)
+  				return true;
+  		}
+  		return false;
+  	}
+  }
+
+  function _doLineDensify(scene, compnt, field, datatable) {
+  	let peers = getPeers(compnt, scene); // findItems(scene, {"classId": compnt.classId});
+
+  	let toReturn;
+  	for (let p of peers) {
+  		let lineDS = p.dataScope ? p.dataScope : new DataScope(datatable);
+  		let ds = datatable.getFieldSummary(field).unique.map(d => lineDS.cross(field, d));
+  		ds = ds.filter(d => !d.isEmpty());
+
+  		let args = Object.assign({}, p.styles);
+  		for (let vs of Vertex.styles){
+  			if (p[vs])
+  				args[vs] = p[vs];
+  		}
+  		//args = Object.assign(args, compnt.attrs);
+  		//compute vertices
+  		let x1 = p.vertices[0].x,
+  			y1 = p.vertices[0].y,
+  			x2 = p.vertices[1].x,
+  			y2 = p.vertices[1].y;
+
+  		let vertices = [], wd = x2 - x1, ht = y2 - y1;
+  		for (let i = 0; i < ds.length; i++){
+  			vertices.push([x1 + i * wd / (ds.length - 1), y1 + i * ht /(ds.length - 1)]);
+  		}
+  		args.vertices = vertices;
+  		let polyLine = scene.mark("path", args);
+  		polyLine.classId = compnt.id;
+  		polyLine.dataScope = lineDS;
+
+  		let parent = p.parent;
+  		parent.addChild(polyLine);
+  		parent.removeChild(p);
+
+  		for (let [i, v] of polyLine.vertices.entries()){
+  			if (v.dataScope)
+  				v.dataScope = v.dataScope.merge(ds[i]);
+  			else
+  				v.dataScope = ds[i];
+  		}
+
+  		if (p == compnt)
+  			toReturn = polyLine;
+  	}
+  	return toReturn;
+  }
+
+  function _doAreaDensify(scene, compnt, orientation, field, datatable) {
+  	let peers = getPeers(compnt, scene);
+  	let toReturn;
+  	// let targetArea;
+  	// let indicator = compnt.parent == scene ? false : true;
+  	for (let p of peers) {
+  		// How to handle missing elements across different partitions in area mark?
+  		let ft = datatable.getFieldType(field);
+  		let areaDS = p.dataScope ? p.dataScope : new DataScope(datatable);
+  		let ds = datatable.getFieldSummary(field).unique.map(d => areaDS.cross(field, d));
+  		ds = ft == DataType.Number? ds : ds.filter(d => !d.isEmpty());
+  		
+  		if (ft == DataType.Number || ft == DataType.Date) {
+  			// sorting ds
+  			ds.sort((a, b) => (a._field2value[field] > b._field2value[field]) ? 1 : -1);
+  		}
+  		let args = Object.assign({}, p.styles);
+  		//compute vertices
+  		let x1 = p.vertices[0].x,
+  			y1 = p.vertices[0].y,
+  			x2 = p.vertices[p.vertices.length - 2].x,
+  			y2 = p.vertices[p.vertices.length - 2].y;
+
+  		let vertices = [], wd = x2 - x1, ht = y2 - y1;
+  		for(let j = 0; j < ds.length; j++) {
+  			vertices.push(orientation == Orientation.Vertical ? [x2, y1 + (ds.length-1-j) * ht /(ds.length - 1)] : [x1 + j * wd / (ds.length - 1), y1]);
+  		}
+  		for(let j = 0; j < ds.length; j++) {
+  			vertices.push(orientation == Orientation.Vertical ? [x1, y1 + j * ht /(ds.length - 1)] : [x1 + (ds.length-1-j) * wd / (ds.length - 1), y2]);
+  		}
+  		args.vertices = vertices;
+  		let NewArea = scene.mark("area", args);
+  		// Very Important: keep new areas' classID consistent
+  		NewArea.classId = p.type == "area"? p.classId : "area" + p.classId.substring(9);
+  		NewArea.dataScope = areaDS;
+
+  		let parent = p.parent;
+  		parent.addChild(NewArea);
+  		parent.removeChild(p);
+
+  		for (let [i, v] of NewArea.vertices.entries()){
+  			// two boundary lines are encoded the same; possible to modify later according to the data encoding
+  			if (i>=ds.length) {
+  				v.dataScope = areaDS.merge(ds[ds.length*2-1-i]);
+  			}
+  			else {
+  				v.dataScope = areaDS.merge(ds[i]);
+  			}
+  		}
+  		if (p == compnt) {
+  			toReturn = NewArea;
+  			// targetArea = NewArea;
+  		}
+  	}
+  	return toReturn;
+  }
+
   function _doCircleDensify(scene, compnt, field, datatable, startAngle, direction) {
   	let toReturn;
   	let peers = getPeers(compnt, scene);
@@ -9641,62 +9782,6 @@
   		if (p == compnt)
   			toReturn = polygon;
   	});
-  	return toReturn;
-  }
-
-  function _doCircleDivide(scene, compnt, field, datatable) {
-  	let toReturn;
-
-  	// Perform on all repitions of cmpnt on canvas
-  	let peers = getPeers(compnt, scene);
-  	let collClassId;
-  	peers.forEach(p => {
-  		let circDS = p.dataScope ? p.dataScope : new DataScope(datatable);
-  		//console.info("Peer DS: ", circDS);
-  		let ds = datatable.getFieldSummary(field).unique.map(d => circDS.cross(field, d));
-  		ds = ds.filter(d => !d.isEmpty()); 
-  		let numPies = ds.length;
-
-  		// Define new collection and save parent
-  		let coll = new Collection();
-  		coll.dataScope = circDS;
-  		if (collClassId == undefined)
-  			collClassId = coll.id;
-  		coll.classId = collClassId;
-  		let parent = p.parent;
-
-  		// Calculate angle of each pie
-  		let pieAng = 360 / numPies;
-
-  		// Create each pie
-  		for (let i = 0; i < numPies; i++){
-  			let pie = scene.mark("pie", {
-  				radius: p.radius,
-  				cx: p.cx,
-  				cy: p.cy,
-  				startAng: pieAng * i,
-  				endAng: pieAng + pieAng * i,
-  				strokeColor: "#444444",
-  				fillColor: p.styles.fillColor 
-  			});
-
-  			// Add the datascope
-  			pie.dataScope = ds[i];
-  			pie.classId = compnt.id;
-
-  			// Add to collection
-  			coll.addChild(pie);
-  		}
-
-  		// Replace original circle w/ coll of pies
-  		parent.removeChild(p);
-  		parent.addChild(coll);
-
-  		// Return collection
-  		if (p == compnt)
-  			toReturn = coll;
-  	});
-
   	return toReturn;
   }
 
@@ -10952,18 +11037,21 @@
   	};
 
   	encoding._apply = function() {
-  		// Iterate through peers
-  		let peer, prevEnd = 90;
-      	for (let i = 0; i < this.items.length; i++) {
+  		let peer, prevEnd = this.startAngle;
+  		for (let i = 0; i < this.items.length; i++) {
   			peer = this.items[i];
-
-           	// The encoded pie will start at the end of the previous adjusted pie
-  			let startAngle = prevEnd;
-  			let angle = -this.scale.map(this.data[i]);
-
-  			// Pie function will update the end angle to be used in next iteration and return it
-  			prevEnd = peer.adjustAngle(startAngle, angle);
-        }
+  			let angle = this.scale.map(this.data[i]);
+  			switch (this.angleDirection){
+  				case "clockwise":
+  					peer.adjustAngle(prevEnd - angle, prevEnd);
+  					prevEnd -= angle;
+  					break;
+  				case "anticlockwise":
+  					peer.adjustAngle(prevEnd, prevEnd + angle);
+  					prevEnd += angle;
+  					break;
+  			}
+  		}
   	};
 
   	encoding.run();
@@ -11555,6 +11643,22 @@
       return x => Math.abs(x /= bandwidth) <= 1 ? 0.75 * (1 - x * x) / bandwidth : 0;
   }
 
+  function sort(table, fields, args) {
+      table.data.sort((a,b) => compareRow(a,b, fields));
+      table.summarize();
+      
+  }
+
+  function compareRow(row1, row2, fields, fieldTypes){
+      for (let f of fields){
+          if (row1[f] < row2[f])
+              return -1;
+          else if (row1[f] > row2[f])
+              return 1;
+      }
+      return 0;
+  }
+
   // import {uniqueDates, uniqueStrings} from "../util/DataUtil";
 
   class DataTable {
@@ -11698,6 +11802,14 @@
   				return kde(this, fields, args);
   			case "bin":
   				return bin$1(this, fields);
+  			case "sort":
+  				return sort(this, fields);
+  		}
+  	}
+
+  	summarize(){
+  		for (let f of this._fields) {
+  			this._fieldSummaries[f] = _summarize(this.data.map(d => d[f]), this._fieldTypes[f]);
   		}
   	}
   }
@@ -12612,7 +12724,7 @@
           let wd = 15, ht = 300;
           let title = scene.mark("text", {fillColor: this._textColor, "text": f, x: this._x + wd/2, y: this._y, "anchor": ["center", "middle"]});
           this.addChild(title);
-          let rect = scene.mark("rectangle", {"top": this._y + 20, "left": this._x, "width": wd, "height": ht, "strokeWidth": 0});
+          let rect = scene.mark("rectangle", {"top": this._y + 20, "left": this._x, "width": wd, "height": ht, "strokeWidth": 0, opacity: this.encoding.anyItem.opacity});
           let domain = [Math.min(...this.encoding.data), Math.max(...this.encoding.data)], mapping = this.encoding.mapping, scheme = this.encoding.scheme;
           let gradient = new Gradient();
           let texts = [], ticks = [], offset = 5, tickSize = 5;
@@ -12640,7 +12752,7 @@
 
       _createCategoricalColorLegend(scene, f) {
           this.addChild(new PointText({fillColor: this._textColor, "text": f, x: this._x, y: this._y, "anchor": ["left", "hanging"]}));        
-          let rect = scene.mark("rectangle", {"top": this._y + 25, "left": this._x, "width": 10, "height": 10, "strokeWidth": 0});
+          let rect = scene.mark("rectangle", {"top": this._y + 25, "left": this._x, "width": 10, "height": 10, "strokeWidth": 0, opacity: this.encoding.anyItem.opacity});
           let text = scene.mark("text", {fillColor: this._textColor, x: this._x + 20, y: this._y + 25, "anchor": ["left", "hanging"]});
           let glyph = scene.glyph(rect, text);
           let coll = scene.repeat(glyph, this.encoding.datatable, {"field": f});
@@ -12690,24 +12802,32 @@
   		super(args);
         
         	// Instrinsic values for pie path
-        	this.radius = args['radius'];
-  		this.totalAng = args['totalAng'];
-  		this.startAngleDeg = args['startAngleDeg'] % 360;
-  		this.startAngleRad = args['startAngleRad'];
-  		this.endAngleDeg = args['endAngleDeg'] % 360;
-  		this.endAngleRad = args['endAngleRad'];
+        	this.radius = args.hasOwnProperty("radius") ? args.radius : 100;
+  		this._cx = args.hasOwnProperty("cx") ? args.cx : 0;
+  		this._cy = args.hasOwnProperty("cy") ? args.cy : 0;
+  		this.startAngleDeg = args.hasOwnProperty("startAngle") ? args['startAngle'] % 360 : 0;
+  		this.endAngleDeg = args.hasOwnProperty("endAngle") ? args['endAngle'] % 360 : 90;
+  		this.totalAng = this.endAngleDeg < this.startAngleDeg ? this.endAngleDeg + 360 - this.startAngleDeg : this.endAngleDeg - this.startAngleDeg;
+  		
+  		this.startAngleRad = this.startAngleDeg * (Math.PI / 180);
+  		this.endAngleRad = this.endAngleDeg * (Math.PI / 180);
 
   		// Other values
   		this.type = ItemType.Pie;
   		this.closed = true;
+
+  		let v1 = [this._cx, this._cy];
+  		let v2 = [this._cx + this.radius * Math.cos(this.startAngleRad), this._cy - this.radius * Math.sin(this.startAngleRad)];
+  		let v3 = [this._cx + this.radius * Math.cos(this.endAngleRad), this._cy - this.radius * Math.sin(this.endAngleRad)];
+  		this._setVertices(new Array(v1, v2, v3));	
   	}
 
   	get cx() {
-  		return this.vertices[0].x;
+  		return this._cx;
   	}
 
   	get cy() {
-  		return this.vertices[0].y;
+  		return this._cy;
   	}
 
   	get center() {
@@ -12755,54 +12875,22 @@
   	getSVGPathData() {
   		let [[x1, y1], [x2, y2], [x3, y3]] = this.vertices.map((v) => [v.x, v.y]);
   		let r = this.radius;
-  		let path = `M ${x1} ${y1} L ${x2} ${y2} A ${r} ${r} 0 ${this.totalAng > 180 ? 1 : 0} 1 ${x3} ${y3} Z`;
+  		let path = `M ${x1} ${y1} L ${x2} ${y2} A ${r} ${r} ${this.totalAng} ${this.totalAng > 180 ? 1 : 0} 0 ${x3} ${y3} Z`;
   		return path;
   	}
 
-  	// Adjust angle
-  	// adjustAngle(startAngle, angle) {
-  	// 	// Calc vertices to the new start angle
-  	// 	let st = (startAngle - 90) % 360
-  	// 	let end = (startAngle + angle - 90) % 360
+  	adjustAngle(startAngle, endAngle){
+  		this.startAngleDeg = startAngle % 360;
+  		this.endAngleDeg = endAngle % 360;
+  		this.startAngleRad = this.startAngleDeg * (Math.PI / 180);
+  		this.endAngleRad = this.endAngleDeg * (Math.PI / 180);
+  		this.totalAng = this.endAngleDeg - this.startAngleDeg;
 
-  	// 	// Convert to radians for trig
-  	// 	let stRad = st * (Math.PI / 180)
-  	// 	let endRad = end * (Math.PI / 180)
+  		this.vertices[1].x = this.cx + this.radius * Math.cos(this.startAngleRad);
+  		this.vertices[1].y = this.cy - this.radius * Math.sin(this.startAngleRad);
 
-  	// 	let startVertex = [this.radius * Math.cos(stRad) + this.cx, this.radius * Math.sin(stRad) + this.cy]
-  	// 	let endVertex = [this.radius * Math.cos(endRad) + this.cx, this.radius * Math.sin(endRad) + this.cy]
-
-  	// 	// Update object
-  	// 	this.vertices[1] = new Point(...startVertex)
-  	// 	this.vertices[2] = new Point(...endVertex)
-  	// 	this.totalAng = angle
-
-  	// 	return startAngle + angle
-  	// }
-
-  	adjustAngle(startAngle, angle) {
-  		// Calc vertices to the new start angle
-  		let st = startAngle % 360;
-  		let end = (startAngle + angle) % 360;
-
-  		// Convert to radians for trig
-  		let stRad = st * (Math.PI / 180);
-  		let endRad = end * (Math.PI / 180);
-
-  		let startVertex = [this.radius * Math.cos(stRad) + this.cx, this.cy - this.radius * Math.sin(stRad)];
-  		let endVertex = [this.radius * Math.cos(endRad) + this.cx, this.cy - this.radius * Math.sin(endRad)];
-
-  		// Update object
-  		this.vertices[1] = new Point$1(...startVertex);
-  		this.vertices[2] = new Point$1(...endVertex);
-  		this.totalAng = angle;
-
-  		this.startAngleDeg = st;
-  		this.endAngleDeg = end;
-  		this.startAngleRad = stRad;
-  		this.endAngleRad = endRad;
-
-  		return startAngle + angle
+  		this.vertices[2].x = this.cx + this.radius * Math.cos(this.endAngleRad);
+  		this.vertices[2].y = this.cy - this.radius * Math.sin(this.endAngleRad);
   	}
 
   	// Overload this method to correctly calculate bounds for pies
@@ -12960,6 +13048,106 @@
   	getSVGPathData() {
   		return super.getSVGPathData() + " " + 'z';
   	}
+  }
+
+  class RingPath extends Path$1 {
+  	
+  	constructor(args) {
+  		super(args);
+  		
+  		this.type = ItemType.Ring;
+  		this.closed = true;
+  		this._cx = args.hasOwnProperty("cx") ? args.cx : 0;
+  		this._cy = args.hasOwnProperty("cy") ? args.cy : 0;
+  		this._innerRadius = args.hasOwnProperty("innerRadius") ? args.innerRadius : 100;
+          this._outerRadius = args.hasOwnProperty("outerRadius") ? args.outerRadius : 200;
+  	}
+
+  	get innerRadius() {
+  		return this._innerRadius;
+  	}
+
+      set innerRadius(r) {
+  		this._innerRadius = r;
+  	}
+
+      get outerRadius() {
+  		return this._outerRadius;
+  	}
+
+      set outerRadius(r) {
+  		this._outerRadius = r;
+  		this._updateBounds();
+  	}
+
+  	get cx() {
+  		return this._cx;
+  	}
+
+  	get cy() {
+  		return this._cy;
+  	}
+
+  	get center() {
+  		return new Point$1(this._cx, this._cy);
+  	}
+
+  	set cx(v) {
+  		this._cx = v;
+  		this._updateBounds();
+  	}
+
+  	set cy(v) {
+  		this._cy = v;
+  		this._updateBounds();
+  	}
+
+  	// set width(w) {
+  	// 	this._radius = w/2;
+  	// 	this._updateBounds();
+  	// }
+
+  	// set height(h) {
+  	// 	this._radius = h/2;
+  	// 	this._updateBounds();
+  	// }
+
+  	// resize(w, h) {
+  	// 	this._radius = w/2;
+  	// 	this._updateBounds();
+  	// }
+
+  	translate(dx, dy) {
+  		this._cx += dx;
+  		this._cy += dy;
+  		this._updateBounds();
+  	}
+
+  	_updateBounds() {		
+  		this._bounds = new Rectangle(this._cx - this._outerRadius, this._cy - this._outerRadius, this._outerRadius * 2, this._outerRadius * 2);
+  	}
+
+  	copyPropertiesTo(target) {
+  		super.copyPropertiesTo(target);
+  		target._cx = this._cx;
+  		target._cy = this._cy;
+  		target._innerRadius = this._innerRadius;
+          target._outerRadius = this._outerRadius;
+  	}
+
+      getSVGPathData() {
+          let cmds = [
+              "M " +  this._cx + " " + this._cy, // Move to center of ring
+              "m 0, -" + this._outerRadius, // Move to top of ring
+              "a " + this._outerRadius + "," + this._outerRadius + ", 0, 1, 0, 1, 0", // Draw outer arc, but don't close it
+              "Z", // default fill-rule:even-odd will help create the empty innards
+              "m 0 " + (this._outerRadius-this._innerRadius), // Move to top point of inner radius
+              "a " + this._innerRadius + ", " + this._innerRadius + ", 0, 1, 1, -1, 0", // Draw inner arc, but don't close it
+              "Z" // Close the inner ring. Actually will still work without, but inner ring will have one unit missing in stroke   
+          ];
+          return cmds.join(" ");
+      }
+
   }
 
   class PolygonPath extends Path$1 {
@@ -13177,6 +13365,160 @@
 
   }
 
+  class ArcPath extends Path$1 {
+  	
+  	constructor(args) {
+  		super(args);
+  		
+  		this.type = ItemType.Arc;
+  		this.closed = true;
+  		this._cx = args.hasOwnProperty("cx") ? args.cx : 0;
+  		this._cy = args.hasOwnProperty("cy") ? args.cy : 0;
+  		this._innerRadius = args.hasOwnProperty("innerRadius") ? args.innerRadius : 100;
+          this._outerRadius = args.hasOwnProperty("outerRadius") ? args.outerRadius : 200;
+          this._startAngle = args.hasOwnProperty("startAngle") ? args.startAngle : 0;
+          this._endAngle = args.hasOwnProperty("endAngle") ? args.endAngle : 90;
+          this._sr = degree2radian(this._startAngle);
+          this._er = degree2radian(this._endAngle);
+
+          let isx = this._cx + this._innerRadius * Math.cos(this._sr), isy = this._cy - this._innerRadius * Math.sin(this._sr),
+              iex = this._cx + this._innerRadius * Math.cos(this._er), iey = this._cy - this._innerRadius * Math.sin(this._er),
+              osx = this._cx + this._outerRadius * Math.cos(this._sr), osy = this._cy - this._outerRadius * Math.sin(this._sr),
+              oex = this._cx + this._outerRadius * Math.cos(this._er), oey = this._cy - this._outerRadius * Math.sin(this._er);
+          this._setVertices([[isx, isy], [osx, osy], [oex, oey], [iex, iey]]);
+  	}
+
+  	get innerRadius() {
+  		return this._innerRadius;
+  	}
+
+      set innerRadius(r) {
+  		this._innerRadius = r;
+          this.vertices[0].x = this._cx + this._innerRadius * Math.cos(this._sr);
+          this.vertices[0].y = this._cy - this._innerRadius * Math.sin(this._sr);
+          this.vertices[3].x = this._cx + this._innerRadius * Math.cos(this._er);
+          this.vertices[3].y = this._cy - this._innerRadius * Math.sin(this._er);
+          this._updateBounds();
+  	}
+
+      get outerRadius() {
+  		return this._outerRadius;
+  	}
+
+      set outerRadius(r) {
+  		this._outerRadius = r;
+          this.vertices[1].x = this._cx + this._outerRadius * Math.cos(this._sr);
+          this.vertices[1].y = this._cy - this._outerRadius * Math.sin(this._sr);
+          this.vertices[2].x = this._cx + this._outerRadius * Math.cos(this._er);
+          this.vertices[2].y = this._cy - this._outerRadius * Math.sin(this._er);
+  		this._updateBounds();
+  	}
+
+  	get cx() {
+  		return this._cx;
+  	}
+
+  	get cy() {
+  		return this._cy;
+  	}
+
+  	get center() {
+  		return new Point$1(this._cx, this._cy);
+  	}
+
+  	set cx(v) {
+  		this._cx = v;
+          this.vertices[0].x = this._cx + this._innerRadius * Math.cos(this._sr);
+          this.vertices[1].x = this._cx + this._outerRadius * Math.cos(this._sr);
+          this.vertices[2].x = this._cx + this._outerRadius * Math.cos(this._er);
+          this.vertices[3].x = this._cx + this._innerRadius * Math.cos(this._er);
+  		this._updateBounds();
+  	}
+
+  	set cy(v) {
+  		this._cy = v;
+          this.vertices[0].y = this._cy - this._innerRadius * Math.sin(this._sr);
+          this.vertices[1].y = this._cy - this._outerRadius * Math.sin(this._sr);
+          this.vertices[2].y = this._cy - this._outerRadius * Math.sin(this._er);
+          this.vertices[3].y = this._cy - this._innerRadius * Math.sin(this._er);
+  		this._updateBounds();
+  	}
+
+  	// set width(w) {
+  	// 	this._radius = w/2;
+  	// 	this._updateBounds();
+  	// }
+
+  	// set height(h) {
+  	// 	this._radius = h/2;
+  	// 	this._updateBounds();
+  	// }
+
+  	// resize(w, h) {
+  	// 	this._radius = w/2;
+  	// 	this._updateBounds();
+  	// }
+
+  	translate(dx, dy) {
+  		this._cx += dx;
+  		this._cy += dy;
+          this.vertices[0].x = this._cx + this._innerRadius * Math.cos(this._sr);
+          this.vertices[0].y = this._cy - this._innerRadius * Math.sin(this._sr);
+          this.vertices[1].x = this._cx + this._outerRadius * Math.cos(this._sr);
+          this.vertices[1].y = this._cy - this._outerRadius * Math.sin(this._sr);
+          this.vertices[2].x = this._cx + this._outerRadius * Math.cos(this._er);
+          this.vertices[2].y = this._cy - this._outerRadius * Math.sin(this._er);
+          this.vertices[3].x = this._cx + this._innerRadius * Math.cos(this._er);
+          this.vertices[3].y = this._cy - this._innerRadius * Math.sin(this._er);
+  		this._updateBounds();
+  	}
+
+  	_updateBounds() {		
+  		this._bounds = new Rectangle(this._cx - this._outerRadius, this._cy - this._outerRadius, this._outerRadius * 2, this._outerRadius * 2);
+  	}
+
+  	copyPropertiesTo(target) {
+  		super.copyPropertiesTo(target);
+  		target._cx = this._cx;
+  		target._cy = this._cy;
+  		target._innerRadius = this._innerRadius;
+          target._outerRadius = this._outerRadius;
+          target._startAngle = this._startAngle;
+          target._endAngle = this._endAngle;
+          target._sr = this._sr;
+          target._er = this._er;
+  	}
+
+      getSVGPathData() {
+          let angle = this._endAngle < this._startAngle? this._endAngle + 360 - this._startAngle : this._endAngle - this._startAngle, 
+              largeArc = angle > 180 ? 1 : 0;
+          let cmds = [
+              "M " + this.vertices[0].x + ", " + this.vertices[0].y,
+              "L " + this.vertices[1].x + ", " + this.vertices[1].y,
+              "A " + [this._outerRadius, this._outerRadius, angle, largeArc, 0, this.vertices[2].x, this.vertices[2].y].join(" "),
+              "L " + this.vertices[3].x + ", " + this.vertices[3].y,
+              "A " + [this._innerRadius, this._innerRadius, angle, largeArc, 1, this.vertices[0].x, this.vertices[0].y].join(" ")
+          ];
+          return cmds.join(" ");
+      }
+
+      adjustAngle(startAngle, endAngle) {
+          this._startAngle = startAngle;
+          this._endAngle = endAngle;
+          this._sr = degree2radian(this._startAngle);
+          this._er = degree2radian(this._endAngle);
+
+          this.vertices[0].x = this._cx + this._innerRadius * Math.cos(this._sr);
+          this.vertices[0].y = this._cy - this._innerRadius * Math.sin(this._sr);
+          this.vertices[1].x = this._cx + this._outerRadius * Math.cos(this._sr);
+          this.vertices[1].y = this._cy - this._outerRadius * Math.sin(this._sr);
+          this.vertices[2].x = this._cx + this._outerRadius * Math.cos(this._er);
+          this.vertices[2].y = this._cy - this._outerRadius * Math.sin(this._er);
+          this.vertices[3].x = this._cx + this._innerRadius * Math.cos(this._er);
+          this.vertices[3].y = this._cy - this._innerRadius * Math.sin(this._er);
+      }
+  }
+
   class Scene extends Group{
 
   	constructor(args){
@@ -13277,6 +13619,20 @@
   				this.addChild(c);
   				return c;
   			}
+  			case ItemType.Ring: {
+  				let c = new RingPath(args);
+  				c.id = c.type + ItemCounter[type]++;
+  				c.classId = c.id;
+  				this.addChild(c);
+  				return c;
+  			}
+  			case ItemType.Arc: {
+  				let c = new ArcPath(args);
+  				c.id = c.type + ItemCounter[type]++;
+  				c.classId = c.id;
+  				this.addChild(c);
+  				return c;
+  			}
   			case ItemType.Polygon:
   				let pg = new PolygonPath(args);
   				pg.id = pg.type + ItemCounter[type]++;
@@ -13284,32 +13640,6 @@
   				this.addChild(pg);
   				return pg;
   			case ItemType.Pie: {
-  				// Label three vertices used for pie
-  				let r = args['radius'];
-  				let cx = args['cx'];
-  				let cy = args['cy'];
-  				let v1 = [cx, cy];
-
-  				// Rotate angles so 0 is vertical (mod to make calc easier)
-  				let stDeg = (args['startAng'] - 90) % 360;
-  				let endDeg = (args['endAng'] - 90) % 360;
-  				args['totalAng'] = endDeg - stDeg;
-  				// Add some args
-  				args['startAngleDeg'] = stDeg;
-  				args['endAngleDeg'] = endDeg;
-  				
-  				// Convert to radians for the trig functions
-  				let stRad = stDeg * (Math.PI / 180);
-  				let endRad = endDeg * (Math.PI / 180);
-  				args['startAngleRad'] = stRad;
-  				args['endAngleRad'] = endDeg;
-
-  				// Calculate vertices
-  				let v2 = [r * Math.cos(stRad) + cx, r * Math.sin(stRad) + cy];
-  				let v3 = [r * Math.cos(endRad) + cx, r * Math.sin(endRad) + cy];
-  				args.vertices = new Array(v1, v2, v3);			
-
-  				// Create Pie Path object
   				let pie = new PiePath(args);
   				pie.id = pie.type + ItemCounter[type]++;
   				pie.classId = pie.id;
@@ -13959,11 +14289,9 @@
   			let b = c.bounds;
   			el.attr("x", b.left).attr("y", b.top).attr("width", b.width).attr("height", b.height);
   		} else if (c.type == ItemType.PointText) {
-  			//if (c.id.indexOf("axis") == 0) {
-  				el.attr("text-anchor", this._getTextAnchor(c.anchor[0])).attr("alignment-baseline", this._getTextAnchor(c.anchor[1]))
-  					.attr("dominant-baseline", this._getTextAnchor(c.anchor[1])).text(c.text)
-  					.attr("x", c.x).attr("y", c.y);
-  			//}
+  			el.attr("text-anchor", this._getTextAnchor(c.anchor[0])).attr("alignment-baseline", this._getTextAnchor(c.anchor[1]))
+  				.attr("dominant-baseline", this._getTextAnchor(c.anchor[1])).text(c.text)
+  				.attr("x", c.x).attr("y", c.y);
   		} else if (c.type == ItemType.Pie) {
   			// Render a sort of triangle before rendering the pie
   			el.attr("d", c.getSVGPathData());
@@ -13981,6 +14309,8 @@
   				el.style("shape-rendering", "crispEdges");
   			}
   			//el.attr("x1", c.left).attr("y2", c.top).attr("x2", c.left+c.width).attr("y2", c.top+c.height);
+  		} else if (c.type == ItemType.Ring || c.type == ItemType.Arc) {
+  			el.attr("d", c.getSVGPathData());
   		}
 
   		for (let a in c.attrs) {
@@ -14110,8 +14440,6 @@
   		switch (cpnt.type) {
   			case ItemType.Rectangle:
   				return "rect";
-  			case ItemType.Area:
-  				return "path";
   			case ItemType.Collection:
   			case ItemType.Group:
   			case ItemType.Glyph:
@@ -14120,13 +14448,15 @@
   			case ItemType.Legend:
   			case ItemType.Gridlines:
   				return "g";
+  			case ItemType.Area:
   			case ItemType.Path:
   			case ItemType.Polygon:
+  			case ItemType.Ring:
+  			case ItemType.Pie:
+  			case ItemType.Arc:
   				return "path";
   			case ItemType.Circle:
   				return "circle";
-  			case ItemType.Pie:
-  				return "path";
   			case ItemType.Line:
   				return "line";
   			case ItemType.PointText:
@@ -57844,8 +58174,6 @@
       }
   }
 
-  // export {default as Point} from "./basic/Point";
-
   var renderers = {};
 
   function scene(args) {
@@ -57933,11 +58261,6 @@
   		return new DataTable(data, name);
   	}
   }
-
-  // export function layout(collection, layout) {
-  // 	collection.layout = layout;
-  // 	layout.run(collection);
-  // }
 
   function validResponse(request) {
   	var type = request.responseType;
