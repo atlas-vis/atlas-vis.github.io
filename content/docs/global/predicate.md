@@ -56,3 +56,9 @@ A predicate based on a data field is defined as:
 ```js
     scene.find([{field: "occupation", values: ["teacher", "professor", "lecturer"]}])
 ```
+
+- {fields: _[field1, field2]_, operator: _operator_} if the criterion demands the values of the two specified fields satisfy the specified operator relation, for example, the following code will return all the objects in the scene whose whose [data scope](../../data/datascope/)'s "income" value is greater than the "spending" value:
+
+```js
+    scene.find([{fields: ["income", "spending"], operator: ">"}])
+```
