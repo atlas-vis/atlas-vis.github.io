@@ -377,3 +377,7 @@ body.dark .copy-status:active::after {
   display: block;
   color: $link-color-dark;
 }
+
+body.dark .banner-button {
+  background: #222;
+}
