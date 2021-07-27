@@ -1,10 +1,16 @@
-### 1. Install dependencies
+### 1. Install Hugo
+
+```bash
+https://gohugo.io/getting-started/installing/
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Start development server
+### 3. Start development server
 
 ```bash
 npm run start
