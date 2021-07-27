@@ -1,11 +1,11 @@
 let scene = atlas.scene();
 let data = await atlas.csv("csv/gender-job-level.csv");
-let rect = scene.mark("rectangle", {top:60, left: 100, width: 800, height: 650, strokeColor: "#aaa", strokeWidth: 1, fillColor: "#fff"});
+let rect = scene.mark("rectangle", {top:60, left: 100, width: 800, height: 650, strokeColor: "#fff", strokeWidth: 1, fillColor: "#fff"});
 
 let jobs = scene.divide(rect, data, {orientation: "vertical", field: "Job Type"});
 let genderInJob = scene.divide(jobs.firstChild, data, {orientation: "horizontal", field: "Gender"});
 
-scene.encode(genderInJob.firstChild, {channel: "fillColor", field: "Gender"});
+scene.encode(genderInJob.firstChild, {channel: "fillColor", field: "Gender", mapping: {"Male": "#3F73B8", "Female": "#E97075"}});
 let wdEncoding = scene.encode(genderInJob.firstChild, {channel: "width", field: "Percent Total"});
 let htEncoding = scene.encode(genderInJob.firstChild, {field: "Percent Gender", channel: "height"});
 wdEncoding.scale.rangeExtent = 450;

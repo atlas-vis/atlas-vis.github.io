@@ -8,7 +8,7 @@ let anyArea = scene.densify(industries.firstChild, data, {orientation: "horizont
 areas = scene.divide(anyArea, data, {orientation: "horizontal", field: "gender"});
 scene.setProperties(industries.layout, {"baseline": "bottom"});
 
-scene.encode(anyArea, {channel: "fillColor", field: "gender"});
+scene.encode(anyArea, {channel: "fillColor", field: "gender", mapping: {"male": "#60bdf0", "female": "#f768a1"}});
 let disEncoding = scene.encode(anyArea, {channel: "height", field: "unemployments"});
 let htEncoding = scene.encode(anyArea, {channel: "x", field: "date"});
 disEncoding.scale.domain = [0,4500];

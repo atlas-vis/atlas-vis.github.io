@@ -12,6 +12,3 @@ scn.encode(rect, {field: "% Change", channel: "width"});
 scn.axis("y", "Quarter", {orientation: "left", tickVisible: false, pathVisible: false});
 scn.axis("y", "Year", {orientation: "right", x: 370, labelFormat: "%Y", tickVisible: false, labelOffset: 220});
 scn.axis("width", "% Change", {orientation: "bottom"});
-
-// let r = atlas.renderer("svg");
-// r.render(scn, "svgElement", {collectionBounds: false});	

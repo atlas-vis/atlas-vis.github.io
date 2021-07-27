@@ -10,4 +10,4 @@ let mapping = {"-20": "#d7d7d7", "-10": "#ecdba7", "20": "#b87187", "50": "#9d32
 scn.encode(rect, {field: "VORP", channel: "fillColor", mapping: mapping});
 scn.axis("x", "Draft_Year", {orientation: "top", pathVisible: false, strokeColor: "#ccc", textColor: "#ccc"});
 scn.axis("y", "Draft_Pick", {orientation: "left", strokeColor: "#ccc", textColor: "#ccc"});
-scn.legend("fillColor", "VORP", {x: 1050, y: 50, textColor: "#ccc"});
+scn.legend("fillColor", "VORP", {x: 1050, y: 50, textColor: "#ccc", strokeColor: "#777"});
