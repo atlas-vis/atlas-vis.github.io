@@ -3,11 +3,11 @@
 ## Homepage
 title = "Atlas.js"
 titleSeparator = "-"
-titleAddition = ""
+titleAddition = "A Procedural Visualization Grammar"
 description = ""
 
 ## Open Graph + Twitter Cards
-images = ["doks.png"]
+images = ["atlas.png"]
 twitterSite = "henkverlinde"
 twitterCreator = "henkverlinde"
 facebookAuthor = "verlinde.henk"
@@ -16,10 +16,9 @@ ogLocale = "en_US"
 
 ## JSON-LD
 schemaType = "Organization"
-schemaLogo = "logo-doks.png"
+schemaLogo = "atlas.png"
 schemaTwitter = "https://twitter.com/henkverlinde"
-schemaLinkedIn = "https://www.linkedin.com/in/henkverlinde/"
-schemaGitHub = "https://github.com/h-enk"
+schemaGitHub = "https://github.com/atlas-vis/atlas-vis.github.io"
 schemaSection = "blog"
 
 ## Sitelinks Search Box
@@ -40,10 +39,10 @@ footer = "Copyright © 2021 Human-Data Interaction Group @ University of Marylan
 
 # Alert
 alert = false
-alertText = "Like Doks? <a class=\"alert-link\" href=\"https://github.com/h-enk/doks/stargazers\">Star on GitHub</a>. Thanks!</a>"
+alertText = "Alert Text"
 
 # Edit Page
-docsRepo = "https://github.com/h-enk/doks"
+docsRepo = "https://github.com/atlas-vis/atlas-vis.github.io"
 editPage = false
 
 [options]
