@@ -42,8 +42,8 @@ jobs:
           if [ -d "docs" ]; then
             rm -rf docs/*
           fi
-      - name: Build site
-        run: hugo -d "docs"
+      - name: Build
+        run: hugo --minify
       -name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
