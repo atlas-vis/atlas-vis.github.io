@@ -5,6 +5,10 @@ on:
     branches:
       - master
 
+env:
+  TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #  HUGO_ARGS: '--minify'
+
 jobs:
   build:
 
@@ -43,17 +47,11 @@ jobs:
             rm -rf docs/*
           fi
       - name: Build
-        run: hugo --minify -d ${DEST:-"docs"}
-      -name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/master' }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-      # - name: Deploy build
-      #   run: |
-      #     git config user.name "${GITHUB_ACTOR}"
-      #     git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-      #     git add .
-      #     git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}"
-      #     git push --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+        run: hugo ${HUGO_ARGS:-""} -d ${DEST:-"docs"}
+      - name: Deploy build
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add .
+          git commit -am "Deploy with ${GITHUB_WORKFLOW}"
+          git push --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
