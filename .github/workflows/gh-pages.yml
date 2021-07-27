@@ -23,6 +23,7 @@ jobs:
         run: |
           sudo apt install curl jq
           npm install postcss-cli autoprefixer
+          npm install
       - name: 🤵 Install Hugo
         run: |
           HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.tag_name')
