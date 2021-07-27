@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 06 Oct 2020 08:48:45 +0000</lastBuildDate><atom:link href="https://atlas-vis.github.io/docs/global/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Top-level Functions</title>
-      <link>https://atlas-vis.github.io/docs/global/functions/</link>
+      <link>https://atlas-vis.github.io/docs/global/func/</link>
       <pubDate>Tue, 06 Oct 2020 08:49:15 +0000</pubDate>
       
-      <guid>https://atlas-vis.github.io/docs/global/functions/</guid>
+      <guid>https://atlas-vis.github.io/docs/global/func/</guid>
       <description>Top-level functions are defined in the atlas namespace.
 Create Objects   function explanation return type     atlas.scene(params) create a scene
 params (Object, optional): contains the following parameterfillColor: background color of the scene Scene   async atlas.csv(url) import a CSV file as a data table
