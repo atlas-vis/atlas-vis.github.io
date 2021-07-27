@@ -6,8 +6,7 @@
     </div>
     <div class="col-lg-9 col-xl-8 text-center mb-3">
       <p class="lead mt-n2">{{ .Params.lead | safeHTML }}</p>
-      <a class="btn banner-button btn-lg px-4 mt-2 mb-4" href="{{ "docs/prologue/introduction/" | relURL }}" role="button">Download version {{ .Site.Data.doks.version }}</a>
-      <!-- <p class="meta">Open-source MIT Licensed. <a href="https://github.com/h-enk/doks">GitHub v{{ $data := getJSON "https://raw.githubusercontent.com/h-enk/doks/master/package.json" }}{{ $data.version }}</a></p> -->
+      <a class="btn banner-button btn-lg px-4 mt-2 mb-4" href="dist/atlas-min.js" role="button" download>Download version {{ .Site.Data.doks.version }}</a>
     </div>
   </div>
 </section>
