@@ -1,32 +1,47 @@
-name: github pages
+name: hugo-latest-cd
 
 on:
   push:
     branches:
-      - master  # Set a branch to deploy
-  pull_request:
+      - master
 
 jobs:
-  deploy:
-    runs-on: ubuntu-20.04
+  build:
+
+    runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: 🛎 Check out master
+        uses: actions/checkout@master
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+          fetch-depth: 1
+      - name: 🔨 Set up Node
+        uses: actions/setup-node@v1
         with:
-          hugo-version: 'latest'
-          # extended: true
-
-      - name: Build
-        run: hugo --minify
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          node-version: 12.x
+      - name: 🔧 Install tools
+        run: |
+          sudo apt install curl jq
+          npm install postcss-cli autoprefixer
+      - name: 🤵 Install Hugo
+        run: |
+          HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.tag_name')
+          mkdir tmp/ && cd tmp/
+          curl -sSL https://github.com/gohugoio/hugo/releases/download/${HUGO_VERSION}/hugo_extended_${HUGO_VERSION: -6}_Linux-64bit.tar.gz | tar -xvzf-
+          sudo mv hugo /usr/local/bin/
+          cd .. && rm -rf tmp/
+          hugo version
+      - name: 🧹 Clean site
+        run: |
+          if [ -d "docs" ]; then
+            rm -rf docs/*
+          fi
+      - name: 🍳 Build site
+        run: hugo ${HUGO_ARGS:-""} -d ${DEST:-"docs"}
+      - name: 🚀 Deploy build
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add .
+          git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}"
+          git push --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
