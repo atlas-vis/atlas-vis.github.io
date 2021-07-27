@@ -1,0 +1,460 @@
+State,MapX,MapY,Year,PVI Score,State Name,Inclination
+AK,0,7,'80,12.5,Alaska,red
+AK,0,7,'84,10.9,Alaska,red
+AK,0,7,'88,9.1,Alaska,red
+AK,0,7,'92,9.1,Alaska,red
+AK,0,7,'96,12.6,Alaska,red
+AK,0,7,'00,16.7,Alaska,red
+AK,0,7,'04,15.1,Alaska,red
+AK,0,7,'08,13.4,Alaska,red
+AK,0,7,'12,12,Alaska,red
+ME,10,7,'80,-1,Maine,blue
+ME,10,7,'84,-0.7,Maine,blue
+ME,10,7,'88,1.9,Maine,red
+ME,10,7,'92,-0.4,Maine,blue
+ME,10,7,'96,-5.3,Maine,blue
+ME,10,7,'00,-5.2,Maine,blue
+ME,10,7,'04,-4.2,Maine,blue
+ME,10,7,'08,-5.5,Maine,blue
+ME,10,7,'12,-5.5,Maine,blue
+VT,9,6,'80,2.6,Vermont,red
+VT,9,6,'84,-1.1,Vermont,blue
+VT,9,6,'88,-1.3,Vermont,blue
+VT,9,6,'92,-4.5,Vermont,blue
+VT,9,6,'96,-7.6,Vermont,blue
+VT,9,6,'00,-6.8,Vermont,blue
+VT,9,6,'04,-8.4,Vermont,blue
+VT,9,6,'08,-13.4,Vermont,blue
+VT,9,6,'12,-15.7,Vermont,blue
+NH,10,6,'80,9.3,New Hampshire,red
+NH,10,6,'84,10.8,New Hampshire,red
+NH,10,6,'88,9.5,New Hampshire,red
+NH,10,6,'92,6,New Hampshire,red
+NH,10,6,'96,0.9,New Hampshire,red
+NH,10,6,'00,0,New Hampshire,blue
+NH,10,6,'04,-0.5,New Hampshire,blue
+NH,10,6,'08,-1.6,New Hampshire,blue
+NH,10,6,'12,-1,New Hampshire,blue
+WA,0,5,'80,2.4,Washington,red
+WA,0,5,'84,-0.4,Washington,blue
+WA,0,5,'88,-3.7,Washington,blue
+WA,0,5,'92,-4.4,Washington,blue
+WA,0,5,'96,-3.3,Washington,blue
+WA,0,5,'00,-2.6,Washington,blue
+WA,0,5,'04,-3.8,Washington,blue
+WA,0,5,'08,-5,Washington,blue
+WA,0,5,'12,-5.4,Washington,blue
+ID,1,5,'80,15,Idaho,red
+ID,1,5,'84,15.7,Idaho,red
+ID,1,5,'88,11.7,Idaho,red
+ID,1,5,'92,11.3,Idaho,red
+ID,1,5,'96,14.3,Idaho,red
+ID,1,5,'00,18.3,Idaho,red
+ID,1,5,'04,19.6,Idaho,red
+ID,1,5,'08,17.4,Idaho,red
+ID,1,5,'12,17.5,Idaho,red
+MT,2,5,'80,6.6,Montana,red
+MT,2,5,'84,5.2,Montana,red
+MT,2,5,'88,0.6,Montana,red
+MT,2,5,'92,0.4,Montana,red
+MT,2,5,'96,4.1,Montana,red
+MT,2,5,'00,10.2,Montana,red
+MT,2,5,'04,11.6,Montana,red
+MT,2,5,'08,7.1,Montana,red
+MT,2,5,'12,7,Montana,red
+ND,3,5,'80,9.9,North Dakota,red
+ND,3,5,'84,11.1,North Dakota,red
+ND,3,5,'88,4.6,North Dakota,red
+ND,3,5,'92,7,North Dakota,red
+ND,3,5,'96,10,North Dakota,red
+ND,3,5,'00,11.8,North Dakota,red
+ND,3,5,'04,13.8,North Dakota,red
+ND,3,5,'08,10.4,North Dakota,red
+ND,3,5,'12,10.1,North Dakota,red
+MN,4,5,'80,-6.6,Minnesota,blue
+MN,4,5,'84,-8.4,Minnesota,blue
+MN,4,5,'88,-8.4,Minnesota,blue
+MN,4,5,'92,-5.9,Minnesota,blue
+MN,4,5,'96,-4.5,Minnesota,blue
+MN,4,5,'00,-2.8,Minnesota,blue
+MN,4,5,'04,-2,Minnesota,blue
+MN,4,5,'08,-2.3,Minnesota,blue
+MN,4,5,'12,-1.8,Minnesota,blue
+MI,6,5,'80,1,Michigan,red
+MI,6,5,'84,-0.7,Michigan,blue
+MI,6,5,'88,0.2,Michigan,red
+MI,6,5,'92,-0.5,Michigan,blue
+MI,6,5,'96,-1.9,Michigan,blue
+MI,6,5,'00,-2.5,Michigan,blue
+MI,6,5,'04,-2.7,Michigan,blue
+MI,6,5,'08,-3.8,Michigan,blue
+MI,6,5,'12,-3.8,Michigan,blue
+NY,8,5,'80,-2.5,New York,blue
+NY,8,5,'84,-4.5,New York,blue
+NY,8,5,'88,-5.6,New York,blue
+NY,8,5,'92,-6,New York,blue
+NY,8,5,'96,-8.7,New York,blue
+NY,8,5,'00,-12.1,New York,blue
+NY,8,5,'04,-11.7,New York,blue
+NY,8,5,'08,-10.2,New York,blue
+NY,8,5,'12,-11.1,New York,blue
+MA,9,5,'80,-6.1,Massachusetts,blue
+MA,9,5,'84,-6.5,Massachusetts,blue
+MA,9,5,'88,-7.8,Massachusetts,blue
+MA,9,5,'92,-8.3,Massachusetts,blue
+MA,9,5,'96,-11.3,Massachusetts,blue
+MA,9,5,'00,-14.2,Massachusetts,blue
+MA,9,5,'04,-14.3,Massachusetts,blue
+MA,9,5,'08,-11.7,Massachusetts,blue
+MA,9,5,'12,-9.7,Massachusetts,blue
+RI,10,4,'80,-8,Rhode Island,blue
+RI,10,4,'84,-9.4,Rhode Island,blue
+RI,10,4,'88,-8.6,Rhode Island,blue
+RI,10,4,'92,-9.1,Rhode Island,blue
+RI,10,4,'96,-11.3,Rhode Island,blue
+RI,10,4,'00,-14.8,Rhode Island,blue
+RI,10,4,'04,-13.6,Rhode Island,blue
+RI,10,4,'08,-11.2,Rhode Island,blue
+RI,10,4,'12,-11.3,Rhode Island,blue
+OR,0,4,'80,0.7,Oregon,red
+OR,0,4,'84,-1.4,Oregon,blue
+OR,0,4,'88,-4.7,Oregon,blue
+OR,0,4,'92,-4.7,Oregon,blue
+OR,0,4,'96,-1.6,Oregon,blue
+OR,0,4,'00,0,Oregon,blue
+OR,0,4,'04,-1.7,Oregon,blue
+OR,0,4,'08,-4,Oregon,blue
+OR,0,4,'12,-4.5,Oregon,blue
+UT,1,3,'80,19.3,Utah,red
+UT,1,3,'84,19.3,Utah,red
+UT,1,3,'88,14.7,Utah,red
+UT,1,3,'92,15.3,Utah,red
+UT,1,3,'96,17,Utah,red
+UT,1,3,'00,19.4,Utah,red
+UT,1,3,'04,22,Utah,red
+UT,1,3,'08,20.2,Utah,red
+UT,1,3,'12,22.4,Utah,red
+WY,2,4,'80,12.4,Wyoming,red
+WY,2,4,'84,13,Wyoming,red
+WY,2,4,'88,9.9,Wyoming,red
+WY,2,4,'92,7.4,Wyoming,red
+WY,2,4,'96,9.7,Wyoming,red
+WY,2,4,'00,16.7,Wyoming,red
+WY,2,4,'04,20.2,Wyoming,red
+WY,2,4,'08,19.7,Wyoming,red
+WY,2,4,'12,21.7,Wyoming,red
+SD,3,4,'80,6.1,South Dakota,red
+SD,3,4,'84,7.2,South Dakota,red
+SD,3,4,'88,1.7,South Dakota,red
+SD,3,4,'92,2.5,South Dakota,red
+SD,3,4,'96,6.2,South Dakota,red
+SD,3,4,'00,9.3,South Dakota,red
+SD,3,4,'04,10.8,South Dakota,red
+SD,3,4,'08,8.8,South Dakota,red
+SD,3,4,'12,9.6,South Dakota,red
+IA,4,4,'80,1.7,Iowa,red
+IA,4,4,'84,-1.8,Iowa,blue
+IA,4,4,'88,-7.2,Iowa,blue
+IA,4,4,'92,-4.7,Iowa,blue
+IA,4,4,'96,-0.6,Iowa,blue
+IA,4,4,'00,-0.4,Iowa,blue
+IA,4,4,'04,-0.4,Iowa,blue
+IA,4,4,'08,-1,Iowa,blue
+IA,4,4,'12,-1.1,Iowa,blue
+WI,5,6,'80,-1.3,Wisconsin,blue
+WI,5,6,'84,-3.6,Wisconsin,blue
+WI,5,6,'88,-5.1,Wisconsin,blue
+WI,5,6,'92,-2.5,Wisconsin,blue
+WI,5,6,'96,-0.3,Wisconsin,blue
+WI,5,6,'00,-0.5,Wisconsin,blue
+WI,5,6,'04,-0.6,Wisconsin,blue
+WI,5,6,'08,-2.4,Wisconsin,blue
+WI,5,6,'12,-2.5,Wisconsin,blue
+IN,5,4,'80,4.7,Indiana,red
+IN,5,4,'84,3.7,Indiana,red
+IN,5,4,'88,4.6,Indiana,red
+IN,5,4,'92,6.8,Indiana,red
+IN,5,4,'96,7.6,Indiana,red
+IN,5,4,'00,8.1,Indiana,red
+IN,5,4,'04,8.7,Indiana,red
+IN,5,4,'08,6.2,Indiana,red
+IN,5,4,'12,5.2,Indiana,red
+OH,6,4,'80,0.7,Ohio,red
+OH,6,4,'84,0.4,Ohio,red
+OH,6,4,'88,0.9,Ohio,red
+OH,6,4,'92,1.9,Ohio,red
+OH,6,4,'96,1.7,Ohio,red
+OH,6,4,'00,1.6,Ohio,red
+OH,6,4,'04,1,Ohio,red
+OH,6,4,'08,0.6,Ohio,red
+OH,6,4,'12,0.9,Ohio,red
+PA,7,4,'80,-0.9,Pennsylvania,blue
+PA,7,4,'84,-3.5,Pennsylvania,blue
+PA,7,4,'88,-4.1,Pennsylvania,blue
+PA,7,4,'92,-2.4,Pennsylvania,blue
+PA,7,4,'96,-1.3,Pennsylvania,blue
+PA,7,4,'00,-1.2,Pennsylvania,blue
+PA,7,4,'04,-2.2,Pennsylvania,blue
+PA,7,4,'08,-2,Pennsylvania,blue
+PA,7,4,'12,-1.2,Pennsylvania,blue
+NJ,8,4,'80,2.1,New Jersey,red
+NJ,8,4,'84,1.7,New Jersey,red
+NJ,8,4,'88,2.2,New Jersey,red
+NJ,8,4,'92,2.5,New Jersey,red
+NJ,8,4,'96,-1.6,New Jersey,blue
+NJ,8,4,'00,-6.6,New Jersey,blue
+NJ,8,4,'04,-6.3,New Jersey,blue
+NJ,8,4,'08,-4.4,New Jersey,blue
+NJ,8,4,'12,-5.6,New Jersey,blue
+CT,9,4,'80,2,Connecticut,red
+CT,9,4,'84,1,Connecticut,red
+CT,9,4,'88,0.3,Connecticut,red
+CT,9,4,'92,-1,Connecticut,blue
+CT,9,4,'96,-3.1,Connecticut,blue
+CT,9,4,'00,-7.3,Connecticut,blue
+CT,9,4,'04,-7.8,Connecticut,blue
+CT,9,4,'08,-7.1,Connecticut,blue
+CT,9,4,'12,-7.2,Connecticut,blue
+CA,0,3,'80,3.1,California,red
+CA,0,3,'84,1.6,California,red
+CA,0,3,'88,-1.5,California,blue
+CA,0,3,'92,-3.6,California,blue
+CA,0,3,'96,-3.8,California,blue
+CA,0,3,'00,-4.2,California,blue
+CA,0,3,'04,-6.1,California,blue
+CA,0,3,'08,-7.4,California,blue
+CA,0,3,'12,-9.3,California,blue
+NV,1,4,'80,9,Nevada,red
+NV,1,4,'84,11.4,Nevada,red
+NV,1,4,'88,7.5,Nevada,red
+NV,1,4,'92,4.3,Nevada,red
+NV,1,4,'96,2.9,Nevada,red
+NV,1,4,'00,3.1,Nevada,red
+NV,1,4,'04,1.1,Nevada,red
+NV,1,4,'08,-1.3,Nevada,blue
+NV,1,4,'12,-2.1,Nevada,blue
+CO,2,3,'80,7.8,Colorado,red
+CO,2,3,'84,6.9,Colorado,red
+CO,2,3,'88,2.6,Colorado,red
+CO,2,3,'92,0.4,Colorado,red
+CO,2,3,'96,3.1,Colorado,red
+CO,2,3,'00,5.1,Colorado,red
+CO,2,3,'04,2.9,Colorado,red
+CO,2,3,'08,0.1,Colorado,red
+CO,2,3,'12,-0.8,Colorado,blue
+NE,3,3,'80,14,Nebraska,red
+NE,3,3,'84,14,Nebraska,red
+NE,3,3,'88,9.2,Nebraska,red
+NE,3,3,'92,10.7,Nebraska,red
+NE,3,3,'96,15,Nebraska,red
+NE,3,3,'00,15.4,Nebraska,red
+NE,3,3,'04,15.5,Nebraska,red
+NE,3,3,'08,13.4,Nebraska,red
+NE,3,3,'12,12.2,Nebraska,red
+MO,4,3,'80,-1.3,Missouri,blue
+MO,4,3,'84,-0.4,Missouri,blue
+MO,4,3,'88,-0.5,Missouri,blue
+MO,4,3,'92,-2.5,Missouri,blue
+MO,4,3,'96,-0.9,Missouri,blue
+MO,4,3,'00,1.6,Missouri,red
+MO,4,3,'04,2.2,Missouri,red
+MO,4,3,'08,3.1,Missouri,red
+MO,4,3,'12,5.2,Missouri,red
+IL,5,5,'80,0.5,Illinois,red
+IL,5,5,'84,-1.8,Illinois,blue
+IL,5,5,'88,-2.8,Illinois,blue
+IL,5,5,'92,-4,Illinois,blue
+IL,5,5,'96,-5,Illinois,blue
+IL,5,5,'00,-5.4,Illinois,blue
+IL,5,5,'04,-6.2,Illinois,blue
+IL,5,5,'08,-7.7,Illinois,blue
+IL,5,5,'12,-7.8,Illinois,blue
+KY,5,3,'80,-3.6,Kentucky,blue
+KY,5,3,'84,-1.7,Kentucky,blue
+KY,5,3,'88,1.6,Kentucky,red
+KY,5,3,'92,1.8,Kentucky,red
+KY,5,3,'96,2.9,Kentucky,red
+KY,5,3,'00,6.1,Kentucky,red
+KY,5,3,'04,8.4,Kentucky,red
+KY,5,3,'08,10.3,Kentucky,red
+KY,5,3,'12,12.7,Kentucky,red
+WV,6,3,'80,-7.3,West Virginia,blue
+WV,6,3,'84,-5.8,West Virginia,blue
+WV,6,3,'88,-5.1,West Virginia,blue
+WV,6,3,'92,-5.3,West Virginia,blue
+WV,6,3,'96,-4,West Virginia,blue
+WV,6,3,'00,-0.1,West Virginia,blue
+WV,6,3,'04,4.4,West Virginia,red
+WV,6,3,'08,7.8,West Virginia,red
+WV,6,3,'12,13,West Virginia,red
+VA,7,3,'80,1.6,Virginia,red
+VA,7,3,'84,2.5,Virginia,red
+VA,7,3,'88,5,Virginia,red
+VA,7,3,'92,6.2,Virginia,red
+VA,7,3,'96,5.9,Virginia,red
+VA,7,3,'00,5.1,Virginia,red
+VA,7,3,'04,3.7,Virginia,red
+VA,7,3,'08,1.7,Virginia,red
+VA,7,3,'12,0.2,Virginia,red
+MD,8,3,'80,-4.5,Maryland,blue
+MD,8,3,'84,-6.7,Maryland,blue
+MD,8,3,'88,-4.4,Maryland,blue
+MD,8,3,'92,-3.6,Maryland,blue
+MD,8,3,'96,-4.4,Maryland,blue
+MD,8,3,'00,-6.1,Maryland,blue
+MD,8,3,'04,-8,Maryland,blue
+MD,8,3,'08,-8.5,Maryland,blue
+MD,8,3,'12,-10.3,Maryland,blue
+DE,9,3,'80,-2.9,Delaware,blue
+DE,9,3,'84,-1.6,Delaware,blue
+DE,9,3,'88,1.6,Delaware,red
+DE,9,3,'92,0.3,Delaware,red
+DE,9,3,'96,-2.8,Delaware,blue
+DE,9,3,'00,-5.2,Delaware,blue
+DE,9,3,'04,-5.8,Delaware,blue
+DE,9,3,'08,-7,Delaware,blue
+DE,9,3,'12,-8.2,Delaware,blue
+AZ,1,2,'80,11.3,Arizona,red
+AZ,1,2,'84,10.4,Arizona,red
+AZ,1,2,'88,7.4,Arizona,red
+AZ,1,2,'92,5.8,Arizona,red
+AZ,1,2,'96,4.1,Arizona,red
+AZ,1,2,'00,3.5,Arizona,red
+AZ,1,2,'04,3.8,Arizona,red
+AZ,1,2,'08,6,Arizona,red
+AZ,1,2,'12,7.3,Arizona,red
+NM,2,2,'80,3.5,New Mexico,red
+NM,2,2,'84,2.9,New Mexico,red
+NM,2,2,'88,-0.1,New Mexico,blue
+NM,2,2,'92,-1.5,New Mexico,blue
+NM,2,2,'96,-0.5,New Mexico,blue
+NM,2,2,'00,0.5,New Mexico,red
+NM,2,2,'04,-0.3,New Mexico,blue
+NM,2,2,'08,-2.4,New Mexico,blue
+NM,2,2,'12,-3.7,New Mexico,blue
+KS,3,2,'80,6.5,Kansas,red
+KS,3,2,'84,8,Kansas,red
+KS,3,2,'88,5.3,Kansas,red
+KS,3,2,'92,4.9,Kansas,red
+KS,3,2,'96,10.9,Kansas,red
+KS,3,2,'00,13,Kansas,red
+KS,3,2,'04,11.4,Kansas,red
+KS,3,2,'08,11.5,Kansas,red
+KS,3,2,'12,12.2,Kansas,red
+AR,4,2,'80,-9.5,Arkansas,blue
+AR,4,2,'84,-1.5,Arkansas,blue
+AR,4,2,'88,2.7,Arkansas,red
+AR,4,2,'92,-1.6,Arkansas,blue
+AR,4,2,'96,-5.6,Arkansas,blue
+AR,4,2,'00,-0.8,Arkansas,blue
+AR,4,2,'04,3.4,Arkansas,red
+AR,4,2,'08,8.8,Arkansas,red
+AR,4,2,'12,14,Arkansas,red
+TN,5,2,'80,-5.3,Tennessee,blue
+TN,5,2,'84,-3.1,Tennessee,blue
+TN,5,2,'88,1.7,Tennessee,red
+TN,5,2,'92,2.6,Tennessee,red
+TN,5,2,'96,2.2,Tennessee,red
+TN,5,2,'00,2.8,Tennessee,red
+TN,5,2,'04,4.1,Tennessee,red
+TN,5,2,'08,8.6,Tennessee,red
+TN,5,2,'12,11.8,Tennessee,red
+NC,6,2,'80,-4.4,North Carolina,blue
+NC,6,2,'84,-0.7,North Carolina,blue
+NC,6,2,'88,3.6,North Carolina,red
+NC,6,2,'92,4.1,North Carolina,red
+NC,6,2,'96,5.6,North Carolina,red
+NC,6,2,'00,7,North Carolina,red
+NC,6,2,'04,5.9,North Carolina,red
+NC,6,2,'08,4.3,North Carolina,red
+NC,6,2,'12,3.3,North Carolina,red
+SC,7,2,'80,-5.1,South Carolina,blue
+SC,7,2,'84,0.2,South Carolina,red
+SC,7,2,'88,6.6,South Carolina,red
+SC,7,2,'92,8.1,South Carolina,red
+SC,7,2,'96,8,South Carolina,red
+SC,7,2,'00,8.1,South Carolina,red
+SC,7,2,'04,7.9,South Carolina,red
+SC,7,2,'08,7.8,South Carolina,red
+SC,7,2,'12,7.8,South Carolina,red
+DC,8,2,'80,-36.1,District of Columbia,blue
+DC,8,2,'84,-42.7,District of Columbia,blue
+DC,8,2,'88,-42.2,District of Columbia,blue
+DC,8,2,'92,-38,District of Columbia,blue
+DC,8,2,'96,-36.1,District of Columbia,blue
+DC,8,2,'00,-37.8,District of Columbia,blue
+DC,8,2,'04,-41,District of Columbia,blue
+DC,8,2,'08,-40.7,District of Columbia,blue
+DC,8,2,'12,-40.2,District of Columbia,blue
+OK,3,1,'80,4.9,Oklahoma,red
+OK,3,1,'84,9,Oklahoma,red
+OK,3,1,'88,7.2,Oklahoma,red
+OK,3,1,'92,6.8,Oklahoma,red
+OK,3,1,'96,9.1,Oklahoma,red
+OK,3,1,'00,10.2,Oklahoma,red
+OK,3,1,'04,12.8,Oklahoma,red
+OK,3,1,'08,16.8,Oklahoma,red
+OK,3,1,'12,19,Oklahoma,red
+LA,4,1,'80,-2.2,Louisiana,blue
+LA,4,1,'84,-0.1,Louisiana,blue
+LA,4,1,'88,1.8,Louisiana,red
+LA,4,1,'92,1,Louisiana,red
+LA,4,1,'96,-0.5,Louisiana,blue
+LA,4,1,'00,1.2,Louisiana,red
+LA,4,1,'04,5.1,Louisiana,red
+LA,4,1,'08,9.6,Louisiana,red
+LA,4,1,'12,11.9,Louisiana,red
+MS,5,1,'80,-2.3,Mississippi,blue
+MS,5,1,'84,-0.7,Mississippi,blue
+MS,5,1,'88,4.9,Mississippi,red
+MS,5,1,'92,7.5,Mississippi,red
+MS,5,1,'96,7.9,Mississippi,red
+MS,5,1,'00,8.2,Mississippi,red
+MS,5,1,'04,8.8,Mississippi,red
+MS,5,1,'08,9.5,Mississippi,red
+MS,5,1,'12,9,Mississippi,red
+AL,6,1,'80,-5.1,Alabama,blue
+AL,6,1,'84,-1.3,Alabama,blue
+AL,6,1,'88,4,Alabama,red
+AL,6,1,'92,6.6,Alabama,red
+AL,6,1,'96,7.9,Alabama,red
+AL,6,1,'00,8.2,Alabama,red
+AL,6,1,'04,9.8,Alabama,red
+AL,6,1,'08,13.1,Alabama,red
+AL,6,1,'12,13.9,Alabama,red
+GA,7,1,'80,-14.4,Georgia,blue
+GA,7,1,'84,-6,Georgia,blue
+GA,7,1,'88,3.7,Georgia,red
+GA,7,1,'92,4.7,Georgia,red
+GA,7,1,'96,4.2,Georgia,red
+GA,7,1,'00,5.8,Georgia,red
+GA,7,1,'04,6.7,Georgia,red
+GA,7,1,'08,6.7,Georgia,red
+GA,7,1,'12,6.1,Georgia,red
+HI,0,0,'80,-3.3,Hawaii,blue
+HI,0,0,'84,-4.9,Hawaii,blue
+HI,0,0,'88,-6.1,Hawaii,blue
+HI,0,0,'92,-6,Hawaii,blue
+HI,0,0,'96,-6.4,Hawaii,blue
+HI,0,0,'00,-9.5,Hawaii,blue
+HI,0,0,'04,-7.6,Hawaii,blue
+HI,0,0,'08,-12.5,Hawaii,blue
+HI,0,0,'12,-19.5,Hawaii,blue
+TX,3,0,'80,0.7,Texas,red
+TX,3,0,'84,3.2,Texas,red
+TX,3,0,'88,3.5,Texas,red
+TX,3,0,'92,4.1,Texas,red
+TX,3,0,'96,6.5,Texas,red
+TX,3,0,'00,9.3,Texas,red
+TX,3,0,'04,10.7,Texas,red
+TX,3,0,'08,9.9,Texas,red
+TX,3,0,'12,9.8,Texas,red
+FL,8,0,'80,1.1,Florida,red
+FL,8,0,'84,5,Florida,red
+FL,8,0,'88,6.8,Florida,red
+FL,8,0,'92,6,Florida,red
+FL,8,0,'96,3.1,Florida,red
+FL,8,0,'00,0.9,Florida,red
+FL,8,0,'04,0.8,Florida,red
+FL,8,0,'08,1.8,Florida,red
+FL,8,0,'12,1.9,Florida,red

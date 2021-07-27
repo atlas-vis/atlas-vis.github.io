@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Atlas</title>
+		<script src="dist/atlas-min.js"></script>
+		<script src="lib/codemirror.js"></script>
+		<script src="lib/acorn.js"></script>
+		<link rel="stylesheet" href="lib/codemirror.css">
+		<script src="lib/d3-selection.min.js"></script>
+		<script src="lib/javascript.js"></script>
+		<script src="lib/jquery-1.12.4.js"></script>
+		<script src="lib/jquery-ui.js"></script>
+		<link rel="stylesheet" href="lib/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+		<link rel="stylesheet" href="/main.css">
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+		<style>
+			html {
+				margin: 0px;
+				padding: 0px;
+				height: 100%;
+				font-family: Arial;
+			}
+			body {
+				height: 100vh;
+				margin: 0px;
+				padding: 0px;
+				background: #f2f2f2;
+				overflow-x: hidden;
+				overflow-y: hidden;
+			}
+			#homeBtn {
+				position: absolute;
+				top: 5px;
+				left: 15px;
+				font-size:12px;
+			}
+			#demoList{
+				width: 183px;
+				height:calc(99% - 20px);
+				border-right: 1px solid #ccc;
+				background: #f2f2f2;
+				padding: 5px 5px 0 25px;
+				float: left;
+				list-style: none;
+				font-size:0.85rem;
+				overflow-y: scroll;
+			}
+			.category {
+				margin:15px 0 10px -7px;
+				font-weight: bold;
+			}
+			.demos {
+				margin-bottom: 10px;
+				padding: 0px 15px 0 5px;
+				list-style: none;
+			}
+			.demos li {
+				margin-bottom: 6px;
+			}
+			.demos li:hover{
+				cursor: pointer;
+				color: blue;
+			}
+			#canvasElement {
+				width: 1600;
+				height: 1000;
+				margin:0;
+				padding:0;
+				position: absolute;
+				top: 60px;
+				left: 183px;
+			}
+			#svgElement {
+				width: calc(100% - 183px);
+				height:calc(99% - 60px);
+				margin:0;
+				padding:0;
+				position: absolute;
+				top: 60px;
+				left: 183px;
+			}
+			#hint {
+				position: absolute;
+				top: 60px;
+				padding: 5px;
+				left: 183px;
+				display: block;
+				background: #FFFDE5;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+				margin: 2px 0 0 2px;
+			}
+			#gallery {
+				width: calc(100% - 183px);
+				height: calc(99% - 60px);
+				overflow-y: scroll;
+				background: #fff;
+				position: absolute;
+				top: 60px;
+				right: 0;
+				border: 1px solid #000;
+				z-index: 1000;
+			}
+			.galleryItem {
+				max-width: 200px;
+				min-width: 200px;
+				height: 110px;
+				vertical-align: text-bottom;
+				text-align: center;
+				border: 2px solid #eee;
+				display:inline-block;
+				margin: 10px 10px 0px 10px;
+			}
+			.galleryItem:hover {
+				box-shadow: 0px 0px 5px #888;
+				cursor: pointer;
+			}
+			#console {
+				width: calc(100% - 198px);
+				position: absolute;
+				left: 191px;
+				height: 70%;
+				resize: none;
+				border:none;
+				display: none;
+				padding: 60px;
+			}
+			#btmPanel {
+				width:calc(100% - 183px);
+				height: 260px;
+				position:absolute;
+				bottom:0px;
+				right: 0px;
+			}
+			.ui-tabs {
+				padding:0;
+			}
+			.ui-tabs .ui-tabs-panel {
+    			padding: 0;
+			}
+			.ui-tabs .ui-tabs-nav li a {
+				font-size:8.5pt !important;
+				padding:0;
+			}
+			#codeTab {
+				width:100%;
+				height:calc(100% - 40px);
+			}
+			#dataTab {
+				width:100%;
+				height:calc(100% - 40px);
+			}
+			#codeControls {
+				width:350px;
+				height: 30px;
+				position:absolute;
+				top:0;
+				right: 0;
+				margin:8px 10px 0 0;
+				/* border-top: 1px solid #ccc; */
+				/* background: #f2f2f2; */
+				font-size: 8.5pt;
+				vertical-align: top;
+			}
+			.CodeMirror {
+				width: 100%;
+				height: 100%; 
+				resize: none;
+				border:none;
+				padding: 0px;
+				font-family: Courier;
+				font-size:12.5px;
+				overflow-x: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header-bar fixed-top"></div>
+		<header class="navbar fixed-top navbar-expand-md navbar-light">
+			<div class="container">
+			  <input class="menu-btn order-0" type="checkbox" id="menu-btn">
+			  <label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+			  <a class="navbar-brand order-1 order-md-0 me-auto" href="/">Atlas.js</a>
+			  <button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+				<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+				<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+			  </button>
+			  <ul class="navbar-nav social-nav order-3 order-md-5">
+				<li class="nav-item">
+					<a class="nav-link" href="https://twitter.com/getdoks"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg><span class="ms-2 visually-hidden">Twitter</span></a>
+				  </li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://github.com/h-enk/doks"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+				  </li>
+				</ul>
+			  <div class="collapse navbar-collapse order-4 order-md-1">
+				<ul class="navbar-nav main-nav me-auto order-5 order-md-2"><li class="nav-item">
+					  <a class="nav-link" href="/gallery.html">Gallery</a>
+					</li>
+				  <li class="nav-item">
+					  <a class="nav-link" href="/tutorials/example/">Getting Started</a>
+					</li>
+				  <li class="nav-item">
+					  <a class="nav-link" href="/docs/global/functions">API Reference</a>
+					</li>
+				  </ul>
+				<div class="break order-6 d-md-none"></div>
+				</div>
+			</div>
+		  </header>
+		<ul id="demoList">
+			<button onclick="d3.select('#gallery').style('visibility', 'visible')">Show Gallery</button>
+		</ul>
+		<canvas id="canvasElement"></canvas>
+		<svg id="svgElement"></svg>
+		<div id="hint">To update the demo after modifying the code, click the "run" button; to see the construction process of a demo step by step, click the "play" button.</div>
+		<div id="console"></div>
+		<div id="btmPanel">
+			<ul>
+				<li><a href="#codeTab">Code</a></li>
+				<li><a href="#dataTab">Data</a></li>
+				<li><a href="#infoTab">About</a></li>
+			  </ul>
+			<div id="codeTab">
+				<textarea id="scriptEditor"></textarea>
+			</div>
+			<div id="dataTab" style="overflow-y: auto;">
+				<table id="dataTable" class="display" style="font-size: .75rem; width: 100%"></table>
+			</div>
+			<div id="infoTab" style="padding: 15px;">
+			</div>
+			<div id="codeControls">
+				Renderer: 
+				<input type="radio" id="SVG" name="renderer" value="svg" checked>
+				<label for="SVG">SVG</label>
+				<!-- <input type="radio" id="Canvas" name="renderer" value="Canvas">
+				<label for="Canvas">Canvas</label> -->
+				<input type="radio" id="WebGL" name="renderer" value="webgl">
+				<label for="WebGL">WebGL</label> 
+				<button style="margin-left: 40px;" onclick="loadScript()">run</button>
+				<button onclick="stepThrough()">play</button>
+			</div>
+		</div>
+		<div id="gallery">
+		</div>
+		<script>
+			var editor = CodeMirror.fromTextArea(document.getElementById("scriptEditor"), {lineNumbers: true
+			});
+			var dataTable = null;
+			var metaData;
+
+			function showError(message, source, lineno, colno, error) {
+				let csl = document.getElementById("console");
+				removeAllChildren(csl);
+				var msgNode = document.createElement("div");  
+				msgNode.textContent = message ? message : error ?  JSON.stringify(error) : "";
+				msgNode.style.color = "red";
+				csl.appendChild(msgNode);  
+				if (error && error.stack) {
+					var stackNode = document.createElement("div");  
+					stackNode.textContent = error.stack.replace(/\n/g, "\r\n").replace(/@/g, " at ");
+					stackNode.style["white-space"] = "pre-line";
+					stackNode.style.color = "#777";
+					csl.appendChild(stackNode);
+				}
+				csl.style.display = "block";
+			}
+
+			window.onerror = showError;
+
+			$( function() {
+    			$( "#btmPanel" ).resizable({
+					minHeight: 100,
+					handles: "n"
+				});
+  			} );
+
+			$( function() {
+    			$( "#btmPanel" ).tabs({
+					activate: function(event, ui){
+						let t = ui.newTab.attr('li',"innerHTML")[0].getElementsByTagName("a")[0].innerHTML;
+						if (t == "Code")
+							$("#codeControls").css("visibility", "visible");
+						else
+							$("#codeControls").css("visibility", "hidden");
+					}
+				});
+  			} );
+
+			function loadDemo(d) {
+				var oReq = new XMLHttpRequest();
+				oReq.addEventListener("load", function(){
+					
+					loadScript(this.responseText);
+
+					// Set the data for the csv in the script
+					let csvRegex = /atlas\.csv\("(.+)"\);/
+					let csvPath = csvRegex.exec(this.responseText)[1]
+
+					// Request the csv from the server
+					fetch(csvPath).then(resp => {
+						return resp.text();
+					}).then(text => {
+						let rows = text.trim().split("\n")
+						// Destroy current table
+						if (dataTable !== null) {
+							dataTable.destroy()
+						}
+						// Set the thead for the table
+						const table = document.getElementById("dataTable")
+						let newHead = `<thead><tr>${
+							rows[0].split(",").reduce((acc, row) => acc += `<th>${row}</th>`, "")
+						}</tr></thead>`
+						table.innerHTML = newHead
+						// Initialize table
+						dataTable = $('#dataTable').DataTable({
+							data: rows.slice(1).map(row => row.split(",")),
+							searching: false,
+							paging: false,
+							scrollCollapse: true,
+							fixedColumns: true,
+							info: false,
+							//responsive: true
+						})
+					})
+
+					if (metaData)
+						d3.select("#infoTab").html(metaData[d].about);
+				});
+				oReq.open("GET", "demo/" + d[0].toLowerCase() + d.substring(1) + ".js");
+				oReq.send();
+			}
+
+			function removeAllChildren(e) {
+				while (e.firstChild) {
+					e.firstChild.remove();
+				}
+			}
+
+			function makeAsync(s){
+				let c = "try {\n" + s + "\n} catch (err) {showError(err.name ? err.name + ': ' + err.message : undefined, 0, 0, 0, err);}";
+				return "(async () => {" + c + "})();";
+			}
+
+			function loadScript(s) {
+				let script = s ? s : editor.getValue();
+				let parsed = acorn.parse(script, {ecmaVersion: "latest"});
+				let blocks = parsed.body.map(d => script.substring(d.start, d.end));
+
+				//find lines with renderer and remove them
+				blocks = blocks.filter(l => l.indexOf("render") < 0);
+
+				//add renderer lines
+				let sceneName = blocks.filter(l => l.indexOf("atlas.scene(") > 0)[0].split("=")[0].replace("let", " ").trim();
+				let r = $("input[type='radio'][name='renderer']:checked").val();
+				let ele = r == "svg" ? "svgElement" : "canvasElement";
+				let newScript = blocks.join("\n") + "\natlas.renderer('" + r + "').render(" + sceneName + ",'" + ele + "');"
+				let csl = document.getElementById("console");
+				removeAllChildren(csl);
+				csl.style.display = "none";
+				document.getElementById("gallery").style.visibility = "hidden";
+
+				if (r == "svg"){
+					let svg = document.getElementById("svgElement");
+					removeAllChildren(svg);
+					svg.style.display = "block";
+					document.getElementById("canvasElement").style.display = "none";
+				} else {
+					let canvas = document.getElementById("canvasElement");
+					canvas.style.display = "block";
+					document.getElementById("svgElement").style.display = "none";
+				}
+
+				editor.setValue(newScript);
+				newScript = makeAsync(newScript);
+				eval(newScript);
+			}
+
+			let requestAnimationFrame = function(f){return setTimeout(f, 1000)};
+
+			function stepThrough(){
+				let script = editor.getValue().replace(/await/g, "");
+				let parsed = acorn.parse(script, {ecmaVersion: "latest"});
+
+				let blocks = parsed.body.map(d => script.substring(d.start, d.end));				
+				let renderIdx = blocks.findIndex(d => d.indexOf("renderer") > 0),
+					renderLines = blocks.slice(renderIdx).join(";\n"),
+					code = "";
+				let currentIdx = 0;
+				let step = function(timeStamp){
+					if (currentIdx >= renderIdx)
+						return;
+					removeAllChildren(document.getElementById("svgElement"));
+					//let s = blocks.slice(0, currentIdx).join(";\n") + ";" + blocks.slice(renderIdx).join(";\n");
+					let newBlock = blocks[currentIdx];
+					if (newBlock.indexOf("atlas.csv") > 0)
+						newBlock = newBlock.replace("atlas.csv", "await atlas.csv");
+					code += newBlock + "\n";
+					editor.setValue(code + renderLines);
+					let s = makeAsync(code + renderLines);
+					eval(s);
+					currentIdx++;
+					requestAnimationFrame(step);
+				}
+				requestAnimationFrame(step);
+			}
+
+			function refresh() {
+				let demo = window.location.hash.replace("#", "");
+				if (demo && demo!= ""){
+					loadDemo(demo);	
+				} else if (demo == "") {
+					document.getElementById("gallery").style.visibility = "visible";
+				}
+			}
+
+			function populateList(json){
+				let category = "", list; 
+				for (let k of Object.keys(json)){
+					let m = json[k].mark;
+					if (m != category){
+						d3.select("#demoList").append("li").attr("class", "category").text(m);
+						category = m;
+						list = d3.select("#demoList").append("ul").attr("class", "demos");
+					}
+					list.append("li").text(json[k].name).on("click", ()=>{window.location.hash = k;});
+				}
+			}
+
+			function populateGallery(json){
+				let keys = Object.keys(json);
+				keys = keys.map((a) => ({sort: Math.random(), value: a}))
+						.sort((a, b) => a.sort - b.sort)
+						.map((a) => a.value);
+				for (let k of keys){
+					d3.select("#gallery").append("div").style("display", "inline-block").attr("class", "galleryItem")
+						.style("background", "white")
+						.style("background-image", 'url("img/' + k + '.png")').style('background-size', "contain")
+						.style("background-repeat", "no-repeat").style("background-position", "center")
+						.on("click", ()=>{document.getElementById("gallery").style.visibility = "hidden";window.location.hash = k;});
+				}
+			}
+
+			window.onhashchange = refresh;
+
+			$('input[type=radio][name=renderer]').change(function() {
+				loadScript();
+			});
+
+			$(document).ready(() => {
+				fetch("demos.json").then(resp => {
+					return resp.text();
+				}).then(text => {
+					metaData = JSON.parse(text);
+					populateList(metaData);
+					populateGallery(metaData);
+					refresh();
+				});
+			});
+		</script>
+	</body>
+</html>
