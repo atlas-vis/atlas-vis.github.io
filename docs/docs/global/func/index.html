@@ -12,19 +12,22 @@
   <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <title>Mark - Atlas.js</title>
+  <title>Top-level Functions - Atlas.js</title>
 <meta name="description" content="">
-<link rel="canonical" href="https://atlas-vis.github.io/docs/marks/mark/">
+<link rel="canonical" href="https://atlas-vis.github.io/docs/global/func/">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mark">
-<meta property="og:description" content="Subclasses: Path, Text, Image (coming soon)
-The Mark class represents a primitive building block of a visualization. There are different types of marks, implemented as the child classes of Mark: Path, Text, and Image (coming soon).
-Properties   property explanation type default value     id  the unique id of the mark String    type  the type of the mark String    dataScope the data scope of the mark DataScope undefined    Methods   method explanation return type     getScene() returns the scene in which this mark resides Scene   duplicate() returns a copy of this mark Mark   translate(dx, dy) move the mark by the given parameters">
-<meta property="og:url" content="https://atlas-vis.github.io/docs/marks/mark/">
+<meta property="og:title" content="Top-level Functions">
+<meta property="og:description" content="Top-level functions are defined in the atlas namespace.
+Create Objects   function explanation return type     atlas.scene(params) create a scene
+params (Object, optional): contains the following parameterfillColor: background color of the scene Scene   async atlas.csv(url) import a CSV file as a data table
+url (String): path to the file Promise   atlas.layout(type, params) create a layout
+type: layout type
+params (Object): contains layout properties Layout   atlas.">
+<meta property="og:url" content="https://atlas-vis.github.io/docs/global/func/">
 <meta property="og:site_name" content="Atlas.js">
-<meta property="article:published_time" content="2021-06-20T20:24:35-04:00">
-  <meta property="article:modified_time" content="2021-06-20T20:24:35-04:00">
+<meta property="article:published_time" content="2020-10-06T08:49:15+00:00">
+  <meta property="article:modified_time" content="2020-10-06T08:49:15+00:00">
   
   <meta property="og:image" content="https://atlas-vis.github.io/doks.png"/>
       <meta property="og:image:alt" content="Atlas.js">
@@ -32,10 +35,10 @@ Properties   property explanation type default value     id  the unique id of th
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="henkverlinde">
 <meta name="twitter:creator" content="henkverlinde">
-<meta name="twitter:title" content="Mark">
+<meta name="twitter:title" content="Top-level Functions">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://atlas-vis.github.io/doks.png">
-    <meta name="twitter:image:alt" content="Mark">
+    <meta name="twitter:image:alt" content="Top-level Functions">
 
 <script type="application/ld+json">
 {
@@ -75,9 +78,9 @@ Properties   property explanation type default value     id  the unique id of th
       },
     {
       "@type": "WebPage",
-      "@id": "https://atlas-vis.github.io/docs/marks/mark/",
-      "url": "https://atlas-vis.github.io/docs/marks/mark/",
-      "name": "Mark",
+      "@id": "https://atlas-vis.github.io/docs/global/func/",
+      "url": "https://atlas-vis.github.io/docs/global/func/",
+      "name": "Top-level Functions",
       "description": "",
       "isPartOf": {
         "@id": "https://atlas-vis.github.io/#/schema/website/1"
@@ -85,22 +88,22 @@ Properties   property explanation type default value     id  the unique id of th
       "about": {
           "@id": "https://atlas-vis.github.io/#/schema/organization/1"
         },
-      "datePublished": "2021-06-20T20:24:35CET",
-      "dateModified": "2021-06-20T20:24:35CET",
+      "datePublished": "2020-10-06T08:49:15CET",
+      "dateModified": "2020-10-06T08:49:15CET",
       "breadcrumb": {
-        "@id": "https://atlas-vis.github.io/docs/marks/mark/#/schema/breadcrumb/1"
+        "@id": "https://atlas-vis.github.io/docs/global/func/#/schema/breadcrumb/1"
       },
       "primaryImageOfPage": {
-        "@id": "https://atlas-vis.github.io/docs/marks/mark/#/schema/image/2"
+        "@id": "https://atlas-vis.github.io/docs/global/func/#/schema/image/2"
       },
       "inLanguage": "",
       "potentialAction": [{
-        "@type": "ReadAction", "target": ["https://atlas-vis.github.io/docs/marks/mark/"]
+        "@type": "ReadAction", "target": ["https://atlas-vis.github.io/docs/global/func/"]
       }]
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://atlas-vis.github.io/docs/marks/mark/#/schema/breadcrumb/1",
+      "@id": "https://atlas-vis.github.io/docs/global/func/#/schema/breadcrumb/1",
       "name": "Breadcrumbs",
       "itemListElement": [{
         "@type": "ListItem",
@@ -125,15 +128,15 @@ Properties   property explanation type default value     id  the unique id of th
         "position":  3 ,
         "item": {
           "@type": "WebPage",
-          "@id": "https://atlas-vis.github.io/docs/marks/",
-          "url": "https://atlas-vis.github.io/docs/marks/",
-          "name": "Marks"
+          "@id": "https://atlas-vis.github.io/docs/global/",
+          "url": "https://atlas-vis.github.io/docs/global/",
+          "name": "Global"
           }
         },{
         "@type": "ListItem",
         "position":  4 ,
         "item": {
-          "@id": "https://atlas-vis.github.io/docs/marks/mark/"
+          "@id": "https://atlas-vis.github.io/docs/global/func/"
           }
         }]
     },
@@ -144,16 +147,16 @@ Properties   property explanation type default value     id  the unique id of th
         {
           "@type": "Article",
           "@id": "https://atlas-vis.github.io/#/schema/article/1",
-          "headline": "Mark",
+          "headline": "Top-level Functions",
           "description": "",
           "isPartOf": {
-            "@id": "https://atlas-vis.github.io/docs/marks/mark/"
+            "@id": "https://atlas-vis.github.io/docs/global/func/"
           },
           "mainEntityOfPage": {
-            "@id": "https://atlas-vis.github.io/docs/marks/mark/"
+            "@id": "https://atlas-vis.github.io/docs/global/func/"
           },
-          "datePublished": "2021-06-20T20:24:35CET",
-          "dateModified": "2021-06-20T20:24:35CET",
+          "datePublished": "2020-10-06T08:49:15CET",
+          "dateModified": "2020-10-06T08:49:15CET",
           "author": {
             "@id": "https://atlas-vis.github.io/#/schema/person/2"
           },
@@ -161,7 +164,7 @@ Properties   property explanation type default value     id  the unique id of th
               "@id": "https://atlas-vis.github.io/#/schema/organization/1"
             },
           "image": {
-            "@id": "https://atlas-vis.github.io/docs/marks/mark/#/schema/image/2"
+            "@id": "https://atlas-vis.github.io/docs/global/func/#/schema/image/2"
           }
         }
       ]
@@ -183,10 +186,10 @@ Properties   property explanation type default value     id  the unique id of th
       "@graph": [
         {
           "@type": "ImageObject",
-          "@id": "https://atlas-vis.github.io/docs/marks/mark/#/schema/image/2",
+          "@id": "https://atlas-vis.github.io/docs/global/func/#/schema/image/2",
           "url": "https://atlas-vis.github.io/doks.png",
           "contentUrl": "https://atlas-vis.github.io/doks.png",
-          "caption": "Mark"
+          "caption": "Top-level Functions"
         }
       ]
     }
@@ -241,7 +244,7 @@ Properties   property explanation type default value     id  the unique id of th
       <h4></h4>
     
     <ul class="list-unstyled">
-      <li><a class="docs-link" href="https://atlas-vis.github.io/docs/global/func/">Top-level Functions</a></li>
+      <li><a class="docs-link active" href="https://atlas-vis.github.io/docs/global/func/">Top-level Functions</a></li>
       <li><a class="docs-link" href="https://atlas-vis.github.io/docs/global/constants/">Constants</a></li>
       <li><a class="docs-link" href="https://atlas-vis.github.io/docs/global/predicate/">Predicate</a></li>
       </ul>
@@ -258,7 +261,7 @@ Properties   property explanation type default value     id  the unique id of th
       <h3>Marks</h3>
     
     <ul class="list-unstyled">
-      <li><a class="docs-link active" href="https://atlas-vis.github.io/docs/marks/mark/">Mark</a></li>
+      <li><a class="docs-link" href="https://atlas-vis.github.io/docs/marks/mark/">Mark</a></li>
       <li><a class="docs-link" href="https://atlas-vis.github.io/docs/marks/path/">Path</a></li>
       <li><a class="docs-link" href="https://atlas-vis.github.io/docs/marks/rectpath/">RectPath</a></li>
       <li><a class="docs-link" href="https://atlas-vis.github.io/docs/marks/circlepath/">CirclePath</a></li>
@@ -327,8 +330,8 @@ Properties   property explanation type default value     id  the unique id of th
   <ul>
     <li>
       <ul>
-        <li><a href="#properties">Properties</a></li>
-        <li><a href="#methods">Methods</a></li>
+        <li><a href="#create-objects">Create Objects</a></li>
+        <li><a href="#helper-functions">Helper Functions</a></li>
       </ul>
     </li>
   </ul>
@@ -338,82 +341,70 @@ Properties   property explanation type default value     id  the unique id of th
 		</nav>
 		<main class="docs-content col-lg-11 col-xl-9">
 		
-			<h1>Mark</h1>
+			<h1>Top-level Functions</h1>
 			<p class="lead"></p>
-			<p><span style="font-size:1.2em">Subclasses: <a href="../path/">Path</a>, <a href="../pointtext/">Text</a>, Image (coming soon)</span></p>
-<p>The Mark class represents a primitive building block of a visualization. There are different types of marks, implemented as the child classes of Mark: <a href="../path/">Path</a>, <a href="../pointtext/">Text</a>, and Image (coming soon).</p>
-<h3 id="properties">Properties<a href="#properties" class="anchor" aria-hidden="true">#</a> </h3>
+			<p>Top-level functions are defined in the atlas namespace.</p>
+<h3 id="create-objects">Create Objects<a href="#create-objects" class="anchor" aria-hidden="true">#</a> </h3>
 <table class="table-striped">
 <thead>
 <tr>
-<th>property</th>
-<th>explanation</th>
-<th>type</th>
-<th>default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>id</strong> <img width="70px" src="../../readonly.png"></td>
-<td>the unique id of the mark</td>
-<td>String</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>type</strong> <img width="70px" src="../../readonly.png"></td>
-<td>the type of the mark</td>
-<td>String</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>dataScope</strong></td>
-<td>the <a href="../../data/datascope/">data scope</a> of the mark</td>
-<td><a href="../../data/datascope/">DataScope</a></td>
-<td>undefined</td>
-</tr>
-</tbody>
-</table>
-<h3 id="methods">Methods<a href="#methods" class="anchor" aria-hidden="true">#</a> </h3>
-<table class="table-striped">
-<thead>
-<tr>
-<th>method</th>
+<th>function</th>
 <th>explanation</th>
 <th>return type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>getScene</strong>()</td>
-<td>returns the scene in which this mark resides</td>
-<td><a href="../../group/scene">Scene</a></td>
+<td><strong>atlas.scene</strong>(params)</td>
+<td>create a <a href="../../group/scene/">scene</a><br>params (Object, optional): contains the following parameter<ul><li>fillColor: background color of the scene</li></ul></td>
+<td><a href="../../group/scene/">Scene</a></td>
 </tr>
 <tr>
-<td><strong>duplicate</strong>()</td>
-<td>returns a copy of this mark</td>
-<td><a href="../mark/">Mark</a></td>
+<td>async <strong>atlas.csv</strong>(url)</td>
+<td>import a CSV file as a <a href="../../data/datatable/">data table</a><br>url (String): path to the file</td>
+<td>Promise</td>
 </tr>
 <tr>
-<td><strong>translate</strong>(dx, dy)</td>
-<td>move the mark by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction</td>
-<td>void</td>
+<td><strong>atlas.layout</strong>(type, params)</td>
+<td>create a <a href="../../layout/layout/">layout</a><br>type: <a href="../../global/constants/#layout-type">layout type</a><br>params (Object): contains layout properties</td>
+<td><a href="../../layout/layout/">Layout</a></td>
+</tr>
+<tr>
+<td><strong>atlas.renderer</strong>(type)</td>
+<td>create a renderer<br>type (String): type of renderer, possible values: &ldquo;svg&rdquo;, &ldquo;canvas&rdquo;, or &ldquo;webgl&rdquo;</td>
+<td><a href="../../rendering/renderer/">Renderer</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="helper-functions">Helper Functions<a href="#helper-functions" class="anchor" aria-hidden="true">#</a> </h3>
+<table class="table-striped">
+<thead>
+<tr>
+<th>function</th>
+<th>explanation</th>
+<th>return type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>atlas.cartesianToPolar</strong>(x, y, cx, cy)</td>
+<td>converts a point in Cartesian space to polar coordinates<br>x (Number): x coordinate in Cartesian space<br>y (Number): y coordinate in Cartesian space<br>cx (Number): x coordinate of the polar center<br>cy (Number): y coordinate of the polar center</td>
+<td>[angele (in degrees),<br>distance from center]</td>
+</tr>
+<tr>
+<td><strong>atlas.polarToCartesian</strong>(cx, cy, r, deg)</td>
+<td>converts a point in polar space to Cartesian coordinates<br>cx (Number): x coordinate of the polar center<br>cy (Number): y coordinate of the polar center<br>r (Number): distance from the polar center<br>deg (Number): angle in degrees in the polar space</td>
+<td>[x, y]</td>
 </tr>
 </tbody>
 </table>
 
 			<div class="docs-navigation d-flex justify-content-between">
 	
-	<a href="https://atlas-vis.github.io/docs/basic/segment/">
+	<a class="ms-auto" href="https://atlas-vis.github.io/docs/global/constants/">
 			<div class="card my-1">
 				<div class="card-body py-2">
-					&larr; Segment
-				</div>
-			</div>
-		</a>
-	<a class="ms-auto" href="https://atlas-vis.github.io/docs/marks/path/">
-			<div class="card my-1">
-				<div class="card-body py-2">
-					Path &rarr;
+					Constants &rarr;
 				</div>
 			</div>
 		</a>
