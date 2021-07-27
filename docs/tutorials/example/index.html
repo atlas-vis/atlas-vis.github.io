@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preload" as="font" href="https://atlas-vis.github.io/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="https://atlas-vis.github.io/fonts/vendor/jost/jost-v4-latin-700.woff2" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="https://atlas-vis.github.io/main.0bfd368b885c2bc53fc3a6618423c989e62ffe3b0a25f1160b7aaf04c037b60f019bf88f62c8638e8ee5a67f64ba80d3c52c6b50cf764b2475a05d53de8fa527.css" integrity="sha512-C/02i4hcK8U/w6ZhhCPJieYv/jsKJfEWC3qvBMA3tg8Bm/iPYshjjo7lpn9kuoDTxSxrUM92SyR1oF1T3o&#43;lJw==" crossorigin="anonymous">
+<noscript><style>img.lazyload { display: none; }</style></noscript>
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>0. Let&#39;s Create a Diverging Bar Chart - Atlas.js</title>
+<meta name="description" content="">
+<link rel="canonical" href="https://atlas-vis.github.io/tutorials/example/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0. Let&#39;s Create a Diverging Bar Chart">
+<meta property="og:description" content="We start this tutorial by creating a diverging bar chart (Figure 1) using Atlas. This chart visualizes ahypothetical dataset reporting people’s opinions on a subject matter, broken down by age (below 30, 30 - 50, 50 - 70, above 70) and responses (strongly agree, agree, disagree, strongly disagree). You can see a demo of this visualization here.
+ Figure 1: Diverging Bar Chart
+  Figure 2 shows the dataset &ldquo;survey_response.">
+<meta property="og:url" content="https://atlas-vis.github.io/tutorials/example/">
+<meta property="og:site_name" content="Atlas.js">
+<meta property="article:published_time" content="2020-10-13T15:21:01+02:00">
+  <meta property="article:modified_time" content="2020-10-13T15:21:01+02:00">
+  
+  <meta property="og:image" content="https://atlas-vis.github.io/doks.png"/>
+      <meta property="og:image:alt" content="Atlas.js">
+    
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="henkverlinde">
+<meta name="twitter:creator" content="henkverlinde">
+<meta name="twitter:title" content="0. Let&#39;s Create a Diverging Bar Chart">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://atlas-vis.github.io/doks.png">
+    <meta name="twitter:image:alt" content="0. Let&#39;s Create a Diverging Bar Chart">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://atlas-vis.github.io/#/schema/organization/1",
+      "name": "",
+      "url": "https://atlas-vis.github.io/",
+      "sameAs": [
+        "https://twitter.com/henkverlinde"
+        , "https://www.linkedin.com/in/henkverlinde/"
+        , "https://github.com/h-enk"
+        ],
+      "logo": {
+          "@type": "ImageObject",
+          "@id": "https://atlas-vis.github.io/#/schema/image/1",
+          "url": "https://atlas-vis.github.io/logo-doks.png",
+          "width":  null ,
+          "height":  null ,
+          "caption": ""
+        },
+        "image": {
+          "@id": "https://atlas-vis.github.io/#/schema/image/1"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://atlas-vis.github.io/#/schema/website/1",
+      "url": "https://atlas-vis.github.io/",
+      "name": "Atlas.js",
+      "description": "",
+      "publisher": {
+          "@id": "https://atlas-vis.github.io/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://atlas-vis.github.io/tutorials/example/",
+      "url": "https://atlas-vis.github.io/tutorials/example/",
+      "name": "0. Let\u0027s Create a Diverging Bar Chart",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://atlas-vis.github.io/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://atlas-vis.github.io/#/schema/organization/1"
+        },
+      "datePublished": "2020-10-13T15:21:01CET",
+      "dateModified": "2020-10-13T15:21:01CET",
+      "breadcrumb": {
+        "@id": "https://atlas-vis.github.io/tutorials/example/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://atlas-vis.github.io/tutorials/example/#/schema/image/2"
+      },
+      "inLanguage": "",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://atlas-vis.github.io/tutorials/example/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://atlas-vis.github.io/tutorials/example/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://atlas-vis.github.io/",
+          "url": "https://atlas-vis.github.io/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://atlas-vis.github.io/tutorials/",
+          "url": "https://atlas-vis.github.io/tutorials/",
+          "name": "Tutorials"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "https://atlas-vis.github.io/tutorials/example/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://atlas-vis.github.io/tutorials/example/#/schema/image/2",
+          "url": "https://atlas-vis.github.io/doks.png",
+          "contentUrl": "https://atlas-vis.github.io/doks.png",
+          "caption": "0. Let\u0027s Create a Diverging Bar Chart"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+  <meta name="theme-color" content="#fff">
+<link rel="apple-touch-icon" sizes="180x180" href="https://atlas-vis.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://atlas-vis.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://atlas-vis.github.io/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="https://atlas-vis.github.io/site.webmanifest">
+
+  
+</head>
+  <body class="tutorials single">
+    <div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+  <div class="container">
+    <input class="menu-btn order-0" type="checkbox" id="menu-btn">
+    <label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+    <a class="navbar-brand order-1 order-md-0 me-auto" href="https://atlas-vis.github.io/">Atlas.js</a>
+    <button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+      <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+      <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+    </button>
+    <ul class="navbar-nav social-nav order-3 order-md-5">
+      </ul>
+    <div class="collapse navbar-collapse order-4 order-md-1">
+      <ul class="navbar-nav main-nav me-auto order-5 order-md-2"><li class="nav-item">
+            <a class="nav-link" href="https://atlas-vis.github.io/gallery.html">Gallery</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://atlas-vis.github.io/tutorials/example/">Getting Started</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://atlas-vis.github.io/docs/global/functions">API Reference</a>
+          </li>
+        </ul>
+      <div class="break order-6 d-md-none"></div>
+      </div>
+  </div>
+</header>
+    <div class="wrap container" role="document">
+      <div class="content">
+        
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar">
+			<nav class="docs-links" aria-label="Main navigation">
+				<h3>Tutorials</h3>
+  <ul class="list-unstyled">
+    <li><a class="docs-link active" href="https://atlas-vis.github.io/tutorials/example/">0. Let&#39;s Create a Diverging Bar Chart</a></li>
+    <li><a class="docs-link" href="https://atlas-vis.github.io/tutorials/vom/">1. Visualization Object Model</a></li>
+    <li><a class="docs-link" href="https://atlas-vis.github.io/tutorials/initialize/">2. Initialize Scene and Import Data</a></li>
+    <li><a class="docs-link" href="https://atlas-vis.github.io/tutorials/mark/">3. Create and Render Glyphs</a></li>
+    <li><a class="docs-link" href="https://atlas-vis.github.io/tutorials/join/">4. Join Graphics with Data</a></li>
+    <li><a class="docs-link" href="https://atlas-vis.github.io/tutorials/layout/">5. Lay out Objects</a></li>
+    <li><a class="docs-link" href="https://atlas-vis.github.io/tutorials/encode/">6. Specify Visual Encodings</a></li>
+    <li><a class="docs-link" href="https://atlas-vis.github.io/tutorials/constraints/">7. Apply Constraints</a></li>
+    <li><a class="docs-link" href="https://atlas-vis.github.io/tutorials/axis/">8. Create Axis, Gridlines, and Legend</a></li>
+    </ul>
+  
+			</nav>
+		</div>
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+    <h3>On this page</h3>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#initialize-scene-and-import-data">Initialize Scene and Import Data</a></li>
+        <li><a href="#join-graphics-with-data-and-lay-out-marks">Join Graphics with Data and Lay out Marks</a></li>
+        <li><a href="#specify-visual-encodings">Specify Visual Encodings</a></li>
+        <li><a href="#apply-constraints">Apply Constraints</a></li>
+        <li><a href="#create-axis-and-legend">Create Axis and Legend</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>0. Let&#39;s Create a Diverging Bar Chart</h1>
+			<p class="lead"></p>
+			<p>We start this tutorial by creating a diverging bar chart (Figure 1) using Atlas. This chart visualizes ahypothetical dataset reporting people’s opinions on a subject matter, broken down by age (below 30, 30 - 50, 50 - 70, above 70) and responses (strongly agree, agree, disagree, strongly disagree). You can see a demo of this visualization <a href="https://atlas-vis.github.io/gallery.html#DivergingBarChart">here</a>.</p>
+<figure class="border-0 mx-auto text-center"><img src="diverging_bar.png"
+         alt="Diverging Bar Chart" width="800px"/><figcaption>
+            <p>Figure 1: Diverging Bar Chart</p>
+        </figcaption>
+</figure>
+
+<p>Figure 2 shows the dataset &ldquo;survey_response.csv&rdquo; behind this visualization. The data table consists of three columns: Age Group, Response, and Percentage (percentage of people with a particular response within an age group).</p>
+<figure class="border-0 mx-auto text-center"><img src="data.png"
+         alt="Survey Response Dataset" width="350px"/><figcaption>
+            <p>Figure 2: survey_response.csv</p>
+        </figcaption>
+</figure>
+
+<h3 id="initialize-scene-and-import-data">Initialize Scene and Import Data<a href="#initialize-scene-and-import-data" class="anchor" aria-hidden="true">#</a> </h3>
+<p>To begin, we create a <a href="../../group/scene/">scene</a>, which represents a top-level container, and import the data:</p>
+<pre><code class="language-js">let scn = atlas.scene(), table = await atlas.csv(&quot;survey_response.csv&quot;);
+</code></pre>
+<p>Next, let&rsquo;s create a rectangle in the scene and specify its properties:</p>
+<pre><code class="language-js">let rect = scn.mark(&quot;rectangle&quot;, {top: 100, left: 200, width: 700, 
+                        height: 30, strokeWidth: 0, fillColor: &quot;#ddd&quot;});
+</code></pre>
+<p>Now we can&rsquo;t see the rectangle yet, as it has not been rendered. If you do <code>console.log(rect)</code>, you will be able to see the <code>rect</code> object in the console. To display it, let&rsquo;s add a line to create a renderer:</p>
+<pre><code>atlas.renderer(&quot;svg&quot;).render(scn, &quot;svgEle&quot;);
+</code></pre>
+<p>Here we are creating a renderer that renders the scene to an SVG element with the DOM ID &ldquo;svgEle&rdquo;. We can see the gray rectangle now:</p>
+<figure class="border-0 mx-auto text-center"><img src="rect.png"
+         alt="Rectangle Mark" width="350px"/>
+</figure>
+
+<h3 id="join-graphics-with-data-and-lay-out-marks">Join Graphics with Data and Lay out Marks<a href="#join-graphics-with-data-and-lay-out-marks" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Next, we want to have multiple rectangles, each representing an age group. This is done by using the repeat method:</p>
+<pre><code>let collection = scene.repeat(rect, table, {field: &quot;Age Group&quot;});
+</code></pre>
+<p>This will give us a collection of four rectangles, each representing an age group in the dataset. By default, the repeated rectangles will have the same properties (including position) as the original rectangle. To space them out, we can apply a grid layout with only 1 column and a vertical gap of 10 pixels between the rows:</p>
+<pre><code>collection.layout = atlas.layout(&quot;grid&quot;, {numCols: 1, vGap: 10});
+</code></pre>
+<p>This gives us the following visualization:</p>
+<figure class="border-0 mx-auto text-center"><img src="repeat.png"
+         alt="Repeat and Lay out Rectangle Marks" width="350px"/>
+</figure>
+
+<p>Next, we want to further break down each age group by responses. We can use the divide method:</p>
+<pre><code>let bars = scn.divide(rect, table, {field: &quot;Response&quot;, orientation: &quot;vertical&quot;});
+</code></pre>
+<p>which gives us the following visualization:</p>
+<figure class="border-0 mx-auto text-center"><img src="divide.png"
+         alt="Divide Rectangle Marks" width="350px"/>
+</figure>
+
+<p>When using the divide method, we don&rsquo;t need to pass all four rectangle marks as its argument; we only need to pass in one rectangle <code>rect</code> as an example, and Atlas will find all the &ldquo;peers&rdquo; of <code>rect</code> and perform divide operation on all of them. The divide method will return a collection of smaller rectangles (<code>bars</code>) as a result of dividing <code>rect</code>.</p>
+<h3 id="specify-visual-encodings">Specify Visual Encodings<a href="#specify-visual-encodings" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Now we can map data fields to visual channels. First let&rsquo;s map &ldquo;Percentage&rdquo; to the width of the rectangles. We need to reassign variable <code>rect</code> as one of the newly created marks and pass it as an example to the encode method:</p>
+<pre><code>rect = bars.firstChild;
+scn.encode(rect, {field: &quot;Percentage&quot;, channel:&quot;width&quot;});
+</code></pre>
+<p>And we can map &ldquo;Response&rdquo; to the fill color with a self-defined mapping:</p>
+<pre><code>let colorMapping = {&quot;Strongly agree&quot;: &quot;#1e71b8&quot;, &quot;Agree&quot;: &quot;#7799cf&quot;, &quot;Disagree&quot;: &quot;#e29d6f&quot;,
+                    &quot;Strongly disagree&quot;: &quot;#da7c43&quot;};
+scn.encode(rect, {field: &quot;Response&quot;, channel: &quot;fillColor&quot;, mapping: colorMapping});
+</code></pre>
+<p>Here&rsquo;s what we have after applying these encodings:</p>
+<figure class="border-0 mx-auto text-center"><img src="encode.png"
+         alt="Encode" width="350px"/>
+</figure>
+
+<h3 id="apply-constraints">Apply Constraints<a href="#apply-constraints" class="anchor" aria-hidden="true">#</a> </h3>
+<p>We want to align these bars so that the blue ones are aligned to the right and the orange ones are aligned to the left. To do so, we find all the light blue bars, which represent the response &ldquo;Agree&rdquo;, and align them to the right:</p>
+<pre><code>let agreeBars = scn.find([{channel: &quot;fillColor&quot;, value: &quot;#7799cf&quot;}]);
+scn.align(agreeBars, &quot;right&quot;);
+</code></pre>
+<figure class="border-0 mx-auto text-center"><img src="align.png"
+         alt="Encode" width="400px"/>
+</figure>
+
+<p>We can then create some text marks and affix them at the center of the rectangles:</p>
+<pre><code>let text = scn.mark(&quot;text&quot;, {fillColor: &quot;white&quot;});
+scn.repeat(text, dt);
+scn.encode(text, {field: &quot;Percentage&quot;, channel: &quot;text&quot;});
+scn.affix(text, rect, &quot;x&quot;);
+scn.affix(text, rect, &quot;y&quot;);  
+</code></pre>
+<figure class="border-0 mx-auto text-center"><img src="text.png"
+         alt="Encode" width="420px"/>
+</figure>
+
+<h3 id="create-axis-and-legend">Create Axis and Legend<a href="#create-axis-and-legend" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Finally, let&rsquo;s add a legend and an axis (labels only):</p>
+<pre><code class="language-js">scn.legend(&quot;fillColor&quot;, &quot;Response&quot;, {x: 800, y: 100});
+scn.axis(&quot;y&quot;, &quot;Age Group&quot;, {orientation: &quot;left&quot;, x: 190, pathVisible: false, tickVisible: false});
+</code></pre>
+<p>Viola! We have the visualization in Figure 1.</p>
+<figure class="border-0 mx-auto text-center"><img src="diverging_bar.png"
+         alt="Diverging Bar Chart" width="560px"/>
+</figure>
+
+
+			<div class="docs-navigation d-flex justify-content-between">
+	
+	<a class="ms-auto" href="https://atlas-vis.github.io/tutorials/vom/">
+			<div class="card my-1">
+				<div class="card-body py-2">
+					1. Visualization Object Model &rarr;
+				</div>
+			</div>
+		</a>
+	</div>
+
+		</main>
+	</div>
+
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 order-last order-lg-first">
+        <ul class="list-inline">
+          <li class="list-inline-item">Copyright © 2021 Human-Data Interaction Group @ University of Maryland, College Park. <br> Powered by <a href="https://www.netlify.com/">Netlify</a>, <a href="https://gohugo.io/">Hugo</a>, and <a href="https://getdoks.org/">Doks</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 order-first order-lg-last text-lg-end">
+        <ul class="list-inline">
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+    <script src="https://atlas-vis.github.io/js/highlight.min.d9d55e3b3c409b71c012ab1805faf40b1a2a80934c68f920288b8047298875caa3e60fb59a60efa3a55afecaaf6c208f4311183c9d2fb9c1042b8cefa37421db.js" integrity="sha512-2dVeOzxAm3HAEqsYBfr0CxoqgJNMaPkgKIuARymIdcqj5g&#43;1mmDvo6Va/sqvbCCPQxEYPJ0vucEEK4zvo3Qh2w==" crossorigin="anonymous" defer></script>
+  <script src="https://atlas-vis.github.io/main.min.4beb27ba0a92477db5004e9ac90bdc264c0cfa2ac635165b0ac7304d9abfb603084d1cb20d54fd82f3812791936dfd94ad658b9bcd489db4eda026292543d3cc.js" integrity="sha512-S&#43;snugqSR321AE6ayQvcJkwM&#43;irGNRZbCscwTZq/tgMITRyyDVT9gvOBJ5GTbf2UrWWLm81InbTtoCYpJUPTzA==" crossorigin="anonymous" defer></script>
+  
+  </body>
+</html>

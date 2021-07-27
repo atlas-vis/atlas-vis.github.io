@@ -1,0 +1,29 @@
+Period,Food Type,Consumption,Unit
+1960,cereal,346,gram/day
+2008-2012,cereal,133,gram/day
+1960,vegetable,200,gram/day
+2008-2012,vegetable,185,gram/day
+1960,fruit,60,gram/day
+2008-2012,fruit,291,gram/day
+1960,potato,68,gram/day
+2008-2012,potato,27,gram/day
+1960,legume,39,gram/day
+2008-2012,legume,22,gram/day
+1960,extra virgin olive oil,32,gram/day
+2008-2012,extra virgin olive oil,30,gram/day
+1960,fat,3,gram/day
+2008-2012,fat,3,gram/day
+1960,fish,22,gram/day
+2008-2012,fish,40,gram/day
+1960,meat,24,gram/day
+2008-2012,meat,87,gram/day
+1960,egg,9,gram/day
+2008-2012,egg,17,gram/day
+1960,cheese,9,gram/day
+2008-2012,cheese,42,gram/day
+1960,coffee,35,ml
+2008-2012,coffee,160,ml
+1960,dessert,19,gram/day
+2008-2012,dessert,84,gram/day
+1960,wine,59,ml
+2008-2012,wine,56,ml
