@@ -43,7 +43,7 @@ jobs:
             rm -rf docs/*
           fi
       - name: Build site
-        run: hugo -d ${DEST:-"docs"}
+        run: hugo -d "docs"
       -name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
