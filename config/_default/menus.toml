@@ -2,7 +2,7 @@
   name = ""
   weight = 1
   identifier = "global"
-  url = "/docs/global/functions/"
+  url = "/docs/global/func/"
 
 [[docs]]
   name = "Basic"
