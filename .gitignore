@@ -5,6 +5,7 @@ public
 resources
 # Local Netlify folder
 .netlify
+docs/
 
 # System Files
 .DS_Store
