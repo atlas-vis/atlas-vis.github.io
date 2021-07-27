@@ -15,3 +15,9 @@ npm install
 ```bash
 npm run start
 ```
+
+### 4. Build and deploy
+
+```bash
+npm run build
+```

@@ -1,53 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title></title>
-    <link>https://atlas-vis.github.io/docs/basic/</link>
-    <description>Recent content on </description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <lastBuildDate>Sun, 20 Jun 2021 14:34:22 -0400</lastBuildDate><atom:link href="https://atlas-vis.github.io/docs/basic/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Point</title>
-      <link>https://atlas-vis.github.io/docs/basic/point/</link>
-      <pubDate>Sun, 20 Jun 2021 14:34:22 -0400</pubDate>
-      
-      <guid>https://atlas-vis.github.io/docs/basic/point/</guid>
-      <description>The Point class represents a point in the two-dimensional space.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title/><link>https://atlas-vis.github.io/docs/basic/</link><description>Recent content on</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 20 Jun 2021 14:34:22 -0400</lastBuildDate><atom:link href="https://atlas-vis.github.io/docs/basic/index.xml" rel="self" type="application/rss+xml"/><item><title>Point</title><link>https://atlas-vis.github.io/docs/basic/point/</link><pubDate>Sun, 20 Jun 2021 14:34:22 -0400</pubDate><guid>https://atlas-vis.github.io/docs/basic/point/</guid><description>The Point class represents a point in the two-dimensional space.
 Constructor Point(x, y)
 Parameters: x (type Number), y (type Number)
-Properties   property explanation type     x the x coordinate of the point Number   y the y coordinate of the point Number    </description>
-    </item>
-    
-    <item>
-      <title>Rectangle</title>
-      <link>https://atlas-vis.github.io/docs/basic/rectangle/</link>
-      <pubDate>Mon, 16 Nov 2020 13:59:39 +0100</pubDate>
-      
-      <guid>https://atlas-vis.github.io/docs/basic/rectangle/</guid>
-      <description>The Rectangle class represents an abstract rectangular area. It is different from a rectangle mark.
-Properties   property explanation type default value     left the x coordinate of the left hand side of the rectangle Number    top the y coordinate of the top of the rectangle Number    right  the x coordinate of the right hand side of the rectangle Number    bottom  the y coordinate of the bottom of the rectangle Number    width the width of the rectangle Number    height the height of the rectangle Number    center  the center point of the rectangle Point    cx  the x coordinate of the center of the rectangle Number    cy  the y coordinate of the center of the rectangle Number     Methods   method explanation return type      contains(point) check if the specified point (type Point) is inside this rectangle Boolean    union(rect) returns the union of this rectangle and the parameter rect (type Rectangle) Rectangle    clone() returns a copy of this rectangle Rectangle     </description>
-    </item>
-    
-    <item>
-      <title>Vertex</title>
-      <link>https://atlas-vis.github.io/docs/basic/vertex/</link>
-      <pubDate>Mon, 16 Nov 2020 13:59:39 +0100</pubDate>
-      
-      <guid>https://atlas-vis.github.io/docs/basic/vertex/</guid>
-      <description>The Vertex class represents a vertex (sometimes called an anchor point) in a path. For example, a triangle has three vertices; a rectangle has four vertices. A vertex can have its own visual styles such as geometric shape, fill color and size. By default, a vertex is invisible (width and height set to 0).
-Vertices are automatically created when their parent path objects are instantiated. For rectangles and circles, the positions of the vertices are set automatically based on the top, left, width and height parameters of the RectPath, or the cx, cy and radius parameters of the CirclePath.</description>
-    </item>
-    
-    <item>
-      <title>Segment</title>
-      <link>https://atlas-vis.github.io/docs/basic/segment/</link>
-      <pubDate>Mon, 16 Nov 2020 13:59:39 +0100</pubDate>
-      
-      <guid>https://atlas-vis.github.io/docs/basic/segment/</guid>
-      <description>The Segment class represents a line or a curve that connects two vertices in a path. Segments are automatically created when vertices are added to a path.
-Properties    property explanation type default value     id  the unique id of the segment String    type  the type of the segment String &amp;ldquo;segment&amp;rdquo;   vertex1  the first vertex this segment goes through Vertex    vertex2  the second vertex this segment goes through Vertex    center  get the center point of the segment Point     Methods    method explanation return type     translate(dx, dy) move the segment by the given parameters</description>
-    </item>
-    
-  </channel>
-</rss>
+Properties property explanation type x the x coordinate of the point Number y the y coordinate of the point Number</description></item><item><title>Rectangle</title><link>https://atlas-vis.github.io/docs/basic/rectangle/</link><pubDate>Mon, 16 Nov 2020 13:59:39 +0100</pubDate><guid>https://atlas-vis.github.io/docs/basic/rectangle/</guid><description>The Rectangle class represents an abstract rectangular area. It is different from a rectangle mark.
+Properties property explanation type default value left the x coordinate of the left hand side of the rectangle Number top the y coordinate of the top of the rectangle Number right the x coordinate of the right hand side of the rectangle Number bottom the y coordinate of the bottom of the rectangle Number width the width of the rectangle Number height the height of the rectangle Number center the center point of the rectangle Point cx the x coordinate of the center of the rectangle Number cy the y coordinate of the center of the rectangle Number Methods method explanation return type contains(point) check if the specified point (type Point) is inside this rectangle Boolean union(rect) returns the union of this rectangle and the parameter rect (type Rectangle) Rectangle clone() returns a copy of this rectangle Rectangle</description></item><item><title>Vertex</title><link>https://atlas-vis.github.io/docs/basic/vertex/</link><pubDate>Mon, 16 Nov 2020 13:59:39 +0100</pubDate><guid>https://atlas-vis.github.io/docs/basic/vertex/</guid><description>The Vertex class represents a vertex (sometimes called an anchor point) in a path. For example, a triangle has three vertices; a rectangle has four vertices. A vertex can have its own visual styles such as geometric shape, fill color and size. By default, a vertex is invisible (width and height set to 0).
+Vertices are automatically created when their parent path objects are instantiated. For rectangles and circles, the positions of the vertices are set automatically based on the top, left, width and height parameters of the RectPath, or the cx, cy and radius parameters of the CirclePath.</description></item><item><title>Segment</title><link>https://atlas-vis.github.io/docs/basic/segment/</link><pubDate>Mon, 16 Nov 2020 13:59:39 +0100</pubDate><guid>https://atlas-vis.github.io/docs/basic/segment/</guid><description>The Segment class represents a line or a curve that connects two vertices in a path. Segments are automatically created when vertices are added to a path.
+Properties property explanation type default value id the unique id of the segment String type the type of the segment String &amp;ldquo;segment&amp;rdquo; vertex1 the first vertex this segment goes through Vertex vertex2 the second vertex this segment goes through Vertex center get the center point of the segment Point Methods method explanation return type translate(dx, dy) move the segment by the given parameters</description></item></channel></rss>
