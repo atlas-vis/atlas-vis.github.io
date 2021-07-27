@@ -1,0 +1,489 @@
+date,industry,unemployments
+1/1/2000,Manufacturing,734
+2/1/2000,Manufacturing,694
+3/1/2000,Manufacturing,739
+4/1/2000,Manufacturing,736
+5/1/2000,Manufacturing,685
+6/1/2000,Manufacturing,621
+7/1/2000,Manufacturing,708
+8/1/2000,Manufacturing,685
+9/1/2000,Manufacturing,667
+10/1/2000,Manufacturing,693
+11/1/2000,Manufacturing,672
+12/1/2000,Manufacturing,653
+1/1/2001,Manufacturing,911
+2/1/2001,Manufacturing,902
+3/1/2001,Manufacturing,954
+4/1/2001,Manufacturing,855
+5/1/2001,Manufacturing,903
+6/1/2001,Manufacturing,956
+7/1/2001,Manufacturing,1054
+8/1/2001,Manufacturing,1023
+9/1/2001,Manufacturing,996
+10/1/2001,Manufacturing,1065
+11/1/2001,Manufacturing,1108
+12/1/2001,Manufacturing,1172
+1/1/2002,Manufacturing,1377
+2/1/2002,Manufacturing,1296
+3/1/2002,Manufacturing,1367
+4/1/2002,Manufacturing,1322
+5/1/2002,Manufacturing,1194
+6/1/2002,Manufacturing,1187
+7/1/2002,Manufacturing,1185
+8/1/2002,Manufacturing,1108
+9/1/2002,Manufacturing,1076
+10/1/2002,Manufacturing,1046
+11/1/2002,Manufacturing,1115
+12/1/2002,Manufacturing,1188
+1/1/2003,Manufacturing,1302
+2/1/2003,Manufacturing,1229
+3/1/2003,Manufacturing,1222
+4/1/2003,Manufacturing,1199
+5/1/2003,Manufacturing,1150
+6/1/2003,Manufacturing,1232
+7/1/2003,Manufacturing,1193
+8/1/2003,Manufacturing,1186
+9/1/2003,Manufacturing,1175
+10/1/2003,Manufacturing,1041
+11/1/2003,Manufacturing,1034
+12/1/2003,Manufacturing,1025
+1/1/2004,Manufacturing,1110
+2/1/2004,Manufacturing,1094
+3/1/2004,Manufacturing,1083
+4/1/2004,Manufacturing,1004
+5/1/2004,Manufacturing,966
+6/1/2004,Manufacturing,957
+7/1/2004,Manufacturing,1019
+8/1/2004,Manufacturing,840
+9/1/2004,Manufacturing,852
+10/1/2004,Manufacturing,884
+11/1/2004,Manufacturing,905
+12/1/2004,Manufacturing,872
+1/1/2005,Manufacturing,889
+2/1/2005,Manufacturing,889
+3/1/2005,Manufacturing,879
+4/1/2005,Manufacturing,793
+5/1/2005,Manufacturing,743
+6/1/2005,Manufacturing,743
+7/1/2005,Manufacturing,883
+8/1/2005,Manufacturing,767
+9/1/2005,Manufacturing,775
+10/1/2005,Manufacturing,800
+11/1/2005,Manufacturing,823
+12/1/2005,Manufacturing,757
+1/1/2006,Manufacturing,778
+2/1/2006,Manufacturing,821
+3/1/2006,Manufacturing,701
+4/1/2006,Manufacturing,745
+5/1/2006,Manufacturing,680
+6/1/2006,Manufacturing,635
+7/1/2006,Manufacturing,736
+8/1/2006,Manufacturing,680
+9/1/2006,Manufacturing,632
+10/1/2006,Manufacturing,618
+11/1/2006,Manufacturing,702
+12/1/2006,Manufacturing,660
+1/1/2007,Manufacturing,752
+2/1/2007,Manufacturing,774
+3/1/2007,Manufacturing,742
+4/1/2007,Manufacturing,749
+5/1/2007,Manufacturing,651
+6/1/2007,Manufacturing,653
+7/1/2007,Manufacturing,621
+8/1/2007,Manufacturing,596
+9/1/2007,Manufacturing,673
+10/1/2007,Manufacturing,729
+11/1/2007,Manufacturing,762
+12/1/2007,Manufacturing,772
+1/1/2008,Manufacturing,837
+2/1/2008,Manufacturing,820
+3/1/2008,Manufacturing,831
+4/1/2008,Manufacturing,796
+5/1/2008,Manufacturing,879
+6/1/2008,Manufacturing,862
+7/1/2008,Manufacturing,908
+8/1/2008,Manufacturing,960
+9/1/2008,Manufacturing,984
+10/1/2008,Manufacturing,1007
+11/1/2008,Manufacturing,1144
+12/1/2008,Manufacturing,1315
+1/1/2009,Manufacturing,1711
+2/1/2009,Manufacturing,1822
+3/1/2009,Manufacturing,1912
+4/1/2009,Manufacturing,1968
+5/1/2009,Manufacturing,2010
+6/1/2009,Manufacturing,2010
+7/1/2009,Manufacturing,1988
+8/1/2009,Manufacturing,1866
+9/1/2009,Manufacturing,1876
+10/1/2009,Manufacturing,1884
+11/1/2009,Manufacturing,1882
+12/1/2009,Manufacturing,1747
+1/1/2010,Manufacturing,1918
+2/1/2010,Manufacturing,1814
+1/1/2000,Leisure and hospitality,782
+2/1/2000,Leisure and hospitality,779
+3/1/2000,Leisure and hospitality,789
+4/1/2000,Leisure and hospitality,658
+5/1/2000,Leisure and hospitality,675
+6/1/2000,Leisure and hospitality,833
+7/1/2000,Leisure and hospitality,786
+8/1/2000,Leisure and hospitality,675
+9/1/2000,Leisure and hospitality,636
+10/1/2000,Leisure and hospitality,691
+11/1/2000,Leisure and hospitality,694
+12/1/2000,Leisure and hospitality,639
+1/1/2001,Leisure and hospitality,806
+2/1/2001,Leisure and hospitality,821
+3/1/2001,Leisure and hospitality,817
+4/1/2001,Leisure and hospitality,744
+5/1/2001,Leisure and hospitality,731
+6/1/2001,Leisure and hospitality,821
+7/1/2001,Leisure and hospitality,813
+8/1/2001,Leisure and hospitality,767
+9/1/2001,Leisure and hospitality,900
+10/1/2001,Leisure and hospitality,903
+11/1/2001,Leisure and hospitality,935
+12/1/2001,Leisure and hospitality,938
+1/1/2002,Leisure and hospitality,947
+2/1/2002,Leisure and hospitality,973
+3/1/2002,Leisure and hospitality,976
+4/1/2002,Leisure and hospitality,953
+5/1/2002,Leisure and hospitality,1022
+6/1/2002,Leisure and hospitality,1034
+7/1/2002,Leisure and hospitality,999
+8/1/2002,Leisure and hospitality,884
+9/1/2002,Leisure and hospitality,885
+10/1/2002,Leisure and hospitality,956
+11/1/2002,Leisure and hospitality,978
+12/1/2002,Leisure and hospitality,922
+1/1/2003,Leisure and hospitality,1049
+2/1/2003,Leisure and hospitality,1145
+3/1/2003,Leisure and hospitality,1035
+4/1/2003,Leisure and hospitality,986
+5/1/2003,Leisure and hospitality,955
+6/1/2003,Leisure and hospitality,1048
+7/1/2003,Leisure and hospitality,1020
+8/1/2003,Leisure and hospitality,1050
+9/1/2003,Leisure and hospitality,978
+10/1/2003,Leisure and hospitality,933
+11/1/2003,Leisure and hospitality,990
+12/1/2003,Leisure and hospitality,885
+1/1/2004,Leisure and hospitality,1097
+2/1/2004,Leisure and hospitality,987
+3/1/2004,Leisure and hospitality,1039
+4/1/2004,Leisure and hospitality,925
+5/1/2004,Leisure and hospitality,977
+6/1/2004,Leisure and hospitality,1189
+7/1/2004,Leisure and hospitality,965
+8/1/2004,Leisure and hospitality,1010
+9/1/2004,Leisure and hospitality,854
+10/1/2004,Leisure and hospitality,853
+11/1/2004,Leisure and hospitality,916
+12/1/2004,Leisure and hospitality,850
+1/1/2005,Leisure and hospitality,993
+2/1/2005,Leisure and hospitality,1008
+3/1/2005,Leisure and hospitality,967
+4/1/2005,Leisure and hospitality,882
+5/1/2005,Leisure and hospitality,944
+6/1/2005,Leisure and hospitality,950
+7/1/2005,Leisure and hospitality,929
+8/1/2005,Leisure and hospitality,844
+9/1/2005,Leisure and hospitality,842
+10/1/2005,Leisure and hospitality,796
+11/1/2005,Leisure and hospitality,966
+12/1/2005,Leisure and hospitality,930
+1/1/2006,Leisure and hospitality,910
+2/1/2006,Leisure and hospitality,1040
+3/1/2006,Leisure and hospitality,917
+4/1/2006,Leisure and hospitality,882
+5/1/2006,Leisure and hospitality,830
+6/1/2006,Leisure and hospitality,942
+7/1/2006,Leisure and hospitality,867
+8/1/2006,Leisure and hospitality,855
+9/1/2006,Leisure and hospitality,810
+10/1/2006,Leisure and hospitality,795
+11/1/2006,Leisure and hospitality,836
+12/1/2006,Leisure and hospitality,701
+1/1/2007,Leisure and hospitality,911
+2/1/2007,Leisure and hospitality,879
+3/1/2007,Leisure and hospitality,845
+4/1/2007,Leisure and hospitality,822
+5/1/2007,Leisure and hospitality,831
+6/1/2007,Leisure and hospitality,917
+7/1/2007,Leisure and hospitality,920
+8/1/2007,Leisure and hospitality,877
+9/1/2007,Leisure and hospitality,892
+10/1/2007,Leisure and hospitality,911
+11/1/2007,Leisure and hospitality,986
+12/1/2007,Leisure and hospitality,961
+1/1/2008,Leisure and hospitality,1176
+2/1/2008,Leisure and hospitality,1056
+3/1/2008,Leisure and hospitality,944
+4/1/2008,Leisure and hospitality,874
+5/1/2008,Leisure and hospitality,1074
+6/1/2008,Leisure and hospitality,1154
+7/1/2008,Leisure and hospitality,1172
+8/1/2008,Leisure and hospitality,1122
+9/1/2008,Leisure and hospitality,1029
+10/1/2008,Leisure and hospitality,1126
+11/1/2008,Leisure and hospitality,1283
+12/1/2008,Leisure and hospitality,1210
+1/1/2009,Leisure and hospitality,1487
+2/1/2009,Leisure and hospitality,1477
+3/1/2009,Leisure and hospitality,1484
+4/1/2009,Leisure and hospitality,1322
+5/1/2009,Leisure and hospitality,1599
+6/1/2009,Leisure and hospitality,1688
+7/1/2009,Leisure and hospitality,1600
+8/1/2009,Leisure and hospitality,1636
+9/1/2009,Leisure and hospitality,1469
+10/1/2009,Leisure and hospitality,1604
+11/1/2009,Leisure and hospitality,1524
+12/1/2009,Leisure and hospitality,1624
+1/1/2010,Leisure and hospitality,1804
+2/1/2010,Leisure and hospitality,1597
+1/1/2000,Business services,655
+2/1/2000,Business services,587
+3/1/2000,Business services,623
+4/1/2000,Business services,517
+5/1/2000,Business services,561
+6/1/2000,Business services,545
+7/1/2000,Business services,636
+8/1/2000,Business services,584
+9/1/2000,Business services,559
+10/1/2000,Business services,504
+11/1/2000,Business services,547
+12/1/2000,Business services,564
+1/1/2001,Business services,734
+2/1/2001,Business services,724
+3/1/2001,Business services,652
+4/1/2001,Business services,655
+5/1/2001,Business services,652
+6/1/2001,Business services,694
+7/1/2001,Business services,731
+8/1/2001,Business services,790
+9/1/2001,Business services,810
+10/1/2001,Business services,910
+11/1/2001,Business services,946
+12/1/2001,Business services,921
+1/1/2002,Business services,1120
+2/1/2002,Business services,973
+3/1/2002,Business services,964
+4/1/2002,Business services,951
+5/1/2002,Business services,983
+6/1/2002,Business services,1079
+7/1/2002,Business services,1075
+8/1/2002,Business services,926
+9/1/2002,Business services,1007
+10/1/2002,Business services,962
+11/1/2002,Business services,1029
+12/1/2002,Business services,1038
+1/1/2003,Business services,1112
+2/1/2003,Business services,1140
+3/1/2003,Business services,1190
+4/1/2003,Business services,1076
+5/1/2003,Business services,1105
+6/1/2003,Business services,1092
+7/1/2003,Business services,1021
+8/1/2003,Business services,881
+9/1/2003,Business services,975
+10/1/2003,Business services,1014
+11/1/2003,Business services,948
+12/1/2003,Business services,948
+1/1/2004,Business services,1070
+2/1/2004,Business services,964
+3/1/2004,Business services,999
+4/1/2004,Business services,752
+5/1/2004,Business services,819
+6/1/2004,Business services,814
+7/1/2004,Business services,790
+8/1/2004,Business services,845
+9/1/2004,Business services,750
+10/1/2004,Business services,781
+11/1/2004,Business services,872
+12/1/2004,Business services,875
+1/1/2005,Business services,958
+2/1/2005,Business services,916
+3/1/2005,Business services,807
+4/1/2005,Business services,714
+5/1/2005,Business services,730
+6/1/2005,Business services,743
+7/1/2005,Business services,804
+8/1/2005,Business services,728
+9/1/2005,Business services,862
+10/1/2005,Business services,748
+11/1/2005,Business services,711
+12/1/2005,Business services,788
+1/1/2006,Business services,825
+2/1/2006,Business services,841
+3/1/2006,Business services,824
+4/1/2006,Business services,644
+5/1/2006,Business services,695
+6/1/2006,Business services,753
+7/1/2006,Business services,735
+8/1/2006,Business services,681
+9/1/2006,Business services,736
+10/1/2006,Business services,768
+11/1/2006,Business services,658
+12/1/2006,Business services,791
+1/1/2007,Business services,885
+2/1/2007,Business services,825
+3/1/2007,Business services,775
+4/1/2007,Business services,689
+5/1/2007,Business services,743
+6/1/2007,Business services,722
+7/1/2007,Business services,743
+8/1/2007,Business services,683
+9/1/2007,Business services,655
+10/1/2007,Business services,675
+11/1/2007,Business services,679
+12/1/2007,Business services,803
+1/1/2008,Business services,893
+2/1/2008,Business services,866
+3/1/2008,Business services,876
+4/1/2008,Business services,736
+5/1/2008,Business services,829
+6/1/2008,Business services,890
+7/1/2008,Business services,866
+8/1/2008,Business services,961
+9/1/2008,Business services,951
+10/1/2008,Business services,1052
+11/1/2008,Business services,992
+12/1/2008,Business services,1147
+1/1/2009,Business services,1445
+2/1/2009,Business services,1512
+3/1/2009,Business services,1597
+4/1/2009,Business services,1448
+5/1/2009,Business services,1514
+6/1/2009,Business services,1580
+7/1/2009,Business services,1531
+8/1/2009,Business services,1560
+9/1/2009,Business services,1596
+10/1/2009,Business services,1488
+11/1/2009,Business services,1514
+12/1/2009,Business services,1486
+1/1/2010,Business services,1614
+2/1/2010,Business services,1740
+1/1/2000,Construction,745
+2/1/2000,Construction,812
+3/1/2000,Construction,669
+4/1/2000,Construction,447
+5/1/2000,Construction,397
+6/1/2000,Construction,389
+7/1/2000,Construction,384
+8/1/2000,Construction,446
+9/1/2000,Construction,386
+10/1/2000,Construction,417
+11/1/2000,Construction,482
+12/1/2000,Construction,580
+1/1/2001,Construction,836
+2/1/2001,Construction,826
+3/1/2001,Construction,683
+4/1/2001,Construction,596
+5/1/2001,Construction,478
+6/1/2001,Construction,443
+7/1/2001,Construction,447
+8/1/2001,Construction,522
+9/1/2001,Construction,489
+10/1/2001,Construction,535
+11/1/2001,Construction,670
+12/1/2001,Construction,785
+1/1/2002,Construction,1211
+2/1/2002,Construction,1060
+3/1/2002,Construction,1009
+4/1/2002,Construction,855
+5/1/2002,Construction,626
+6/1/2002,Construction,593
+7/1/2002,Construction,594
+8/1/2002,Construction,654
+9/1/2002,Construction,615
+10/1/2002,Construction,680
+11/1/2002,Construction,758
+12/1/2002,Construction,941
+1/1/2003,Construction,1196
+2/1/2003,Construction,1173
+3/1/2003,Construction,987
+4/1/2003,Construction,772
+5/1/2003,Construction,715
+6/1/2003,Construction,710
+7/1/2003,Construction,677
+8/1/2003,Construction,650
+9/1/2003,Construction,681
+10/1/2003,Construction,651
+11/1/2003,Construction,690
+12/1/2003,Construction,813
+1/1/2004,Construction,994
+2/1/2004,Construction,1039
+3/1/2004,Construction,1011
+4/1/2004,Construction,849
+5/1/2004,Construction,665
+6/1/2004,Construction,668
+7/1/2004,Construction,610
+8/1/2004,Construction,563
+9/1/2004,Construction,629
+10/1/2004,Construction,635
+11/1/2004,Construction,695
+12/1/2004,Construction,870
+1/1/2005,Construction,1079
+2/1/2005,Construction,1150
+3/1/2005,Construction,961
+4/1/2005,Construction,693
+5/1/2005,Construction,567
+6/1/2005,Construction,559
+7/1/2005,Construction,509
+8/1/2005,Construction,561
+9/1/2005,Construction,572
+10/1/2005,Construction,519
+11/1/2005,Construction,564
+12/1/2005,Construction,813
+1/1/2006,Construction,868
+2/1/2006,Construction,836
+3/1/2006,Construction,820
+4/1/2006,Construction,674
+5/1/2006,Construction,647
+6/1/2006,Construction,569
+7/1/2006,Construction,633
+8/1/2006,Construction,618
+9/1/2006,Construction,586
+10/1/2006,Construction,456
+11/1/2006,Construction,618
+12/1/2006,Construction,725
+1/1/2007,Construction,922
+2/1/2007,Construction,1086
+3/1/2007,Construction,924
+4/1/2007,Construction,853
+5/1/2007,Construction,676
+6/1/2007,Construction,600
+7/1/2007,Construction,617
+8/1/2007,Construction,558
+9/1/2007,Construction,596
+10/1/2007,Construction,641
+11/1/2007,Construction,645
+12/1/2007,Construction,968
+1/1/2008,Construction,1099
+2/1/2008,Construction,1118
+3/1/2008,Construction,1170
+4/1/2008,Construction,1057
+5/1/2008,Construction,809
+6/1/2008,Construction,785
+7/1/2008,Construction,783
+8/1/2008,Construction,814
+9/1/2008,Construction,970
+10/1/2008,Construction,1078
+11/1/2008,Construction,1237
+12/1/2008,Construction,1438
+1/1/2009,Construction,1744
+2/1/2009,Construction,2025
+3/1/2009,Construction,1979
+4/1/2009,Construction,1737
+5/1/2009,Construction,1768
+6/1/2009,Construction,1601
+7/1/2009,Construction,1687
+8/1/2009,Construction,1542
+9/1/2009,Construction,1594
+10/1/2009,Construction,1744
+11/1/2009,Construction,1780
+12/1/2009,Construction,2044
+1/1/2010,Construction,2194
+2/1/2010,Construction,2440

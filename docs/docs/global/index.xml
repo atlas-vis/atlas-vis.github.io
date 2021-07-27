@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Global on </title>
+    <link>https://doks.netlify.app/docs/global/</link>
+    <description>Recent content in Global on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 06 Oct 2020 08:48:45 +0000</lastBuildDate><atom:link href="https://doks.netlify.app/docs/global/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Top-level Functions</title>
+      <link>https://doks.netlify.app/docs/global/functions/</link>
+      <pubDate>Tue, 06 Oct 2020 08:49:15 +0000</pubDate>
+      
+      <guid>https://doks.netlify.app/docs/global/functions/</guid>
+      <description>Top-level functions are defined in the atlas namespace.
+Create Objects   function explanation return type     atlas.scene(params) create a scene
+params (Object, optional): contains the following parameterfillColor: background color of the scene Scene   async atlas.csv(url) import a CSV file as a data table
+url (String): path to the file Promise   atlas.layout(type, params) create a layout
+type: layout type
+params (Object): contains layout properties Layout   atlas.</description>
+    </item>
+    
+    <item>
+      <title>Constants</title>
+      <link>https://doks.netlify.app/docs/global/constants/</link>
+      <pubDate>Tue, 06 Oct 2020 08:49:15 +0000</pubDate>
+      
+      <guid>https://doks.netlify.app/docs/global/constants/</guid>
+      <description>Aggregator &amp;ldquo;max&amp;rdquo;
+&amp;ldquo;min&amp;rdquo;
+&amp;ldquo;avg&amp;rdquo;
+&amp;ldquo;mean&amp;rdquo;
+&amp;ldquo;median&amp;rdquo;
+&amp;ldquo;sum&amp;rdquo;
+&amp;ldquo;count&amp;rdquo;
+&amp;ldquo;percentile 25&amp;rdquo;
+&amp;ldquo;percentile 75&amp;rdquo;
+Anchor &amp;ldquo;left&amp;rdquo;
+&amp;ldquo;top&amp;rdquo;
+&amp;ldquo;right&amp;rdquo;
+&amp;ldquo;bottom&amp;rdquo;
+&amp;ldquo;center&amp;rdquo;
+&amp;ldquo;middle&amp;rdquo;
+Channel &amp;ldquo;x&amp;rdquo;
+&amp;ldquo;y&amp;rdquo;
+&amp;ldquo;width&amp;rdquo;
+&amp;ldquo;height&amp;rdquo;
+&amp;ldquo;radius&amp;rdquo;
+&amp;ldquo;area&amp;rdquo;
+&amp;ldquo;fillColor&amp;rdquo;
+&amp;ldquo;strokeColor&amp;rdquo;
+&amp;ldquo;strokeWidth&amp;rdquo;
+&amp;ldquo;opacity&amp;rdquo;
+&amp;ldquo;text&amp;rdquo;
+&amp;ldquo;fontSize&amp;rdquo;
+&amp;ldquo;angle&amp;rdquo;
+&amp;ldquo;radialDistance&amp;rdquo;
+CurveMode &amp;ldquo;natural&amp;rdquo;
+&amp;ldquo;basis&amp;rdquo;
+&amp;ldquo;bumpX&amp;rdquo;
+&amp;ldquo;bumpY&amp;rdquo;
+&amp;ldquo;linear&amp;rdquo;
+&amp;ldquo;step&amp;rdquo;
+&amp;ldquo;CatmullRom&amp;rdquo;
+&amp;ldquo;cardinal&amp;rdquo;
+Data Type &amp;ldquo;boolean&amp;rdquo;
+&amp;ldquo;integer&amp;rdquo;
+&amp;ldquo;number&amp;rdquo;
+&amp;ldquo;date&amp;rdquo;
+&amp;ldquo;string&amp;rdquo;
+Data Table Transformation &amp;ldquo;bin&amp;rdquo;
+&amp;ldquo;kde&amp;rdquo;
+Mark Type &amp;ldquo;area&amp;rdquo;
+&amp;ldquo;rectangle&amp;rdquo;
+&amp;ldquo;circle&amp;rdquo;
+&amp;ldquo;line&amp;rdquo;
+&amp;ldquo;path&amp;rdquo;
+&amp;ldquo;pie&amp;rdquo;
+&amp;ldquo;pointText&amp;rdquo;
+&amp;ldquo;polygon&amp;rdquo;
+Layout Type &amp;ldquo;grid&amp;rdquo;
+&amp;ldquo;stack&amp;rdquo;
+&amp;ldquo;packing&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>Predicate</title>
+      <link>https://doks.netlify.app/docs/global/predicate/</link>
+      <pubDate>Tue, 06 Oct 2020 08:49:15 +0000</pubDate>
+      
+      <guid>https://doks.netlify.app/docs/global/predicate/</guid>
+      <description>A predicate is used to define an inclusion or exclusion criterion. The find method in the Scene class, for example, takes an array of predicates as its parameter.
+Predicates based on visual properties A predicate based on a visual property is defined as:
+ {channel: channel, value: value} if the criterion demands an exact match, for example, the following code will return all the objects in the scene whose fill color is red:  scene.</description>
+    </item>
+    
+  </channel>
+</rss>
