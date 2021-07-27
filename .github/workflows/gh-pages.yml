@@ -11,38 +11,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🛎 Check out master
+      - name: Check out master
         uses: actions/checkout@master
         with:
+          submodules: true
           fetch-depth: 1
-      - name: 🔨 Set up Node
-        uses: actions/setup-node@v1
+      # - name: Set up Node
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 12.x
+      # - name: Install tools
+      #   run: |
+      #     sudo apt install curl jq
+      #     npm install
+      # - name: Install Hugo
+      #   run: |
+      #     HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.tag_name')
+      #     mkdir tmp/ && cd tmp/
+      #     curl -sSL https://github.com/gohugoio/hugo/releases/download/${HUGO_VERSION}/hugo_extended_${HUGO_VERSION: -6}_Linux-64bit.tar.gz | tar -xvzf-
+      #     sudo mv hugo /usr/local/bin/
+      #     cd .. && rm -rf tmp/
+      #     hugo version
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
         with:
-          node-version: 12.x
-      - name: 🔧 Install tools
-        run: |
-          sudo apt install curl jq
-          npm install postcss-cli autoprefixer
-          npm install
-      - name: 🤵 Install Hugo
-        run: |
-          HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.tag_name')
-          mkdir tmp/ && cd tmp/
-          curl -sSL https://github.com/gohugoio/hugo/releases/download/${HUGO_VERSION}/hugo_extended_${HUGO_VERSION: -6}_Linux-64bit.tar.gz | tar -xvzf-
-          sudo mv hugo /usr/local/bin/
-          cd .. && rm -rf tmp/
-          hugo version
-      - name: 🧹 Clean site
+          hugo-version: '0.85.0'
+          extended: true
+      - name: Clean site
         run: |
           if [ -d "docs" ]; then
             rm -rf docs/*
           fi
-      - name: 🍳 Build site
-        run: hugo ${HUGO_ARGS:-""} -d ${DEST:-"docs"}
-      - name: 🚀 Deploy build
-        run: |
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git add .
-          git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}"
-          git push --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+      - name: Build site
+        run: hugo --minify -d ${DEST:-"docs"}
+      -name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+      # - name: Deploy build
+      #   run: |
+      #     git config user.name "${GITHUB_ACTOR}"
+      #     git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+      #     git add .
+      #     git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}"
+      #     git push --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
