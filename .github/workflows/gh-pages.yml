@@ -24,9 +24,9 @@ jobs:
       #   uses: actions/setup-node@v1
       #   with:
       #     node-version: 12.x
-      # - name: Install tools
-      #   run: |
-      #     npm install
+      - name: Install tools
+        run: |
+          npm install
       # - name: Install Hugo
       #   run: |
       #     HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.tag_name')
