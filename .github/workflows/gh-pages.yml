@@ -43,7 +43,7 @@ jobs:
             rm -rf docs/*
           fi
       - name: Build
-        run: hugo --minify
+        run: hugo --minify -d ${DEST:-"docs"}
       -name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/master' }}
