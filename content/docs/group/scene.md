@@ -14,7 +14,7 @@ toc: true
 ---
 <span style="font-size:1.2em">extends [Group](../group/)</span><br>
 
-The Scene class represents the top-level container in a visualization. This is where graphical objects (i.e., [mark](../../marks/mark/) or [group](../../group/group/)) are created, transformed and joined with data. To create a scene object, use the [_scene_ function](../../global/functions/): 
+The Scene class represents the top-level container in a visualization. This is where graphical objects (i.e., [mark](../../marks/mark/) or [group](../../group/group/)) are created, transformed and joined with data. To create a scene object, use the [_scene_ function](../../global/func/): 
 
     let scene = atlas.scene();
 

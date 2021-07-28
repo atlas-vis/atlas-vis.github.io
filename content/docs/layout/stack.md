@@ -14,7 +14,7 @@ toc: true
 ---
 <span style="font-size:1.2em">extends [Layout](../layout/)</span><br>
 
-The StackLayout class represents a layout that positions objects by stacking them. To create a StackLayout object and apply it to a [collection](../../group/collection/), use the [_layout_ function](../../global/functions/):
+The StackLayout class represents a layout that positions objects by stacking them. To create a StackLayout object and apply it to a [collection](../../group/collection/), use the [_layout_ function](../../global/func/):
 
     let sl = atlas.layout("stack", {orientation: "vertical"});
     collection.layout = sl;

@@ -15,7 +15,7 @@ toc: true
 
 <span style="font-size:1.2em">extends [Layout](../layout/)</span><br>
 
-The PackingLayout class represents a layout that positions objects by packing them in an area. To create a PackingLayout object and apply it to a [collection](../../group/collection/), use the [_layout_ function](../../global/functions/):
+The PackingLayout class represents a layout that positions objects by packing them in an area. To create a PackingLayout object and apply it to a [collection](../../group/collection/), use the [_layout_ function](../../global/func/):
 
     let pl = atlas.layout("packing", {cx: 100, cy: 100});
     collection.layout = pl;
