@@ -1,5 +1,5 @@
 ---
-title: "Data Table"
+title: "DataTable"
 description: ""
 lead: ""
 date: 2020-11-12T13:26:54+01:00
