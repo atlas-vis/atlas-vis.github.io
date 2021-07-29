@@ -15,7 +15,7 @@ toc: true
 
 <span style="font-size:1.2em">extends [Path](../path/)</span><br>
 
-The ArcPath class represents a sector mark that is used in a Doughnut Chart and a Sunburst Chart. You cannot create an ArcPath object directly, instead, you need to use the [_divide_ method](../../group/scene/#methods-join-graphics-with-data) in the [Scene](../../group/scene) class to transform a [RingPath](../ringpath/) to a collection of ArcPath objects. [Here is an explanation](../../../tutorials/join/#divide) of the divide operation. 
+The ArcPath class represents a sector mark that is used in a [Doughnut Chart](../../../gallery.html#DoughnutChart) and a [Sunburst Chart](../../../gallery.html#Sunburst). You cannot create an ArcPath object directly, instead, you need to use the [_divide_ method](../../group/scene/#methods-join-graphics-with-data) in the [Scene](../../group/scene) class to transform a [RingPath](../ringpath/) to a collection of ArcPath objects. [Here is an explanation](../../../tutorials/join/#divide) of the divide operation. 
 
 
 ### Properties

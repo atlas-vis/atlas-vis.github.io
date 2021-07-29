@@ -15,7 +15,10 @@ toc: true
 
 <span style="font-size:1.2em">extends [Path](../path/)</span><br>
 
-The AreaPath class represents an enclosed area mark that is used in an area chart. You cannot create an AreaPath object directly, instead, you need to use the [_densify_ method](../../group/scene/#methods-join-graphics-with-data) in the [Scene](../../group/scene) class to transform a [RectPath](../rectpath/) to an AreaPath. [Here is an explanation](../../../tutorials/join/#densify) of the densify operation. 
+The AreaPath class represents an enclosed area mark that is used in visualizations such as the [area chart](../../../gallery.html#AreaChart) and the [violin plot](../../../gallery.html#ViolinPlot). You cannot create an AreaPath object directly, instead, you need to use the [_densify_ method](../../group/scene/#methods-join-graphics-with-data) in the [Scene](../../group/scene) class to transform a [RectPath](../rectpath/) to an AreaPath. [Here is an explanation](../../../tutorials/join/#densify) of the densify operation. The figure below shows how AreaPath objects are created from a RectPath object through the densify operation.
+
+{{< figure src="../area.png" width="500px" alt="AreaPath" caption="" class="border-0 mx-auto text-center" >}}
+
 
 ### Properties
 | property |  explanation   | type | default value |
@@ -24,6 +27,8 @@ The AreaPath class represents an enclosed area mark that is used in an area char
 |**height** <img width="70px" src="../../readonly.png">| the height of the area | Number |  | 
 |**left** <img width="70px" src="../../readonly.png">| the x coordinate of the first vertex | Number |  | 
 |**top** <img width="70px" src="../../readonly.png">| the y coordinate of the first vertex | Number |  | 
+|**orientation** <img width="70px" src="../../readonly.png">| the orientation of the area | String |  | 
+|**firstVertexPair** <img width="70px" src="../../readonly.png">| the first pair of the vertices (highlighted in red in the figure above) | Array of [Vertex](../../basic/vertex/) |  | 
 {.table-striped}
 
 

@@ -15,7 +15,7 @@ toc: true
 
 <span style="font-size:1.2em">extends [Path](../path/)</span><br>
 
-The PiePath class represents a pie mark that is used in a pie chart. You cannot create a PiePath object directly, instead, you need to use the [_divide_ method](../../group/scene/#methods-join-graphics-with-data) in the [Scene](../../group/scene) class to transform a [CirclePath](../ringpath/) to a collection of PiePath objects. [Here is an explanation](../../../tutorials/join/#divide) of the divide operation. 
+The PiePath class represents a pie mark that is used in a [pie chart](../../../gallery.html#PieChart). You cannot create a PiePath object directly, instead, you need to use the [_divide_ method](../../group/scene/#methods-join-graphics-with-data) in the [Scene](../../group/scene) class to transform a [CirclePath](../ringpath/) to a collection of PiePath objects. [Here is an explanation](../../../tutorials/join/#divide) of the divide operation. 
 
 
 ### Properties
