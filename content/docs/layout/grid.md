@@ -31,7 +31,7 @@ The GridLayout class represents a layout that positions objects in a grid. To cr
 |**cellBounds** <img width="70px" src="../../readonly.png">| the bounds of the grid cells | Array of [Rectangle](../../basic/rectangle/) | [] |
 {.table-striped}
 
-### Methods inherited from [Layout](../layout/)
+### Methods inherited from Layout
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **clone**() <img width="70px" src="../../overrides.png"> | returns a copy of this layout | void |

@@ -31,7 +31,7 @@ The TreemapLayout class represents a layout that positions objects using the tre
 |**left**| the x coordinate of the top level container | Number |  |
 {.table-striped}
 
-### Methods inherited from [Layout](../layout/)
+### Methods inherited from Layout
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **clone**() <img width="70px" src="../../overrides.png"> | returns a copy of this layout | void |

@@ -28,7 +28,7 @@ The StackLayout class represents a layout that positions objects by stacking the
 |**orientation**| the orientation of stacking | String | undefined |
 {.table-striped}
 
-### Methods inherited from [Layout](../layout/)
+### Methods inherited from Layout
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **clone**() <img width="70px" src="../../overrides.png"> | returns a copy of this layout | void |

@@ -35,7 +35,7 @@ The Text class represents a text element. To create a Text object, use the _mark
 
 {{< figure src="../anchor.png" alt="text anchor" caption="Figure 1: Different anchor properties with the same x and y properties (the orange dot) lead to different text positions." class="border-0 mx-auto text-center">}}
 
-### Properties inherited from [Mark](../mark/)
+### Properties inherited from Mark
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the text | String |  | 
@@ -51,7 +51,7 @@ The Text class represents a text element. To create a Text object, use the _mark
 {.table-striped} -->
 
 
-### Methods inherited from [Mark](../mark/)
+### Methods inherited from Mark
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **getScene**() | returns the scene in which this mark resides | [Scene](../../group/scene) |

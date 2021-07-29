@@ -31,7 +31,7 @@ The RingPath class represents a ring mark that is used in a [Doughnut Chart](../
 {.table-striped}
 
 
-### Properties inherited from [Path](../path/)
+### Properties inherited from Path
 | property |  explanation  | type | default value |
 | --- | --- | --- | --- |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the path | [Rectangle](../../basic/rectangle/) | |
@@ -55,7 +55,7 @@ The RingPath class represents a ring mark that is used in a [Doughnut Chart](../
 |**vxOpacity** | the opacity of the vertices on this path | Number | 1 | 
 {.table-striped}
 
-### Properties inherited from [Mark](../mark/)
+### Properties inherited from Mark
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the path | String |  | 
@@ -63,13 +63,13 @@ The RingPath class represents a ring mark that is used in a [Doughnut Chart](../
 |**dataScope**| the [data scope](../../data/datascope/) of the path | [DataScope](../../data/datascope/) | undefined |
 {.table-striped}
 
-### Methods inherited from [Path](../path/)
+### Methods inherited from Path
 | method |  explanation   | return type |
 | ---- | --- | --- |
 | **getSVGPathData**() | returns a string to be used as the d parameter in an SVG path element | String |
 {.table-striped}
 
-### Methods inherited from [Mark](../mark/)
+### Methods inherited from Mark
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **getScene**() | returns the scene in which this mark resides | [Scene](../../group/scene) |

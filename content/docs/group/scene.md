@@ -24,7 +24,7 @@ The Scene class represents the top-level container in a visualization. This is w
 |**fillColor**| the background color of the scene | Color | "white" | 
 {.table-striped}
 
-### Properties inherited from [Group](../group/)
+### Properties inherited from Group
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the group | String |  | 
@@ -83,7 +83,7 @@ The Scene class represents the top-level container in a visualization. This is w
 | **affix**(item, baseItem, channel, params)| affix items to the specified base items in x or y direction<br>item ([Mark](../../marks/mark/)): an example item<br>baseItem ([Mark](../../marks/mark/)): an example base item<br>channel (String): "x" or "y"<br>params (Object, optional): additional parameters:<ul><li>itemAnchor (String): [anchor](../../global/constants/#anchor) of item, defaults to "center"</li><li>baseItemAnchor (String): [anchor](../../global/constants/#anchor) of base item, defaults to "middle"</li><li>offset (Number): distance between item anchor and base item anchor, defaults to 0</li></ul> | void |
 {.table-striped}
 
-### Methods inherited from [Group](../group/)
+### Methods inherited from Group
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **addChild**(c) | adds an object to the group | void |

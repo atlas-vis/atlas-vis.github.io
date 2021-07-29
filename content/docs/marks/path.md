@@ -57,7 +57,7 @@ A straight line is also represented as a path object in Atlas. The following cod
 |**vxOpacity** | the opacity of the vertices on this path | Number | 1 | 
 {.table-striped}
 
-### Properties inherited from [Mark](../mark/)
+### Properties inherited from Mark
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the path | String |  | 
@@ -74,7 +74,7 @@ A straight line is also represented as a path object in Atlas. The following cod
 | **sortVerticesByData**<br>(field, reverse, order) | sort the vertices by a data field<br>field (String): the data field to sort the vertices by (type String)<br>reverse (Boolean, optional): setting to true will sort in descending order;<br>default is false.<br>order (Boolean, optional): an array of field values in ascending order | void |
 {.table-striped}
 
-### Methods inherited from [Mark](../mark/)
+### Methods inherited from Mark
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **getScene**() | returns the scene in which this mark resides | [Scene](../../group/scene) |

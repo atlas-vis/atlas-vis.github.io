@@ -16,7 +16,7 @@ toc: true
 
 The Collection class represents a group of [marks](../../marks/mark/), [glyphs](../../group/glyph/), or [collections](../collection/) (i.e., nested collection). Children inside a collection have the same "type" property. Collections are created through the [_repeat_, _divide_, and _densify_ methods](../scene/#methods-join-graphics-with-data) in the [Scene](../scene/) class.
 
-### Properties inherited from [Group](../group/)
+### Properties inherited from Group
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the group | String |  | 
@@ -29,7 +29,7 @@ The Collection class represents a group of [marks](../../marks/mark/), [glyphs](
 |**center** <img width="70px" src="../../readonly.png">| the center of the group bounds | [Point](../../basic/point/) | |
 {.table-striped}
 
-### Methods inherited from [Group](../group/)
+### Methods inherited from Group
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **addChild**(c) | adds an object to the group | void |

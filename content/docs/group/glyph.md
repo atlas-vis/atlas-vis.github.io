@@ -17,7 +17,7 @@ toc: true
 
 The Glyph class represents a group of primitive [marks](../../marks/mark/). To create a glyph object, use the [_glyph_ method](../scene/#methods-create-mark-or-group) in the [Scene](../scene/) class.
 
-### Properties inherited from [Group](../group/)
+### Properties inherited from Group
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the group | String |  | 
@@ -30,7 +30,7 @@ The Glyph class represents a group of primitive [marks](../../marks/mark/). To c
 |**center** <img width="70px" src="../../readonly.png">| the center of the group bounds | [Point](../../basic/point/) | |
 {.table-striped}
 
-### Methods inherited from [Group](../group/)
+### Methods inherited from Group
 | method |  explanation   | return type |
 | --- | --- | --- |
 | **addChild**(c) | adds an object to the group | void |
