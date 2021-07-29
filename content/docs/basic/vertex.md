@@ -17,7 +17,7 @@ The Vertex class represents a vertex (sometimes called an anchor point) in a [pa
 
 Vertices are automatically created when their parent path objects are instantiated. For rectangles and circles, the positions of the vertices are set automatically based on the top, left, width and height parameters of the [RectPath](../../marks/rectpath/), or the cx, cy and radius parameters of the [CirclePath](../../marks/circlepath/). For lines, you can specify the positions of the start and end vertices as x1, y1, x2, y2 parameters. For polyline, you can specify the positions of the vertices as the vertices parameter. The API reference for [Path](../../marks/path/) contains some examples. You can also manually add a vertex, using the _addVertex_ method in the [Path](../../marks/path/) class.
 
-The properties of a vertex can be set individually. You can also set the properties of all the vertices on a path through the following path parameters: [vxShape, vxWidth, vxHeight, vxRadius, vxFillColor, vxStrokeColor, vxStrokeWidth, vxOpacity](../../marks/path/#properties).
+The properties of a vertex can be set individually. You can also set the properties of all the vertices on a path through the following path properties: [vxShape, vxWidth, vxHeight, vxRadius, vxFillColor, vxStrokeColor, vxStrokeWidth, vxOpacity](../../marks/path/#properties).
 
 ### Properties
 | property |  explanation   | type | default value |
