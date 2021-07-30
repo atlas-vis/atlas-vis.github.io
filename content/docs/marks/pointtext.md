@@ -16,8 +16,9 @@ toc: true
 
 
 The Text class represents a text element. To create a Text object, use the _mark_ method in the [Scene](../../group/scene) class, for example:
-
+```js
     let txt = scene.mark("text", {x: 50, y: 100, text: "hello"});
+```
 
 ### Properties
 | property |  explanation   | type | default value |
