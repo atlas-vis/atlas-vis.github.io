@@ -1,20 +1,28 @@
 let scn = atlas.scene();
 
-let line = scn.mark("line", {x1: 150, y1: 80, x2: 700, y2: 80, strokeColor: "#555", vxShape: "rect", vxWidth: 1, vxHeight: 20, vxFillColor: "#555"}),
-    box = scn.mark("rectangle", {top: 70, left: 200, width: 400, height: 20, fillColor: "#95D0F5", strokeColor: "#111"}),
-    medianLine = scn.mark("line", {x1: 300, y1: 70, x2: 300, y2: 90, strokeColor: "#000"});
+let line = scn.mark("line", {x1: 150, y1: 80, x2: 150, y2: 450, strokeColor: "#555", vxShape: "rect", vxWidth: 20, vxHeight: 1, vxFillColor: "#555"}),
+    box = scn.mark("rectangle", {top: 100, left: 135, width: 30, height: 200, fillColor: "#95D0F5", strokeWidth: 0}),
+    medianLine = scn.mark("line", {x1: 135, y1: 200, x2: 165, y2: 200, strokeColor: "#fff"});
 
 let glyph = scn.glyph(line, box, medianLine);
-let dt = await atlas.csv("csv/probability.csv");
+let dt = await atlas.csv("csv/genderPayGap.csv");
 
-let collection = scn.repeat(glyph, dt, {field: "Category"});
-collection.layout = atlas.layout("grid", {numCols: 1, vGap: 15});
+let genders = scn.repeat(glyph, dt, {field: "Gender"});
+genders.layout = atlas.layout("grid", {numRows: 1, hGap: 15});
 
-let enc = scn.encode(line.vertices[0], {field: "Probability", channel: "x", aggregator: "min"});
-scn.encode(line.vertices[1], {field: "Probability", channel: "x", aggregator: "max", scale: enc.scale});
-scn.encode(box.leftSegment, {field: "Probability", channel: "x", aggregator: "percentile 25", scale: enc.scale});
-scn.encode(box.rightSegment, {field: "Probability", channel: "x", aggregator: "percentile 75", scale: enc.scale});
-scn.encode(medianLine, {field: "Probability", channel: "x", aggregator: "median", scale: enc.scale});
+let payGrades = scn.repeat(genders, dt, {field: "Pay Grade"});
+payGrades.sortChildrenByData("Pay Grade", false, ["One", "Two", "Three", "Four", "Five"]);
+payGrades.layout = atlas.layout("grid", {numRows: 1, hGap: 45});
 
-scn.axis("x", "Probability", {orientation: "bottom"});
-scn.axis("y", "Category", {orientation: "left", pathVisible: false, tickVisible: false});
+
+let enc = scn.encode(line.vertices[0], {field: "Min", channel: "y"});
+scn.encode(line.vertices[1], {field: "Max", channel: "y", scale: enc.scale});
+scn.encode(box.topSegment, {field: "25-Percentile", channel: "y", scale: enc.scale});
+scn.encode(box.bottomSegment, {field: "75-Percentile", channel: "y", scale: enc.scale});
+scn.encode(medianLine, {field: "Median", channel: "y", scale: enc.scale});
+
+scn.encode(box, {field: "Gender", channel: "fillColor"});
+scn.axis("x", "Pay Grade", {orientation: "bottom", pathVisible: false, tickVisible: false, labelOffset: 35});
+scn.axis("x", "Gender", {orientation: "bottom", "pathVisible": false,tickVisible: false,});
+scn.axis("y", "Max", {orientation: "left", "x": 100});
+scn.legend("fillColor", "Gender", {x: 160, y: 120});

@@ -6,5 +6,5 @@ let polygon = scn.densify(circle, dt, {field: "Month"});
 scn.encode(polygon.firstVertex, {field: "Sales", channel: "radialDistance"});
 
 for (let i = 0; i < 360; i+= 30)
-    scn.axis("radialDistance", "Sales", {rotation: i, tickValues: [15, 30, 45, 55]});
-scn.gridlines("radialDistance", "Sales", {values: [15, 30, 45, 55]});
+    scn.axis("radialDistance", "Sales", {rotation: i, labelFormat: ".2s", tickValues:[10000, 20000, 30000, 40000]});
+scn.gridlines("radialDistance", "Sales", {values: [10000, 20000, 30000, 40000]});

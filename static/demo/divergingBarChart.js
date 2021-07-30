@@ -6,7 +6,7 @@ let rect = scn.mark("rectangle", {top: 100, left: 200, width: 700, height: 30, s
 let collection = scn.repeat(rect, dt, {field: "Age Group"});
 collection.layout = atlas.layout("grid", {numCols: 1, vGap: 10});
 
-let bars = scn.divide(rect, dt, {field: "Response", orientation: "vertical"});
+let bars = scn.divide(rect, dt, {field: "Response", orientation: "horizontal"});
 
 let enc = scn.encode(bars.children[0], {field: "Percentage", channel:"width"});
 let colorMapping = {"Strongly agree": "#1e71b8", "Agree": "#7799cf", "Disagree": "#e29d6f", "Strongly disagree": "#da7c43"};

@@ -3,7 +3,7 @@ let scn = atlas.scene();
 let rect = scn.mark("rectangle", {top:100, left: 100, width: 800, height: 300, fillColor: "#fff"} );
 let dt = await atlas.csv("csv/dummy.csv");
 
-let names = scn.divide(rect, dt, {orientation: "vertical", field: "name"});
+let names = scn.divide(rect, dt, {orientation: "horizontal", field: "name"});
 let wdEncoding = scn.encode(rect, {field: "width", channel: "width"}),
 	htEncoding = scn.encode(rect, {field: "height", channel: "height"});
 

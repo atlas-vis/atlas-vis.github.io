@@ -3,13 +3,13 @@
         "name": "Bar Chart (Horizontal)",
         "mark": "Bars and Rectangles",
         "title": "Real GDP Change in the US",
-        "about": "Percent Change of Real Gross Domestic Product from Preceding Period. Data source: U.S. Bureau of Economic Analysis"
+        "about": "Percent Change of U.S. Real Gross Domestic Product from Preceding Period. Data source: U.S. Bureau of Economic Analysis"
     },
     "BarChartVert": {
         "name": "Bar Chart (Vertical)",
         "mark": "Bars and Rectangles",
         "title": "Real GDP Change in the US",
-        "about": "Percent Change of Real Gross Domestic Product from Preceding Period. Data source: U.S. Bureau of Economic Analysis"
+        "about": "Percent Change of U.S. Real Gross Domestic Product from Preceding Period. Data source: U.S. Bureau of Economic Analysis"
     },
     "BoxPlot": {
         "name": "Box Plot",
@@ -147,13 +147,19 @@
         "name": "Dumbbell Chart",
         "mark": "Lines and Paths",
         "title": "Partisan Reactions on Mass Shooting",
-        "about": "This infographics shows the topics mentioned by the two parties after the Orlando nightclub shooting with a focus on the differences in terms of the number of times these topics are mentioned. <br> <a href='https://public.tableau.com/profile/lindsey.poulter8872#!/vizhome/OrlandoKillings/Dashboard' target='_blank'>Original visualization</a> by Lindsey Poulter"
+        "about": "This infographics shows the topics mentioned by the two parties after the Orlando nightclub shooting with a focus on the differences in terms of the number of times these topics are mentioned. <br> <a href='https://public.tableau.com/profile/lindsey.poulter8872#!/vizhome/OrlandoKillings/Dashboard' target='_blank'>Original visualization</a> by Lindsey Poulter<br>Image credit: <a href='https://www.flickr.com/photos/donkeyhotey/' target='_blank'>DonkeyHotey</a>"
     },
     "LineGraph": {
-        "name": "Line Graph",
+        "name": "Line Graph 1",
         "mark": "Lines and Paths",
-        "title": "",
-        "about": ""
+        "title": "Temperature Forecast",
+        "about": "Monthly temperature forecast for Baltimore, MD from Aug 2021 to Aug 2022.<br>The light blue band represents the 99% confidence interval of the prediction.<br>The solid line represents the median temperature between 1981 and 2010 for each month.<br>Data source: <a href='https://www.noaa.gov/' target='_blank'>National Weather Service Forecast</a>"
+    },
+    "LineGraph2": {
+        "name": "Line Graph 2",
+        "mark": "Lines and Paths",
+        "title": "Covid Cases: Reported and Forecast",
+        "about": "Reported COVID-19 cases between 7/12/21 to 7/26/21 and forecase by four different models between 7/26/21 and 8/21/21.<br>The four models are: <a href='https://github.com/oskali/mit_cassandra' target='_blank'>MIT-Cassandra</a>, <a href='https://covid19.uclaml.org/' target='_blank'>UCLA</a>, <a href='https://systems.jhu.edu/research/public-health/predicting-covid-19-risk/' target='_blank'>JHU-CSSE</a>, and <a href='https://www.microsoft.com/en-us/ai/ai-for-health' target='_blank'>Microsoft</a>.<br>Data Source: Google Search for COVID-19 statistics and <a href='https://www.cdc.gov/coronavirus/2019-ncov/science/forecasting/forecasts-cases.html' target='_blank'>CDC</a>"
     },
     "LollipopChart": {
         "name": "Lollipop Chart",
@@ -206,14 +212,14 @@
     "RadarChart": {
         "name": "Radar Chart",
         "mark": "Polygons and Areas",
-        "title": "",
-        "about": ""
+        "title": "Monthly Gasoline Sales",
+        "about": "Adjusted monthly gasoline sales in the U.S. in 2020.<br>Numbers are shown in millions of dollars.<br>Data source: <a href='https://www.census.gov/retail/mrts/historic_releases.html' target='_blank'>U.S. Census Bureau</a>"
     },
     "ridgelinePlot": {
         "name": "Ridgeline Plot",
         "mark": "Polygons and Areas",
         "title": "How people perceive probability",
-        "about": "On the /r/samplesize thread of reddit, questions like What probability would you assign to the phrase “Highly likely” were asked. Answers between 0 and 100 were recorded, and this visualization shows the distribution for each question. This idea originally comes from a <a href='https://www.cia.gov/library/center-for-the-study-of-intelligence/csi-publications/books-and-monographs/psychology-of-intelligence-analysis/art15.html' target='_blank'>publication of the CIA</a>. <a href='https://github.com/zonination' target='_blank'>Zoni Nation</a> <a href='https://github.com/zonination/perceptions'>reproduced it using R. </a> This visualization is based on an example from <a href='https://www.d3-graph-gallery.com/graph/ridgeline_basic.html' target='_blank'>d3-graph-gallery.com</a>"
+        "about": "On the /r/samplesize thread of reddit, questions like What probability would you assign to the phrase “Highly likely” were asked. Answers between 0 and 100 were recorded, and this visualization shows the distribution for each question. This idea originally comes from a <a href='https://www.cia.gov/library/center-for-the-study-of-intelligence/csi-publications/books-and-monographs/psychology-of-intelligence-analysis/art15.html' target='_blank'>publication of the CIA</a>. <a href='https://github.com/zonination' target='_blank'>Zoni Nation</a> <a href='https://github.com/zonination/perceptions' target='_blank'>reproduced it using R. </a> This visualization is based on an example from <a href='https://www.d3-graph-gallery.com/graph/ridgeline_basic.html' target='_blank'>d3-graph-gallery.com</a>"
     },
     "StackedAreaChart": {
         "name": "Stacked Area Chart",
@@ -224,8 +230,8 @@
     "StellarChart": {
         "name": "Stellar Chart",
         "mark": "Polygons and Areas",
-        "title": "",
-        "about": ""
+        "title": "Monthly Gasoline Sales",
+        "about": "Adjusted monthly gasoline sales in the U.S. in 2020.<br>Numbers are shown in millions of dollars.<br>Data source: <a href='https://www.census.gov/retail/mrts/historic_releases.html' target='_blank'>U.S. Census Bureau</a>"
     },
     "StreamGraph": {
         "name": "StreamGraph",
@@ -238,6 +244,12 @@
         "mark": "Polygons and Areas",
         "title": "Distribution for setosa sepal length",
         "about": "This visualization shows the distribution for the sepal length of setosa, a type of iris plant. The data is from <a href='https://archive.ics.uci.edu/ml/datasets/Iris' target='_blank'>Iris Data Set</a>."
+    },
+    "Isotype": {
+        "name": "Isotype",
+        "mark": "Images and Icons",
+        "title": "",
+        "about": ""
     },
     "GridAreaChart": {
         "name": "Area Charts",
@@ -254,8 +266,8 @@
     "MultipleBoxPlots": {
         "name": "Box Plots",
         "mark": "Small Multiples",
-        "title": "",
-        "about": ""
+        "title": "Gender Pay Gap",
+        "about": "This box and whisker plot shows the disparity in annual income for women vs. men across pay grades. <br> <a href='http://www.stephen-few.com/nysi.php' target='_blank'>Original visualization from Now You See It</a> by Stephen Few."
     },
     "MultiplePieCharts": {
         "name": "Pie Charts",

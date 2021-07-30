@@ -8,7 +8,7 @@ let rect = scene.mark("rectangle", {top:60, left: 100, width: 800, height: 450, 
 
 // rect.densify first
 let anyArea = scene.densify(rect, data, {orientation: "horizontal", field: "date"});
-let areas = scene.divide(anyArea, data, {orientation: "horizontal", field: "industry"});
+let areas = scene.divide(anyArea, data, {orientation: "vertical", field: "industry"});
 scene.setProperties(areas.layout, {baseline: "center"});
 
 scene.encode(anyArea, {channel: "fillColor", field: "industry"});

@@ -6,7 +6,7 @@ scene.repeat(rect, data, {field: "State"});
 let xEnc = scene.encode(rect, {field: "MapX", channel: "x", rangeExtent: 900});
 let yEnc = scene.encode(rect, {field: "MapY", channel: "y", rangeExtent: 550});
 
-let coll = scene.divide(rect, data, {field: "Year", orientation: "vertical"});
+let coll = scene.divide(rect, data, {field: "Year", orientation: "horizontal"});
 scene.encode(coll.firstChild, {field: "PVI Score", channel: "height"});
 scene.encode(coll.firstChild, {field: "Inclination", channel: "fillColor", mapping: {red: "#B6293E", blue: "#477EC0"}});
 
