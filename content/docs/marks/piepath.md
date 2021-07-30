@@ -45,7 +45,8 @@ Angles in Atlas are specified using the polar coordinate system, where 0 is at t
 |**firstVertex** <img width="70px" src="../../readonly.png">| returns the first vertex of the path | [Vertex](../../basic/vertex/) |
 |**firstSegment** <img width="70px" src="../../readonly.png"> | returns the first segment of the path | [Segment](../../basic/segment/) |
 |**fillColor**| the fill color of the path if it is closed | Color | undefined | 
-|**strokeColor** | the stroke color of the path | Color | "#ccc" | 
+|**strokeColor** | the stroke color of the path | Color | "#ccc" |
+|**strokeDash** | the dashes and gaps for the path stroke | String | "none" | 
 |**strokeWidth** | the stroke width of the path in pixels | Number | 1| 
 |**opacity** | the opacity value of the path (between 0 and 1) | Number | 1 |
 |**vxShape**| the shape of the vertices on this path<br>possible values: "rect", "circle" | String | undefined | 
