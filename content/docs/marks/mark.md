@@ -13,10 +13,10 @@ weight: 22
 toc: true
 ---
 
-<span style="font-size:1.2em">Subclasses: [Path](../path/), [Text](../pointtext/), Image (coming soon)</span>
+<span style="font-size:1.2em">Subclasses: [Path](../path/), [Text](../pointtext/), [Image](../image/)</span>
 
 
-The Mark class represents a primitive building block of a visualization. There are different types of marks, implemented as the child classes of Mark: [Path](../path/), [Text](../pointtext/), and Image (coming soon). 
+The Mark class represents a primitive building block of a visualization. There are different types of marks, implemented as the child classes of Mark: [Path](../path/), [Text](../pointtext/), and [Image](../image/). 
 
 ### Properties
 | property |  explanation   | type | default value |
