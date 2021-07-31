@@ -1,6 +1,6 @@
 let scene = atlas.scene();
 let data = await atlas.csv("csv/unemployment-2.csv");
-let rect = scene.mark("rectangle", {top:60, left: 100, width: 800, height: 450, strokeColor: "#aaa", strokeWidth: 1, fillColor: "#fff"});
+let rect = scene.mark("rect", {top:60, left: 100, width: 560, height: 450, strokeColor: "#aaa", strokeWidth: 1, fillColor: "#fff"});
 
 // // rect.divide first
 // let industries = scene.divide(rect, {"partitionType":'divide', "orientation": "horizontal", "field": "industry", "datatable": data});

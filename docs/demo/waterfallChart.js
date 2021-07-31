@@ -1,7 +1,7 @@
 let scn = atlas.scene();
 let dt = await atlas.csv("csv/account_balance.csv");
 
-let rect = scn.mark("rectangle", {top: 150, left: 100, width: 55, height: 160, strokeWidth: 0, fillColor: "#ddd"})
+let rect = scn.mark("rect", {top: 150, left: 100, width: 55, height: 160, strokeWidth: 0, fillColor: "#ddd"})
 
 let collection = scn.repeat(rect, dt, {field: "Period"});
 collection.layout = atlas.layout("grid", {numRows: 1, hGap: 3});

@@ -1,6 +1,6 @@
 let scene = atlas.scene();
 let data = await atlas.csv("csv/redBlueAmerica.csv");
-let rect = scene.mark("rectangle", {top:100, left: 100, width: 60, height: 60, strokeColor: "#fff", strokeWidth: 1, fillColor: "#ccc"});
+let rect = scene.mark("rect", {top:100, left: 100, width: 60, height: 60, strokeColor: "#fff", strokeWidth: 1, fillColor: "#ccc"});
 
 scene.repeat(rect, data, {field: "State"});
 let xEnc = scene.encode(rect, {field: "MapX", channel: "x", rangeExtent: 900});

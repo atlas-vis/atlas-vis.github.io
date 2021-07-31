@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let rect = scn.mark("rectangle", {top:100, left: 100, width: 20, height: 390, fillColor: "#fff"} );
+let rect = scn.mark("rect", {top:100, left: 100, width: 20, height: 390, fillColor: "#fff"} );
 let dt = await atlas.csv("csv/olympic-medals.csv");
 
 let countries = scn.repeat(rect, dt, {field: "Country_Code"});

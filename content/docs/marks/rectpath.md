@@ -69,7 +69,7 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the path | String |  | 
-|**type** <img width="70px" src="../../readonly.png"> | the type of the path | String | "rectangle" | 
+|**type** <img width="70px" src="../../readonly.png"> | the type of the path | String | "rect" | 
 |**dataScope**| the [data scope](../../data/datascope/) of the path | [DataScope](../../data/datascope/) | undefined |
 {.table-striped}
 

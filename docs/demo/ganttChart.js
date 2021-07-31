@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let rect = scn.mark("rectangle", {top:100, left: 200, width: 400, height: 20, strokeWidth: 0, fillColor: "orange"} );
+let rect = scn.mark("rect", {top:100, left: 200, width: 400, height: 20, strokeWidth: 0, fillColor: "orange"} );
 let dt = await atlas.csv("csv/projectTimeline.csv");
 
 let bars = scn.repeat(rect, dt, {field: "Task"});

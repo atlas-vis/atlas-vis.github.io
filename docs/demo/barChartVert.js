@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let rect = scn.mark("rectangle", {top:100, left: 200, width: 20, height: 300, fillColor: "#84BC66", strokeWidth: 0} );
+let rect = scn.mark("rect", {top:100, left: 200, width: 20, height: 300, fillColor: "#84BC66", strokeWidth: 0} );
 let dt = await atlas.csv("csv/GDP Change.csv");
 
 let quarters = scn.repeat(rect, dt, {field: "Quarter"});

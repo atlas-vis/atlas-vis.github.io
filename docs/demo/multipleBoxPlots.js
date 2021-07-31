@@ -1,7 +1,7 @@
 let scn = atlas.scene();
 
 let line = scn.mark("line", {x1: 150, y1: 80, x2: 150, y2: 450, strokeColor: "#555", vxShape: "rect", vxWidth: 20, vxHeight: 1, vxFillColor: "#555"}),
-    box = scn.mark("rectangle", {top: 100, left: 135, width: 30, height: 200, fillColor: "#95D0F5", strokeWidth: 0}),
+    box = scn.mark("rect", {top: 100, left: 135, width: 30, height: 200, fillColor: "#95D0F5", strokeWidth: 0}),
     medianLine = scn.mark("line", {x1: 135, y1: 200, x2: 165, y2: 200, strokeColor: "#fff"});
 
 let glyph = scn.glyph(line, box, medianLine);

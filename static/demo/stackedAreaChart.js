@@ -1,6 +1,6 @@
 let scene = atlas.scene();
 let data = await atlas.csv("csv/unemployment-2.csv");
-let rect = scene.mark("rectangle", {top:60, left: 100, width: 800, height: 450, strokeColor: "#aaa", strokeWidth: 1, fillColor: "#fff"});
+let rect = scene.mark("rect", {top:60, left: 100, width: 800, height: 450, strokeColor: "#aaa", strokeWidth: 1, fillColor: "#fff"});
 
 // // rect.divide first
 // let industries = scene.divide(rect, {"partitionType":'divide', "orientation": "horizontal", "field": "industry", "datatable": data});
@@ -18,4 +18,4 @@ disEncoding.scale.domain = [0, 8000];
 disEncoding.scale.rangeExtent = 450;
 scene.axis("x", "date", {orientation: "bottom", labelFormat: "%m/%y"});
 scene.axis("height", "unemployments", {orientation: "left"});
-scene.legend("fillColor", "industry", {x: 680, y: 100});
+scene.legend("fillColor", "industry", {x: 580, y: 100});

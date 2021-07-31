@@ -1,7 +1,7 @@
 let scene = atlas.scene();
 let csv = await atlas.csv("csv/iris_species.csv");
 let data = csv.transform("kde", ["sepal_length"], {min: 3, interval: 0.1, max: 8, bandwidth: 0.25});
-let rect = scene.mark("rectangle", {top:60, left: 200, width: 200, height: 400, strokeColor: "white", strokeWidth: 1, fillColor: "#69B3A2"});
+let rect = scene.mark("rect", {top:60, left: 200, width: 200, height: 400, strokeColor: "white", strokeWidth: 1, fillColor: "#69B3A2"});
 let species = scene.repeat(rect, data, {field: "species"})
 species.layout = atlas.layout("grid", {numCols: 3, vGap: 15, baseline: "center"});
 let anySpecies = scene.densify(rect, data, {orientation: "vertical", field: "sepal_length"});
@@ -14,7 +14,7 @@ scene.axis("y", "sepal_length", {orientation: "right", x: 800});
 scene.legend("fillColor", "species", {x: 200, y: 50});
 
 let line = scene.mark("line", {x1: 300, y1: 20, x2: 300, y2: 480, strokeColor: "#555", strokeWidth: 2}),
-    box = scene.mark("rectangle", {top: 70, left: 295, width: 10, height: 400, fillColor: "black", strokeColor: "#111"}),
+    box = scene.mark("rect", {top: 70, left: 295, width: 10, height: 400, fillColor: "black", strokeColor: "#111"}),
     medianCircle = scene.mark("circle", {radius: 4, cx: 300, cy: 90, fillColor: "white", strokeWidth: 0});
 
 let glyph = scene.glyph(line, box, medianCircle);

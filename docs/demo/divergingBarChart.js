@@ -1,7 +1,7 @@
 let scn = atlas.scene();
 let dt = await atlas.csv("csv/survey_response.csv");
 
-let rect = scn.mark("rectangle", {top: 100, left: 200, width: 700, height: 30, strokeWidth: 0, fillColor: "#ddd"});
+let rect = scn.mark("rect", {top: 100, left: 200, width: 700, height: 30, strokeWidth: 0, fillColor: "#ddd"});
 
 let collection = scn.repeat(rect, dt, {field: "Age Group"});
 collection.layout = atlas.layout("grid", {numCols: 1, vGap: 10});

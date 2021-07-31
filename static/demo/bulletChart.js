@@ -1,11 +1,11 @@
 let scn = atlas.scene();
 let dt = await atlas.csv("csv/Revenue.csv");
 
-let rect1 = scn.mark("rectangle", {top: 110, left: 200, width: 600, height: 40, fillColor: "#eee", strokeWidth: 0})
-let rect2 = scn.mark("rectangle", {top: 110, left: 200, width: 580, height: 40, fillColor: "#ddd", strokeWidth: 0})
-let rect3 = scn.mark("rectangle", {top: 110, left: 200, width: 560, height: 40, fillColor: "#ccc", strokeWidth: 0})
+let rect1 = scn.mark("rect", {top: 110, left: 200, width: 600, height: 40, fillColor: "#eee", strokeWidth: 0})
+let rect2 = scn.mark("rect", {top: 110, left: 200, width: 580, height: 40, fillColor: "#ddd", strokeWidth: 0})
+let rect3 = scn.mark("rect", {top: 110, left: 200, width: 560, height: 40, fillColor: "#ccc", strokeWidth: 0})
 
-let measure = scn.mark("rectangle", {top: 125, left: 200, width:200, height: 10, fillColor: "steelblue",  strokeWidth: 0});
+let measure = scn.mark("rect", {top: 125, left: 200, width:200, height: 10, fillColor: "steelblue",  strokeWidth: 0});
 
 let marker = scn.mark("line", {x1: 200, y1: 115, x2: 200, y2: 145, strokeColor: "red", strokeWidth: 3});
 
