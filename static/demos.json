@@ -65,16 +65,16 @@
         "title": "Olympic medals by country",
         "about": ""
     },
+    "TowerChart": {
+        "name": "Tower Chart",
+        "mark": "Bars and Rectangles",
+        "title": "Presidential Election 2020",
+        "about": "This tower chart shows the results of the 2020 presidential election.<br>Blue represents Biden, red represents Trump.<br>Each rectangle represents a state that a candidate has won.<br>The x axis represents the margin of victory for each candidate in terms of popular vote (%).<br>The y axis represents the number of electoral votes.<br>Data source: https://electoral-vote.com/"
+    },
     "Treemap": {
         "name": "Treemap",
         "mark": "Bars and Rectangles",
         "title": "Population of major countries in the world",
-        "about": ""
-    },
-    "VariableWidthBarChart": {
-        "name": "Variable Width Bar Chart",
-        "mark": "Bars and Rectangles",
-        "title": "Variable width bar chart with dummy data",
         "about": ""
     },
     "WaffleChart": {

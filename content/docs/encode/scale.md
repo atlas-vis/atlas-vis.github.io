@@ -30,3 +30,10 @@ A Scale object can be used in multiple encodings. For example, the scale above f
 |**rangeExtent** | the extent of the scale range | Number | |
 |**type**| the [type of scale](../../global/constants/#scale-type) | String | |
 {.table-striped}
+
+### Methods
+| method |  explanation   | return type |
+| --- | --- | --- |
+| **map**(d) | convert a domain value into a value in this scale's range<br>d (Number): a domain value |  |
+| **invert**(d) | convert a value in this scale's range into a domain value<br>d (Number): a range value |  |
+{.table-striped}

@@ -30,6 +30,14 @@ The returned result `t` is a [DataTable](../../data/datatable/). Each tuple (i.e
 | max | optional | maximum bin value | minimum field value |
 {.table-striped}
 
+### Filtering
+The filtering transformation removes tuples in a data table that do not satisfy user defined criteria. The filtering criteria are defined as an array of [predicates](../../global/predicate/). To apply the transformation, here is an example: 
+
+```js
+    let t = datatable.transform("filter", [{field: "col1", value: "value1"}]);
+```
+The returned result `t` is a [DataTable](../../data/datatable/), where the rows are a subset of the rows in the original data table. 
+
 ### Kernel Density Estimation
 The KDE transformation estimates the probability density of a field using an Epanechnikov kernel:
 
