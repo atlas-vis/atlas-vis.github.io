@@ -14,8 +14,8 @@
     "BoxPlot": {
         "name": "Box Plot",
         "mark": "Bars and Rectangles",
-        "title": "box plot",
-        "about": ""
+        "title": "Monthly gasoline sales Jan - Dec 2020",
+        "about": "Adjusted monthly gasoline sales in the U.S. in 2020.<br>Numbers are shown in millions of dollars.<br>Data source: <a href='https://www.census.gov/retail/mrts/historic_releases.html' target='_blank'>U.S. Census Bureau</a>"
     },
     "BulletChart": {
         "name": "Bullet Chart",

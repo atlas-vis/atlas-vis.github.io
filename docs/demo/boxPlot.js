@@ -6,14 +6,17 @@ let line = scn.mark("line", {x1: 150, y1: 130, x2: 700, y2: 130, strokeColor: "#
 
 let glyph = scn.glyph(line, box, medianLine);
 
-let dt = await atlas.csv("csv/boxplot.csv");
+let dt = await atlas.csv("csv/monthlySales.csv");
+scn.attach(glyph, dt);
 
-scn.repeat(glyph, dt);
+let enc = scn.encode(line.vertices[0], {field: "Sales", channel: "x", aggregator: "min"});
+scn.encode(line.vertices[1], {field: "Sales", channel: "x", scale: enc.scale, aggregator: "max"});
+scn.encode(box.leftSegment, {field: "Sales", channel: "x", scale: enc.scale, aggregator: "percentile 25"});
+scn.encode(box.rightSegment, {field: "Sales", channel: "x", scale: enc.scale, aggregator: "percentile 75"});
+scn.encode(medianLine, {field: "Sales", channel: "x", scale: enc.scale, aggregator: "median"});
+enc.scale.rangeExtent = 500;
+scn.axis("x", "Sales", {orientation: "bottom"});
 
-let enc = scn.encode(line.vertices[0], {field: "Min", channel: "x"});
-scn.encode(line.vertices[1], {field: "Max", channel: "x", scale: enc.scale});
-scn.encode(box.leftSegment, {field: "25-Percentile", channel: "x", scale: enc.scale});
-scn.encode(box.rightSegment, {field: "75-Percentile", channel: "x", scale: enc.scale});
-scn.encode(medianLine, {field: "Median", channel: "x", scale: enc.scale});
-enc.scale.rangeExtent = 700;
-scn.axis("x", "Median", {orientation: "bottom"});
+let circ = scn.mark("circle", {strokeColor: "#32A457", fillColor: "none", strokeWidth: 4, radius: 6,  cy: 130, opacity: 0.75});
+scn.repeat(circ, dt);
+scn.encode(circ, {channel: "x", field: "Sales", scale: enc.scale});

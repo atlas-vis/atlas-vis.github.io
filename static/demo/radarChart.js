@@ -1,5 +1,5 @@
 let scn = atlas.scene();
-let circle = scn.mark("circle", {radius: 240, cx: 400, cy: 300, fillColor: "blue", strokeWidth: 5, strokeColor:"crimson", opacity:0.35, vxShape: "circle", vxRadius: 8, vxFillColor: "crimson", vxOpacity: 0.35});
+let circle = scn.mark("circle", {radius: 240, cx: 400, cy: 300, fillColor: "blue", strokeWidth: 0, opacity:0.2, vxShape: "circle", vxRadius: 6, vxFillColor: "crimson", vxOpacity: 0.5});
 let dt = await atlas.csv("csv/monthlySales.csv");
 
 let polygon = scn.densify(circle, dt, {field: "Month"});
