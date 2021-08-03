@@ -11,4 +11,4 @@ let anyArea = scene.densify(rect, data, {orientation: "horizontal", field: "date
 scene.encode(anyArea, {channel: "height", field: "value"});
 scene.encode(anyArea, {channel: "x", field: "date"});
 scene.axis("x", "date", {orientation: "bottom", labelFormat: "%m/%d/%y"});
-scene.axis("height", "value", {orientation: "left"});
+scene.axis("height", "value", {orientation: "left", labelFormat: ".2s"});

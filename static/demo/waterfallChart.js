@@ -19,7 +19,7 @@ scn.affix(label, rect, "x");
 scn.affix(label, rect, "y");
 
 scn.axis("x", "Period", {orientation: "bottom"});
-scn.axis("y", "Current", {orientation: "left", pathVisible: false, tickVisible: false});
+scn.axis("y", "Current", {orientation: "left", pathVisible: false, tickVisible: false, labelFormat: ".2s"});
 scn.legend("fillColor", "Category", {x: 960, y: 100});
 scn.gridlines("y", "Current");
 

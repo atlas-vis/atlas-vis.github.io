@@ -33,4 +33,4 @@ scn.encode(dem, {field: "Democrat", channel: "text"});
 scn.setProperties(line.vertices[0], {shape: "circle", radius: 4, fillColor: "#a20e19"});
 scn.setProperties(line.vertices[1], {shape: "circle", radius: 4, fillColor: "#185a97"});
 
-scn.axis("x", "Republican", {orientation: "bottom"});
+scn.axis("x", "Republican", {orientation: "bottom", title: "Number of Mentions"});

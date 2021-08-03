@@ -14,7 +14,7 @@ topEnc.scale.rangeExtent = 300;
 scn.encode(line, {field: "meanTemp", channel: "strokeColor", scheme: "interpolateTurbo"});
 
 scn.axis("x", "date", {orientation: "bottom", labelFormat: "%b %d, %Y", labelRotation: -45});
-scn.axis("y", "maxTemp", {orientation: "left"});
+scn.axis("y", "maxTemp", {orientation: "left", title: "temperature"});
 
 // let r = atlas.renderer("svg");
 // r.render(scn, "svgElement");	

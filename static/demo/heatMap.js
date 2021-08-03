@@ -1,6 +1,6 @@
 let scn = atlas.scene({fillColor: "#333"});
 let dt = await atlas.csv("csv/nbaRedraft.csv");
-let rect = scn.mark("rect", {top: 80, left: 50, width: 45, height: 8, strokeWidth: 0, fillColor: "#ddd"});
+let rect = scn.mark("rect", {top: 100, left: 80, width: 45, height: 8, strokeWidth: 0, fillColor: "#ddd"});
 
 let coll = scn.repeat(rect, dt);
 let xEnc = scn.encode(rect, {field: "Draft_Year", channel: "x", rangeExtent: 910});

@@ -14,5 +14,5 @@ let htEncoding = scene.encode(anyArea, {channel: "x", field: "date"});
 disEncoding.scale.domain = [0,4500];
 disEncoding.scale.rangeExtent = 200;
 scene.axis("x", "date", {orientation: "bottom", labelFormat: "%m/%y"});
-scene.axis("height", "unemployments", {orientation: "left", x: 90});
+scene.axis("height", "unemployments", {orientation: "left", x: 90, labelFormat: ".2s", titleOffset: 50});
 scene.legend("fillColor", "gender", {x: 980, y: 100});

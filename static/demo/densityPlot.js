@@ -9,7 +9,7 @@ scene.encode(pg, {channel: "height", field: "weight(lbs)_density"});
 pg.curveMode = "basis";
 
 scene.axis("x", "weight(lbs)", {orientation: "bottom"});
-scene.axis("height", "weight(lbs)_density", {orientation: "left"});
+scene.axis("height", "weight(lbs)_density", {orientation: "left", titleOffset: 60});
 
 // let r = atlas.renderer("svg");
 // r.render(scene, "svgElement", {collectionBounds: false});

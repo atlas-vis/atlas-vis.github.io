@@ -11,6 +11,6 @@ let predicted = scn.find([{field: "Type", value: "Predicted"}]);
 predicted.forEach(d => {d.strokeDash = "10 6"; d.opacity = 0.7;});
 
 scn.axis("x", "Date", {orientation: "bottom", labelFormat: "%m/%d/%Y"});
-scn.axis("y", "New Cases", {orientation: "left", labelFormat: ".2s"});
+scn.axis("y", "New Cases", {orientation: "left", labelFormat: ".2s", titleOffset: 45});
 scn.gridlines("y", "New Cases");
 scn.legend("strokeColor", "Model", {x: 720, y: 200});

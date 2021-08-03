@@ -24,5 +24,5 @@ scn.encode(medianLine, {field: "Median", channel: "y", scale: enc.scale});
 scn.encode(box, {field: "Gender", channel: "fillColor"});
 scn.axis("x", "Pay Grade", {orientation: "bottom", pathVisible: false, tickVisible: false, labelOffset: 35});
 scn.axis("x", "Gender", {orientation: "bottom", "pathVisible": false,tickVisible: false,});
-scn.axis("y", "Max", {orientation: "left", "x": 100});
+scn.axis("y", "Max", {orientation: "left", "x": 100, labelFormat: ".2s", title: "annual income"});
 scn.legend("fillColor", "Gender", {x: 160, y: 120});

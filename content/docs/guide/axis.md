@@ -40,6 +40,13 @@ The Axis class represents an axis. To create an Axis object, use the [_axis_ met
 |**labelFormat**| the formatter of the axis labels | String |  | 
 |**labelRotation**| the degrees to rotate the axis labels | Number | 0 | 
 |**rotation**| the degrees to rotate the entire axis if channel is "radialDistance" | Number | 0 | 
+|**title**| the text for the axis title | String | | 
+|**showTitle**| show the axis title | Boolean | true if the axis is created<br>for an encoding field | 
+|**titleAnchor**| the [anchor](../../global/constants/#anchor) of the axis title | Array | | 
+|**titleOffset**| the distance between the axis title and the path (Figure 1) | Number | 40 | 
+|**titlePosition**| the position of the axis title | Array | | 
+|**rotateTitle**| rotate the axis title if the channel is "y" or "height" | Boolean | true | 
+
 {.table-striped}
 
-{{< figure src="../axis.png" alt="axis components" caption="Figure 1: the components in an axis" class="border-0 mx-auto text-center">}}
+{{< figure src="../axis.png" alt="axis components" width="700px" caption="Figure 1: the components in an axis" class="border-0 mx-auto text-center">}}

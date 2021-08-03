@@ -15,7 +15,7 @@ scn.propagate(path, "sortVertices", "x", "asd");
 
 scn.encode(path, {field: "Direction", channel: "strokeColor"});
 
-scn.axis("y", "Station", {orientation: "left"});
+scn.axis("y", "Station", {orientation: "left", rotateTitle: false, titlePosition: [95, 60], titleAnchor: ["right", "top"]});
 scn.axis("x", "Time", {orientation: "bottom"});
 scn.legend("strokeColor", "Direction", {x: 860, y: 100});
 scn.gridlines("y", "Station");
