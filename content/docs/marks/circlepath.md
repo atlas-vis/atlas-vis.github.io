@@ -18,7 +18,7 @@ toc: true
 The CirclePath class represents a circle mark. To create a CirclePath object, use the _mark_ method in the [Scene](../../group/scene) class, for example:
 
 ```js
-    let circle = scene.mark("circle", {cx: 50, cy: 100, radius: 20});
+    let circle = scene.mark("circle", {x: 50, y: 100, radius: 20});
 ```
 
 ### Properties

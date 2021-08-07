@@ -18,7 +18,7 @@ toc: true
 The RingPath class represents a ring mark that is used in a [Doughnut Chart](../../../gallery.html#DoughnutChart) and a [Sunburst Chart](../../../gallery.html#Sunburst). To create a RingPath object, use the _mark_ method in the [Scene](../../group/scene) class, for example:
 
 ```js
-    let ring = scene.mark("ring", {cx: 50, cy: 100, innerRadius: 20, outerRadius: 40});
+    let ring = scene.mark("ring", {x: 50, y: 100, innerRadius: 20, outerRadius: 40});
 ```
 
 ### Properties

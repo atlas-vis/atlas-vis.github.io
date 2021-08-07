@@ -15,7 +15,7 @@ weight: 25
 Marks and glyphs can be created using the [_mark_ method in the Scene class](../../docs/group/scene/#methods-create-mark-or-group). For example, the following code creates a circle: 
 
 ```js
-let circle = scene.mark("circle", {cx: 50, cy: 100, radius: 20});
+let circle = scene.mark("circle", {x: 50, y: 100, radius: 20});
 ```
 
 The [types of marks](../../docs/global/constants/#mark-type) that can be created this way are:  [circle](../../docs/marks/circlepath/), [line](../../docs/marks/path/), [path](../../docs/marks/path/),  [rectangle](../../docs/marks/rectpath/), [ring](../../docs/marks/ringpath/), [text](../../docs/marks/pointtext/), and [image](../../docs/marks/image/). The other types of marks can only be created through the [repeat, divide or densify methods in the scene class](../../docs/group/scene/#methods-join-graphics-with-data), these include: [area](../../docs/marks/areapath/), [arc](../../docs/marks/arcpath/), [pie](../../docs/marks/piepath/), and [polygon](../../docs/marks/polygonpath/).

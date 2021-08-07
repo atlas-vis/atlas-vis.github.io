@@ -17,7 +17,7 @@ toc: true
 
 The PackingLayout class represents a layout that positions objects by packing them in an area. To create a PackingLayout object and apply it to a [collection](../../group/collection/), use the [_layout_ function](../../global/func/):
 
-    let pl = atlas.layout("packing", {cx: 100, cy: 100});
+    let pl = atlas.layout("packing", {x: 100, y: 100});
     collection.layout = pl;
 
 ### Properties
@@ -25,8 +25,8 @@ The PackingLayout class represents a layout that positions objects by packing th
 | --- | --- | --- | --- |
 |**type** <img width="70px" src="../../readonly.png"> | the type of the layout | String | "packing" | 
 |**group** <img width="70px" src="../../readonly.png">| the group that uses this layout | [Group](../../group/group/) |  |
-|**cx**| the x coordinate of the center of the enclosing area | Number |  |
-|**cy**| the y coordinate of the center of the enclosing area | Number |  |
+|**x**| the x coordinate of the center of the enclosing area | Number |  |
+|**y**| the y coordinate of the center of the enclosing area | Number |  |
 |**width**| the width of the enclosing area | Number |  |
 |**height**| the height of the enclosing area | Number |  |
 {.table-striped}
