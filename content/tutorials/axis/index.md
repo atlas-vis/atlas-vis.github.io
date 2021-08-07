@@ -33,6 +33,8 @@ which gives us the following visualization:
 
 The `item` parameter must be the graphical object whose visual channel encodes the data field. For example, in a line graph, the item is a vertex, not a path. 
 
+By default, a title is automatically created for an axis if the positions of marks/collections along the axis are determined by a visual encoding (i.e., a field is specified). A title will not be created if the positions of marks/collections along the axis are determined by a layout. You can force the title to be shown by setting the [showTitle parameter](../../docs/guide/axis/#properties).
+
 
 The creation of gridlines is simliar, we specify a visual channel and a data field when using the [_gridlines_ method in the Scene class](../../docs/group/scene/#methods-create-guides). The appearance of gridlines can be customized by setting [these properties](../../docs/guide/gridlines/#properties): x/y coordinate, text color, stroke color, stroke width and values.
 

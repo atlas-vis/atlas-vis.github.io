@@ -36,8 +36,8 @@ Angles in Atlas are specified using the polar coordinate system, where 0 is at t
 | property |  explanation  | type | default value |
 | --- | --- | --- | --- |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the path | [Rectangle](../../basic/rectangle/) | |
-|**x** | the x coordinate of the center of the pie | Number | |
-|**y** | the y coordinate of the center of the pie | Number | |
+|**x** | the x coordinate of the center of the pie | Number | 0 |
+|**y** | the y coordinate of the center of the pie | Number | 0 |
 |**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array |  | 
 |**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 
 |**firstVertex** <img width="70px" src="../../readonly.png">| returns the first vertex of the path | [Vertex](../../basic/vertex/) |

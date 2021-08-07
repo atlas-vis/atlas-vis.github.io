@@ -33,8 +33,8 @@ The RingPath class represents a ring mark that is used in a [Doughnut Chart](../
 | property |  explanation  | type | default value |
 | --- | --- | --- | --- |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the path | [Rectangle](../../basic/rectangle/) | |
-|**x** | the x coordinate of the center of the ring | Number | |
-|**y** | the y coordinate of the center of the ring | Number | |
+|**x** | the x coordinate of the center of the ring | Number | 0 |
+|**y** | the y coordinate of the center of the ring | Number | 0 |
 |**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array |  | 
 |**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 
 |**firstVertex** <img width="70px" src="../../readonly.png">| returns the first vertex of the path | [Vertex](../../basic/vertex/) |
