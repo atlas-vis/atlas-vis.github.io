@@ -1,10 +1,10 @@
 let scn = atlas.scene();
 let dt = await atlas.csv("csv/oecd_population_2018.csv");
-let circle = scn.mark("circle", {radius: 80, cx: 100, cy: 50, fillColor: "orange", strokeWidth: 0});
+let circle = scn.mark("circle", {radius: 80, x: 100, y: 50, fillColor: "orange", strokeWidth: 0});
 
 let collection = scn.repeat(circle, dt, {field: "Country"});
 scn.encode(circle, {field: "Population", channel: "area"});
-collection.layout = atlas.layout("packing", {cx: 300, cy: 300});
+collection.layout = atlas.layout("packing", {x: 300, y: 300});
 
 let text = scn.mark("text", {fillColor: "white"});
 scn.repeat(text, dt);

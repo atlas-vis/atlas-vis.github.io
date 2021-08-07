@@ -20,8 +20,6 @@ The PolygonPath class represents a polygon mark that is used in visualizations s
 ### Properties
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
-|**cx** <img width="70px" src="../../readonly.png">| the x coordinate of the center of the CirclePath <br>from which this PolygonPath is created | Number |  | 
-|**cy** <img width="70px" src="../../readonly.png">| the y coordinate of the center of the CirclePath <br>from which this PolygonPath is created | Number |  | 
 |**radius** <img width="70px" src="../../readonly.png">| the radius of the CirclePath from which this PolygonPath is created | Number |  | 
 {.table-striped}
 
@@ -30,8 +28,8 @@ The PolygonPath class represents a polygon mark that is used in visualizations s
 | property |  explanation  | type | default value |
 | --- | --- | --- | --- |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the path | [Rectangle](../../basic/rectangle/) | |
-|**center** <img width="70px" src="../../readonly.png"> <img width="70px" src="../../overrides.png">| the center of the CirclePath from which <br>this PolygonPath is created | [Point](../../basic/point/) | |
-|**closed**| whether the path is closed  | Boolean | true |
+|**x** <img width="70px" src="../../readonly.png">| the x coordinate of the center of the CirclePath <br>from which this PolygonPath is created | Number | |
+|**y** <img width="70px" src="../../readonly.png">| the y coordinate of the center of the CirclePath <br>from which this PolygonPath is created | Number | |
 |**curveMode**| how the segments are drawn  | String | |
 |**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array |  | 
 |**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 

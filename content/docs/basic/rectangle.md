@@ -22,11 +22,12 @@ The Rectangle class represents an abstract rectangular area. It is different fro
 |**top** | the y coordinate of the top of the rectangle | Number |  | 
 |**right** <img width="70px" src="../../readonly.png"> | the x coordinate of the right hand side of the rectangle | Number |  | 
 |**bottom** <img width="70px" src="../../readonly.png"> | the y coordinate of the bottom of the rectangle | Number |  | 
+|**center** <img width="70px" src="../../readonly.png"> | the x coordinate of the center of the rectangle | Number |  | 
+|**middle** <img width="70px" src="../../readonly.png"> | the y coordinate of the center of the rectangle | Number |  | 
+|**x** <img width="70px" src="../../readonly.png"> | the x coordinate of the center of the rectangle<br>same as "center" | Number |  | 
+|**y** <img width="70px" src="../../readonly.png"> | the y coordinate of the center of the rectangle<br>same as "middle" | Number |  | 
 |**width** | the width of the rectangle | Number |  | 
 |**height** | the height of the rectangle | Number |  | 
-|**center** <img width="70px" src="../../readonly.png"> | the center point of the rectangle | [Point](../point/) |  | 
-|**cx** <img width="70px" src="../../readonly.png"> | the x coordinate of the center of the rectangle | Number |  | 
-|**cy** <img width="70px" src="../../readonly.png"> | the y coordinate of the center of the rectangle | Number |  | 
 {.table-striped}
 
 ### Methods

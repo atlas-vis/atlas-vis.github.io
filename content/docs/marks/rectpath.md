@@ -43,8 +43,8 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 | property |  explanation  | type | default value |
 | --- | --- | --- | --- |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the path | [Rectangle](../../basic/rectangle/) | |
-|**center** <img width="70px" src="../../readonly.png">| the center of the path bounds | [Point](../../basic/point/) | |
-|**closed**| whether the path is closed  | Boolean | false |
+|**x** <img width="70px" src="../../readonly.png">| the x coordinate of the center of the path bounds | Number | |
+|**y** <img width="70px" src="../../readonly.png">| the y coordinate of the center of the path bounds | Number | |
 |**curveMode**| how the segments are drawn  | String | "linear" |
 |**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array |  | 
 |**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 

@@ -1,6 +1,6 @@
 let scn = atlas.scene();
 let dt = await atlas.csv("csv/gdp-lifeExp.csv");
-let circle = scn.mark("circle", {radius: 6, cx: 100, cy: 80, fillColor: "orange", strokeWidth: 0});
+let circle = scn.mark("circle", {radius: 6, x: 100, y: 80, fillColor: "orange", strokeWidth: 0});
 
 let collection = scn.repeat(circle, dt, {field: "Country"});
 

@@ -36,8 +36,8 @@ The AreaPath class represents an enclosed area mark that is used in visualizatio
 | property |  explanation  | type | default value |
 | --- | --- | --- | --- |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the path | [Rectangle](../../basic/rectangle/) | |
-|**center** <img width="70px" src="../../readonly.png">| the center of the path bounds | [Point](../../basic/point/) | |
-|**closed**| whether the path is closed  | Boolean | true |
+|**x** <img width="70px" src="../../readonly.png">| the x coordinate of the center of the path bounds | Number | |
+|**y** <img width="70px" src="../../readonly.png">| the y coordinate of the center of the path bounds | Number | |
 |**curveMode**| how the segments are drawn  | String | |
 |**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array |  | 
 |**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 

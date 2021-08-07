@@ -8,7 +8,7 @@ fillScale.domain = dt.getUniqueFieldValues("species");
 
 for (let row of fields) {
 	for (let col of fields) {
-		let circle = scn.mark("circle", {radius: 6, cx: 100, cy: 80, fillColor: "orange", 
+		let circle = scn.mark("circle", {radius: 6, x: 100, y: 80, fillColor: "orange", 
 			strokeWidth: 0, opacity: 0.3});
 		let sp = scn.repeat(circle, dt, {field: "id"});
 		let xEncoding = scn.encode(circle, {field: row, channel: "x"});

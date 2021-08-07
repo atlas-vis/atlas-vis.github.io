@@ -22,8 +22,8 @@ The Image class represents an image mark. To create an Image object, use the _ma
 ### Properties
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
-|**x** | the x coordinate of the image | Number | 0 | 
-|**y** | the y coordinate of the image | Number | 0 | 
+|**x** | the x coordinate of the left side of the image | Number | 0 | 
+|**y** | the y coordinate of the top side of the image | Number | 0 | 
 |**src** | the url of the image content | String | "" | 
 |**width** | the width of the image | Number | 100 | 
 |**height** | the height of the image | Number | 100 | 

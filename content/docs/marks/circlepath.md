@@ -24,8 +24,6 @@ The CirclePath class represents a circle mark. To create a CirclePath object, us
 ### Properties
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
-|**cx** | the x coordinate of the center of the circle | Number | 0 | 
-|**cy** | the y coordinate of the center of the circle | Number | 0 | 
 |**radius** | the radius of the rectangle | Number | 100 | 
 {.table-striped}
 
@@ -34,8 +32,8 @@ The CirclePath class represents a circle mark. To create a CirclePath object, us
 | property |  explanation  | type | default value |
 | --- | --- | --- | --- |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the path | [Rectangle](../../basic/rectangle/) | |
-|**center** <img width="70px" src="../../readonly.png">| the center of the path bounds | [Point](../../basic/point/) | |
-|**closed**| whether the path is closed  | Boolean | true |
+|**x** | the x coordinate of the center of circle | Number | 0 |
+|**y** | the y coordinate of the center of circle | Number | 0 |
 |**curveMode**| how the segments are drawn  | String | |
 |**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array |  | 
 |**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 

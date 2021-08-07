@@ -11,7 +11,7 @@ scene.setProperties(setose, {curveMode: "basis"})
 scene.axis("y", "sepal_length", {orientation: "bottom"});
 let line = scene.mark("line", {x1: 300, y1: 20, x2: 300, y2: 480, strokeColor: "#555", strokeWidth: 2}),
     box = scene.mark("rect", {top: 70, left: 295, width: 10, height: 400, fillColor: "black", strokeColor: "#111"}),
-    medianCircle = scene.mark("circle", {radius: 4, cx: 300, cy: 90, fillColor: "white", strokeWidth: 0});
+    medianCircle = scene.mark("circle", {radius: 4, x: 300, y: 90, fillColor: "white", strokeWidth: 0});
 
 let glyph = scene.glyph(line, box, medianCircle);
 scene.repeat(glyph, csv, {field: "species"});

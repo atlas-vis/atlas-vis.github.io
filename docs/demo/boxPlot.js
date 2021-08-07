@@ -17,6 +17,6 @@ scn.encode(medianLine, {field: "Sales", channel: "x", scale: enc.scale, aggregat
 enc.scale.rangeExtent = 500;
 scn.axis("x", "Sales", {orientation: "bottom"});
 
-let circ = scn.mark("circle", {strokeColor: "#32A457", fillColor: "none", strokeWidth: 4, radius: 6,  cy: 130, opacity: 0.75});
+let circ = scn.mark("circle", {strokeColor: "#32A457", fillColor: "none", strokeWidth: 4, radius: 6,  y: 130, opacity: 0.75});
 scn.repeat(circ, dt);
 scn.encode(circ, {channel: "x", field: "Sales", scale: enc.scale});

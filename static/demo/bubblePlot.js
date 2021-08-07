@@ -1,6 +1,6 @@
 let scn = atlas.scene({fillColor: "#333"});
 let dt = await atlas.csv("csv/planets.csv");
-let circle = scn.mark("circle", {radius: 6, cx: 200, cy: 60, fillColor: "orange", strokeWidth: 1, strokeColor: "white", opacity: 0.35});
+let circle = scn.mark("circle", {radius: 6, x: 200, y: 60, fillColor: "orange", strokeWidth: 1, strokeColor: "white", opacity: 0.35});
 
 let collection = scn.repeat(circle, dt, {field: "name"});
 

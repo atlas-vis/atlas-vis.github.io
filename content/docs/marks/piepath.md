@@ -21,8 +21,6 @@ The PiePath class represents a pie mark that is used in a [pie chart](../../../g
 ### Properties
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
-|**cx** | the x coordinate of the center of the pie | Number | 0 | 
-|**cy** | the y coordinate of the center of the pie | Number | 0 | 
 |**radius** | the radius of the pie | Number | 100 | 
 |**startAngle** | the start angle of the pie in degrees | Number | 0 | 
 |**endAngle** | the end angle of the pie in degrees | Number | 90 | 
@@ -38,8 +36,8 @@ Angles in Atlas are specified using the polar coordinate system, where 0 is at t
 | property |  explanation  | type | default value |
 | --- | --- | --- | --- |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the path | [Rectangle](../../basic/rectangle/) | |
-|**center** <img width="70px" src="../../readonly.png">| the center of the path bounds | [Point](../../basic/point/) | |
-|**closed**| whether the path is closed  | Boolean | true |
+|**x** | the x coordinate of the center of the pie | Number | |
+|**y** | the y coordinate of the center of the pie | Number | |
 |**vertices** <img width="70px" src="../../readonly.png">| the vertices along the path | Array |  | 
 |**segments** <img width="70px" src="../../readonly.png"> | the segments on the path | Array | | 
 |**firstVertex** <img width="70px" src="../../readonly.png">| returns the first vertex of the path | [Vertex](../../basic/vertex/) |
