@@ -300,36 +300,47 @@
 					
 					loadScript(this.responseText);
 
-					// Set the data for the csv in the script
-					let csvRegex = /atlas\.csv\("(.+)"\);/
-					let csvPath = csvRegex.exec(this.responseText)[1]
+					if (this.responseText.indexOf(".csv") > 0) {
+						// Set the data for the csv in the script
+						let csvRegex = /atlas\.csv\("(.+)"\);/;
+						let csvPath = csvRegex.exec(this.responseText)[1];
 
-					// Request the csv from the server
-					fetch(csvPath).then(resp => {
-						return resp.text();
-					}).then(text => {
-						let rows = text.trim().split("\n")
-						// Destroy current table
-						if (dataTable !== null) {
-							dataTable.destroy()
-						}
-						// Set the thead for the table
-						const table = document.getElementById("dataTable")
-						let newHead = `<thead><tr>${
-							rows[0].split(",").reduce((acc, row) => acc += `<th>${row}</th>`, "")
-						}</tr></thead>`
-						table.innerHTML = newHead
-						// Initialize table
-						dataTable = $('#dataTable').DataTable({
-							data: rows.slice(1).map(row => row.split(",")),
+						// Request the csv from the server
+						fetch(csvPath)
+						.then((resp) => {
+							return resp.text();
+						})
+						.then((text) => {
+							let rows = text.trim().split("\n");
+							// Destroy current table
+							if (dataTable !== null) {
+							dataTable.destroy();
+							}
+							// Set the thead for the table
+							const table = document.getElementById("dataTable");
+							let newHead = `<thead><tr>${rows[0]
+							.split(",")
+							.reduce(
+								(acc, row) => (acc += `<th>${row}</th>`),
+								""
+							)}</tr></thead>`;
+							table.innerHTML = newHead;
+							// Initialize table
+							dataTable = $("#dataTable").DataTable({
+							data: rows.slice(1).map((row) => row.split(",")),
 							searching: false,
 							paging: false,
 							scrollCollapse: true,
 							fixedColumns: true,
 							info: false,
 							//responsive: true
-						})
-					})
+							});
+						});
+					} else if (this.responseText.indexOf(".treejson") > 0) {
+						//TODO: display json data
+					} else if (this.responseText.indexOf(".graphjson") > 0) {
+						//TODO: display json data
+					}
 
 					if (metaData)
 						d3.select("#infoTab").html(metaData[d].about);
@@ -402,6 +413,8 @@
 					let newBlock = blocks[currentIdx];
 					if (newBlock.indexOf("atlas.csv") > 0)
 						newBlock = newBlock.replace("atlas.csv", "await atlas.csv");
+					if (newBlock.indexOf("atlas.treejson") > 0)
+            			newBlock = newBlock.replace("atlas.treejson", "await atlas.treejson");
 					code += newBlock + "\n";
 					editor.setValue(code + renderLines);
 					let s = makeAsync(code + renderLines);
