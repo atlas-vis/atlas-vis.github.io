@@ -119,6 +119,12 @@
         "title": "Pie chart with dummy data",
         "about": ""
     },
+    "RadialBarChart": {
+        "name": "Radial Bar Chart",
+        "mark": "Circles and Pies",
+        "title": "Monthly Gasoline Sales",
+        "about": "Adjusted monthly gasoline sales in the U.S. in 2020.<br>Numbers are shown in millions of dollars.<br>Data source: <a href='https://www.census.gov/retail/mrts/historic_releases.html' target='_blank'>U.S. Census Bureau</a>"
+    },
     "Scatterplot": {
         "name": "Scatterplot",
         "mark": "Circles and Pies",
