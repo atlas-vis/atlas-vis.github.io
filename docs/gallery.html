@@ -16,7 +16,14 @@
 		<link rel="stylesheet" href="/main.css">
 		<link rel=stylesheet href=https://atlas-vis.github.io/main.f91cea9db6480143a16146461fc62498e570b4d9d9fd74ee9ff98029b0588792cf5317bdd72593ba0b7c7f05f156c7a253a795ad9dd0d93a9a1679b24b21f197.css integrity="sha512-+RzqnbZIAUOhYUZGH8YkmOVwtNnZ/XTun/mAKbBYh5LPUxe91yWTugt8fwXxVseiU6eVrZ3Q2TqaFnmySyHxlw==" crossorigin=anonymous>
 		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1673783-4"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
+		gtag('config', 'UA-1673783-4');
+		</script>
 		<style>
 			html {
 				margin: 0px;
@@ -403,19 +410,35 @@
 				let blocks = parsed.body.map(d => script.substring(d.start, d.end));				
 				let renderIdx = blocks.findIndex(d => d.indexOf("renderer") > 0),
 					renderLines = blocks.slice(renderIdx).join(";\n"),
-					code = "";
+					code = "",
+					frames = [".mark", ".divide", ".densify", ".layout", ".encode", ".align", ".affix", ".axis", ".legend", ".gridlines", ".scale.rangeExtent"];
 				let currentIdx = 0;
 				let step = function(timeStamp){
 					if (currentIdx >= renderIdx)
 						return;
 					removeAllChildren(document.getElementById("svgElement"));
 					//let s = blocks.slice(0, currentIdx).join(";\n") + ";" + blocks.slice(renderIdx).join(";\n");
-					let newBlock = blocks[currentIdx];
-					if (newBlock.indexOf("atlas.csv") > 0)
+					while (currentIdx < renderIdx) {
+						let newBlock = blocks[currentIdx];
+						if (newBlock.indexOf("atlas.csv") > 0)
 						newBlock = newBlock.replace("atlas.csv", "await atlas.csv");
-					if (newBlock.indexOf("atlas.treejson") > 0)
-            			newBlock = newBlock.replace("atlas.treejson", "await atlas.treejson");
-					code += newBlock + "\n";
+						if (newBlock.indexOf("atlas.treejson") > 0)
+						newBlock = newBlock.replace("atlas.treejson", "await atlas.treejson");
+						if (newBlock.indexOf("atlas.graphjson") > 0)
+						newBlock = newBlock.replace("atlas.graphjson", "await atlas.graphjson");
+						code += newBlock + "\n";
+						let skip = true;
+						for (let f of frames) {
+							if (newBlock.indexOf(f) > 0) {
+								skip = false;
+								break;
+							}
+						}
+						if (!skip)
+							break;
+						else
+							currentIdx++;
+					} 
 					editor.setValue(code + renderLines);
 					let s = makeAsync(code + renderLines);
 					eval(s);
