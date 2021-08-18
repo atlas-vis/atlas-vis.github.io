@@ -266,8 +266,8 @@
     "MultipleBarCharts": {
         "name": "Bar Charts",
         "mark": "Small Multiples",
-        "title": "Red and Blue America",
-        "about": "This visualization shows how the partisan voter index (PVI) for each U.S. state changed in the elections from 1980 to 2012. <br> <a href='http://graphics.wsj.com/elections/2016/field-guide-red-blue-america/' target='_blank'>Original visualization</a> by Randy Yeip, Stuart A. Thompson and Will Welch."
+        "title": "Unemployment Rates by State",
+        "about": "This visualization shows how the unemployment rate for each U.S. state changed from 1980 to 2015 at five-year intervals. <br>The height of bar represents the difference of unemployment rate from the national average. Data source: <a href='https://fred.stlouisfed.org/release?rid=112' target='_blank'>Federal Reserve Bank</a>."
     },
     "MultipleBoxPlots": {
         "name": "Box Plots",

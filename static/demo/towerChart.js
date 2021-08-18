@@ -4,7 +4,7 @@ let biden = dt.transform("filter", [{field: "Biden_margin", range: [0, 100]}]);
 let trump = dt.transform("filter", [{field: "Trump_margin", range: [0, 100]}]);
 let rect = scn.mark("rect", {top: 60, left: 150, width: 350, height: 500, strokeColor: "white", fillColor: "#1E71B8"});
 let bidenWins = scn.divide(rect, biden, {orientation: "vertical", field: "State"});
-let htEncoding = scn.encode(bidenWins.firstChild, {field: "Biden", channel: "height", rangeExtent: 100});
+let htEncoding = scn.encode(bidenWins.firstChild, {field: "Biden", channel: "height", rangeExtent: 80});
 let wdEnc = scn.encode(bidenWins.firstChild, {field: "Biden_margin", channel: "width"});
 bidenWins.sortChildren("width");
 bidenWins.layout.horzCellAlignment = "right";
