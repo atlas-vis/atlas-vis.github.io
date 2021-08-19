@@ -14,7 +14,7 @@ let polyLine = scn.densify(line, dt, {field: "month"});
 polyLine.curveMode = "natural";
 let vertex = polyLine.firstVertex;
 
-scn.encode(vertex, {field: "month", channel: "x", scale: xEnc.scale, labelFormat: "%m %Y"});
+scn.encode(vertex, {field: "month", channel: "x", scale: xEnc.scale});
 scn.encode(vertex, {field: "median", channel: "y", scale: yEnc.scale});
 
 yEnc.scale.rangeExtent = 300;
