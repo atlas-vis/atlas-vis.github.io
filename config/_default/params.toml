@@ -35,7 +35,7 @@ portraitPhotoWidths = [800, 700, 600, 500]
 lqipWidth = "20x"
 
 # Footer
-footer = "Copyright © 2021 Human-Data Interaction Group @ University of Maryland, College Park. <br> Powered by <a href=\"https://gohugo.io/\">Hugo</a> and <a href=\"https://getdoks.org/\">Doks</a>"
+footer = "Copyright © 2021 <a href='https://hdi.cs.umd.edu'>Human-Data Interaction Group @ University of Maryland, College Park</a>. <br> Powered by <a href=\"https://gohugo.io/\">Hugo</a> and <a href=\"https://getdoks.org/\">Doks</a>"
 
 # Alert
 alert = false
