@@ -22,7 +22,7 @@ Top-level functions are defined in the atlas namespace.
 | async **atlas.csv**(url) | import a CSV file as a [data table](../../data/datatable/)<br>url (String): path to the file | Promise |
 | **atlas.layout**(type, params)| create a [layout](../../layout/layout/)<br>type: [layout type](../../global/constants/#layout-type)<br>params (Object): contains layout properties  | [Layout](../../layout/layout/) |
 | **atlas.linearGradient**(params)| create a [linear gradient](../../basic/lineargradient/)<br>params (Object): contains x1, y1, x2 and y2 properties  | [LinearGradient](../../basic/lineargradient/) |
-| **atlas.renderer**(type) | create a renderer<br>type (String): type of renderer, possible values: "svg", "canvas", or "webgl" | [Renderer](../../rendering/renderer/) |
+| **atlas.renderer**(type, domId) | create a renderer<br>type (String): type of renderer, possible values: "svg", "canvas", or "webgl"<br>domId (String): ID of the SVG or Canvas element | [Renderer](../../rendering/renderer/) |
 {.table-striped}
 
 ### Helper Functions
