@@ -379,7 +379,7 @@
 				let sceneName = blocks.filter(l => l.indexOf("atlas.scene(") > 0)[0].split("=")[0].replace("let", " ").trim();
 				let r = $("input[type='radio'][name='renderer']:checked").val();
 				let ele = r == "svg" ? "svgElement" : "canvasElement";
-				let newScript = blocks.join("\n") + "\natlas.renderer('" + r + "').render(" + sceneName + ",'" + ele + "');"
+				let newScript = blocks.join("\n") + "\natlas.renderer('" + r + "','" + ele + "').render(" + sceneName + "');";
 				let csl = document.getElementById("console");
 				removeAllChildren(csl);
 				csl.style.display = "none";
