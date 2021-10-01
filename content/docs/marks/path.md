@@ -47,7 +47,6 @@ A straight line is also represented as a path object in Atlas. The following cod
 |**strokeColor** | the stroke color of the path | Color | "#ccc" | 
 |**strokeDash** | the dashes and gaps for the path stroke | String | "none" | 
 |**strokeWidth** | the stroke width of the path in pixels | Number | 1| 
-|**opacity** | the opacity value of the path (between 0 and 1) | Number | 1 |
 |**vxShape**| the shape of the vertices on this path<br>possible values: "rect", "circle" | String | undefined | 
 |**vxWidth**| the width of the vertices on this path | Number | 0 | 
 |**vxHeight**| the height of the vertices on this path | Number | 0 |
@@ -64,6 +63,8 @@ A straight line is also represented as a path object in Atlas. The following cod
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the path | String |  | 
 |**type** <img width="70px" src="../../readonly.png"> | the type of the path | String | "path" | 
 |**dataScope**| the [data scope](../../data/datascope/) of the path | [DataScope](../../data/datascope/) | undefined |
+|**opacity** | the opacity value of the path (between 0 and 1) | Number | 1 |
+|**visibility**| whether the path is visible ("visible" or "hidden") | String | "visible" |
 {.table-striped}
 
 ### Methods

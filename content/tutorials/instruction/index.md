@@ -21,7 +21,12 @@ Add the following code to the &lt;head&gt; element in your HTML document:
 ```
 
 ### Using Atlas.js in an ES6 module
-To get the latest version, do:
+To get the latest version, include "atlas-vis" as a dependency in your package.json file, or do:
 ```
 npm install atlas-vis
+```
+
+To import Atlas, do:
+```
+import * as atlas from "atlas-vis"
 ```

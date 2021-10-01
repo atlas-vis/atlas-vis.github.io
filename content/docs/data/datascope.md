@@ -13,12 +13,19 @@ weight: 75
 toc: true
 ---
 
-The DataScope class represents data that is joined with a graphical object (i.e., [mark](../../marks/mark/) or [group](../../group/group/)). A DataScope object contains a subset of the tuples in a [data table](../data/datatable/). DataScope objects are created and assigned to graphical objects through the [_repeat_, _divide_, and _densify_ methods](../../group/scene/#methods-join-graphics-with-data) in the [Scene](../../group/scene/) class.
+The DataScope class represents data that is joined with a graphical object (i.e., [mark](../../marks/mark/) or [group](../../group/group/)). A DataScope object contains a subset of the tuples in a [data table](../datatable/). DataScope objects are created and assigned to graphical objects through the [_repeat_, _divide_, and _densify_ methods](../../group/scene/#methods-join-graphics-with-data) in the [Scene](../../group/scene/) class.
+
+### Properties
+| property |  explanation   | type | default value |
+| --- | --- | --- | --- |
+|**dataTable** <img width="70px" src="../../readonly.png">| the data table from which this data scope is created | [DataTable](../datatable) |  | 
+|**fields** <img width="70px" src="../../readonly.png">| the field names in the table | Array of Strings |  | 
+{.table-striped}
 
 ### Methods
 | method |  explanation   | return type |
 | --- | --- | --- |
-|**clone**() | returns a copy of the data scope | [DataScope](../data/datascope/) | 
+|**clone**() | returns a copy of the data scope | [DataScope](../datascope/) | 
 |**aggregateNumericalField**(f, aggr) | aggregate the values of the specified numeric field in this data scope<br>f (String): field<br>aggr (String): [aggregator](../../global/constants/#aggregator) | Number |
 |**getFieldType**(f) | returns the type of the specified field in this data scope | [Data Type](../../global/constants/#data-type) | 
 |**getFieldValue**(f) | returns the value of the specified field in this data scope | | 

@@ -24,6 +24,8 @@ The Mark class represents a primitive building block of a visualization. There a
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the mark | String |  | 
 |**type** <img width="70px" src="../../readonly.png"> | the type of the mark | String | | 
 |**dataScope**| the [data scope](../../data/datascope/) of the mark | [DataScope](../../data/datascope/) | undefined |
+|**opacity**| the opacity of the mark (between 0 and 1) | Number | 1 |
+|**visibility**| whether the mark is visible ("visible" or "hidden") | String | "visible" |
 {.table-striped}
 
 ### Methods

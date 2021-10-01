@@ -42,6 +42,8 @@ The Text class represents a text element. To create a Text object, use the _mark
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the text | String |  | 
 |**type** <img width="70px" src="../../readonly.png"> | the type of the text | String | "pointText" | 
 |**dataScope**| the [data scope](../../data/datascope/) of the text | [DataScope](../../data/datascope/) | undefined |
+|**opacity** | the opacity value of the text (between 0 and 1) | Number | 1 |
+|**visibility**| whether the text is visible ("visible" or "hidden") | String | "visible" |
 {.table-striped}
 
 

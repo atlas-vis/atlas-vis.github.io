@@ -36,6 +36,8 @@ The Image class represents an image mark. To create an Image object, use the _ma
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the image | String |  | 
 |**type** <img width="70px" src="../../readonly.png"> | the type of the image | String | "image" | 
 |**dataScope**| the [data scope](../../data/datascope/) of the image | [DataScope](../../data/datascope/) | undefined |
+|**opacity** | the opacity value of the image (between 0 and 1) | Number | 1 |
+|**visibility**| whether the image is visible ("visible" or "hidden") | String | "visible" |
 {.table-striped}
 
 ### Methods inherited from Mark

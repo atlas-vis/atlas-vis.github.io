@@ -64,6 +64,8 @@ The AreaPath class represents an enclosed area mark that is used in visualizatio
 |**id** <img width="70px" src="../../readonly.png">| the unique id of the path | String |  | 
 |**type** <img width="70px" src="../../readonly.png"> | the type of the path | String | "area" | 
 |**dataScope**| the [data scope](../../data/datascope/) of the path | [DataScope](../../data/datascope/) | undefined |
+|**opacity** | the opacity value of the path (between 0 and 1) | Number | 1 |
+|**visibility**| whether the path is visible ("visible" or "hidden") | String | "visible" |
 {.table-striped}
 
 ### Methods inherited from Path

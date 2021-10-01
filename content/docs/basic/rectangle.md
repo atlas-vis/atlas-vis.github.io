@@ -33,7 +33,7 @@ The Rectangle class represents an abstract rectangular area. It is different fro
 ### Methods
 | method |  explanation  | return type |
 | --- | --- | --- | --- |
-|**contains**(point) | check if the specified point (type [Point](../point/)) is inside this rectangle | Boolean |  | 
+|**contains**(x, y) | check if a point with the specified x and y coordinates (type Number)<br>is inside this rectangle | Boolean |  | 
 |**union**(rect) | returns the union of this rectangle and the parameter rect (type [Rectangle](../rectangle/)) | [Rectangle](../rectangle/) |  | 
 |**clone**() | returns a copy of this rectangle | [Rectangle](../rectangle/) |  | 
 {.table-striped}
