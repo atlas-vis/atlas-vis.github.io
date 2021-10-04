@@ -36,7 +36,7 @@ let rect = scn.mark("rectangle", {top: 100, left: 200, width: 700,
 
 Now we can't see the rectangle yet, as it has not been rendered. If you do `console.log(rect)`, you will be able to see the `rect` object in the console. To display it, let's add a line to create a renderer: 
 
-    atlas.renderer("svg").render(scn, "svgEle");
+    atlas.renderer("svg", "svgEle").render(scn);
 
 Here we are creating a renderer that renders the scene to an SVG element with the DOM ID "svgEle". We can see the gray rectangle now: 
 
