@@ -40,6 +40,6 @@ When a mark or a glyph is created, it exists as a JavaScript object. You can pri
 
 Atlas offers three types of renderers: **svg**, **canvas**, and **webgl**. Renderers are created using the [_renderer_ function](../../docs/rendering/renderer/). For each renderer, we need to define a corresponding display in the webpage first. For an **svg** renderer, the webpage needs to have an SVG element; for **canvas** and **webgl** renderers, the webpage needs to have an HTML Canvas element. We can then [render a scene](../../docs/rendering/renderer/#methods) to the corresponding display, for example:
 
-    atlas.renderer("webgl").render(scene, "canvasId");
+    atlas.renderer("webgl", "canvasEle").render(scene);
 
 Remember to call the _render_ method whenever your scene is changed so that the changes are reflected in the display. 
