@@ -3,7 +3,7 @@ let data = await atlas.csv("csv/olympic-medals.csv");
 
 let circ = scn.mark("circle", {radius: 100, x: 300, y: 200, fillColor: "white", strokeColor: "black"});
 let collection = scn.repeat(circ, data, {field: "Medal_Type"})
-collection.layout = atlas.layout("grid", {numCols: 3, numRows: 1, hGap: 35});
+collection.layout = atlas.layout("grid", {numCols: 3, numRows: 1, colGap: 35});
 let pieCharts = scn.divide(circ, data, {field: "Country_Code"});
 let anyPie = pieCharts.children[0];
 scn.encodeWithinCollection(anyPie, {field: "Country_Code", channel: "fillColor"});

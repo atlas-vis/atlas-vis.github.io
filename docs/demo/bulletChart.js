@@ -12,7 +12,7 @@ let marker = scn.mark("line", {x1: 200, y1: 115, x2: 200, y2: 145, strokeColor: 
 let glyph = scn.glyph(rect1, rect2, rect3, measure, marker);
 let collection = scn.repeat(glyph, dt, {field: "Region"});
 
-collection.layout = atlas.layout("grid", {numCols: 1, vGap: 25});
+collection.layout = atlas.layout("grid", {numCols: 1, rowGap: 25});
 
 let enc = scn.encode(rect1,{field: "Good", channel:"width"});
 scn.encode(rect2,{field: "Satisfactory", channel:"width", scale: enc.scale});

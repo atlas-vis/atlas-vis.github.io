@@ -4,7 +4,7 @@ let dt = await atlas.csv("csv/projectTimeline.csv");
 
 let bars = scn.repeat(rect, dt, {field: "Task"});
 //bind y to Task would also work
-bars.layout = atlas.layout("grid", {numCols: 1, vGap: 5});
+bars.layout = atlas.layout("grid", {numCols: 1, rowGap: 5});
 
 let enc = scn.encode(rect.leftSegment, {field: "Start Date", channel: "x"});
 scn.encode(rect.rightSegment, {field: "End Date", channel: "x", scale: enc.scale});

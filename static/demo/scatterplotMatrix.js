@@ -18,7 +18,7 @@ for (let row of fields) {
 	}
 }
 
-scatterplots.layout = atlas.layout("grid", {numCols: 4, numRows: 4, hGap: 20, vGap: 20});
+scatterplots.layout = atlas.layout("grid", {numCols: 4, numRows: 4, colGap: 20, rowGap: 20});
 scn.legend("fillColor", "species", {x: 620, y: 100});
 
 

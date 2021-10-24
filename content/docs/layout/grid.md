@@ -26,8 +26,8 @@ The GridLayout class represents a layout that positions objects in a grid. To cr
 |**group** <img width="70px" src="../../readonly.png">| the group that uses this layout | [Group](../../group/group/) |  |
 |**numRows**| the number of rows in the grid | Number | undefined |
 |**numCols**| the number of columns in the grid | Number | undefined |
-|**hGap**| the horizontal gap between adjacent rows in the grid | Number | undefined |
-|**vGap**| the vertical gap between adjacent columns in the grid | Number | undefined |
+|**rowGap**| the horizontal gap between adjacent rows in the grid | Number | 5 |
+|**colGap**| the vertical gap between adjacent columns in the grid | Number | 5 |
 |**cellBounds** <img width="70px" src="../../readonly.png">| the bounds of the grid cells | Array of [Rectangle](../../basic/rectangle/) | [] |
 {.table-striped}
 

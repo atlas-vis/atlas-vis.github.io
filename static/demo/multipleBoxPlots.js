@@ -8,11 +8,11 @@ let glyph = scn.glyph(line, box, medianLine);
 let dt = await atlas.csv("csv/genderPayGap.csv");
 
 let genders = scn.repeat(glyph, dt, {field: "Gender"});
-genders.layout = atlas.layout("grid", {numRows: 1, hGap: 15});
+genders.layout = atlas.layout("grid", {numRows: 1, colGap: 15});
 
 let payGrades = scn.repeat(genders, dt, {field: "Pay Grade"});
 payGrades.sortChildrenByData("Pay Grade", false, ["One", "Two", "Three", "Four", "Five"]);
-payGrades.layout = atlas.layout("grid", {numRows: 1, hGap: 45});
+payGrades.layout = atlas.layout("grid", {numRows: 1, colGap: 45});
 
 
 let enc = scn.encode(line.vertices[0], {field: "Min", channel: "y"});

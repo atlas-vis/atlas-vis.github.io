@@ -5,7 +5,7 @@ let dt2 = await atlas.csv("csv/stocks-March-2010.csv");
 let line = scn.mark("line", {x1: 300, y1: 100, x2: 450, y2: 150, strokeColor: "#ccc"});
 
 let collection = scn.repeat(line, dt, {field: "company"});
-collection.layout = atlas.layout("grid", {numCols: 1, vGap : 25});
+collection.layout = atlas.layout("grid", {numCols: 1, rowGap : 25});
 
 let polyLine = scn.densify(line, dt, {field: "date"});
 
