@@ -11,5 +11,5 @@ let anyLevel = scene.densify(Levels.firstChild, data, {orientation: "horizontal"
 let xEncoding = scene.encode(anyLevel, {channel: "x", field: "Probability"});
 let htEncoding = scene.encode(anyLevel, {channel: "height", field: "Probability_density"});
 scene.setProperties(anyLevel, {curveMode: "basis"})
-scene.axis("x", "Probability", {orientation: "bottom", y: 620});
+scene.axis("x", "Probability", {orientation: "bottom", pathY: 620});
 scene.axis("y", "Category", {orientation: "right", tickAnchor: "bottom", pathVisible: false});

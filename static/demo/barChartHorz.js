@@ -10,5 +10,5 @@ years.layout = atlas.layout("grid", {numCols: 1, rowGap: 16});
 
 scn.encode(rect, {field: "% Change", channel: "width"});
 scn.axis("y", "Quarter", {orientation: "left", tickVisible: false, pathVisible: false});
-scn.axis("y", "Year", {orientation: "right", x: 370, labelFormat: "%Y", tickVisible: false, labelOffset: 220});
+scn.axis("y", "Year", {orientation: "right", pathX: 370, labelFormat: "%Y", tickVisible: false, labelOffset: 220});
 scn.axis("width", "% Change", {orientation: "bottom"});

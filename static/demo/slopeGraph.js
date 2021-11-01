@@ -13,8 +13,8 @@ scn.encode(line, {field: "Obesity vs Higher Education", channel: "strokeColor"})
 scn.setProperties(line.vertices[0], {shape: "circle", radius: 4, opacity: "0.7"});
 scn.setProperties(line.vertices[1], {shape: "circle", radius: 4, opacity: "0.7"});
 
-scn.axis("y", "Obesity Percentage", {orientation: "left", x: 200});
-scn.axis("y", "BA Degree Percentage", {orientation: "right", x: 400});
+scn.axis("y", "Obesity Percentage", {orientation: "left", pathX: 200});
+scn.axis("y", "BA Degree Percentage", {orientation: "right", pathX: 400});
 scn.legend("strokeColor", "Obesity vs Higher Education", {x: 460, y: 100});
 
 // let r = atlas.renderer("svg");

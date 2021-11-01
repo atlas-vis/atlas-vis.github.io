@@ -13,7 +13,7 @@ weight: 30
 toc: true
 --- 
 <span style="font-size:1.2em">extends [Mark](../mark/)</span><br>
-<span style="font-size:1.2em">Subclasses: [RectPath](../rectpath/), [CirclePath](../circlepath/), [AreaPath](../areapath/), [PolygonPath](../polygonpath/)</span>
+<span style="font-size:1.2em">Subclasses: [RectPath](../rectpath/), [CirclePath](../circlepath/), [AreaPath](../areapath/), [PolygonPath](../polygonpath/), [ArcPath](../arcpath/), [PiePath](../piepath/)</span>
 
 The Path class represents a gemetric path consisting of multiple [vertices](../../basic/vertex/) connected by [segments](../../basic/segment). To create a path object, use the _mark_ method in the [Scene](../../group/scene) class, for example:
 
@@ -79,6 +79,7 @@ A straight line is also represented as a path object in Atlas. The following cod
 ### Methods inherited from Mark
 | method |  explanation   | return type |
 | --- | --- | --- |
+| **contains**(x, y) | whether this path contains a point<br>x (Number): x coordinate of the point<br>y (Number): y coordinate of the point | Boolean |
 | **getScene**() | returns the scene in which this mark resides | [Scene](../../group/scene) |
 | **duplicate**() | returns a copy of this mark | [Path](../path/) | 
 | **translate**(dx, dy) <img width="70px" src="../../overrides.png"> | move the mark by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |

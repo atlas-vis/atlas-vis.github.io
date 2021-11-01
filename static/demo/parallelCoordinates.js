@@ -14,5 +14,5 @@ for (let i = 0; i < fields.length; i++)
 let enc = scn.encode(path, {field: "cylinders", channel: "strokeColor", mapping: {"3": "#ffffb2", "4": "#fecc5c", "5": "#fd8d3c", "6": "#f03b20", "8": "#bd0026"}});
 scn.legend("strokeColor", "cylinders", {x: 950, y: 100});
 for (let i = 0; i < fields.length; i++)
-	scn.axis("y", fields[i], {orientation: "left", x: xPos[i], titleAnchor: ["center", "top"], rotateTitle: false, titlePosition: [xPos[i], top - 20]});	
+	scn.axis("y", fields[i], {orientation: "left", pathX: xPos[i], titleAnchor: ["center", "top"], rotateTitle: false, titlePosition: [xPos[i], top - 20]});	
 scn.legend("strokeColor", "cylinders", {x: 950, y: 100});

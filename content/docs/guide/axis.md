@@ -26,8 +26,8 @@ The Axis class represents an axis. To create an Axis object, use the [_axis_ met
 |**field** <img width="70px" src="../../readonly.png">| the data field of the axis | String | | 
 |**item** | an example item for the axis,<br>useful in cases such as [small multiples](../../../tutorials/axis/) | [Vertex](../../basic/vertex/) or<br>[Mark](../../marks/mark/) or<br> [Group](../../group/group/) | | 
 |**orientation**| the orientation of the axis if its channel is "x" or "y"<br>possible values: "top", "bottom", "left", or "right" | String | | 
-|**x**| the x coordinate of the axis path if channel is "y" or "height",<br>undefined otherwise | Number | | 
-|**y**| the y coordinate of the axis path if channel is "x" or "width",<br>undefined otherwise| Number | | 
+|**pathX**| the x coordinate of the axis path if channel is "y" or "height",<br>undefined otherwise | Number | | 
+|**pathY**| the y coordinate of the axis path if channel is "x" or "width",<br>undefined otherwise| Number | | 
 |**strokeColor** | the stroke color of the axis path and ticks | Color | "#555" | 
 |**textColor**| the text color of the axis labels | Color | "#555" | 
 |**tickOffset**| the distance between the ticks and the path (Figure 1) | Number | 0 | 

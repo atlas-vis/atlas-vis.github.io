@@ -10,7 +10,7 @@ years.layout = atlas.layout("grid", {numRows: 1, colGap: 16});
 
 scn.encode(rect, {field: "% Change", channel: "height"});
 scn.axis("x", "Quarter", {orientation: "bottom", tickVisible: false, pathVisible: false});
-scn.axis("x", "Year", {orientation: "bottom", y: 255, labelFormat: "%Y", tickVisible: false, labelOffset: 180});
+scn.axis("x", "Year", {orientation: "bottom", pathY: 255, labelFormat: "%Y", tickVisible: false, labelOffset: 180});
 scn.axis("height", "% Change", {orientation: "left"});
 
 // let r = atlas.renderer("svg");

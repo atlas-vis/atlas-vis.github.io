@@ -10,7 +10,7 @@ scene.encode(anySpecies, {channel: "width", field: "sepal_length_density"});
 scene.encode(anySpecies, {channel: "fillColor", field: "species"});
 scene.setProperties(anySpecies, {curveMode: "basis"})
 scene.axis("x", "species", {orientation: "bottom", pathVisible: false, tickVisible: false});
-scene.axis("y", "sepal_length", {orientation: "right", x: 800});
+scene.axis("y", "sepal_length", {orientation: "right", pathX: 800});
 scene.legend("fillColor", "species", {x: 200, y: 50});
 
 let line = scene.mark("line", {x1: 300, y1: 20, x2: 300, y2: 480, strokeColor: "#555", strokeWidth: 2}),

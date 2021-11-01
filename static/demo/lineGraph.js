@@ -19,5 +19,5 @@ scn.encode(vertex, {field: "median", channel: "y", scale: yEnc.scale});
 
 yEnc.scale.rangeExtent = 300;
 
-scn.axis("x", "month", {orientation: "bottom", y: 400});
+scn.axis("x", "month", {orientation: "bottom", pathY: 400});
 scn.axis("y", "median", {orientation: "left"});

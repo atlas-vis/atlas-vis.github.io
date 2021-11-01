@@ -14,9 +14,9 @@ let enc = scn.encode(line.vertices[1], {field: "Value", channel: "x"});
 scn.encode(line.vertices[1], {field: "Group", channel: "fillColor"});
 enc.scale.rangeExtent = 400;
 
-scn.axis("x", "Value", {orientation: "bottom", y: 300});
-scn.axis("y", "Name", {orientation: "left", pathVisible: false, tickVisible: false, x: 190});
-scn.axis("y", "Group", {orientation: "left", pathVisible: false, tickVisible: false, x: 160});
+scn.axis("x", "Value", {orientation: "bottom", pathY: 300});
+scn.axis("y", "Name", {orientation: "left", pathVisible: false, tickVisible: false, pathX: 190});
+scn.axis("y", "Group", {orientation: "left", pathVisible: false, tickVisible: false, pathX: 160});
 
 scn.gridlines("x", "Value", {strokeColor: "#eee"});
 
