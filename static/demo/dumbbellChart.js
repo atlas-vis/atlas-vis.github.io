@@ -11,8 +11,8 @@ scn.repeat(row, dt, {field: "Topic"});
 let g1 = scn.find([{fields: ["Republican", "Democrat"], operator: ">"}, {channel: "type", value: "glyph"}]),
     g2 = scn.find([{fields: ["Republican", "Democrat"], operator: "<"}, {channel: "type", value: "glyph"}]);
 
-g1.forEach((d, i) => {d.firstChild.strokeColor = "#f8ecf3"; d.translate(0, i * 30);});
-g2.forEach((d, i) => {d.firstChild.strokeColor = "#e1f1fc"; d.translate(0, 250 + i * 30)});
+g1.forEach((d, i) => {d.firstChild.strokeColor = "#f8ecf3"; scn.translate(d, 0, i * 30);});
+g2.forEach((d, i) => {d.firstChild.strokeColor = "#e1f1fc"; scn.translate(d, 0, 250 + i * 30)});
 
 scn.mark("image", {src: "demo/img/republican.png", x: 100, y: 50, width: 25, height: 25});
 scn.mark("line", {x1: 100, y1: 77, x2: 500, y2: 77, strokeColor: "#ddd"});

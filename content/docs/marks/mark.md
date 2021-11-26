@@ -34,5 +34,4 @@ The Mark class represents a primitive building block of a visualization. There a
 | **contains**(x, y) | whether this mark contains a point<br>x (Number): x coordinate of the point<br>y (Number): y coordinate of the point | Boolean |
 | **getScene**() | returns the scene in which this mark resides | [Scene](../../group/scene) |
 | **duplicate**() | returns a copy of this mark | [Mark](../mark/) |
-| **translate**(dx, dy) | move the mark by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |
 {.table-striped}

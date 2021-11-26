@@ -42,7 +42,6 @@ The Glyph class represents a group of primitive [marks](../../marks/mark/). To c
 | **removeChild**(c) | removes the specified object from the group | void |
 | **removeAll**() | removes all the children from the group | void |
 | **getScene**() | returns the scene in which this group resides | [Scene](../../group/scene) |
-| **translate**(dx, dy) | move the group by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |
 | **sortChildren**<br>(channel, reverse) | sort the children by a visual channel<br>channel (String): the channel to sort the children by<br> reverse: (Boolean, optional) setting to true will sort in descending order;<br>default is false. | void |
 {.table-striped}
 

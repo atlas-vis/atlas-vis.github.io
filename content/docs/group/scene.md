@@ -68,13 +68,15 @@ The Scene class represents the top-level container in a visualization. This is w
 | **gridlines**(channel, field, params)| create a set of [gridlines](../../guide/gridlines/)<br>channel (String): the visual channel<br>field (String): the data field<br>params (Object, optional): contains one or more of the [gridline properties](../../guide/gridlines/#properties) | [Gridlines](../../guide/gridlines/) |
 {.table-striped}
 
-### Methods: Manage Items
+### Methods: Manage and Manipulate Items
 | method |  explanation   | return type |
 | --- | --- | --- |
+| **canTranslate**(item) | check if an item can be moved in the x and y directions, an item is not movable if its position is constrained or encodes data<br>item ([Mark](../../marks/mark/) or [Group](../../group/group)): item to move | {x: Boolean, y: Boolean} |
 | **classify**(items, field, parent)| group items by the specified field, items with the same field value <br>are put in the same collection <br>items (Array): an array of items <br>field (String): field to group by <br>parent ([Scene](../scene/) or [Collection](../../group/collection/)): parent of the resulting collections | Array of [Collections](../../group/collection/) |
 | **find**(predicates)| returns graphical objects in the scene that match the specified criteria<br>predicates (Array): an array of [predicates](../../global/predicate/) | Array |
 |**setProperties**(item, params)| set the properties for all the peers of the specified item <br>item ([Mark](../../marks/mark/) or [Group](../../group/group) or [Layout](../../layout/layout)): example item<br>params (Object): property names as object keys and property values as object values | void |
 |**propagate**(item, method, ...params)| call the specified method for all the peers of the specified item<br>item ([Mark](../../marks/mark/) or [Group](../../group/group)): example item<br>method (String): name of the item's method<br>params: parameters of the item's method<br>e.g., `scene.propagate(path, "sortVertices", "x")` | void |
+| **translate**(item, dx, dy) | move the item by the given distance, **always check if the item is movable using the canTranslate method before calling this method**<br>item ([Mark](../../marks/mark/) or [Group](../../group/group)): item to move<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |
 {.table-striped}
 
 ### Methods: Specify Constraints
@@ -92,7 +94,6 @@ The Scene class represents the top-level container in a visualization. This is w
 | **removeChild**(c) | removes the specified object from the group | void |
 | **removeAll**() | removes all the children from the group | void |
 | **getScene**() | returns the scene in which this group resides | [Scene](../../group/scene) |
-| **translate**(dx, dy) | move the group by the given parameters<br>dx (Number): number of pixels to move in the x direction<br> dy (Number): number of pixels to move in the y direction | void |
 | **sortChildren**<br>(channel, reverse) | sort the children by a visual channel<br>channel (String): the channel to sort the children by<br> reverse: (Boolean, optional) setting to true will sort in descending order;<br>default is false. | void |
 | **sortChildrenByData**<br>(field, reverse, order) | sort the children by a data field<br>field (String): the data field to sort the children by<br>reverse (Boolean, optional): setting to true will sort in descending order;<br>default is false.<br>order (Array, optional): an array of field values in ascending order | void |
 {.table-striped}
