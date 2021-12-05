@@ -24,7 +24,8 @@ The CirclePath class represents a circle mark. To create a CirclePath object, us
 ### Properties
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
-|**radius** | the radius of the rectangle | Number | 100 | 
+|**radius** | the radius of the circle | Number | 100 | 
+|**area** <img width="70px" src="../../readonly.png">| the area of the circle | Number |  | 
 {.table-striped}
 
 

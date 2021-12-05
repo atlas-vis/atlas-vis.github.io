@@ -32,6 +32,7 @@ The RectPath class represents a rectangular mark. To create a RectPath object, u
 |**bottom** <img width="70px" src="../../readonly.png"> | the y coordinate of the bottom of the rectangle | Number |  | 
 |**width** | the width of the rectangle | Number | 100 | 
 |**height** | the height of the rectangle | Number |  100 | 
+|**area** <img width="70px" src="../../readonly.png">| the area of the rectangle | Number |  | 
 |**topSegment** <img width="70px" src="../../readonly.png"> | the top segment of the rectangle | [Segment](../../basic/segment/) |  | 
 |**rightSegment** <img width="70px" src="../../readonly.png"> | the right segment of the rectangle | [Segment](../../basic/segment/) |  | 
 |**bottomSegment** <img width="70px" src="../../readonly.png"> | the bottom segment of the rectangle | [Segment](../../basic/segment/) |  | 
