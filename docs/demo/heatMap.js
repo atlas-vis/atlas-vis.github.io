@@ -4,7 +4,7 @@ let rect = scn.mark("rect", {top: 100, left: 80, width: 45, height: 8, strokeWid
 
 let coll = scn.repeat(rect, dt);
 let xEnc = scn.encode(rect, {field: "Draft_Year", channel: "x", rangeExtent: 910});
-let yEnc = scn.encode(rect, {field: "Draft_Pick", channel: "y", invertScale: true, rangeExtent: 500});
+let yEnc = scn.encode(rect, {field: "Draft_Pick", channel: "y", flipScale: true, rangeExtent: 500});
 
 let mapping = {"-20": "#d7d7d7", "-10": "#ecdba7", "20": "#b87187", "50": "#9d326a"};
 scn.encode(rect, {field: "VORP", channel: "fillColor", mapping: mapping});

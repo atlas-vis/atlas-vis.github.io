@@ -8,7 +8,7 @@ scn.setProperties(line, {curveMode: "bumpX"});
 //scn.setProperties(line.vertices[0], {shape: "circle", radius: 4, fillColor: "green"});
 vertex = line.vertices[0];
 scn.encode(vertex, {field: "Year", channel:"x"});
-scn.encode(vertex, {field: "Rank", channel:"y", invertScale: true});
+scn.encode(vertex, {field: "Rank", channel:"y", flipScale: true});
 let colorMapping = {"White (solid+pearl)": "#eee", "Red": "red", "Gold/yellow": "#c9b037", "Silver": "silver", "Green": "green", "Brown/beige": "brown", "Blue": "blue", "Black (solid+effect)": "black", "Other": "magenta", "Gray": "gray"}
 scn.encode(line, {field: "Color", channel:"strokeColor", mapping: colorMapping});
 scn.axis("x", "Year", {orientation: "bottom", pathY: 420, labelFormat: "%Y", strokeColor: "#ccc", textColor: "#ccc"});

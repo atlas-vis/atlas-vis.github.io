@@ -17,8 +17,8 @@ payGrades.layout = atlas.layout("grid", {numRows: 1, colGap: 45});
 
 let enc = scn.encode(line.vertices[0], {field: "Min", channel: "y"});
 scn.encode(line.vertices[1], {field: "Max", channel: "y", scale: enc.scale});
-scn.encode(box.topSegment, {field: "25-Percentile", channel: "y", scale: enc.scale});
-scn.encode(box.bottomSegment, {field: "75-Percentile", channel: "y", scale: enc.scale});
+scn.encode(box.topSegment, {field: "75-Percentile", channel: "y", scale: enc.scale});
+scn.encode(box.bottomSegment, {field: "25-Percentile", channel: "y", scale: enc.scale});
 scn.encode(medianLine, {field: "Median", channel: "y", scale: enc.scale});
 
 scn.encode(box, {field: "Gender", channel: "fillColor"});

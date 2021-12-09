@@ -5,7 +5,7 @@ let circle = scn.mark("circle", {radius: 6, x: 200, y: 60, fillColor: "orange", 
 let collection = scn.repeat(circle, dt, {field: "name"});
 
 let xEncoding = scn.encode(circle, {field: "hzd", channel: "x"});
-let yEncoding = scn.encode(circle, {field: "mass", channel: "y", invertScale: true, scaleType: "log"});
+let yEncoding = scn.encode(circle, {field: "mass", channel: "y", flipScale: true, scaleType: "log"});
 let sizeEnc = scn.encode(circle, {field: "radius", channel: "radius"});
 let mapping = {"-3": "#cc3333", "-1": "#669933", "1": "#669933", "3": "#006666"};
 let fillEncoding = scn.encode(circle, {field: "hzd", channel: "fillColor", mapping: mapping});

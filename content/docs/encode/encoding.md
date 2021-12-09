@@ -23,7 +23,6 @@ An Encoding object records information about a visual encoding. When a mark's vi
 |**aggregator**| [aggregator](../../global/constants/#aggregator) for data values | String |  "sum" | 
 |**scale**| the scale of the encoding | [Scale](../scale/) | | 
 |**scaleType**| the [type of scale](../../global/constants/#scale-type) | String | depends on<br>field and channel | 
-|**invertScale** | whether the scale is inverted | Boolean | false | 
 |**includeZero**| whether the scale domain includes 0 | Boolean | false |
 |**rangeExtent**| the extent of the scale range | Number | |
 |**mapping**| user defined mapping between field values and visual properties | Object |  |

@@ -19,7 +19,3 @@ scn.legend("fillColor", "Medal_Type", {x: 800, y: 100});
 
 //TODO: fix bug in following line
 //scn.axis("height", "Count", {"orientation": "left", "x-coordinate": 130});
-
-
-// let r = atlas.renderer("svg");
-// r.render(scn, "svgElement", {collectionBounds: false});	
