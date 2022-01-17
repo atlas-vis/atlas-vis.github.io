@@ -3,12 +3,12 @@ let csv = await atlas.csv("csv/iris_species.csv");
 let data = csv.transform("kde", ["sepal_length"], {min: 3, interval: 0.1, max: 8, bandwidth: 0.25});
 let rect = scene.mark("rect", {top:60, left: 200, width: 200, height: 400, strokeColor: "white", strokeWidth: 1, fillColor: "#69B3A2"});
 let species = scene.repeat(rect, data, {field: "species"})
-species.layout = atlas.layout("grid", {numCols: 3, rowGap: 15, baseline: "center"});
+species.layout = atlas.layout("grid", {numCols: 3, rowGap: 15, "horzCellAlignment": "center" });
 let anySpecies = scene.densify(rect, data, {orientation: "vertical", field: "sepal_length"});
 let yEnc = scene.encode(anySpecies, {channel: "y", field: "sepal_length", rangeExtent: 300});
 scene.encode(anySpecies, {channel: "width", field: "sepal_length_density"});
 scene.encode(anySpecies, {channel: "fillColor", field: "species"});
-scene.setProperties(anySpecies, {curveMode: "basis"})
+scene.setProperties(anySpecies, {curveMode: "basis", baseline: "center"})
 scene.axis("x", "species", {orientation: "bottom", pathVisible: false, tickVisible: false});
 scene.axis("y", "sepal_length", {orientation: "right", pathX: 800});
 scene.legend("fillColor", "species", {x: 200, y: 50});

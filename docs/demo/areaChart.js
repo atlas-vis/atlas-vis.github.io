@@ -7,7 +7,6 @@ fill.addStop(80, "#EFC030", 1.0);
 fill.addStop(100, "#F9E5AF", 1.0);
 let rect = scene.mark("rect", {top:60, left: 100, width: 700, height: 450, strokeColor: "#ffcc00", strokeWidth: 0.25, fillColor: fill});
 let anyArea = scene.densify(rect, data, {orientation: "horizontal", field: "date"});
-// scene.setProperties(anyArea, {"baseline": "center"})
 scene.encode(anyArea, {channel: "height", field: "value"});
 scene.encode(anyArea, {channel: "x", field: "date"});
 scene.axis("x", "date", {orientation: "bottom", labelFormat: "%m/%d/%y"});

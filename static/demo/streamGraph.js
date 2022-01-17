@@ -9,7 +9,7 @@ let rect = scene.mark("rect", {top:60, left: 100, width: 560, height: 450, strok
 // rect.densify first
 let anyArea = scene.densify(rect, data, {orientation: "horizontal", field: "date"});
 let areas = scene.divide(anyArea, data, {orientation: "vertical", field: "industry"});
-scene.setProperties(areas.layout, {baseline: "center"});
+scene.setProperties(areas.layout, {vertCellAlignment: "middle"});
 
 scene.encode(anyArea, {channel: "fillColor", field: "industry"});
 let disEncoding = scene.encode(anyArea, {channel: "height", field: "unemployments"});
