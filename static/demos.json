@@ -125,6 +125,12 @@
         "title": "Monthly Gasoline Sales",
         "about": "Adjusted monthly gasoline sales in the U.S. in 2020.<br>Numbers are shown in millions of dollars.<br>Data source: <a href='https://www.census.gov/retail/mrts/historic_releases.html' target='_blank'>U.S. Census Bureau</a>"
     },
+    "RoseChart": {
+        "name": "Rose Chart",
+        "mark": "Circles and Pies",
+        "title": "Nightingale's Rose Diagram",
+        "about": "A reproduction of <a href='https://www.historyofinformation.com/detail.php?entryid=3815' target='_blank'>Florence Nightingale’s rose diagram</a>. <br>Data Source: Nightingale, F., Farr, W., & Smith, A. (1859). A contribution to the sanitary history of the British army during the late war with Russia. John W. Parker and Son."
+    },
     "Scatterplot": {
         "name": "Scatterplot",
         "mark": "Circles and Pies",
