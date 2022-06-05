@@ -19,7 +19,8 @@ The DataScope class represents data that is joined with a graphical object (i.e.
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
 |**dataTable** <img width="70px" src="../../readonly.png">| the data table from which this data scope is created | [DataTable](../datatable) |  | 
-|**fields** <img width="70px" src="../../readonly.png">| the field names in the table | Array of Strings |  | 
+|**filters** <img width="70px" src="../../readonly.png"> | returns field values used to filter a data table<br>into the current data scope  | Dictionary |  |
+|**fields** <img width="70px" src="../../readonly.png">| the field names in the filters | Array of Strings |  | 
 {.table-striped}
 
 ### Methods
@@ -30,5 +31,5 @@ The DataScope class represents data that is joined with a graphical object (i.e.
 |**getFieldType**(f) | returns the type of the specified field in this data scope | [Data Type](../../global/constants/#data-type) | 
 |**getFieldValue**(f) | returns the value of the specified field in this data scope | | 
 | **hasField**(f) | returns true of the specified field exists in the data scope | Boolean |
-|**isEmpty**() | returns true if the data scope contains no tuples | Boolean | 
+|**isEmpty**() | returns true if the data scope contains no tuples | Boolean |
 {.table-striped}

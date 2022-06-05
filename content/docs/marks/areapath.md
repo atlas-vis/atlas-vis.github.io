@@ -28,6 +28,7 @@ The AreaPath class represents an enclosed area mark that is used in visualizatio
 |**left** <img width="70px" src="../../readonly.png">| the x coordinate of the first vertex | Number |  | 
 |**top** <img width="70px" src="../../readonly.png">| the y coordinate of the first vertex | Number |  | 
 |**orientation** <img width="70px" src="../../readonly.png">| the orientation of the area | String |  | 
+|**baseline** | the [anchor](../../global/constants/#anchor) used to evenly distribute the width or height of the area | String |  | 
 |**firstVertexPair** <img width="70px" src="../../readonly.png">| the first pair of the vertices (highlighted in red in the figure above) | Array of [Vertex](../../basic/vertex/) |  | 
 {.table-striped}
 

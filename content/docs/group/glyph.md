@@ -26,6 +26,7 @@ The Glyph class represents a group of primitive [marks](../../marks/mark/). To c
 |**layout**| the [layout](../../layout/Layout/) of the group children | [Layout](../../layout/Layout/) | undefined |
 |**children** <img width="70px" src="../../readonly.png">| the graphical objects in the group | Array | [] |
 |**firstChild** <img width="70px" src="../../readonly.png">| the first child in the group | [Mark](../../marks/mark/) | |
+|**lastChild** <img width="70px" src="../../readonly.png">| the last child in the group | [Mark](../../marks/mark/) or [Group](../group/) | |
 |**bounds** <img width="70px" src="../../readonly.png">| the bounding rectangle of the group | [Rectangle](../../basic/rectangle/) | |
 |**center** <img width="70px" src="../../readonly.png">| the center of the group bounds | [Point](../../basic/point/) | |
 |**x** <img width="70px" src="../../readonly.png">| the x coordinate of the center of the group bounds | Number | |

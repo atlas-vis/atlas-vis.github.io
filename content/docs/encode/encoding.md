@@ -19,6 +19,7 @@ An Encoding object records information about a visual encoding. When a mark's vi
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- | 
 |**channel** <img width="70px" src="../../readonly.png">| the [visual channel](../../global/constants/#channel) | String | | 
+|**dataTable** <img width="70px" src="../../readonly.png">| the [data table](../../data/datatable) used in this encoding  | String | | 
 |**field** <img width="70px" src="../../readonly.png">| the data field | String | | 
 |**aggregator**| [aggregator](../../global/constants/#aggregator) for data values | String |  "sum" | 
 |**scale**| the scale of the encoding | [Scale](../scale/) | | 

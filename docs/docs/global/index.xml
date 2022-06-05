@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Global on</title><link>https://atlas-vis.github.io/docs/global/</link><description>Recent content in Global on</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Tue, 06 Oct 2020 08:48:45 +0000</lastBuildDate><atom:link href="https://atlas-vis.github.io/docs/global/index.xml" rel="self" type="application/rss+xml"/><item><title>Top-level Functions</title><link>https://atlas-vis.github.io/docs/global/func/</link><pubDate>Tue, 06 Oct 2020 08:49:15 +0000</pubDate><guid>https://atlas-vis.github.io/docs/global/func/</guid><description>Top-level functions are defined in the atlas namespace.
 Create Objects function explanation return type atlas.scene(params) create a scene
 params (Object, optional): contains the following parameterfillColor: background color of the scene Scene async atlas.csv(url) import a CSV file as a data table
-url (String): path to the file Promise atlas.layout(type, params) create a layout
-type: layout type
-params (Object): contains layout properties Layout atlas.</description></item><item><title>Constants</title><link>https://atlas-vis.github.io/docs/global/constants/</link><pubDate>Tue, 06 Oct 2020 08:49:15 +0000</pubDate><guid>https://atlas-vis.github.io/docs/global/constants/</guid><description>Aggregator &amp;ldquo;max&amp;rdquo;
+url (String): path to the file Promise async atlas.csvFromString(data, name) import CSV data in a string as a data table</description></item><item><title>Constants</title><link>https://atlas-vis.github.io/docs/global/constants/</link><pubDate>Tue, 06 Oct 2020 08:49:15 +0000</pubDate><guid>https://atlas-vis.github.io/docs/global/constants/</guid><description>Aggregator &amp;ldquo;max&amp;rdquo;
 &amp;ldquo;min&amp;rdquo;
 &amp;ldquo;avg&amp;rdquo;
 &amp;ldquo;mean&amp;rdquo;
@@ -32,6 +30,7 @@ Channel &amp;ldquo;x&amp;rdquo;
 &amp;ldquo;fontSize&amp;rdquo;
 &amp;ldquo;angle&amp;rdquo;
 &amp;ldquo;radialDistance&amp;rdquo;
+&amp;ldquo;thickness&amp;rdquo;
 CurveMode &amp;ldquo;natural&amp;rdquo;
 &amp;ldquo;basis&amp;rdquo;
 &amp;ldquo;bumpX&amp;rdquo;
@@ -56,7 +55,6 @@ Mark Type &amp;ldquo;area&amp;rdquo;
 &amp;ldquo;pointText&amp;rdquo;
 &amp;ldquo;polygon&amp;rdquo;
 Layout Type &amp;ldquo;grid&amp;rdquo;
-&amp;ldquo;stack&amp;rdquo;
-&amp;ldquo;packing&amp;rdquo;</description></item><item><title>Predicate</title><link>https://atlas-vis.github.io/docs/global/predicate/</link><pubDate>Tue, 06 Oct 2020 08:49:15 +0000</pubDate><guid>https://atlas-vis.github.io/docs/global/predicate/</guid><description>A predicate is used to define an inclusion or exclusion criterion. The find method in the Scene class, for example, takes an array of predicates as its parameter.
+&amp;ldquo;stack&amp;rdquo;</description></item><item><title>Predicate</title><link>https://atlas-vis.github.io/docs/global/predicate/</link><pubDate>Tue, 06 Oct 2020 08:49:15 +0000</pubDate><guid>https://atlas-vis.github.io/docs/global/predicate/</guid><description>A predicate is used to define an inclusion or exclusion criterion. The find method in the Scene class, for example, takes an array of predicates as its parameter.
 Predicates based on visual properties A predicate based on a visual property is defined as:
 {channel: channel, value: value} if the criterion demands an exact match, for example, the following code will return all the objects in the scene whose fill color is red: scene.</description></item></channel></rss>

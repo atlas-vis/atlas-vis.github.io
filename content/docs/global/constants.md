@@ -47,6 +47,7 @@ toc: true
 "fontSize"<br>
 "angle"<br>
 "radialDistance"<br>
+"thickness"<br>
 
 ### CurveMode
 "natural"<br>

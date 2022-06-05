@@ -46,6 +46,7 @@ The Axis class represents an axis. To create an Axis object, use the [_axis_ met
 |**titleOffset**| the distance between the axis title and the path (Figure 1) | Number | 40 | 
 |**titlePosition**| the position of the axis title | Array | | 
 |**rotateTitle**| rotate the axis title if the channel is "y" or "height" | Boolean | true | 
+|**isFlipped** <img width="70px" src="../../readonly.png">| returns true if the axis is created for an encoding field<br>and the direction goes from right to left or from top to bottom | Boolean | | 
 
 {.table-striped}
 

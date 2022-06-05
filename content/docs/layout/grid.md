@@ -29,6 +29,9 @@ The GridLayout class represents a layout that positions objects in a grid. To cr
 |**rowGap**| the horizontal gap between adjacent rows in the grid | Number | 5 |
 |**colGap**| the vertical gap between adjacent columns in the grid | Number | 5 |
 |**cellBounds** <img width="70px" src="../../readonly.png">| the bounds of the grid cells | Array of [Rectangle](../../basic/rectangle/) | [] |
+|**horzCellAlignment**| the horizontal [alignment](../../global/constants/#anchor) of item in each grid cell | String | "left" |
+|**vertCellAlignment**| the vertical [alignment](../../global/constants/#anchor) of item in each grid cell | String | "bottom" |
+
 {.table-striped}
 
 ### Methods inherited from Layout

@@ -26,6 +26,8 @@ The StackLayout class represents a layout that positions objects by stacking the
 |**group** <img width="70px" src="../../readonly.png">| the group that uses this layout | [Group](../../group/group/) |  |
 |**baseline**| the baseline of stacking | String |  |
 |**orientation**| the orientation of stacking | String | undefined |
+|**horzCellAlignment**| the horizontal [alignment](../../global/constants/#anchor) of item in each cell | String | "left" |
+|**vertCellAlignment**| the vertical [alignment](../../global/constants/#anchor) of item in each cell | String | "bottom" |
 {.table-striped}
 
 ### Methods inherited from Layout

@@ -26,6 +26,7 @@ The RingPath class represents a ring mark that is used in a [Doughnut Chart](../
 | --- | --- | --- | --- |
 |**innerRadius** | the inner radius of the ring | Number | 100 | 
 |**outerRadius** | the outer radius of the ring | Number | 200 | 
+|**thickness** <img width="70px" src="../../readonly.png"> | the difference between the outer radius and inner radius | Number | 100 | 
 {.table-striped}
 
 

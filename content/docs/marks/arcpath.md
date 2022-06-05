@@ -21,10 +21,12 @@ The ArcPath class represents a sector mark that is used in a [Doughnut Chart](..
 ### Properties
 | property |  explanation   | type | default value |
 | --- | --- | --- | --- |
-|**innerRadius** | the inner radius of the ring | Number | 100 | 
-|**outerRadius** | the outer radius of the ring | Number | 200 | 
-|**startAngle** | the start angle of the ring in degrees | Number | 0 | 
-|**endAngle** | the end angle of the ring in degrees | Number | 90 | 
+|**innerRadius** | the inner radius of the arc | Number | 100 | 
+|**outerRadius** | the outer radius of the arc | Number | 200 | 
+|**startAngle** | the start angle of the arc in degrees | Number | 0 | 
+|**endAngle** | the end angle of the arc in degrees | Number | 90 | 
+|**angle** <img width="70px" src="../../readonly.png"> | the angle between the start angle and the end angle in degrees | Number | 90 | 
+|**thickness** <img width="70px" src="../../readonly.png"> | the difference between the outer radius and inner radius | Number | 100 | 
 {.table-striped}
 
 Angles in Atlas are specified using the polar coordinate system, where 0 is at the positive x axis, and the angle increases in the counterclockwise direction. The figure below illustrates various values of startAngle and endAngle.
@@ -66,6 +68,13 @@ Angles in Atlas are specified using the polar coordinate system, where 0 is at t
 |**dataScope**| the [data scope](../../data/datascope/) of the path | [DataScope](../../data/datascope/) | undefined |
 {.table-striped}
 
+### Methods
+| method |  explanation   | return type |
+| --- | --- | --- |
+| **adjustAngle**(start, end) | set the start angle and the end angle<br>start (Number): start angle in degrees<br>end (Number): end angle in degrees |  |
+| **sweepOver**(arc) | returns if the angle of this arc contains the angle of the argument arc<br>arc ([ArcPath](../arcpath/)): argument arc | Boolean |
+{.table-striped}
+
 ### Methods inherited from Path
 | method |  explanation   | return type |
 | ---- | --- | --- |
@@ -77,5 +86,5 @@ Angles in Atlas are specified using the polar coordinate system, where 0 is at t
 | --- | --- | --- |
 | **contains**(x, y) | whether this mark contains a point<br>x (Number): x coordinate of the point<br>y (Number): y coordinate of the point | Boolean |
 | **getScene**() | returns the scene in which this mark resides | [Scene](../../group/scene) |
-| **duplicate**() | returns a copy of this mark | [CirclePath](../circlepath/) | 
+| **duplicate**() | returns a copy of this mark | [ArcPath](../arcpath/) | 
 {.table-striped}
