@@ -38,6 +38,8 @@ toc: true
 "width"<br>
 "height"<br>
 "radius"<br>
+"innerRadius"<br>
+"outerRadius"<br>
 "area"<br>
 "fillColor"<br>
 "strokeColor"<br>
