@@ -32,7 +32,7 @@ Atlas assumes that in Comma Separated Values (CSV) files, the first row contains
 When importing a csv file, Atlas automatically infers the [data type](../../docs/global/constants/#data-type) for each column, and parses the values accordingly. An imported data table can be used in one or more scenes.
 
 
-### Import Tree/Hierarchical Data
+<!-- ### Import Tree/Hierarchical Data
 Atlas assumes that tree/hierarchical data is represented using a specific [JSON format](https://en.wikipedia.org/wiki/JSON): the JSON representation must be a single object, representing the tree of the tree. Non-leaf object must have a "children" attribute, where the value is an array of objects representing its children. Leaf objects may not have the "children" attribute. The objects can have other attributes. This structure can be nested to represent multiple levels of hierarchy. Below is an example:
 
 ```json
@@ -104,5 +104,5 @@ To import a network dataset, use the [_graphjson_ function](../../docs/global/fu
     let network = await atlas.graphjson("path/to/file");
 ```
 
-<span style="color:red;font-weight:bold">IMPORTANT</span>: The [_graphjson_ function](../../docs/global/func/) is an asynchronous function that returns a promise, hence the await keyword. When the promise is fulfilled, a [Network](../../docs/data/network/) object is returned. You need to put the above line of code and any other code that handles the `network` object in an asychronous function, or use the [Promise.then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) method to handle the `network` object. 
+<span style="color:red;font-weight:bold">IMPORTANT</span>: The [_graphjson_ function](../../docs/global/func/) is an asynchronous function that returns a promise, hence the await keyword. When the promise is fulfilled, a [Network](../../docs/data/network/) object is returned. You need to put the above line of code and any other code that handles the `network` object in an asychronous function, or use the [Promise.then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) method to handle the `network` object.  -->
 

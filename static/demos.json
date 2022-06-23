@@ -137,12 +137,6 @@
         "title": "GDP per capita vs. Life expectancy in major countries",
         "about": ""
     },
-    "Sunburst": {
-        "name": "Sunburst Chart",
-        "mark": "Circles and Pies",
-        "title": "Population of major countries in the world",
-        "about": ""
-    },
     "BumpChart": {
         "name": "Bump Chart",
         "mark": "Lines and Paths",
