@@ -21,6 +21,8 @@ Channel &amp;ldquo;x&amp;rdquo;
 &amp;ldquo;width&amp;rdquo;
 &amp;ldquo;height&amp;rdquo;
 &amp;ldquo;radius&amp;rdquo;
+&amp;ldquo;innerRadius&amp;rdquo;
+&amp;ldquo;outerRadius&amp;rdquo;
 &amp;ldquo;area&amp;rdquo;
 &amp;ldquo;fillColor&amp;rdquo;
 &amp;ldquo;strokeColor&amp;rdquo;
@@ -54,7 +56,6 @@ Mark Type &amp;ldquo;area&amp;rdquo;
 &amp;ldquo;pie&amp;rdquo;
 &amp;ldquo;pointText&amp;rdquo;
 &amp;ldquo;polygon&amp;rdquo;
-Layout Type &amp;ldquo;grid&amp;rdquo;
-&amp;ldquo;stack&amp;rdquo;</description></item><item><title>Predicate</title><link>https://atlas-vis.github.io/docs/global/predicate/</link><pubDate>Tue, 06 Oct 2020 08:49:15 +0000</pubDate><guid>https://atlas-vis.github.io/docs/global/predicate/</guid><description>A predicate is used to define an inclusion or exclusion criterion. The find method in the Scene class, for example, takes an array of predicates as its parameter.
+Layout Type &amp;ldquo;grid&amp;rdquo;</description></item><item><title>Predicate</title><link>https://atlas-vis.github.io/docs/global/predicate/</link><pubDate>Tue, 06 Oct 2020 08:49:15 +0000</pubDate><guid>https://atlas-vis.github.io/docs/global/predicate/</guid><description>A predicate is used to define an inclusion or exclusion criterion. The find method in the Scene class, for example, takes an array of predicates as its parameter.
 Predicates based on visual properties A predicate based on a visual property is defined as:
 {channel: channel, value: value} if the criterion demands an exact match, for example, the following code will return all the objects in the scene whose fill color is red: scene.</description></item></channel></rss>
