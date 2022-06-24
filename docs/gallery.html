@@ -15,7 +15,6 @@
 		<link rel="stylesheet" href="lib/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
 		<link rel="stylesheet" href="/main.css">
-		<link rel=stylesheet href=https://atlas-vis.github.io/main.2dae939c2374851595d0e93a93e70f0b9fbd8c714df0c9cc6ac765b48f7cfaf3daad40c34b46872bfb527c101ba55692da08833b51368ac2cc9d155abb003739.css integrity="sha512-La6TnCN0hRWV0Ok6k+cPC5+9jHFN8MnMasdltI98+vParUDDS0aHK/tSfBAbpVaS2giDO1E2isLMnRVauwA3OQ==" crossorigin=anonymous>
 		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1673783-4"></script>
 		<script>
@@ -114,14 +113,14 @@
 				z-index: 1000;
 			}
 			.galleryItem {
-				max-width: 200px;
-				min-width: 200px;
-				height: 110px;
+				max-width: 220px;
+				min-width: 220px;
+				height: 170px;
 				vertical-align: text-bottom;
 				text-align: center;
 				border: 2px solid #eee;
-				display:inline-block;
-				margin: 10px 10px 0px 10px;
+				display: inline-block;
+				margin: 10px 15px 10px 15px;
 			}
 			.galleryItem:hover {
 				box-shadow: 0px 0px 5px #888;
@@ -233,11 +232,14 @@
 		<div id="btmPanel">
 			<ul>
 				<li><a href="#codeTab">Code</a></li>
-				<li><a href="#dataTab">Data</a></li>
+				<li><a id="dataTabLi" href="#dataTab">Data</a></li>
+				<li><a id="jsonTabLi" href="#jsonTab">Data</a></li>
 				<li><a href="#infoTab">About</a></li>
 			  </ul>
 			<div id="codeTab">
 				<textarea id="scriptEditor"></textarea>
+			</div>
+			<div id="jsonTab" style="overflow-y: auto">
 			</div>
 			<div id="dataTab" style="overflow-y: auto;">
 				<table id="dataTable" class="display" style="font-size: .75rem; width: 100%"></table>
@@ -252,13 +254,14 @@
 				<label for="Canvas">Canvas</label> -->
 				<input type="radio" id="WebGL" name="renderer" value="webgl">
 				<label for="WebGL">WebGL</label> 
-				<button style="margin-left: 40px;" onclick="loadScript()">run</button>
-				<button onclick="stepThrough()">play</button>
+				<button style="margin-left: 40px;" onclick="window.loadScript()">run</button>
+				<button onclick="window.stepThrough()">play</button>
 			</div>
 		</div>
 		<div id="gallery">
 		</div>
-		<script>
+		<script type="module">
+			import {JSONEditor} from './lib/jsoneditor.js'
 			var editor = CodeMirror.fromTextArea(document.getElementById("scriptEditor"), {lineNumbers: true
 			});
 			var dataTable = null;
@@ -290,6 +293,7 @@
 				});
   			} );
 
+			var jsonEditor;
 			$( function() {
     			$( "#btmPanel" ).tabs({
 					activate: function(event, ui){
@@ -300,58 +304,95 @@
 							$("#codeControls").css("visibility", "hidden");
 					}
 				});
+				let content = {
+					text: undefined,
+					json: {}
+				}
+				jsonEditor = new JSONEditor({
+					target: document.getElementById('jsonTab'),
+					props: {
+						content,
+						readOnly: true,
+						onChange: (updatedContent, previousContent, patchResult) => {
+						// content is an object { json: JSONData } | { text: string }
+						console.log('onChange', updatedContent, previousContent, patchResult)
+						content = updatedContent
+						}
+					}
+				})
   			} );
+
+			function loadDataTable(responseText){
+				// Set the data for the csv in the script
+				let csvRegex = /atlas\.csv\("(.+)"\);/;
+				let csvPath = csvRegex.exec(responseText)[1];
+
+				// Request the csv from the server
+				fetch(csvPath)
+				.then((resp) => {
+					return resp.text();
+				})
+				.then((text) => {
+					let rows = text.trim().split("\n");
+					// Destroy current table
+					if (dataTable !== null) {
+					dataTable.destroy();
+					}
+					// Set the thead for the table
+					const table = document.getElementById("dataTable");
+					let newHead = `<thead><tr>${rows[0]
+					.split(",")
+					.reduce(
+						(acc, row) => (acc += `<th>${row}</th>`),
+						""
+					)}</tr></thead>`;
+					table.innerHTML = newHead;
+					// Initialize table
+					dataTable = $("#dataTable").DataTable({
+					data: rows.slice(1).map((row) => row.split(",")),
+					searching: false,
+					paging: false,
+					scrollCollapse: true,
+					fixedColumns: true,
+					info: false,
+					//responsive: true
+					});
+				});
+			}
+
+			function loadJson(responseText) {
+				let jsonRegex = /atlas\.(tree|graph)json\("(.+)"\);/;
+				let jsonPath = jsonRegex.exec(responseText)[2];
+				// Request the csv from the server
+				fetch(jsonPath)
+				.then((resp) => {
+					return resp.text();
+				})
+				.then((text) => {
+					let json = JSON.parse(text);
+					let content = {
+					text: undefined,
+					json: json
+					}
+					jsonEditor.set(content);
+				});
+			}
 
 			function loadDemo(d) {
 				var oReq = new XMLHttpRequest();
-				oReq.addEventListener("load", function(){
-					
-					loadScript(this.responseText);
-
-					if (this.responseText.indexOf(".csv") > 0) {
-						// Set the data for the csv in the script
-						let csvRegex = /atlas\.csv\("(.+)"\);/;
-						let csvPath = csvRegex.exec(this.responseText)[1];
-
-						// Request the csv from the server
-						fetch(csvPath)
-						.then((resp) => {
-							return resp.text();
-						})
-						.then((text) => {
-							let rows = text.trim().split("\n");
-							// Destroy current table
-							if (dataTable !== null) {
-							dataTable.destroy();
-							}
-							// Set the thead for the table
-							const table = document.getElementById("dataTable");
-							let newHead = `<thead><tr>${rows[0]
-							.split(",")
-							.reduce(
-								(acc, row) => (acc += `<th>${row}</th>`),
-								""
-							)}</tr></thead>`;
-							table.innerHTML = newHead;
-							// Initialize table
-							dataTable = $("#dataTable").DataTable({
-							data: rows.slice(1).map((row) => row.split(",")),
-							searching: false,
-							paging: false,
-							scrollCollapse: true,
-							fixedColumns: true,
-							info: false,
-							//responsive: true
-							});
-						});
-					} else if (this.responseText.indexOf(".treejson") > 0) {
-						//TODO: display json data
-					} else if (this.responseText.indexOf(".graphjson") > 0) {
-						//TODO: display json data
-					}
-
-					if (metaData)
-						d3.select("#infoTab").html(metaData[d].about);
+				oReq.addEventListener("load", function () {
+				loadScript(this.responseText);
+				if (this.responseText.indexOf(".csv") > 0) {
+					$("#jsonTabLi").hide();
+					$("#dataTabLi").show();
+					loadDataTable(this.responseText);
+				} else if (this.responseText.indexOf(".treejson") > 0 || this.responseText.indexOf(".graphjson") > 0) {
+					$("#jsonTabLi").show();
+					$("#dataTabLi").hide();
+					loadJson(this.responseText);
+				}
+				$("#btmPanel").tabs("option", "active", 0);
+				if (metaData) d3.select("#infoTab").html(metaData[d].about);
 				});
 				oReq.open("GET", "demo/" + d[0].toLowerCase() + d.substring(1) + ".js");
 				oReq.send();
@@ -368,7 +409,7 @@
 				return "(async () => {" + c + "})();";
 			}
 
-			function loadScript(s) {
+			window.loadScript = function(s) {
 				let script = s ? s : editor.getValue();
 				let parsed = acorn.parse(script, {ecmaVersion: "latest"});
 				let blocks = parsed.body.map(d => script.substring(d.start, d.end));
@@ -404,7 +445,7 @@
 
 			let requestAnimationFrame = function(f){return setTimeout(f, 1000)};
 
-			function stepThrough(){
+			window.stepThrough = function() {
 				let script = editor.getValue().replace(/await/g, "");
 				let parsed = acorn.parse(script, {ecmaVersion: "latest"});
 
@@ -461,6 +502,7 @@
 			function populateList(json){
 				let category = "", list; 
 				for (let k of Object.keys(json)){
+					if (json[k].draft) continue;
 					let m = json[k].mark;
 					if (m != category){
 						d3.select("#demoList").append("li").attr("class", "category").text(m);
@@ -477,11 +519,23 @@
 						.sort((a, b) => a.sort - b.sort)
 						.map((a) => a.value);
 				for (let k of keys){
-					d3.select("#gallery").append("div").style("display", "inline-block").attr("class", "galleryItem")
+					if (json[k].draft) continue;
+					let item = d3.select("#gallery")
+						.append("div").attr("class", "galleryItem");
+					item.append("div")
+						.style("display", "block").style("height", "150px")
 						.style("background", "white")
-						.style("background-image", 'url("img/' + k + '.png")').style('background-size', "contain")
-						.style("background-repeat", "no-repeat").style("background-position", "center")
-						.on("click", ()=>{document.getElementById("gallery").style.visibility = "hidden";window.location.hash = k;});
+						.style("background-image", 'url("img/' + k + '.png")')
+						.style("background-size", "auto 100%")
+						.style("background-repeat", "no-repeat")
+						.style("background-position", "left top")
+						.on("click", () => {
+						document.getElementById("gallery").style.visibility = "hidden";
+						window.location.hash = k;
+						});
+					item.append("div").style("display", "block").style("background", "#FAFAFA").style("font-size", "11.5px")
+						.style("font-family", "Arial").style("font-weight", 600).style("text-align", "left").style("color", "#222")
+						.style("height", "18px").style("padding", "2px 0 0 3px").text(json[k].title);
 				}
 			}
 

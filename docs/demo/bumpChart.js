@@ -7,7 +7,7 @@ scn.repeat(line, dt, {field: "Color"});
 line = scn.densify(line, dt, {field: "Year"});
 scn.setProperties(line, {curveMode: "bumpX"});
 //scn.setProperties(line.vertices[0], {shape: "circle", radius: 4, fillColor: "green"});
-vertex = line.vertices[0];
+let vertex = line.vertices[0];
 scn.encode(vertex, {field: "Year", channel:"x"});
 scn.encode(vertex, {field: "Rank", channel:"y", flipScale: true});
 scn.axis("x", "Year", {orientation: "bottom", pathY: 420, labelFormat: "%Y", strokeColor: "#ccc", textColor: "#ccc"});
