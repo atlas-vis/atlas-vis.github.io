@@ -8,16 +8,16 @@ description = ""
 
 ## Open Graph + Twitter Cards
 images = ["atlas.png"]
-twitterSite = "henkverlinde"
-twitterCreator = "henkverlinde"
-facebookAuthor = "verlinde.henk"
-facebookPublisher = "verlinde.henk"
+# twitterSite = "henkverlinde"
+# twitterCreator = "henkverlinde"
+# facebookAuthor = "verlinde.henk"
+# facebookPublisher = "verlinde.henk"
 ogLocale = "en_US"
 
 ## JSON-LD
 schemaType = "Organization"
 schemaLogo = "atlas.png"
-schemaTwitter = "https://twitter.com/henkverlinde"
+# schemaTwitter = "https://twitter.com/henkverlinde"
 schemaGitHub = "https://github.com/atlas-vis/atlas-vis.github.io"
 schemaSection = "blog"
 

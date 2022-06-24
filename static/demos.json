@@ -20,37 +20,44 @@
     "BulletChart": {
         "name": "Bullet Chart",
         "mark": "Bars and Rectangles",
-        "title": "Revenue performance and targets in different regions",
+        "title": "Revenue Performance & Target",
         "about": ""
     },
     "DivergingBarChart": {
         "name": "Diverging Bar Chart",
         "mark": "Bars and Rectangles",
-        "title": "Survey response by age group",
+        "title": "Survey Responses by Age Group",
         "about": ""
     },
     "GanttChart": {
         "name": "Gantt Chart",
         "mark": "Bars and Rectangles",
-        "title": "Timeline for event organization",
+        "title": "Timeline for Event Organization",
         "about": ""
     },
     "GroupedBarChart": {
         "name": "Grouped Bar Chart",
         "mark": "Bars and Rectangles",
-        "title": "Olympic medals by country",
+        "title": "Olympic Medals by Country",
         "about": ""
     },
     "HeatMap": {
         "name": "Heat Map",
         "mark": "Bars and Rectangles",
-        "title": "Twenty years of NBA draft picks from 1989 to 2008",
+        "title": "Twenty Years of NBA Draft Picks",
         "about": "This chart colors each player by VORP (Value over Replacement Player), which converts the BPM rate into an estimate of each player's overall contribution to the team, measured vs. what a theoretical 'replacement player' would provide, where the 'replacement player' is defined as a player onminimum salary or not a normal vmember of a team's rotation. A VORP of -20 is used for players that did not play enough minutes. Original visualization by <a href='http://russellgoldenberg.com/' target='_blank'>Russell Goldenberg</a> at <a href='https://pudding.cool/2017/03/redraft/' target='_blank'>The Pudding</a>."
     },
     "Histogram": {
         "name": "Histogram",
         "mark": "Bars and Rectangles",
-        "title": "Distribution of weight of cars",
+        "title": "Car Weight Distribution",
+        "about": ""
+    },
+    "IciclePlot": {
+        "name": "Icicle Plot",
+        "mark": "Bars and Rectangles",
+        "draft": true,
+        "title": "ICU Processes",
         "about": ""
     },
     "MosaicPlot": {
@@ -69,55 +76,55 @@
         "name": "Tower Chart",
         "mark": "Bars and Rectangles",
         "title": "Presidential Election 2020",
-        "about": "This tower chart shows the results of the 2020 presidential election.<br>Blue represents Biden, red represents Trump.<br>Each rectangle represents a state that a candidate has won.<br>The x axis represents the margin of victory for each candidate in terms of popular vote (%).<br>The y axis represents the number of electoral votes.<br>Data source: https://electoral-vote.com/"
+        "about": "This tower chart shows the results of the 2020 presidential election.<br>Blue represents Biden, red represents Trump.<br>Each rectangle represents a state that a candidate has won.<br>The x axis represents the margin of victory for each candidate in terms of popular vote (%).<br>The y axis represents the number of electoral votes.<br>Data source: <a href='https://www.archives.gov/electoral-college/2020' target='_blank'>National Archives</a>"
     },
     "Treemap": {
         "name": "Treemap",
         "mark": "Bars and Rectangles",
-        "title": "Population of major countries in the world",
+        "title": "Population of Major Countries",
         "about": ""
     },
     "WaffleChart": {
         "name": "Waffle Chart",
         "mark": "Bars and Rectangles",
-        "title": "Age composition in 100 participants",
+        "title": "Age Demographics in 100 People",
         "about": ""
     },
     "WaterfallChart": {
         "name": "Waterfall Chart",
         "mark": "Bars and Rectangles",
-        "title": "Monthly changes in account balance",
+        "title": "Monthly Changes in Account Balance",
         "about": ""
     },
     "BubblePlot": {
         "name": "Bubble Plot",
         "mark": "Circles and Pies",
-        "title": "Goldilocks Worlds: Just Right for Life?",
+        "title": "Habitable Planets",
         "about": "A visualization showing 1626 planets and which ones are habitable. Temperature should not be too hot or too cold. The mass also plays a role: a small planet can't have an atmosphere, while a large one will have a crushing atmosphere.<br> <a href='http://www.nationalgeographic.com/astrobiology/goldilocks-worlds/' target='_blank'>Original visualization</a> by John Tomanio and Xaquin G.V., NGM STAFF. <br>Source: Abel Méndez, Planetary Habitability Laboratory, University of Puerto Rico at Arecibo."
     },
     "CirclePacking": {
         "name": "Circle Packing Chart",
         "mark": "Circles and Pies",
-        "title": "Population of major countries in the world",
+        "title": "Population of Major Countries",
         "about": ""
     },
     "DotPlot": {
         "name": "Dot Plot",
         "mark": "Circles and Pies",
-        "title": "Age distribution in 100 participants",
+        "title": "Age Demographics of 100 People",
         "about": ""
     },
     "DoughnutChart": {
         "name": "Doughnut Chart",
         "mark": "Circles and Pies",
-        "title": "",
-        "about": ""
+        "title": "How do Americans Spend Their Time?",
+        "about": "Average time spent across a number of common activities by Americans between 15 and 64. Data source: <a href='https://ourworldindata.org/time-use' target='_blank'>Our World in Data</a>"
     },
     "PieChart": {
         "name": "PieChart",
         "mark": "Circles and Pies",
-        "title": "Pie chart with dummy data",
-        "about": ""
+        "title": "How do Americans Spend Their Time?",
+        "about": "Average time spent across a number of common activities by Americans between 15 and 64. Data source: <a href='https://ourworldindata.org/time-use' target='_blank'>Our World in Data</a>"
     },
     "RadialBarChart": {
         "name": "Radial Bar Chart",
@@ -134,7 +141,14 @@
     "Scatterplot": {
         "name": "Scatterplot",
         "mark": "Circles and Pies",
-        "title": "GDP per capita vs. Life expectancy in major countries",
+        "title": "GDP per capita vs. Life expectancy",
+        "about": ""
+    },
+    "Sunburst": {
+        "name": "Sunburst Chart",
+        "mark": "Circles and Pies",
+        "draft": true,
+        "title": "Population of Major Countries",
         "about": ""
     },
     "BumpChart": {
@@ -170,8 +184,8 @@
     "LollipopChart": {
         "name": "Lollipop Chart",
         "mark": "Lines and Paths",
-        "title": "",
-        "about": ""
+        "title": "London Borough Crime Rate",
+        "about": "Overall crime rate (number of crimes per 1000 people) in London between May 2019 and April 2022. Data source: <a href='https://crimerate.co.uk/london' target='_blank'>crimerate.co.uk</a>"
     },
     "MultiLineGraph": {
         "name": "Multi-Line Graph",
@@ -212,7 +226,7 @@
     "DensityPlot": {
         "name": "Density Plot",
         "mark": "Polygons and Areas",
-        "title": "Density plot of weights of cars",
+        "title": "Car Weight Distribution",
         "about": ""
     },
     "RadarChart": {
@@ -224,13 +238,13 @@
     "ridgelinePlot": {
         "name": "Ridgeline Plot",
         "mark": "Polygons and Areas",
-        "title": "How people perceive probability",
+        "title": "How People Perceive Probability",
         "about": "On the /r/samplesize thread of reddit, questions like What probability would you assign to the phrase “Highly likely” were asked. Answers between 0 and 100 were recorded, and this visualization shows the distribution for each question. This idea originally comes from a <a href='https://www.cia.gov/library/center-for-the-study-of-intelligence/csi-publications/books-and-monographs/psychology-of-intelligence-analysis/art15.html' target='_blank'>publication of the CIA</a>. <a href='https://github.com/zonination' target='_blank'>Zoni Nation</a> <a href='https://github.com/zonination/perceptions' target='_blank'>reproduced it using R. </a> This visualization is based on an example from <a href='https://www.d3-graph-gallery.com/graph/ridgeline_basic.html' target='_blank'>d3-graph-gallery.com</a>"
     },
     "StackedAreaChart": {
         "name": "Stacked Area Chart",
         "mark": "Polygons and Areas",
-        "title": "Unemployment by industry: 2000 to 2010",
+        "title": "Unemployment by Industry",
         "about": "This visualization shows the evolution of the number of unemployed people in four industries (Manufacturing, Leisure and hospitality, Business services and Construction) from 2000 to 2010. The original visualization was composed using d3.js on <a href='https://observablehq.com/@d3/stacked-area-chart' target='_blank'>observablehq.com</a>."
     },
     "StellarChart": {
@@ -242,25 +256,60 @@
     "StreamGraph": {
         "name": "StreamGraph",
         "mark": "Polygons and Areas",
-        "title": "Unemployment by industry: 2000 to 2010",
+        "title": "Unemployment by Industry",
         "about": "This visualization shows the evolution of the number of unemployed people in four industries (Manufacturing, Leisure and hospitality, Business services and Construction) from 2000 to 2010. The original visualization was composed using d3.js on <a href='https://observablehq.com/@d3/streamgraph' target='_blank'>observablehq.com</a>."
     },
     "ViolinPlot": {
         "name": "Violin Plot",
         "mark": "Polygons and Areas",
-        "title": "Distribution for setosa sepal length",
+        "title": "Setosa Sepal Length Distribution",
         "about": "This visualization shows the distribution for the sepal length of setosa, a type of iris plant. The data is from <a href='https://archive.ics.uci.edu/ml/datasets/Iris' target='_blank'>Iris Data Set</a>."
+    },
+    "DirectedAcyclicGraph": {
+        "name": "Directed Acyclic Graph",
+        "mark": "Nodes and Links",
+        "draft": true,
+        "title": "",
+        "about": ""
+    },
+    "ForceDirected": {
+        "name": "Force-Directed Graph",
+        "mark": "Nodes and Links",
+        "draft": true,
+        "title": "",
+        "about": ""
+    },
+    "SeedGraph": {
+        "name": "Graph Partitioning",
+        "mark": "Nodes and Links",
+        "draft": true,
+        "title": "",
+        "about": ""
+    },
+    "SeqSynopsis": {
+        "name": "Sequence Synopsis",
+        "mark": "Nodes and Links",
+        "draft": true,
+        "title": "",
+        "about": ""
+    },
+    "TidyTree": {
+        "name": "'Tidy' Tree",
+        "mark": "Nodes and Links",
+        "draft": true,
+        "title": "Node-link tree",
+        "about": "Node-link visualization of a tree usign the Reingold-Tilford 'tidy' layout algorithm."
     },
     "Isotype": {
         "name": "Isotype",
         "mark": "Images and Icons",
-        "title": "",
+        "title": "100 People Grouped by Age",
         "about": ""
     },
     "GridAreaChart": {
         "name": "Area Charts",
         "mark": "Small Multiples",
-        "title": "Unemployment in Manufacturing, Leisure and hospitality, Business services and Construction: 2000 to 2010",
+        "title": "Unemployment: 2000 to 2010",
         "about": "This visualization shows the evolution of the number of unemployed people in four industries (Manufacturing, Leisure and hospitality, Business services and Construction) from 2000 to 2010."
     },
     "MultipleBarCharts": {
@@ -278,31 +327,37 @@
     "MultiplePieCharts": {
         "name": "Pie Charts",
         "mark": "Small Multiples",
-        "title": "",
-        "about": ""
+        "title": "Household Spending Patterns",
+        "about": "Comparing household spending patterns in the UK and New Zealand in 1980 and 2008. Data source is <a href='https://www.ieltstrainingtips.com/the-charts-below-show-household-spending-patterns-in-two-countries-between-1980-and-2008/' target='_blank'>here</a>."
     },
     "ScatterplotMatrix": {
         "name": "Scatterplot Matrix",
         "mark": "Small Multiples",
-        "title": "",
-        "about": ""
+        "title": "Iris Species: Sepal and Petal",
+        "about": "Four measurements (sepal length, sepal width, petal length, petal width) for 150 flowers representing three species of iris (Iris setosa, versicolor and virginica)"
     },
     "Sparklines": {
         "name": "Sparklines",
         "mark": "Small Multiples",
-        "title": "",
+        "title": "Stock Price Sparklines",
         "about": ""
     },
     "GridStackedAreaChart": {
         "name": "Stacked Area Charts",
         "mark": "Small Multiples",
-        "title": "",
+        "title": "Unemployment by Industry",
         "about": ""
     },
     "MultipleViolinPlots": {
         "name": "Violin Plots",
         "mark": "Small Multiples",
-        "title": "Distributions for iris plant sepal length",
+        "title": "Iris Sepal Length Distribution",
+        "about": "This visualization shows the distributions for the sepal length of three types of iris plant: setosa, versicolor and virginica. The data is from <a href='https://archive.ics.uci.edu/ml/datasets/Iris' target='_blank'>Iris Data Set</a>."
+    },
+    "MultipleWaffleCharts": {
+        "name": "Waffle Charts",
+        "mark": "Small Multiples",
+        "title": "Distributions of cars by year",
         "about": "This visualization shows the distributions for the sepal length of three types of iris plant: setosa, versicolor and virginica. The data is from <a href='https://archive.ics.uci.edu/ml/datasets/Iris' target='_blank'>Iris Data Set</a>."
     }
 }

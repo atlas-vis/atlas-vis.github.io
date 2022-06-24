@@ -1,13 +1,12 @@
 let scn = atlas.scene();
-let dt = await atlas.csv("csv/oecd_population_2018.csv");
-dt.transform("sort", ["Continent"]);
-let r1 = scn.mark("ring", {x: 400, y: 300, innerRadius: 60, outerRadius: 120, fillColor: "orange", strokeColor: "#222", opacity: 0.75}),
-    r2 = scn.mark("ring", {x: 400, y: 300, innerRadius: 120, outerRadius: 220, fillColor: "orange", strokeColor: "#222", opacity: 0.75});
-
-let continents = scn.divide(r1, dt, {field: "Continent"}),
-    countries = scn.divide(r2, dt, {field: "Country"});
-scn.encode(continents.firstChild, {field: "Population", channel: "angle"});
-scn.encode(countries.firstChild, {field: "Population", channel: "angle"});
-let enc = scn.encode(continents.firstChild, {field: "Continent", channel: "fillColor"});
-scn.encode(countries.firstChild, {field: "Continent", channel: "fillColor", scale: enc.scale});
-scn.legend("fillColor", "Continent", {x: 700, y:100});
+let tree = await atlas.treejson("treejson/AAAsample_ed2.json");
+let c = scn.mark("circle", {x: 400, y: 350, radius: 30, fillColor: "orange", strokeColor: "white"});
+let coll = scn.stratify(c, tree, {size: 40});
+scn.encode(c, {field: "value", channel: "angle"});
+scn.encode(c, {field: "event_attribute", channel: "fillColor"});
+// let text = scn.mark("text", {fillColor: "black", fontWeight: "bold", fontSize: "12px"});
+// scn.repeat(text, tree.nodeTable);
+// scn.encode(text, {channel: "text", field: "event_attribute"});
+// scn.affix(text, coll.firstChild, "radialDistance", {itemAnchor: "top", baseAnchor: "top", offset: -10});
+// scn.affix(text, coll.firstChild, "angle");
+scn.legend("fillColor", "event_attribute", {x: 600, y: 100});

@@ -5,7 +5,7 @@ let rect = scene.mark("rect", {top:60, left: 100, width: 400, height: 150, strok
 let industries = scene.repeat(rect, data, {field: "industry"});
 industries.layout = atlas.layout("grid", {numRows: 2, colGap: 15, rowGap: 10});
 let anyArea = scene.densify(industries.firstChild, data, {orientation: "horizontal", field: "date"});
-areas = scene.divide(anyArea, data, {orientation: "vertical", field: "gender"});
+let areas = scene.divide(anyArea, data, {orientation: "vertical", field: "gender"});
 scene.encode(anyArea, {channel: "fillColor", field: "gender", mapping: {"male": "#60bdf0", "female": "#f768a1"}});
 let disEncoding = scene.encode(anyArea, {channel: "height", field: "unemployments"});
 let htEncoding = scene.encode(anyArea, {channel: "x", field: "date"});
