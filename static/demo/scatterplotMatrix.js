@@ -11,15 +11,19 @@ for (let row of fields) {
 		let circle = scn.mark("circle", {radius: 6, x: 100, y: 80, fillColor: "orange", 
 			strokeWidth: 0, opacity: 0.3});
 		let sp = scn.repeat(circle, dt, {field: "id"});
-		let xEncoding = scn.encode(circle, {field: row, channel: "x"});
-		let yEncoding = scn.encode(circle, {field: col, channel: "y"});
+		let xEncoding = scn.encode(circle, {field: row, channel: "x", rangeExtent: 135});
+		let yEncoding = scn.encode(circle, {field: col, channel: "y", rangeExtent: 135});
 		scn.encode(circle, {field: "species", channel: "fillColor", scale: fillScale});
+		scn.axis("x", row, {"item": circle, "titleOffset": 25});
+		scn.axis("y", col, {"item": circle, "titleOffset": 25});
+		scn.gridlines("x", row, {"item": circle});
+		scn.gridlines("y", col, {"item": circle});
 		scatterplots.addChild(sp);
 	}
 }
 
-scatterplots.layout = atlas.layout("grid", {numCols: 4, numRows: 4, colGap: 20, rowGap: 20});
-scn.legend("fillColor", "species", {x: 620, y: 100});
+scn.setProperties(scatterplots, {"layout": atlas.layout("grid", {numCols: 4, colGap: 65, rowGap: 65})});
+scn.legend("fillColor", "species", {x: 920, y: 100});
 
 
 // let r = atlas.renderer("svg");

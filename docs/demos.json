@@ -5,6 +5,13 @@
         "title": "Real GDP Change in the US",
         "about": "Percent Change of U.S. Real Gross Domestic Product from Preceding Period. Data source: U.S. Bureau of Economic Analysis"
     },
+    "BarChartHorzInteractive": {
+        "name": "Bar Chart (Interactive)",
+        "mark": "Bars and Rectangles",
+        "title": "Real GDP Change in the US",
+        "draft": true,
+        "about": "Percent Change of U.S. Real Gross Domestic Product from Preceding Period. Data source: U.S. Bureau of Economic Analysis"
+    },
     "BarChartVert": {
         "name": "Bar Chart (Vertical)",
         "mark": "Bars and Rectangles",
