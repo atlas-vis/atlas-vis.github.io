@@ -33,6 +33,7 @@ Atlas automatically infers the [data type](../../global/constants/#data-type) fo
 | **getFieldType**(f) | returns the type of the specified field | [Data Type](../../global/constants/#data-type) |
 | **getFieldSummary**(f) | returns a summary of the specified field | Object | 
 | **getFieldValues**(f) | returns an array of values for the specified field | Array | 
+| **getRowCount**() | returns the number of rows in the table | Number | 
 | **getUniqueFieldValues**(f) | returns an array of unique values for the specified field | Array | 
 | **hasField**(f) | returns true of the specified field exists in the data table | Boolean |
 | **transform**(type, fields, paramas) | returns a new data table as a result of [specified transformation](../datatransform/)<br>type (String): [type of transformation](../../global/constants/#data-table-transformation)<br>fields (Array): array of fields to be transformed<br>params (Object): [parameters for the transformation](../../data/datatransform/)<br>e.g., `let table2 = table.transform('kde', ['col1'], {min: 3, interval: 0.1, max: 8, bandwidth: 0.25})` | [DataTable](../data/datatable/) |
