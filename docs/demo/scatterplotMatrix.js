@@ -11,8 +11,8 @@ for (let row of fields) {
 		let circle = scn.mark("circle", {radius: 6, x: 100, y: 80, fillColor: "orange", 
 			strokeWidth: 0, opacity: 0.3});
 		let sp = scn.repeat(circle, dt, {field: "id"});
-		let xEncoding = scn.encode(circle, {field: row, channel: "x", rangeExtent: 135});
-		let yEncoding = scn.encode(circle, {field: col, channel: "y", rangeExtent: 135});
+		scn.encode(circle, {field: row, channel: "x", rangeExtent: 135});
+		scn.encode(circle, {field: col, channel: "y", rangeExtent: 135});
 		scn.encode(circle, {field: "species", channel: "fillColor", scale: fillScale});
 		scn.axis("x", row, {"item": circle, "titleOffset": 25});
 		scn.axis("y", col, {"item": circle, "titleOffset": 25});
