@@ -55,7 +55,7 @@
     "mermaid": "^8.10",
     "netlify-lambda": "^2.0",
     "postcss": "^8.2",
-    "postcss-cli": "^8.3.1",
+    "postcss-cli": "^10.1.0",
     "purgecss-whitelister": "^2.4",
     "rimraf": "^3.0",
     "shx": "^0.3.3",
