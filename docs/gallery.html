@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta http-equiv="refresh" content="0;url=https://mascot-vis.github.io/gallery" />
 		<title>Atlas</title>
 		<script src="https://d3js.org/d3.v7.min.js"></script>
 		<script src="lib/pixi.min.js"></script>
@@ -189,8 +190,9 @@
 		</style>
 	</head>
 	<body>
-		<div class="header-bar fixed-top"></div>
-		<header class="navbar fixed-top navbar-expand-md navbar-light">
+		<div style="margin-left: 50px;"><p>Atlas.js has been renamed to Mascot.js and moved to <a href="https://mascot-vis.github.io/">https://mascot-vis.github.io/</a>.</p></div>
+		<div class="header-bar fixed-top" style="display:none"></div>
+		<header class="navbar fixed-top navbar-expand-md navbar-light" style="display:none">
 			<div class="container">
 			  <input class="menu-btn order-0" type="checkbox" id="menu-btn">
 			  <label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
@@ -222,14 +224,14 @@
 				</div>
 			</div>
 		  </header>
-		<ul id="demoList">
+		<ul id="demoList" style="display:none">
 			<button onclick="d3.select('#gallery').style('visibility', 'visible')">Show Gallery</button>
 		</ul>
-		<canvas id="canvasElement"></canvas>
-		<svg id="svgElement"></svg>
-		<div id="hint">To update the demo after modifying the code, click the "run" button; to see the construction process of a demo step by step, click the "play" button.</div>
-		<div id="console"></div>
-		<div id="btmPanel">
+		<canvas id="canvasElement" style="display:none"></canvas>
+		<svg id="svgElement" style="display:none"></svg>
+		<div id="hint" style="display:none">To update the demo after modifying the code, click the "run" button; to see the construction process of a demo step by step, click the "play" button.</div>
+		<div id="console" style="display:none"></div>
+		<div id="btmPanel" style="display:none">
 			<ul>
 				<li><a href="#codeTab">Code</a></li>
 				<li><a id="dataTabLi" href="#dataTab">Data</a></li>
@@ -258,7 +260,7 @@
 				<button onclick="window.stepThrough()">play</button>
 			</div>
 		</div>
-		<div id="gallery">
+		<div id="gallery" style="display:none">
 		</div>
 		<script type="module">
 			import {JSONEditor} from './lib/jsoneditor.js'
